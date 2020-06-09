@@ -281,10 +281,7 @@ class VerticalLayout extends PureComponent {
         >
           {/* <Navbar {...navbarProps} /> */}
           <Header />
-          <div className="content-wrapper">
-            Vertical Layout
-            {this.props.children}
-          </div>
+          <div className="content-wrapper">{this.props.children}</div>
         </div>
 
         {/* <Footer {...footerProps} /> */}

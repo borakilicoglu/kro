@@ -4,190 +4,286 @@ import { connect } from "react-redux";
 export class VerticalNavbar extends Component {
   render() {
     return (
-      <aside className="theme-dark relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
-        <div className="p-6">
-          <a
-            href="index.html"
-            className="text-white text-3xl font-semibold uppercase hover:text-gray-300"
-          >
-            Admin
-          </a>
-          <button className="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-            <svg
-              className="svg-inline--fa fa-plus fa-w-14 mr-3"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="plus"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              data-fa-i2svg=""
+      // <aside className="theme-dark relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
+      <aside className="theme-dark relative bg-sidebar h-screen w-1/4 hidden sm:block shadow-xl overflow-scroll">
+        <div className="p-4 px-6 w-full flex items-center">
+          <div class="logo flex-grow">
+            <a
+              href="index.html"
+              className="text-white text-3xl font-semibold hover:text-gray-300"
             >
-              <path
-                fill="currentColor"
-                d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"
-              ></path>
-            </svg>
-            New Report
-          </button>
+              Kro
+            </a>
+          </div>
+
+          <div className="align-middle">
+            <button className="w-10 p-2">
+              <svg
+                x="1008"
+                y="1248"
+                viewBox="0 0 24 24"
+                fill="#96a6ba"
+                height="100%"
+                width="100%"
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  opacity=".3"
+                  d="M12 6.5c-2.49 0-4 2.02-4 4.5v6h8v-6c0-2.48-1.51-4.5-4-4.5z"
+                ></path>
+                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-11c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2v-5zm-2 6H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zM7.58 4.08L6.15 2.65C3.75 4.48 2.17 7.3 2.03 10.5h2a8.445 8.445 0 013.55-6.42zm12.39 6.42h2c-.15-3.2-1.73-6.02-4.12-7.85l-1.42 1.43a8.495 8.495 0 013.54 6.42z"></path>
+              </svg>
+            </button>
+          </div>
+
+          <div className="align-middle">
+            <button className="w-10 p-2">
+              <div className="relative">
+                <svg
+                  x="672"
+                  y="0"
+                  viewBox="0 0 24 24"
+                  fill="#96a6ba"
+                  height="100%"
+                  width="100%"
+                  preserveAspectRatio="xMidYMid meet"
+                  focusable="false"
+                >
+                  <path
+                    opacity=".3"
+                    d="M12 4c-4.41 0-8 3.59-8 8 0 1.82.62 3.49 1.64 4.83 1.43-1.74 4.9-2.33 6.36-2.33s4.93.59 6.36 2.33A7.95 7.95 0 0020 12c0-4.41-3.59-8-8-8zm0 9c-1.94 0-3.5-1.56-3.5-3.5S10.06 6 12 6s3.5 1.56 3.5 3.5S13.94 13 12 13z"
+                  ></path>
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78C15.57 19.36 13.86 20 12 20s-3.57-.64-4.93-1.72zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33A7.95 7.95 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"></path>
+                </svg>
+                <span className="status online bg-green-500 w-2 absolute h-2 bottom-0 right-0 rounded-full"></span>
+              </div>
+            </button>
+          </div>
         </div>
-        <nav className="text-white text-base font-semibold pt-3">
-          <a
-            href="index.html"
-            className="flex items-center active-nav-link text-white py-4 pl-6 nav-item"
-          >
-            <svg
-              className="svg-inline--fa fa-tachometer-alt fa-w-18 mr-3"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="tachometer-alt"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 576 512"
-              data-fa-i2svg=""
+
+        <div className="p-4 px-6 flex items-center w-full flex-col">
+          <img
+            src="https://davidgrzyb.com/storage/david-grzyb-animoji.jpg"
+            className="rounded-full w-24"
+          />
+
+          <div class="mt-4 text-center">
+            <div class="name">Andrew Watkins</div>
+            <div class="email text-secondary">watkins.andrew@company.com</div>
+          </div>
+        </div>
+
+        <div className="py-4">
+          <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
+            Dashboards
+          </h3>
+          <small className="text-gray-600 px-6">Unique dashboard designs</small>
+          <nav className="text-white text-base font-thin pt-3">
+            <a
+              href="index.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
             >
-              <path
-                fill="currentColor"
-                d="M288 32C128.94 32 0 160.94 0 320c0 52.8 14.25 102.26 39.06 144.8 5.61 9.62 16.3 15.2 27.44 15.2h443c11.14 0 21.83-5.58 27.44-15.2C561.75 422.26 576 372.8 576 320c0-159.06-128.94-288-288-288zm0 64c14.71 0 26.58 10.13 30.32 23.65-1.11 2.26-2.64 4.23-3.45 6.67l-9.22 27.67c-5.13 3.49-10.97 6.01-17.64 6.01-17.67 0-32-14.33-32-32S270.33 96 288 96zM96 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm48-160c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32zm246.77-72.41l-61.33 184C343.13 347.33 352 364.54 352 384c0 11.72-3.38 22.55-8.88 32H232.88c-5.5-9.45-8.88-20.28-8.88-32 0-33.94 26.5-61.43 59.9-63.59l61.34-184.01c4.17-12.56 17.73-19.45 30.36-15.17 12.57 4.19 19.35 17.79 15.17 30.36zm14.66 57.2l15.52-46.55c3.47-1.29 7.13-2.23 11.05-2.23 17.67 0 32 14.33 32 32s-14.33 32-32 32c-11.38-.01-20.89-6.28-26.57-15.22zM480 384c-17.67 0-32-14.33-32-32s14.33-32 32-32 32 14.33 32 32-14.33 32-32 32z"
-              ></path>
-            </svg>
-            Dashboard
-          </a>
-          <a
-            href="blank.html"
-            className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-          >
-            <svg
-              className="svg-inline--fa fa-sticky-note fa-w-14 mr-3"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="sticky-note"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              data-fa-i2svg=""
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+              Finance
+            </a>
+            <a
+              href="blank.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
             >
-              <path
-                fill="currentColor"
-                d="M312 320h136V56c0-13.3-10.7-24-24-24H24C10.7 32 0 42.7 0 56v400c0 13.3 10.7 24 24 24h264V344c0-13.2 10.8-24 24-24zm129 55l-98 98c-4.5 4.5-10.6 7-17 7h-6V352h128v6.1c0 6.3-2.5 12.4-7 16.9z"
-              ></path>
-            </svg>
-            Blank Page
-          </a>
-          <a
-            href="tables.html"
-            className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-          >
-            <svg
-              className="svg-inline--fa fa-table fa-w-16 mr-3"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="table"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-              data-fa-i2svg=""
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                ></path>
+              </svg>
+              Analytics
+            </a>
+            <a
+              href="tables.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
             >
-              <path
-                fill="currentColor"
-                d="M464 32H48C21.49 32 0 53.49 0 80v352c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V80c0-26.51-21.49-48-48-48zM224 416H64v-96h160v96zm0-160H64v-96h160v96zm224 160H288v-96h160v96zm0-160H288v-96h160v96z"
-              ></path>
-            </svg>
-            Tables
-          </a>
-          <a
-            href="forms.html"
-            className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-          >
-            <svg
-              className="svg-inline--fa fa-align-left fa-w-14 mr-3"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="align-left"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              data-fa-i2svg=""
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Crypto
+            </a>
+          </nav>
+        </div>
+
+        <div className="py-4">
+          <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
+            Applications
+          </h3>
+          <small className="text-gray-600 px-6">
+            Custom made application designs
+          </small>
+          <nav className="text-white text-base font-thin pt-3">
+            <a
+              href="index.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
             >
-              <path
-                fill="currentColor"
-                d="M12.83 352h262.34A12.82 12.82 0 0 0 288 339.17v-38.34A12.82 12.82 0 0 0 275.17 288H12.83A12.82 12.82 0 0 0 0 300.83v38.34A12.82 12.82 0 0 0 12.83 352zm0-256h262.34A12.82 12.82 0 0 0 288 83.17V44.83A12.82 12.82 0 0 0 275.17 32H12.83A12.82 12.82 0 0 0 0 44.83v38.34A12.82 12.82 0 0 0 12.83 96zM432 160H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0 256H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h416a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
-              ></path>
-            </svg>
-            Forms
-          </a>
-          <a
-            href="tabs.html"
-            className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-          >
-            <svg
-              className="svg-inline--fa fa-tablet-alt fa-w-14 mr-3"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="tablet-alt"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              data-fa-i2svg=""
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <div className="flex flex-col">
+                Calendar
+                <small>3 upcoming events</small>
+              </div>
+            </a>
+            <a
+              href="blank.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
             >
-              <path
-                fill="currentColor"
-                d="M400 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM224 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm176-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h328c6.6 0 12 5.4 12 12v312z"
-              ></path>
-            </svg>
-            Tabbed Content
-          </a>
-          <a
-            href="calendar.html"
-            className="flex items-center text-white opacity-75 hover:opacity-100 py-4 pl-6 nav-item"
-          >
-            <svg
-              className="svg-inline--fa fa-calendar fa-w-14 mr-3"
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fas"
-              data-icon="calendar"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-              data-fa-i2svg=""
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                ></path>
+              </svg>
+              Contacts
+            </a>
+            <a
+              href="tables.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
             >
-              <path
-                fill="currentColor"
-                d="M12 192h424c6.6 0 12 5.4 12 12v260c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V204c0-6.6 5.4-12 12-12zm436-44v-36c0-26.5-21.5-48-48-48h-48V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H160V12c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v52H48C21.5 64 0 85.5 0 112v36c0 6.6 5.4 12 12 12h424c6.6 0 12-5.4 12-12z"
-              ></path>
-            </svg>
-            Calendar
-          </a>
-        </nav>
-        <a
-          href="/"
-          className="absolute w-full upgrade-btn bottom-0 active-nav-link text-white flex items-center justify-center py-4"
-        >
-          <svg
-            className="svg-inline--fa fa-arrow-circle-up fa-w-16 mr-3"
-            aria-hidden="true"
-            focusable="false"
-            data-prefix="fas"
-            data-icon="arrow-circle-up"
-            role="img"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            data-fa-i2svg=""
-          >
-            <path
-              fill="currentColor"
-              d="M8 256C8 119 119 8 256 8s248 111 248 248-111 248-248 248S8 393 8 256zm143.6 28.9l72.4-75.5V392c0 13.3 10.7 24 24 24h16c13.3 0 24-10.7 24-24V209.4l72.4 75.5c9.3 9.7 24.8 9.9 34.3.4l10.9-11c9.4-9.4 9.4-24.6 0-33.9L273 107.7c-9.4-9.4-24.6-9.4-33.9 0L106.3 240.4c-9.4 9.4-9.4 24.6 0 33.9l10.9 11c9.6 9.5 25.1 9.3 34.4-.4z"
-            ></path>
-          </svg>
-          Upgrade to Pro!
-        </a>
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              ECommerce
+            </a>
+            <a
+              href="tables.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+            >
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Mailbox
+            </a>
+            <a
+              href="tables.html"
+              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+            >
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Tasks
+            </a>
+          </nav>
+        </div>
       </aside>
     );
   }

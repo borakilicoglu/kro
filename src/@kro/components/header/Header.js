@@ -2,8 +2,23 @@ import React from "react";
 
 export default function Header() {
   return (
-    <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex">
-      <div className="w-1/2"></div>
+    <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex shadow">
+      <div className="w-1/2">
+        <button class="navigation-toggle-button mat-icon-button mat-button-base w-6 align-middle">
+          <svg
+            x="672"
+            y="1152"
+            viewBox="0 0 24 24"
+            fill="#64748b"
+            height="100%"
+            width="100%"
+            preserveAspectRatio="xMidYMid meet"
+            focusable="false"
+          >
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
+          </svg>
+        </button>
+      </div>
       <div className="relative w-1/2 flex justify-end">
         <button className="realtive z-10 w-12 h-12 rounded-full overflow-hidden border-4 border-gray-400 hover:border-gray-300 focus:border-gray-300 focus:outline-none">
           <img src="https://source.unsplash.com/uJ8LNVCBjFQ/400x400" alt="" />

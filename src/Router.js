@@ -6,6 +6,8 @@ import Fallback from "./@kro/components/fallback/Fallback.js";
 import { ContextLayout } from "./utility/context/Layout";
 
 // Route-based code splitting
+const Finance = lazy(() => import("./views/pages/Finance"));
+
 const Home = lazy(() => import("./views/pages/Home"));
 
 const Page2 = lazy(() => import("./views/pages/Page2"));
@@ -59,7 +61,8 @@ class AppRouter extends React.Component {
       // Set the directory path if you are deploying in sub-folder
       <Router history={history}>
         <Switch>
-          <AppRoute exact path="/" component={Home} />
+          <AppRoute exact path="/" component={Finance} />
+          <AppRoute exact path="/home" component={Home} />
           <AppRoute path="/page2" component={Page2} />
           <AppRoute path="/pages/login" component={login} fullLayout />
         </Switch>

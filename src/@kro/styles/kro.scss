@@ -13,14 +13,18 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+.logo a {
+  color: rgb(246, 0, 86);
+}
+
 .kro-theme-light {
   color: #27303f;
   background-color: #f1f5f9;
 }
 
-.treo-theme-light *,
-.treo-theme-light *::before,
-.treo-theme-light *::after {
+.kro-theme-light *,
+.kro-theme-light *::before,
+.kro-theme-light *::after {
   border-color: #e2e8f0;
 }
 
@@ -29,9 +33,17 @@ body {
   background-color: #1a202e;
 }
 
+.kro-theme-light .text-secondary {
+  color: #64748b;
+}
+
 .theme-dark {
   color: white;
   background-color: #1a202e;
+}
+
+.theme-dark .text-secondary {
+  color: #97a6ba;
 }
 
 .classy-layout > .wrapper {
@@ -39,4 +51,8 @@ body {
   flex-direction: column;
   flex: 1 1 auto;
   min-width: 0;
+}
+
+nav .selected-item {
+  background-color: #2d3748;
 }
