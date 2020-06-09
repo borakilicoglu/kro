@@ -1,0 +1,42 @@
+@import "vertical";
+
+html,
+body {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+body {
+  font-size: 0.875rem;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+.kro-theme-light {
+  color: #27303f;
+  background-color: #f1f5f9;
+}
+
+.treo-theme-light *,
+.treo-theme-light *::before,
+.treo-theme-light *::after {
+  border-color: #e2e8f0;
+}
+
+.kro-theme-dark {
+  color: white;
+  background-color: #1a202e;
+}
+
+.theme-dark {
+  color: white;
+  background-color: #1a202e;
+}
+
+.classy-layout > .wrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  min-width: 0;
+}
