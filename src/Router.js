@@ -7,12 +7,11 @@ import { ContextLayout } from "./utility/context/Layout";
 
 // Route-based code splitting
 const Finance = lazy(() => import("./views/pages/Finance"));
-
-const Home = lazy(() => import("./views/pages/Home"));
-
-const Page2 = lazy(() => import("./views/pages/Page2"));
-
-const login = lazy(() => import("./views/pages/authentication/login/Login"));
+const Analytics = lazy(() => import("./views/pages/Analytics"));
+const Crypto = lazy(() => import("./views/pages/Crypto"));
+const Calendar = lazy(() => import("./views/pages/Calendar"));
+const Contacts = lazy(() => import("./views/pages/Contacts"));
+const Login = lazy(() => import("./views/pages/authentication/login/Login"));
 
 // Set Layout and Component Using App Route
 const RouteConfig = ({
@@ -62,9 +61,11 @@ class AppRouter extends React.Component {
       <Router history={history}>
         <Switch>
           <AppRoute exact path="/" component={Finance} />
-          <AppRoute exact path="/home" component={Home} />
-          <AppRoute path="/page2" component={Page2} />
-          <AppRoute path="/pages/login" component={login} fullLayout />
+          <AppRoute exact path="/analytics" component={Analytics} />
+          <AppRoute path="/crypto" component={Crypto} />
+          <AppRoute path="/contact" component={Contacts} />
+          <AppRoute path="/calendar" component={Calendar} />
+          <AppRoute path="/login" component={Login} fullLayout />
         </Switch>
       </Router>
     );

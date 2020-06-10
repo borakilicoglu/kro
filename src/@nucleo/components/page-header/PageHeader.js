@@ -10,7 +10,7 @@ export default function PageHeader() {
         </div>
       </div>
       <div className="flex items-center">
-        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
           <svg
             className="w-5"
             x="480"
@@ -29,7 +29,7 @@ export default function PageHeader() {
           <span className="ml-2">Export</span>
         </button>
 
-        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
           <svg
             className="w-5"
             x="96"
@@ -48,7 +48,7 @@ export default function PageHeader() {
           <span className="ml-2">Reports</span>
         </button>
 
-        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
           <svg
             className="w-5"
             x="432"

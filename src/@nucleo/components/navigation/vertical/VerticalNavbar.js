@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 export class VerticalNavbar extends Component {
@@ -82,9 +83,11 @@ export class VerticalNavbar extends Component {
           </h3>
           <small className="text-gray-600 px-6">Unique dashboard designs</small>
           <nav className="text-white text-base font-thin pt-3">
-            <a
-              href="index.html"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200 selected"
+            <NavLink
+              to="/"
+              exact
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -103,10 +106,11 @@ export class VerticalNavbar extends Component {
                 ></path>
               </svg>
               Finance
-            </a>
-            <a
-              href="blank.html"
+            </NavLink>
+            <NavLink
+              to="/analytics"
               className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -131,7 +135,7 @@ export class VerticalNavbar extends Component {
                 ></path>
               </svg>
               Analytics
-            </a>
+            </NavLink>
             <a
               href="tables.html"
               className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
