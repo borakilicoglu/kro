@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 import classnames from "classnames";
-// import Customizer from "../components/@vuexy/customizer/Customizer";
 import VerticalNavbar from "../@nucleo/components/navigation/vertical/VerticalNavbar";
 import Header from "../@nucleo/components/header/Header";
 // import Navbar from "./components/navbar/Navbar";
