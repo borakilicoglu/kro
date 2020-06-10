@@ -1,1 +1,0 @@
-{"version":3,"sources":["views/pages/Page2.js"],"names":["Page2","React","Component"],"mappings":"6JAEMA,E,uKAEF,OAAO,mD,GAFSC,IAAMC,WAMXF","file":"static/js/8.ebfe8b44.chunk.js","sourcesContent":["import React from \"react\"\n\nclass Page2 extends React.Component{\n  render(){\n    return <h4>This is Page 2.</h4>\n  }\n}\n\nexport default Page2"],"sourceRoot":""}
