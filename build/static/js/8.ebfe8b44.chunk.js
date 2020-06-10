@@ -1,0 +1,2 @@
+(this.webpackJsonpnucleo=this.webpackJsonpnucleo||[]).push([[8],{316:function(e,n,t){"use strict";t.r(n);var a=t(11),c=t(12),u=t(15),r=t(14),i=t(0),s=t.n(i),o=function(e){Object(u.a)(t,e);var n=Object(r.a)(t);function t(){return Object(a.a)(this,t),n.apply(this,arguments)}return Object(c.a)(t,[{key:"render",value:function(){return s.a.createElement("h4",null,"This is Page 2.")}}]),t}(s.a.Component);n.default=o}}]);
+//# sourceMappingURL=8.ebfe8b44.chunk.js.map
