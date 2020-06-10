@@ -1,7 +1,6 @@
 import React from "react";
 import { Mail, Lock, Check, Facebook, Twitter, GitHub } from "react-feather";
 import { history } from "../../../../history";
-// import Checkbox from "../../../../components/@vuexy/checkbox/CheckboxesVuexy";
 // import googleSvg from "../../../../assets/img/svg/google.svg";
 
 // import loginImg from "../../../../assets/img/pages/login.png";
