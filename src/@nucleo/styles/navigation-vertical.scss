@@ -1,0 +1,21 @@
+aside {
+  position: -webkit-sticky;
+  position: sticky;
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+  top: 0;
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  z-index: 200;
+  nav a.selected {
+    background-color: rgb(20, 24, 35);
+  }
+  nav a:hover {
+    background-color: rgb(20, 24, 35);
+  }
+}

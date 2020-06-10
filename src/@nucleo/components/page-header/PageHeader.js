@@ -2,15 +2,15 @@ import React from "react";
 
 export default function PageHeader() {
   return (
-    <div class="flex items-center justify-between w-full my-4 px-4 xs:pr-0">
-      <div class="mr-6">
-        <h2 class="m-0 text-3xl font-semibold">Finance dashboard</h2>
-        <div class="text-secondary tracking-tight">
+    <div className="flex items-center justify-between w-full my-4 px-4 xs:pr-0">
+      <div className="mr-6">
+        <h2 className="m-0 text-3xl font-semibold">Finance dashboard</h2>
+        <div className="text-secondary tracking-tight">
           Keep track of your financial status
         </div>
       </div>
-      <div class="flex items-center">
-        <button class="border border-gray-500 ml-2 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+      <div className="flex items-center">
+        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
           <svg
             className="w-5"
             x="480"
@@ -29,7 +29,7 @@ export default function PageHeader() {
           <span className="ml-2">Export</span>
         </button>
 
-        <button class="border border-gray-500 ml-2 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
           <svg
             className="w-5"
             x="96"
@@ -48,7 +48,7 @@ export default function PageHeader() {
           <span className="ml-2">Reports</span>
         </button>
 
-        <button class="border border-gray-500 ml-2 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
+        <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded inline-flex items-center">
           <svg
             className="w-5"
             x="432"
@@ -63,13 +63,13 @@ export default function PageHeader() {
           <span className="ml-2">Settings</span>
         </button>
 
-        <div class="hidden xs:flex">
+        <div className="hidden xs:flex">
           <button
             aria-haspopup="true"
-            class="mat-menu-trigger"
+            className="mat-menu-trigger"
             ng-reflect-menu="[object Object]"
           >
-            <span class="flex">
+            <span className="flex">
               <svg
                 x="480"
                 y="1200"

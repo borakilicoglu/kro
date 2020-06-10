@@ -1,8 +1,8 @@
 import React, { PureComponent } from "react";
 import classnames from "classnames";
 // import Customizer from "../components/@vuexy/customizer/Customizer";
-import VerticalNavbar from "../@kro/components/navigation/vertical/VerticalNavbar";
-import Header from "../@kro/components/header/Header";
+import VerticalNavbar from "../@nucleo/components/navigation/vertical/VerticalNavbar";
+import Header from "../@nucleo/components/header/Header";
 // import Navbar from "./components/navbar/Navbar";
 // import Footer from "./components/footer/Footer";
 import { connect } from "react-redux";
@@ -257,24 +257,21 @@ class VerticalLayout extends PureComponent {
     };
     return (
       <div
-        className={classnames(
-          `wrapper vertical-layout theme-${appProps.menuTheme}`,
-          {
-            "menu-collapsed":
-              this.state.collapsedContent === true && this.state.width >= 1200,
-            "fixed-footer": appProps.footerType === "sticky",
-            "navbar-static": appProps.navbarType === "static",
-            "navbar-sticky": appProps.navbarType === "sticky",
-            "navbar-floating": appProps.navbarType === "floating",
-            "navbar-hidden": appProps.navbarType === "hidden",
-            "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
-          }
-        )}
+        className={classnames(`vertical-layout theme-${appProps.menuTheme}`, {
+          "menu-collapsed":
+            this.state.collapsedContent === true && this.state.width >= 1200,
+          "fixed-footer": appProps.footerType === "sticky",
+          "navbar-static": appProps.navbarType === "static",
+          "navbar-sticky": appProps.navbarType === "sticky",
+          "navbar-floating": appProps.navbarType === "floating",
+          "navbar-hidden": appProps.navbarType === "hidden",
+          "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
+        })}
       >
         {/* <Sidebar {...sidebarProps} /> */}
         <VerticalNavbar />
         <div
-          className={classnames("app-content content w-full", {
+          className={classnames("wrapper", {
             "show-overlay": this.state.appOverlay === true,
           })}
           onClick={this.handleAppOverlayClick}

@@ -1,4 +1,6 @@
 @import "vertical";
+@import "navigation-vertical";
+@import "finance";
 
 html,
 body {
@@ -17,25 +19,33 @@ body {
   color: rgb(246, 0, 86);
 }
 
-.kro-theme-light {
+.nucleo-theme-light {
   color: #27303f;
   background-color: #f1f5f9;
 }
 
-.kro-theme-light *,
-.kro-theme-light *::before,
-.kro-theme-light *::after {
+.nucleo-theme-light *,
+.nucleo-theme-light *::before,
+.nucleo-theme-light *::after {
   border-color: #e2e8f0;
 }
 
-.kro-theme-dark {
+.nucleo-theme-dark {
   color: white;
   background-color: #1a202e;
 }
 
-.kro-theme-light .text-secondary {
+.nucleo-theme-light .text-secondary {
   color: #64748b;
 }
+
+.nucleo-theme-light .text-hint {
+  color: #97a6ba;
+}
+
+// .nucleo-theme-light svg path {
+//   fill: #64748b !important;
+// }
 
 .theme-dark {
   color: white;

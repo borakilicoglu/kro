@@ -1,0 +1,11 @@
+.border-green {
+  --border-opacity: 1 !important;
+  border-color: #0e9f6e !important;
+  border-color: rgba(14, 159, 110, var(--border-opacity)) !important;
+}
+
+.border-red {
+  --border-opacity: 1 !important;
+  border-color: #f05252 !important;
+  border-color: rgba(240, 82, 82, var(--border-opacity)) !important;
+}

@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex shadow">
       <div className="w-1/2">
-        <button class="navigation-toggle-button mat-icon-button mat-button-base w-6 align-middle">
+        <button className="navigation-toggle-button mat-icon-button mat-button-base w-6 align-middle">
           <svg
             x="672"
             y="1152"

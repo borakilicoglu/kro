@@ -4,15 +4,14 @@ import { connect } from "react-redux";
 export class VerticalNavbar extends Component {
   render() {
     return (
-      // <aside className="theme-dark relative bg-sidebar h-screen w-64 hidden sm:block shadow-xl">
-      <aside className="theme-dark relative bg-sidebar h-screen w-1/4 hidden sm:block shadow-xl overflow-scroll">
+      <aside className="theme-dark bg-sidebar hidden sm:block shadow-xl overflow-scroll">
         <div className="p-4 px-6 w-full flex items-center">
-          <div class="logo flex-grow">
+          <div className="logo flex-grow">
             <a
               href="index.html"
               className="text-white text-3xl font-semibold hover:text-gray-300"
             >
-              Kro
+              Nucleo
             </a>
           </div>
 
@@ -64,13 +63,16 @@ export class VerticalNavbar extends Component {
 
         <div className="p-4 px-6 flex items-center w-full flex-col">
           <img
+            alt=""
             src="https://davidgrzyb.com/storage/david-grzyb-animoji.jpg"
             className="rounded-full w-24"
           />
 
-          <div class="mt-4 text-center">
-            <div class="name">Andrew Watkins</div>
-            <div class="email text-secondary">watkins.andrew@company.com</div>
+          <div className="mt-4 text-center">
+            <div className="name">Stefan Schmitz</div>
+            <div className="email text-secondary">
+              stefan.schmitz@company.com
+            </div>
           </div>
         </div>
 
@@ -82,7 +84,7 @@ export class VerticalNavbar extends Component {
           <nav className="text-white text-base font-thin pt-3">
             <a
               href="index.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200 selected"
             >
               <svg
                 className="w-6 mr-4"
@@ -104,7 +106,7 @@ export class VerticalNavbar extends Component {
             </a>
             <a
               href="blank.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
             >
               <svg
                 className="w-6 mr-4"
@@ -132,7 +134,7 @@ export class VerticalNavbar extends Component {
             </a>
             <a
               href="tables.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
             >
               <svg
                 className="w-6 mr-4"
@@ -165,7 +167,7 @@ export class VerticalNavbar extends Component {
           <nav className="text-white text-base font-thin pt-3">
             <a
               href="index.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
             >
               <svg
                 className="w-6 mr-4"
@@ -190,7 +192,7 @@ export class VerticalNavbar extends Component {
             </a>
             <a
               href="blank.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
             >
               <svg
                 className="w-6 mr-4"
@@ -218,7 +220,7 @@ export class VerticalNavbar extends Component {
             </a>
             <a
               href="tables.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
             >
               <svg
                 className="w-6 mr-4"
@@ -240,7 +242,7 @@ export class VerticalNavbar extends Component {
             </a>
             <a
               href="tables.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
             >
               <svg
                 className="w-6 mr-4"
@@ -262,7 +264,7 @@ export class VerticalNavbar extends Component {
             </a>
             <a
               href="tables.html"
-              className="flex items-center text-white py-3 text-sm hover:bg-gray-800 px-6 transition ease-in duration-200"
+              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
             >
               <svg
                 className="w-6 mr-4"

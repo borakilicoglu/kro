@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Router, Switch, Route } from "react-router-dom";
 import { history } from "./history";
 import { connect } from "react-redux";
-import Fallback from "./@kro/components/fallback/Fallback.js";
+import Fallback from "./@nucleo/components/fallback/Fallback.js";
 import { ContextLayout } from "./utility/context/Layout";
 
 // Route-based code splitting
