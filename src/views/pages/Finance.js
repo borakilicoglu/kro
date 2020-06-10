@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import { Line } from "rc-progress";
 import AccountBalance from "../../@nucleo/components/chart/AccountBalance";
 import PageHeader from "../../@nucleo/components/page-header/PageHeader";
 
@@ -322,14 +323,13 @@ export default function Finance() {
                 bills.
               </div>
               <div className="flex items-center my-4">
-                <div className="flex items-center justify-center w-14 h-14 rounded red-100">
+                <div className="flex items-center justify-center rounded bg-red-200 py-4 px-4">
                   <svg
+                    className="w-6 text-red-900"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     fit=""
-                    height="100%"
-                    width="100%"
                     preserveAspectRatio="xMidYMid meet"
                     focusable="false"
                   >
@@ -345,49 +345,27 @@ export default function Finance() {
                   <div className="font-semibold text-xs text-hint uppercase tracking-wider">
                     Expenses
                   </div>
-                  <div className="mt-2 font-medium text-2xl">$11,763.34</div>
+                  <div className="mt-2 mb-3 font-medium text-xl">
+                    $11,763.34
+                  </div>
 
-                  <svg
-                    width="100%"
-                    height="4"
-                    focusable="false"
-                    className="mat-progress-bar-background mat-progress-bar-element"
-                  >
-                    <defs>
-                      <pattern
-                        x="4"
-                        y="0"
-                        width="8"
-                        height="4"
-                        patternUnits="userSpaceOnUse"
-                        id="mat-progress-bar-0"
-                      >
-                        <circle cx="2" cy="2" r="2"></circle>
-                      </pattern>
-                    </defs>
-                    <rect
-                      width="100%"
-                      height="100%"
-                      fill="url('/dashboards/finance#mat-progress-bar-0')"
-                    ></rect>
-                  </svg>
-                  <div className="mat-progress-bar-buffer mat-progress-bar-element"></div>
-                  <div
-                    className="mat-progress-bar-primary mat-progress-bar-fill mat-progress-bar-element"
-                    style={{ transform: "scaleX(0.588167)" }}
-                  ></div>
-                  <div className="mat-progress-bar-secondary mat-progress-bar-fill mat-progress-bar-element"></div>
+                  <Line
+                    percent="17"
+                    strokeWidth="4"
+                    strokeColor="#c81e1e"
+                    trailColor="#fed7d7"
+                    trailWidth="4"
+                  />
                 </div>
-                <div className="flex items-end justify-end min-w-18 mt-auto ml-6">
+                <div className="flex items-end justify-end w-16 mt-auto ml-6">
                   <div className="text-lg leading-none">2.6%</div>
-
                   <svg
+                    className="w-4"
                     x="672"
                     y="96"
                     viewBox="0 0 24 24"
                     fit=""
-                    height="100%"
-                    width="100%"
+                    fill="#3F83F8"
                     preserveAspectRatio="xMidYMid meet"
                     focusable="false"
                   >
@@ -395,6 +373,122 @@ export default function Finance() {
                   </svg>
                 </div>
               </div>
+              <div className="flex items-center my-4">
+                <div className="flex items-center justify-center rounded bg-indigo-200 py-4 px-4">
+                  <svg
+                    className="w-6 text-indigo-900"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    fit=""
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="flex-auto ml-4 leading-none">
+                  <div className="font-semibold text-xs text-hint uppercase tracking-wider">
+                    Savings
+                  </div>
+                  <div className="mt-2 mb-3 font-medium text-xl">
+                    $10,974.12
+                  </div>
+
+                  <Line
+                    percent="6"
+                    strokeWidth="4"
+                    strokeColor="#5850ec"
+                    trailColor="#c3dafe"
+                    trailWidth="4"
+                  />
+                </div>
+                <div className="flex items-end justify-end w-16 mt-auto ml-6">
+                  <div className="text-lg leading-none">12.7%</div>
+                  <svg
+                    className="w-4"
+                    x="672"
+                    y="96"
+                    viewBox="0 0 24 24"
+                    fit=""
+                    fill="#3F83F8"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"></path>
+                  </svg>
+                </div>
+              </div>
+              <div className="flex items-center my-4">
+                <div className="flex items-center justify-center rounded bg-teal-200 py-4 px-4">
+                  <svg
+                    className="w-6 text-indigo-900"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    fit=""
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    ></path>
+                  </svg>
+                </div>
+                <div className="flex-auto ml-4 leading-none">
+                  <div className="font-semibold text-xs text-hint uppercase tracking-wider">
+                    Bills
+                  </div>
+                  <div className="mt-2 mb-3 font-medium text-xl">$1,789.22</div>
+
+                  <Line
+                    percent="100"
+                    strokeWidth="4"
+                    strokeColor="#5850ec"
+                    trailColor="#c3dafe"
+                    trailWidth="4"
+                  />
+                </div>
+                <div className="flex items-end justify-end w-16 mt-auto ml-6">
+                  <div className="text-lg leading-none">105.7%</div>
+                  <svg
+                    className="w-4"
+                    x="672"
+                    y="96"
+                    viewBox="0 0 24 24"
+                    fit=""
+                    fill="#3F83F8"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="text-xs text-hint">
+              Exceeded your personal limit on <strong>bills</strong>! Be careful
+              next month.
+            </div>
+            <div className="flex items-center mt-auto">
+              <button class="bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded inline-flex items-center">
+                <svg
+                  class="fill-current w-4 h-4 mr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                >
+                  <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+                </svg>
+                Download Summary
+              </button>
             </div>
           </div>
         </div>
