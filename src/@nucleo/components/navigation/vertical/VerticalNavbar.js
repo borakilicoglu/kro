@@ -136,9 +136,10 @@ export class VerticalNavbar extends Component {
               </svg>
               Analytics
             </NavLink>
-            <a
-              href="tables.html"
+            <NavLink
+              to="/crypto"
               className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -157,7 +158,7 @@ export class VerticalNavbar extends Component {
                 ></path>
               </svg>
               Crypto
-            </a>
+            </NavLink>
           </nav>
         </div>
 

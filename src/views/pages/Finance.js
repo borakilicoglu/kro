@@ -8,7 +8,10 @@ export default function Finance() {
   return (
     <div className="flex flex-col flex-auto w-full p-8 xs:p-2">
       <div className="flex flex-wrap w-full">
-        <PageHeader />
+        <PageHeader
+          title="Finance dashboard"
+          desc="Keep track of your financial status"
+        />
 
         <div className="flex flex-wrap w-1/2 lt-xl:w-full">
           <div className="flex flex-auto w-full min-w-80 p-4 lt-xl:w-1/2">
