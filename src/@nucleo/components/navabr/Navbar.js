@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Navbar(props) {
   return (
-    <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex shadow">
+    <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex shadow z-50">
       <div className="w-1/2">
         <button
           onClick={() => props.toggle()}

@@ -19,7 +19,7 @@ aside {
     max-width, min-width;
 
   nav a.selected {
-    color: white;
+    color: white !important;
     background-color: rgb(20, 24, 35);
   }
   nav a:hover {

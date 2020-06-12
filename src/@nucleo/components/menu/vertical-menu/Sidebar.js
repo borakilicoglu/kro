@@ -15,7 +15,6 @@ export class Sidebar extends Component {
           }
         )}
       >
-        <small className="text-gray-500">{collapsed}</small>
         <div className="py-4 pl-6 pr-4 w-full flex items-center">
           <div className="logo flex-grow">
             <a
@@ -93,7 +92,7 @@ export class Sidebar extends Component {
             Dashboards
           </h3>
           <small className="text-gray-600 px-6">Unique dashboard designs</small>
-          <nav className="text-gray-500 text-base font-thin pt-3">
+          <nav className="text-gray-400 text-base font-thin pt-3">
             <NavLink
               to="/"
               exact
@@ -180,7 +179,7 @@ export class Sidebar extends Component {
           <small className="text-gray-600 px-6">
             Custom made application designs
           </small>
-          <nav className="text-gray-500 text-base font-thin pt-3">
+          <nav className="text-gray-400 text-base font-thin pt-3">
             <NavLink
               to="/calendar"
               exact
@@ -320,7 +319,7 @@ export class Sidebar extends Component {
           <small className="text-gray-600 px-6">
             Custom made application designs
           </small>
-          <nav className="text-gray-500 text-base font-thin pt-3">
+          <nav className="text-gray-400 text-base font-thin pt-3">
             <NavLink
               to="/calendar"
               exact
