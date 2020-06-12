@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import classnames from "classnames";
-import VerticalNavbar from "../@nucleo/components/navigation/vertical/VerticalNavbar";
-import Header from "../@nucleo/components/header/Header";
+import Sidebar from "../@nucleo/components/menu/vertical-menu/Sidebar";
+import Navbar from "../@nucleo/components/navabr/Navbar";
 // import Navbar from "./components/navbar/Navbar";
 // import Footer from "./components/footer/Footer";
 import { connect } from "react-redux";
@@ -145,6 +145,8 @@ class VerticalLayout extends PureComponent {
   };
 
   toggleSidebarMenu = (val) => {
+    console.log("clicked");
+
     this.setState({
       sidebarState: !this.state.sidebarState,
       collapsedContent: !this.state.collapsedContent,
@@ -221,6 +223,7 @@ class VerticalLayout extends PureComponent {
     };
     let navbarProps = {
       toggleSidebarMenu: this.toggleSidebarMenu,
+      toggle: this.toggleSidebarMenu,
       sidebarState: this.state.sidebarState,
       sidebarVisibility: this.handleSidebarVisibility,
       currentLang: this.state.currentLang,
@@ -267,16 +270,14 @@ class VerticalLayout extends PureComponent {
           "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
         })}
       >
-        {/* <Sidebar {...sidebarProps} /> */}
-        <VerticalNavbar />
+        <Sidebar {...sidebarProps} />
         <div
           className={classnames("wrapper", {
             "show-overlay": this.state.appOverlay === true,
           })}
           onClick={this.handleAppOverlayClick}
         >
-          {/* <Navbar {...navbarProps} /> */}
-          <Header />
+          <Navbar {...navbarProps} />
           <div className="content-wrapper">{this.props.children}</div>
         </div>
 

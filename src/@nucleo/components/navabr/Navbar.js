@@ -1,10 +1,13 @@
 import React from "react";
 
-export default function Header() {
+export default function Navbar(props) {
   return (
     <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex shadow">
       <div className="w-1/2">
-        <button className="navigation-toggle-button mat-icon-button mat-button-base align-middle p-2">
+        <button
+          onClick={() => props.toggle()}
+          className="navigation-toggle-button mat-icon-button mat-button-base align-middle p-2"
+        >
           <svg
             className="w-6"
             x="672"
@@ -19,7 +22,7 @@ export default function Header() {
         </button>
       </div>
       <div className="relative w-1/2 flex justify-end">
-        <button class="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
+        <button className="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
           <svg
             className="w-6"
             x="1104"
@@ -32,7 +35,7 @@ export default function Header() {
             <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
           </svg>
         </button>
-        <button class="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
+        <button className="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
           <svg
             className="w-6"
             x="912"
@@ -46,7 +49,7 @@ export default function Header() {
             <path opacity=".3" d="M5 19.97l5-2.15 5 2.15V7H5z"></path>
           </svg>
         </button>
-        <button class="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
+        <button className="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
           <svg
             className="w-6"
             x="768"

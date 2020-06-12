@@ -27,9 +27,9 @@ export default function Finance() {
                   focusable="false"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   ></path>
                 </svg>
@@ -103,9 +103,9 @@ export default function Finance() {
                   focusable="false"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                   ></path>
                 </svg>
@@ -252,7 +252,7 @@ export default function Finance() {
                 </thead>
                 <tbody>
                   {_.times(5, (i) => (
-                    <tr className="border-b">
+                    <tr className="border-b" key={i}>
                       <td className="text-gray-600 py-4 px-6">528651571NT</td>
                       <td className="py-4 px-6">Oct 08, 2019 </td>
                       <td className="py-4 px-6">Morgan Page</td>
@@ -337,9 +337,9 @@ export default function Finance() {
                     focusable="false"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
                     ></path>
                   </svg>
@@ -388,9 +388,9 @@ export default function Finance() {
                     focusable="false"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
                     ></path>
                   </svg>
@@ -439,9 +439,9 @@ export default function Finance() {
                     focusable="false"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
                     ></path>
                   </svg>
@@ -477,12 +477,12 @@ export default function Finance() {
                 </div>
               </div>
             </div>
-            <div class="text-xs text-hint">
+            <div className="text-xs text-hint">
               Exceeded your personal limit on <strong>bills</strong>! Be careful
               next month.
             </div>
             <div className="flex items-center mt-auto">
-              <button class="bg-white hover:bg-indigo-100 text-indigo-700 font-normal py-2 px-4 border border-gray-400 rounded inline-flex items-center">
+              <button className="bg-white hover:bg-indigo-100 text-indigo-700 font-normal py-2 px-4 border border-gray-400 rounded inline-flex items-center">
                 <svg
                   className="w-6 mr-3"
                   x="336"
