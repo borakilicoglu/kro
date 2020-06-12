@@ -1,11 +1,21 @@
 import React, { Component } from "react";
+import classnames from "classnames";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 export class Sidebar extends Component {
   render() {
+    let { collapsed } = this.props;
     return (
-      <aside className="theme-dark bg-sidebar hidden sm:block shadow-xl overflow-scroll">
+      <aside
+        className={classnames(
+          `theme-dark bg-sidebar shadow-xl overflow-scroll`,
+          {
+            collapsed: collapsed === true,
+          }
+        )}
+      >
+        <small className="text-gray-500">{collapsed}</small>
         <div className="p-4 px-6 w-full flex items-center">
           <div className="logo flex-grow">
             <a
@@ -71,9 +81,6 @@ export class Sidebar extends Component {
 
           <div className="mt-4 text-center">
             <div className="name">Stefan Schmitz</div>
-            <small className="text-gray-500">
-              {this.props.visibilityState}
-            </small>
             <div className="email text-secondary">
               stefan.schmitz@company.com
             </div>
