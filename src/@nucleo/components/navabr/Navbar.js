@@ -29,6 +29,7 @@ export default function Navbar(props) {
             y="1584"
             viewBox="0 0 24 24"
             fit=""
+            fill="#96a6ba"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
           >
@@ -42,6 +43,7 @@ export default function Navbar(props) {
             y="192"
             viewBox="0 0 24 24"
             fit=""
+            fill="#96a6ba"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
           >
@@ -56,6 +58,7 @@ export default function Navbar(props) {
             y="1152"
             viewBox="0 0 24 24"
             fit=""
+            fill="#96a6ba"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
           >
