@@ -7708,14 +7708,6 @@ video {
   opacity: 1;
 }
 
-.outline-none {
-  outline: 0;
-}
-
-.focus\:outline-none:focus {
-  outline: 0;
-}
-
 .overflow-auto {
   overflow: auto;
 }
@@ -21444,14 +21436,6 @@ video {
 
   .sm\:focus\:opacity-100:focus {
     opacity: 1;
-  }
-
-  .sm\:outline-none {
-    outline: 0;
-  }
-
-  .sm\:focus\:outline-none:focus {
-    outline: 0;
   }
 
   .sm\:overflow-auto {
@@ -35185,14 +35169,6 @@ video {
     opacity: 1;
   }
 
-  .md\:outline-none {
-    outline: 0;
-  }
-
-  .md\:focus\:outline-none:focus {
-    outline: 0;
-  }
-
   .md\:overflow-auto {
     overflow: auto;
   }
@@ -48924,14 +48900,6 @@ video {
     opacity: 1;
   }
 
-  .lg\:outline-none {
-    outline: 0;
-  }
-
-  .lg\:focus\:outline-none:focus {
-    outline: 0;
-  }
-
   .lg\:overflow-auto {
     overflow: auto;
   }
@@ -62661,14 +62629,6 @@ video {
 
   .xl\:focus\:opacity-100:focus {
     opacity: 1;
-  }
-
-  .xl\:outline-none {
-    outline: 0;
-  }
-
-  .xl\:focus\:outline-none:focus {
-    outline: 0;
   }
 
   .xl\:overflow-auto {

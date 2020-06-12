@@ -16,7 +16,7 @@ export default function Analytics() {
               >
                 <div className="flex flex-col flex-auto pr-6">
                   <div className="flex items-baseline">
-                    <div className="mr-1 font-medium text-sm text-secondary">
+                    <div className="mr-1 font-medium text-xs text-secondary">
                       Ethereum
                     </div>
                     <div className="font-medium text-sm text-hint uppercase tracking-wider">
@@ -49,8 +49,8 @@ export default function Analytics() {
           </div>
         </div>
         <div className="w-3/4">
-          <div class="flex flex-wrap items-center px-6 py-3 border-b xs:pl-4">
-            <button class="mr-6 md:hidden mat-icon-button mat-button-base">
+          <div className="flex flex-wrap items-center px-6 py-3 border-b xs:pl-4">
+            <button className="mr-6 md:hidden mat-icon-button mat-button-base">
               <svg
                 className="w-6"
                 x="672"
@@ -64,21 +64,21 @@ export default function Analytics() {
               </svg>
               <div
                 matripple=""
-                class="mat-ripple mat-button-ripple mat-button-ripple-round"
+                className="mat-ripple mat-button-ripple mat-button-ripple-round"
               ></div>
-              <div class="mat-button-focus-overlay"></div>
+              <div className="mat-button-focus-overlay"></div>
             </button>
-            <div class="flex flex-col flex-auto my-3 mr-6">
-              <div class="flex items-center">
-                <div class="font-medium text-2xl text-secondary mr-2">
+            <div className="flex flex-col flex-auto my-3 mr-6">
+              <div className="flex items-center">
+                <div className="font-medium text-2xl text-secondary mr-2">
                   Bitcoin
                 </div>
-                <div class="font-medium text-lg text-hint tracking-wider">
+                <div className="font-medium text-lg text-hint tracking-wider">
                   (BTC)
                 </div>
               </div>
-              <div class="flex items-center mt-1">
-                <div class="mr-2 font-mono text-3xl leading-none tracking-tight">
+              <div className="flex items-center mt-1">
+                <div className="mr-2 font-mono text-3xl leading-none tracking-tight">
                   $8,878.48
                 </div>
                 <svg
@@ -93,35 +93,35 @@ export default function Analytics() {
                   <path d="M7 14l5-5 5 5H7z"></path>
                 </svg>
 
-                <div class="font-mono font-medium text-lg leading-none text-green">
+                <div className="font-mono font-medium text-lg leading-none text-green">
                   0.17%
                 </div>
               </div>
             </div>
-            <div class="flex items-center my-3 xs:hidden">
-              <div class="p-4 leading-none border border-r-0">
-                <div class="font-bold text-xs text-hint uppercase tracking-wider">
+            <div className="flex items-center my-3 xs:hidden">
+              <div className="p-4 leading-none border border-r-0">
+                <div className="font-bold text-xs text-hint uppercase tracking-wider">
                   Market Cap
                 </div>
-                <div class="mt-2 font-mono text-xl">$148.75B</div>
+                <div className="mt-2 font-mono text-xl">$148.75B</div>
               </div>
-              <div class="p-4 leading-none border border-r-0">
-                <div class="font-bold text-xs text-hint uppercase tracking-wider">
+              <div className="p-4 leading-none border border-r-0">
+                <div className="font-bold text-xs text-hint uppercase tracking-wider">
                   Volume
                 </div>
-                <div class="mt-2 font-mono text-xl">$22.90B</div>
+                <div className="mt-2 font-mono text-xl">$22.90B</div>
               </div>
-              <div class="p-4 leading-none border border-r-0">
-                <div class="font-bold text-xs text-hint uppercase tracking-wider">
+              <div className="p-4 leading-none border border-r-0">
+                <div className="font-bold text-xs text-hint uppercase tracking-wider">
                   Supply
                 </div>
-                <div class="mt-2 font-mono text-xl">18.17M</div>
+                <div className="mt-2 font-mono text-xl">18.17M</div>
               </div>
-              <div class="p-4 leading-none border">
-                <div class="font-bold text-xs text-hint uppercase tracking-wider">
+              <div className="p-4 leading-none border">
+                <div className="font-bold text-xs text-hint uppercase tracking-wider">
                   All Time High
                 </div>
-                <div class="mt-2 font-mono text-xl">$19,891.00</div>
+                <div className="mt-2 font-mono text-xl">$19,891.00</div>
               </div>
             </div>
           </div>
