@@ -16,7 +16,7 @@ export class Sidebar extends Component {
         )}
       >
         <small className="text-gray-500">{collapsed}</small>
-        <div className="p-4 px-6 w-full flex items-center">
+        <div className="py-4 pl-6 pr-4 w-full flex items-center">
           <div className="logo flex-grow">
             <a
               href="index.html"
@@ -73,7 +73,7 @@ export class Sidebar extends Component {
           </div>
         </div>
 
-        <div className="p-4 px-6 flex items-center w-full flex-col">
+        <div className="p-4 px-6 flex items-center w-full flex-col mb-3">
           <img
             alt=""
             src="https://davidgrzyb.com/storage/david-grzyb-animoji.jpg"
@@ -93,11 +93,11 @@ export class Sidebar extends Component {
             Dashboards
           </h3>
           <small className="text-gray-600 px-6">Unique dashboard designs</small>
-          <nav className="text-white text-base font-thin pt-3">
+          <nav className="text-gray-500 text-base font-thin pt-3">
             <NavLink
               to="/"
               exact
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
@@ -120,7 +120,7 @@ export class Sidebar extends Component {
             </NavLink>
             <NavLink
               to="/analytics"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
@@ -149,7 +149,7 @@ export class Sidebar extends Component {
             </NavLink>
             <NavLink
               to="/crypto"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
@@ -180,10 +180,12 @@ export class Sidebar extends Component {
           <small className="text-gray-600 px-6">
             Custom made application designs
           </small>
-          <nav className="text-white text-base font-thin pt-3">
-            <a
-              href="index.html"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+          <nav className="text-gray-500 text-base font-thin pt-3">
+            <NavLink
+              to="/calendar"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -205,10 +207,12 @@ export class Sidebar extends Component {
                 Calendar
                 <small>3 upcoming events</small>
               </div>
-            </a>
-            <a
-              href="blank.html"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+            </NavLink>
+            <NavLink
+              to="/contacts"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -233,10 +237,12 @@ export class Sidebar extends Component {
                 ></path>
               </svg>
               Contacts
-            </a>
-            <a
-              href="tables.html"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+            </NavLink>
+            <NavLink
+              to="/ecommerce"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -255,10 +261,12 @@ export class Sidebar extends Component {
                 ></path>
               </svg>
               ECommerce
-            </a>
-            <a
-              href="tables.html"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+            </NavLink>
+            <NavLink
+              to="/mailbox"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -277,10 +285,12 @@ export class Sidebar extends Component {
                 ></path>
               </svg>
               Mailbox
-            </a>
-            <a
-              href="tables.html"
-              className="flex items-center text-white py-3 text-sm px-6 transition ease-in duration-200"
+            </NavLink>
+            <NavLink
+              to="/tasks"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -299,7 +309,147 @@ export class Sidebar extends Component {
                 ></path>
               </svg>
               Tasks
-            </a>
+            </NavLink>
+          </nav>
+        </div>
+
+        <div className="py-4">
+          <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
+            Pages
+          </h3>
+          <small className="text-gray-600 px-6">
+            Custom made application designs
+          </small>
+          <nav className="text-gray-500 text-base font-thin pt-3">
+            <NavLink
+              to="/calendar"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
+            >
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <div className="flex flex-col">
+                Calendar
+                <small>3 upcoming events</small>
+              </div>
+            </NavLink>
+            <NavLink
+              to="/contacts"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
+            >
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
+                ></path>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
+                ></path>
+              </svg>
+              Contacts
+            </NavLink>
+            <NavLink
+              to="/ecommerce"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
+            >
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              ECommerce
+            </NavLink>
+            <NavLink
+              to="/mailbox"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
+            >
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Mailbox
+            </NavLink>
+            <NavLink
+              to="/tasks"
+              exact
+              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+              activeStyle={{ background: "rgb(20, 24, 35)" }}
+            >
+              <svg
+                className="w-6 mr-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+              Tasks
+            </NavLink>
           </nav>
         </div>
       </aside>
