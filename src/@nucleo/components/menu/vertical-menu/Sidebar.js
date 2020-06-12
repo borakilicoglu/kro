@@ -21,6 +21,7 @@ export class Sidebar extends Component {
             <a
               href="index.html"
               className="text-white text-3xl font-semibold hover:text-gray-300"
+              style={{ lineHeight: "normal" }}
             >
               Nucleo
             </a>
