@@ -1,6 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import Popup from "../popup/Popup.js";
+import ToolTip from "../tooltip/ToolTip.js";
 
 export default function Navbar(props) {
   return (
@@ -117,25 +118,19 @@ export default function Navbar(props) {
                       <div>
                         <button className="w-3 h-3 bg-indigo-600 rounded-full"></button>
                       </div>
-                      {/* <div class="relative mx-2">
-                        <div class="bg-black text-white text-xs rounded py-1 px-4 right-0 bottom-full">
-                          Tooltip right
-                          <svg
-                            class="absolute text-black h-2 right-0 mr-3 top-full"
-                            x="0px"
-                            y="0px"
-                            viewBox="0 0 255 255"
-                            xmlSpace="preserve"
-                          >
-                            <polygon
-                              class="fill-current"
-                              points="0,0 127.5,127.5 255,0"
-                            />
-                          </svg>
-                        </div>
-                      </div> */}
                     </div>
                   ))}
+                  <ToolTip text="Left" placement={"left"} active={true}>
+                    <div
+                      style={{
+                        padding: "5px",
+                        border: "2px solid",
+                        borderRadius: "4px",
+                      }}
+                    >
+                      ToolTip Left
+                    </div>
+                  </ToolTip>
                 </div>
               </div>
             </div>
