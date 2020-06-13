@@ -1,4 +1,5 @@
 import React from "react";
+import _ from "lodash";
 import Popup from "../popup/Popup.js";
 
 export default function Navbar(props) {
@@ -30,7 +31,7 @@ export default function Navbar(props) {
             y="1584"
             viewBox="0 0 24 24"
             fit=""
-            fill="#96a6ba"
+            fill="#64748b"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
           >
@@ -44,7 +45,7 @@ export default function Navbar(props) {
             y="192"
             viewBox="0 0 24 24"
             fit=""
-            fill="#96a6ba"
+            fill="#64748b"
             preserveAspectRatio="xMidYMid meet"
             focusable="false"
           >
@@ -54,30 +55,29 @@ export default function Navbar(props) {
         </button>
 
         <Popup
+          styles={`p-3`}
           button={
-            <button className="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
-              <svg
-                className="w-6"
-                x="768"
-                y="1152"
-                viewBox="0 0 24 24"
-                fit=""
-                fill="#96a6ba"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  opacity=".3"
-                  d="M20 4H4v13.17L5.17 16H20V4zm-2 10H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"
-                ></path>
-                <path d="M20 18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14zm-16-.83V4h16v12H5.17L4 17.17zM6 12h12v2H6zm0-3h12v2H6zm0-3h12v2H6z"></path>
-              </svg>
-            </button>
+            <svg
+              className="w-6"
+              x="768"
+              y="1152"
+              viewBox="0 0 24 24"
+              fit=""
+              fill="#64748b"
+              preserveAspectRatio="xMidYMid meet"
+              focusable="false"
+            >
+              <path
+                opacity=".3"
+                d="M20 4H4v13.17L5.17 16H20V4zm-2 10H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"
+              ></path>
+              <path d="M20 18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14zm-16-.83V4h16v12H5.17L4 17.17zM6 12h12v2H6zm0-3h12v2H6zm0-3h12v2H6z"></path>
+            </svg>
           }
           content={
-            <div className="origin-top-right absolute right-0 w-64 rounded-md shadow-lg border-t-4 border-indigo-500">
+            <div className="origin-top-right absolute right-0 w-64 rounded-md shadow-lg border-t-4 border-indigo-600">
               <div className="rounded-md bg-white shadow-xs">
-                <div className="header py-4 px-6 flex justify-between bg-gray-200">
+                <div className="header py-4 px-6 flex justify-between bg-gray-200 border-b">
                   <h3 className="font-semibold">Messages</h3>
                   <button>
                     <svg
@@ -94,20 +94,48 @@ export default function Navbar(props) {
                     </svg>
                   </button>
                 </div>
-                <div className="flex">
-                  <div className="w-3/4">
-                    <div className="flex">
-                      <div className="w-1/4">
+                <div className="h-56 overflow-scroll">
+                  {_.times(4, (i) => (
+                    <div
+                      className="flex py-4 px-6 border-b hover:bg-gray-200"
+                      key={i}
+                    >
+                      <div>
                         <img
-                          className="w-8"
+                          className="w-12 rounded-full"
                           src="https://treo.pulsethemes.com/angular/demo/assets/images/avatars/male-01.jpg"
                           alt=""
                         />
                       </div>
-                      <div className="w-3/4"></div>
+                      <div className="ml-4">
+                        <p className="font-semibold">Gary Peters</p>
+                        <p>We should talk about that at lunch!</p>
+                        <small className="text-gray-600">
+                          Jun 13, 12:12 PM
+                        </small>
+                      </div>
+                      <div>
+                        <button className="w-3 h-3 bg-indigo-600 rounded-full"></button>
+                      </div>
+                      {/* <div class="relative mx-2">
+                        <div class="bg-black text-white text-xs rounded py-1 px-4 right-0 bottom-full">
+                          Tooltip right
+                          <svg
+                            class="absolute text-black h-2 right-0 mr-3 top-full"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 255 255"
+                            xmlSpace="preserve"
+                          >
+                            <polygon
+                              class="fill-current"
+                              points="0,0 127.5,127.5 255,0"
+                            />
+                          </svg>
+                        </div>
+                      </div> */}
                     </div>
-                  </div>
-                  <div className="w-1/4"></div>
+                  ))}
                 </div>
               </div>
             </div>

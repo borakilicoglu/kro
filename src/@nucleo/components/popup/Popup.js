@@ -28,7 +28,9 @@ class Popup extends React.Component {
   render() {
     return (
       <div className="relative">
-        {this.props.button}
+        <button className={this.props.styles} onClick={this.showDropdownMenu}>
+          {this.props.button}
+        </button>
         {this.state.displayMenu ? this.props.content : null}
       </div>
     );
