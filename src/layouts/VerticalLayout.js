@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import classnames from "classnames";
 import Sidebar from "../@nucleo/components/menu/vertical-menu/Sidebar";
-import Navbar from "../@nucleo/components/navabr/Navbar";
+import Navbar from "../@nucleo/components/navbar/Navbar";
 // import Navbar from "./components/navbar/Navbar";
 // import Footer from "./components/footer/Footer";
 import { connect } from "react-redux";
