@@ -4,8 +4,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
 import Button from "@material-ui/core/Button";
-import DeleteIcon from "@material-ui/icons/Delete";
+import CloseIcon from "@material-ui/icons/Close";
+import MessageTwoToneIcon from "@material-ui/icons/MessageTwoTone";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
+import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
 import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -32,22 +34,7 @@ export default function Messages() {
   return (
     <div>
       <IconButton onClick={handleClick}>
-        <svg
-          className="w-6"
-          x="768"
-          y="1152"
-          viewBox="0 0 24 24"
-          fit=""
-          fill="#64748b"
-          preserveAspectRatio="xMidYMid meet"
-          focusable="false"
-        >
-          <path
-            opacity=".3"
-            d="M20 4H4v13.17L5.17 16H20V4zm-2 10H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"
-          ></path>
-          <path d="M20 18c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14zm-16-.83V4h16v12H5.17L4 17.17zM6 12h12v2H6zm0-3h12v2H6zm0-3h12v2H6z"></path>
-        </svg>
+        <MessageTwoToneIcon style={{ color: "#64748b" }} />
       </IconButton>
       <Popover
         id={id}
@@ -64,21 +51,10 @@ export default function Messages() {
         }}
       >
         <div className="border-t-4 border-indigo-600">
-          <div className="border-b flex py-4 px-6 justify-between items-center bg-gray-200">
-            <h3 className="font-semibold align-middle">Messages</h3>
+          <div className="border-b flex py-2 px-6 justify-between items-center bg-gray-200">
+            <h3 className="font-medium align-middle">Messages</h3>
             <IconButton>
-              <svg
-                className="w-6"
-                x="432"
-                y="1440"
-                viewBox="0 0 24 24"
-                fit=""
-                fill="#64748b"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path d="M2 6h12v2H2zm0 4h12v2H2zm0 4h8v2H2zm14.01 3L13 14l-1.5 1.5 4.51 4.5L23 13l-1.5-1.5z"></path>
-              </svg>
+              <PlaylistAddCheckIcon />
             </IconButton>
           </div>
         </div>
@@ -107,7 +83,7 @@ export default function Messages() {
                 </Tooltip>
                 <Tooltip title="Remove" aria-label="Remove">
                   <IconButton aria-label="delete">
-                    <DeleteIcon style={{ fontSize: 14 }} />
+                    <CloseIcon style={{ fontSize: 14 }} />
                   </IconButton>
                 </Tooltip>
               </div>

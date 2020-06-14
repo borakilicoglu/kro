@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import classnames from "classnames";
+import IconButton from "@material-ui/core/IconButton";
+import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActiveTwoTone";
+import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -27,48 +30,19 @@ export class Sidebar extends Component {
           </div>
 
           <div className="align-middle">
-            <button className="w-10 p-2">
-              <svg
-                x="1008"
-                y="1248"
-                viewBox="0 0 24 24"
-                fill="#96a6ba"
-                height="100%"
-                width="100%"
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  opacity=".3"
-                  d="M12 6.5c-2.49 0-4 2.02-4 4.5v6h8v-6c0-2.48-1.51-4.5-4-4.5z"
-                ></path>
-                <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-11c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2v-5zm-2 6H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6zM7.58 4.08L6.15 2.65C3.75 4.48 2.17 7.3 2.03 10.5h2a8.445 8.445 0 013.55-6.42zm12.39 6.42h2c-.15-3.2-1.73-6.02-4.12-7.85l-1.42 1.43a8.495 8.495 0 013.54 6.42z"></path>
-              </svg>
-            </button>
+            <IconButton>
+              <NotificationsActiveTwoToneIcon style={{ color: "#96a6ba" }} />
+            </IconButton>
           </div>
 
           <div className="align-middle">
-            <button className="w-10 p-2">
-              <div className="relative">
-                <svg
-                  x="672"
-                  y="0"
-                  viewBox="0 0 24 24"
-                  fill="#96a6ba"
-                  height="100%"
-                  width="100%"
-                  preserveAspectRatio="xMidYMid meet"
-                  focusable="false"
-                >
-                  <path
-                    opacity=".3"
-                    d="M12 4c-4.41 0-8 3.59-8 8 0 1.82.62 3.49 1.64 4.83 1.43-1.74 4.9-2.33 6.36-2.33s4.93.59 6.36 2.33A7.95 7.95 0 0020 12c0-4.41-3.59-8-8-8zm0 9c-1.94 0-3.5-1.56-3.5-3.5S10.06 6 12 6s3.5 1.56 3.5 3.5S13.94 13 12 13z"
-                  ></path>
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78C15.57 19.36 13.86 20 12 20s-3.57-.64-4.93-1.72zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33A7.95 7.95 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"></path>
-                </svg>
-                <span className="status online bg-green-500 w-2 absolute h-2 bottom-0 right-0 rounded-full"></span>
-              </div>
-            </button>
+            <IconButton className="relative">
+              <AccountCircleTwoToneIcon style={{ color: "#96a6ba" }} />
+              <span
+                className="status online bg-green-500 w-2 absolute h-2 rounded-full"
+                style={{ bottom: "12px", right: "12px" }}
+              ></span>
+            </IconButton>
           </div>
         </div>
 

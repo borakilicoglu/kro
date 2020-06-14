@@ -7,7 +7,7 @@ import IconButton from "@material-ui/core/IconButton";
 
 export default function Navbar(props) {
   return (
-    <header className="w-full flex items-center bg-white py-2 px-6 hidden sm:flex shadow z-50">
+    <header className="w-full flex items-center bg-white hidden sm:flex shadow z-50">
       <div className="w-1/2">
         <IconButton onClick={() => props.toggle()}>
           <svg

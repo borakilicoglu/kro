@@ -15,8 +15,19 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
+header {
+  height: 64px;
+  max-height: 64px;
+  min-height: 64px;
+  padding: 0 24px;
+}
+
 button {
   outline: none !important;
+}
+
+.MuiIconButton-root {
+  padding: 8px;
 }
 
 .logo a {
