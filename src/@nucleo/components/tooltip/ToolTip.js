@@ -47,12 +47,12 @@ class ToolTip extends React.Component {
       >
         {children}
         {active && (
-          <div className="transition-all">
-            {(props) => (
-              <span className={cx(placement)} style={props}>
-                {text}
-              </span>
-            )}
+          <div className="relative">
+            <div className="transition-all absolute text-xs bg-gray-700 right-0 left-0 ml-auto mr-auto w-16">
+              {/* <span className={cx(placement)} style={this.props}> */}
+              <div className="w-auto inline-block">{text}</div>
+              {/* </span> */}
+            </div>
           </div>
         )}
       </div>

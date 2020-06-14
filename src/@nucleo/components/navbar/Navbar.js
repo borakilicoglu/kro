@@ -1,7 +1,8 @@
 import React from "react";
 import _ from "lodash";
 import Popup from "../popup/Popup.js";
-import ToolTip from "../tooltip/ToolTip.js";
+import Tooltip from "@material-ui/core/Tooltip";
+import IconButton from "@material-ui/core/IconButton";
 
 export default function Navbar(props) {
   return (
@@ -25,7 +26,8 @@ export default function Navbar(props) {
         </button>
       </div>
       <div className="relative w-1/2 flex justify-end">
-        <button className="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
+        {/* <button className="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3"> */}
+        <IconButton aria-label="delete">
           <svg
             className="w-6"
             x="1104"
@@ -38,7 +40,8 @@ export default function Navbar(props) {
           >
             <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
           </svg>
-        </button>
+        </IconButton>
+        {/* </button> */}
         <button className="mat-focus-indicator search-toggle-open mat-icon-button mat-button-base ng-tns-c100-2 ng-star-inserted p-3">
           <svg
             className="w-6"
@@ -116,21 +119,12 @@ export default function Navbar(props) {
                         </small>
                       </div>
                       <div>
-                        <button className="w-3 h-3 bg-indigo-600 rounded-full"></button>
+                        <Tooltip title="Add" aria-label="add">
+                          <div className="w-3 h-3 bg-indigo-600 rounded-full"></div>
+                        </Tooltip>
                       </div>
                     </div>
                   ))}
-                  <ToolTip text="Left" placement={"left"} active={true}>
-                    <div
-                      style={{
-                        padding: "5px",
-                        border: "2px solid",
-                        borderRadius: "4px",
-                      }}
-                    >
-                      ToolTip Left
-                    </div>
-                  </ToolTip>
                 </div>
               </div>
             </div>
