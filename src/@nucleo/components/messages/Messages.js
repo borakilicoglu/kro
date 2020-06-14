@@ -3,7 +3,9 @@ import _ from "lodash";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-import Typography from "@material-ui/core/Typography";
+import Button from "@material-ui/core/Button";
+import DeleteIcon from "@material-ui/icons/Delete";
+import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import IconButton from "@material-ui/core/IconButton";
 
 const useStyles = makeStyles((theme) => ({
@@ -62,9 +64,9 @@ export default function Messages() {
         }}
       >
         <div className="border-t-4 border-indigo-600">
-          <div className="border-b flex py-4 px-6 justify-between bg-gray-200">
-            <h3 className="font-semibold">Messages</h3>
-            <button>
+          <div className="border-b flex py-4 px-6 justify-between items-center bg-gray-200">
+            <h3 className="font-semibold align-middle">Messages</h3>
+            <IconButton>
               <svg
                 className="w-6"
                 x="432"
@@ -77,7 +79,7 @@ export default function Messages() {
               >
                 <path d="M2 6h12v2H2zm0 4h12v2H2zm0 4h8v2H2zm14.01 3L13 14l-1.5 1.5 4.51 4.5L23 13l-1.5-1.5z"></path>
               </svg>
-            </button>
+            </IconButton>
           </div>
         </div>
         <div className="h-56 overflow-scroll">
@@ -95,9 +97,18 @@ export default function Messages() {
                 <p>We should talk about that at lunch!</p>
                 <small className="text-gray-600">Jun 13, 12:12 PM</small>
               </div>
-              <div>
-                <Tooltip title="Add" aria-label="add">
-                  <div className="w-3 h-3 bg-indigo-600 rounded-full"></div>
+              <div className="ml-2 flex flex-col">
+                <Tooltip title="Mark as read" aria-label="Mark as read">
+                  <IconButton>
+                    <FiberManualRecordIcon
+                      style={{ color: "#5c6ac4", fontSize: 14 }}
+                    />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Remove" aria-label="Remove">
+                  <IconButton aria-label="delete">
+                    <DeleteIcon style={{ fontSize: 14 }} />
+                  </IconButton>
                 </Tooltip>
               </div>
             </div>
