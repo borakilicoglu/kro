@@ -32,7 +32,7 @@ export default function Messages() {
   const id = open ? "simple-popover" : undefined;
 
   return (
-    <div>
+    <div className="mr-2">
       <IconButton onClick={handleClick}>
         <MessageTwoToneIcon style={{ color: "#64748b" }} />
       </IconButton>
