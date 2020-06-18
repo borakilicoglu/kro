@@ -40,7 +40,7 @@ export class Sidebar extends Component {
               <AccountCircleTwoToneIcon style={{ color: "#96a6ba" }} />
               <span
                 className="status online bg-green-500 w-2 absolute h-2 rounded-full"
-                style={{ bottom: "12px", right: "12px" }}
+                style={{ bottom: "8px", right: "8px" }}
               ></span>
             </IconButton>
           </div>

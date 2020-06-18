@@ -1,44 +1,20 @@
 import React from "react";
 import _ from "lodash";
-import Popup from "../popup/Popup.js";
-import Tooltip from "@material-ui/core/Tooltip";
-import Messages from "../messages/Messages";
+import Messages from "./messages/Messages";
+import Search from "./search/Search";
 import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
 export default function Navbar(props) {
   return (
     <header className="w-full flex items-center bg-white hidden sm:flex shadow z-50">
       <div className="w-1/2">
         <IconButton onClick={() => props.toggle()}>
-          <svg
-            className="w-6"
-            x="672"
-            y="1152"
-            viewBox="0 0 24 24"
-            fit=""
-            fill="#64748b"
-            preserveAspectRatio="xMidYMid meet"
-            focusable="false"
-          >
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"></path>
-          </svg>
+          <MenuIcon />
         </IconButton>
       </div>
       <div className="relative w-1/2 flex justify-end">
-        <IconButton>
-          <svg
-            className="w-6"
-            x="1104"
-            y="1584"
-            viewBox="0 0 24 24"
-            fit=""
-            fill="#64748b"
-            preserveAspectRatio="xMidYMid meet"
-            focusable="false"
-          >
-            <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-          </svg>
-        </IconButton>
+        <Search {...props} />
 
         <IconButton>
           <svg
