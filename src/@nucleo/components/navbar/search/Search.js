@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import IconButton from "@material-ui/core/IconButton";
 import SearchIcon from "@material-ui/icons/Search";
 import CloseIcon from "@material-ui/icons/Close";
@@ -6,10 +6,12 @@ import CloseIcon from "@material-ui/icons/Close";
 export default function Search(props) {
   // Toggle Search
   const [toggle, setToggle] = useState(false);
+  const searchInput = useRef();
+  useEffect(() => searchInput.current && searchInput.current.focus());
   return (
     <div className="mr-2">
       <IconButton onClick={() => setToggle(!toggle)}>
-        <SearchIcon />
+        <SearchIcon style={{ color: "#64748b" }} />
       </IconButton>
 
       <div
@@ -20,12 +22,14 @@ export default function Search(props) {
         style={{ height: "64px", zIndex: "5000" }}
       >
         <IconButton>
-          <SearchIcon />
+          <SearchIcon style={{ color: "#96a6ba" }} />
         </IconButton>
         <div className="flex-grow px-2">
           <input
-            className="w-full outline-none focus:shadow-outline focus:bg-blue-100"
+            style={{ height: "64px" }}
+            className="w-full outline-none"
             placeholder="Search"
+            ref={(searchInput) => searchInput && searchInput.focus()}
           ></input>
         </div>
         <div className="mr-2">

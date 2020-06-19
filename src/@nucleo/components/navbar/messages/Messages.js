@@ -3,7 +3,6 @@ import _ from "lodash";
 import { makeStyles } from "@material-ui/core/styles";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-import Button from "@material-ui/core/Button";
 import CloseIcon from "@material-ui/icons/Close";
 import MessageTwoToneIcon from "@material-ui/icons/MessageTwoTone";
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";

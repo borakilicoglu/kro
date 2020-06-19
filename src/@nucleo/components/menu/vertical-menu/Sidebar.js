@@ -1,7 +1,19 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import IconButton from "@material-ui/core/IconButton";
+import Chip from "@material-ui/core/Chip";
 import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActiveTwoTone";
+import PaymentOutlinedIcon from "@material-ui/icons/PaymentOutlined";
+import PieChartOutlinedIcon from "@material-ui/icons/PieChartOutlined";
+import MonetizationOnOutlinedIcon from "@material-ui/icons/MonetizationOnOutlined";
+import ShoppingCartOutlinedIcon from "@material-ui/icons/ShoppingCartOutlined";
+import MailOutlinedIcon from "@material-ui/icons/MailOutlined";
+
+import CheckCircleOutlinedIcon from "@material-ui/icons/CheckCircleOutlined";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+
+import GroupOutlinedIcon from "@material-ui/icons/GroupOutlined";
+import CalendarTodayOutlinedIcon from "@material-ui/icons/CalendarTodayOutlined";
 import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
@@ -66,29 +78,14 @@ export class Sidebar extends Component {
             Dashboards
           </h3>
           <small className="text-gray-600 px-6">Unique dashboard designs</small>
-          <nav className="text-gray-400 text-base font-thin pt-3">
+          <nav className="text-gray-400 text-base pt-3">
             <NavLink
               to="/"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-                ></path>
-              </svg>
+              <PaymentOutlinedIcon className="mr-4" />
               Finance
             </NavLink>
             <NavLink
@@ -96,28 +93,7 @@ export class Sidebar extends Component {
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
-                ></path>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
-                ></path>
-              </svg>
+              <PieChartOutlinedIcon className="mr-4" />
               Analytics
             </NavLink>
             <NavLink
@@ -125,22 +101,7 @@ export class Sidebar extends Component {
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
+              <MonetizationOnOutlinedIcon className="mr-4" />
               Crypto
             </NavLink>
           </nav>
@@ -150,32 +111,17 @@ export class Sidebar extends Component {
           <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
             Applications
           </h3>
-          <small className="text-gray-600 px-6">
+          <small className="text-gray-600 px-6ce">
             Custom made application designs
           </small>
-          <nav className="text-gray-400 text-base font-thin pt-3">
+          <nav className="text-gray-400 text-base pt-3">
             <NavLink
               to="/calendar"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                ></path>
-              </svg>
+              <CalendarTodayOutlinedIcon className="mr-4" />
               <div className="flex flex-col">
                 Calendar
                 <small>3 upcoming events</small>
@@ -187,28 +133,7 @@ export class Sidebar extends Component {
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"
-                ></path>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"
-                ></path>
-              </svg>
+              <GroupOutlinedIcon className="mr-4" />
               Contacts
             </NavLink>
             <NavLink
@@ -217,23 +142,9 @@ export class Sidebar extends Component {
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
+              <ShoppingCartOutlinedIcon className="mr-4" />
               ECommerce
+              <ChevronRightIcon className="ml-auto" />
             </NavLink>
             <NavLink
               to="/mailbox"
@@ -241,23 +152,9 @@ export class Sidebar extends Component {
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
+              <MailOutlinedIcon className="mr-4" />
               Mailbox
+              <Chip size="small" label="Basic" />
             </NavLink>
             <NavLink
               to="/tasks"
@@ -265,22 +162,7 @@ export class Sidebar extends Component {
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
               activeStyle={{ background: "rgb(20, 24, 35)" }}
             >
-              <svg
-                className="w-6 mr-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                fit=""
-                preserveAspectRatio="xMidYMid meet"
-                focusable="false"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                ></path>
-              </svg>
+              <CheckCircleOutlinedIcon className="mr-4" />
               Tasks
             </NavLink>
           </nav>
@@ -290,10 +172,8 @@ export class Sidebar extends Component {
           <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
             Pages
           </h3>
-          <small className="text-gray-600 px-6">
-            Custom made application designs
-          </small>
-          <nav className="text-gray-400 text-base font-thin pt-3">
+          <small className="text-gray-600 px-6">Custom made page designs</small>
+          <nav className="text-gray-400 text-base pt-3">
             <NavLink
               to="/calendar"
               exact
