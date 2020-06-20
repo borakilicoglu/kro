@@ -8,6 +8,7 @@ import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 
 import CreateTwoToneIcon from "@material-ui/icons/CreateTwoTone";
 import AddCircleTwoToneIcon from "@material-ui/icons/AddCircleTwoTone";
+import ListAltTwoToneIcon from "@material-ui/icons/ListAltTwoTone";
 
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
@@ -57,41 +58,25 @@ export default function Shortcuts() {
             </IconButton>
           </div>
         </div>
-        <div className="h-56 overflow-scroll">
-          {_.times(4, (i) => (
-            <div className="flex py-4 px-6 border-b hover:bg-gray-200" key={i}>
-              <div>
-                <img
-                  className="w-8 rounded-full"
-                  src="https://treo.pulsethemes.com/angular/demo/assets/images/avatars/male-01.jpg"
-                  alt=""
-                />
-              </div>
-              <div className="ml-4">
-                <p className="font-semibold">Gary Peters</p>
-                <p>We should talk about that at lunch!</p>
-                <small className="text-gray-600">Jun 13, 12:12 PM</small>
-              </div>
-              <div className="ml-2 flex flex-col">
-                <Tooltip title="Mark as read" aria-label="Mark as read">
-                  <IconButton>
-                    <FiberManualRecordIcon
-                      style={{ color: "#5c6ac4", fontSize: 14 }}
-                    />
-                  </IconButton>
-                </Tooltip>
-                <Tooltip title="Remove" aria-label="Remove">
-                  <IconButton aria-label="delete">
-                    <CloseIcon style={{ fontSize: 14 }} />
-                  </IconButton>
-                </Tooltip>
+        <div
+          className="overflow-scroll flex flex-wrap h-56"
+          style={{ maxWidth: "360px" }}
+        >
+          {_.times(12, (i) => (
+            <div
+              className="w-1/2 border-b hover:bg-gray-200 cursor-pointer"
+              key={i}
+            >
+              <div class="flex flex-col items-center justify-center px-8 py-6 border-r">
+                <div className="bg-indigo-200 p-3 rounded-full mb-3">
+                  <ListAltTwoToneIcon style={{ color: "#5A67D8" }} />
+                </div>
+                <strong className="font-normal">Changelog</strong>
+                <small>Latest version: v1.2</small>
               </div>
             </div>
           ))}
         </div>
-        {/* <Typography className={classes.typography}>
-          The content of the Popover.
-        </Typography> */}
       </Popover>
     </div>
   );
