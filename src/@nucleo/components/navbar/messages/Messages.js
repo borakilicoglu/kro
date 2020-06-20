@@ -50,8 +50,8 @@ export default function Messages() {
         }}
       >
         <div className="border-t-4 border-indigo-600">
-          <div className="border-b flex py-2 px-6 justify-between items-center bg-gray-200">
-            <h3 className="font-medium align-middle">Messages</h3>
+          <div className="border-b flex py-3 pl-6 pr-4 justify-between items-center bg-gray-200">
+            <h3 className="text-base align-middle">Messages</h3>
             <IconButton>
               <PlaylistAddCheckIcon />
             </IconButton>
@@ -62,7 +62,7 @@ export default function Messages() {
             <div className="flex py-4 px-6 border-b hover:bg-gray-200" key={i}>
               <div>
                 <img
-                  className="w-12 rounded-full"
+                  className="w-8 rounded-full"
                   src="https://treo.pulsethemes.com/angular/demo/assets/images/avatars/male-01.jpg"
                   alt=""
                 />

@@ -58,7 +58,7 @@ export class Sidebar extends Component {
           </div>
         </div>
 
-        <div className="p-4 px-6 flex items-center w-full flex-col mb-3">
+        <div className="p-4 px-6 flex items-center w-full flex-col mb-4">
           <img
             alt=""
             src="https://davidgrzyb.com/storage/david-grzyb-animoji.jpg"
@@ -111,7 +111,7 @@ export class Sidebar extends Component {
           <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
             Applications
           </h3>
-          <small className="text-gray-600 px-6ce">
+          <small className="text-gray-600 px-6">
             Custom made application designs
           </small>
           <nav className="text-gray-400 text-base pt-3">
@@ -154,7 +154,18 @@ export class Sidebar extends Component {
             >
               <MailOutlinedIcon className="mr-4" />
               Mailbox
-              <Chip size="small" label="Basic" />
+              <Chip
+                size="small"
+                label="27"
+                className="ml-auto"
+                style={{
+                  background: "rgb(233, 30, 99)",
+                  color: "#fff",
+                  height: "20px",
+                  fontSize: "10px",
+                  fontWeight: "900",
+                }}
+              />
             </NavLink>
             <NavLink
               to="/tasks"

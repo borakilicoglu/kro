@@ -16,7 +16,7 @@ export default function Navbar(props) {
       </div>
       <div className="w-1/2 flex justify-end">
         <Search {...props} />
-        <Shortcuts {...props} />
+        <Shortcuts />
         <Messages />
       </div>
     </header>
