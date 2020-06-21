@@ -92,6 +92,7 @@ export class Sidebar extends Component {
                   return (
                     <NavLink
                       key={index}
+                      exact
                       to={child.navLink}
                       className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
                       activestyle={{ background: "rgb(20, 24, 35)" }}
