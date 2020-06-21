@@ -76,17 +76,50 @@ export class Sidebar extends Component {
               <nav className="text-gray-400 text-base pt-3">
                 {value.pages.map((page, index) => {
                   return (
-                    <NavLink
-                      key={index}
-                      exact
-                      to={page.navLink}
-                      className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-                      activestyle={{ background: "rgb(20, 24, 35)" }}
-                    >
-                      {page.icon}
-                      {page.title}
-                      {page.chip && page.chip}
-                    </NavLink>
+                    <div>
+                      {page.navLink ? (
+                        <NavLink
+                          key={index}
+                          exact
+                          to={page.navLink}
+                          className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+                          activestyle={{ background: "rgb(20, 24, 35)" }}
+                        >
+                          {page.icon}
+                          {page.title}
+                          {page.chip && page.chip}
+                        </NavLink>
+                      ) : (
+                        <div>
+                          <button
+                            key={index}
+                            className="flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full"
+                          >
+                            {page.icon}
+                            {page.title}
+                            {page.chip && page.chip}
+                            <span class="material-icons ml-auto">
+                              chevron_right
+                            </span>
+                          </button>
+                          {page.childPages.map((childPage, index) => {
+                            return (
+                              <NavLink
+                                key={index}
+                                exact
+                                to={childPage.navLink}
+                                className="flex items-center py-3 text-xs px-6 transition ease-in duration-200 pl-16"
+                                activestyle={{ background: "rgb(20, 24, 35)" }}
+                              >
+                                {childPage.icon}
+                                {childPage.title}
+                                {childPage.chip && childPage.chip}
+                              </NavLink>
+                            );
+                          })}
+                        </div>
+                      )}
+                    </div>
                   );
                 })}
               </nav>

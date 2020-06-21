@@ -59,7 +59,14 @@ const menuConfig = [
         type: "item",
         icon: <Icon className="mr-4">shopping_cart_outlined</Icon>,
         permissions: ["admin", "editor"],
-        navLink: "/ecommerce",
+        childPages: [
+          {
+            id: "inventory",
+            title: "Inventory",
+            type: "item",
+            navLink: "/ecommerce/inventory",
+          },
+        ],
       },
       {
         id: "mailbox",
