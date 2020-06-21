@@ -18,7 +18,7 @@ aside {
   transition-property: visibility, margin-left, margin-right, transform, width,
     max-width, min-width;
 
-  nav a.selected {
+  nav a.active {
     color: white !important;
     background-color: rgb(20, 24, 35);
   }
@@ -27,7 +27,7 @@ aside {
     background-color: rgb(20, 24, 35);
   }
 
-  nav button.selected {
+  nav button.active {
     color: white !important;
     background-color: rgb(20, 24, 35);
   }

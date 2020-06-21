@@ -11,6 +11,7 @@ const Analytics = lazy(() => import("./views/pages/Analytics"));
 const Crypto = lazy(() => import("./views/pages/Crypto"));
 const Calendar = lazy(() => import("./views/pages/Calendar"));
 const Contacts = lazy(() => import("./views/pages/Contacts"));
+const Inventory = lazy(() => import("./views/pages/ecommerce/Inventory"));
 const Login = lazy(() => import("./views/pages/authentication/login/Login"));
 
 // Set Layout and Component Using App Route
@@ -63,8 +64,9 @@ class AppRouter extends React.Component {
           <AppRoute exact path="/" component={Finance} />
           <AppRoute exact path="/analytics" component={Analytics} />
           <AppRoute path="/crypto" component={Crypto} />
-          <AppRoute path="/contact" component={Contacts} />
           <AppRoute path="/calendar" component={Calendar} />
+          <AppRoute path="/contacts" component={Contacts} />
+          <AppRoute path="/ecommerce/inventory" component={Inventory} />
           <AppRoute path="/login" component={Login} fullLayout />
         </Switch>
       </Router>

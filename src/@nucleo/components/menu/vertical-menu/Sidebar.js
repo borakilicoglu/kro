@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import classnames from "classnames";
 import IconButton from "@material-ui/core/IconButton";
+import Icon from "@material-ui/core/Icon";
 import Chip from "@material-ui/core/Chip";
 import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActiveTwoTone";
 import PaymentOutlinedIcon from "@material-ui/icons/PaymentOutlined";
@@ -17,6 +18,8 @@ import CalendarTodayOutlinedIcon from "@material-ui/icons/CalendarTodayOutlined"
 import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+
+import menuConfig from "../../../../configs/horizontalMenuConfig";
 
 export class Sidebar extends Component {
   toggleMenu(e) {
@@ -77,7 +80,33 @@ export class Sidebar extends Component {
           </div>
         </div>
 
-        <div className="py-4">
+        {menuConfig.map((value, index) => {
+          return (
+            <div className="py-4" key={index}>
+              <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
+                {value.name}
+              </h3>
+              <small className="text-gray-600 px-6">{value.desc}</small>
+              <nav className="text-gray-400 text-base pt-3">
+                {value.childs.map((child, index) => {
+                  return (
+                    <NavLink
+                      key={index}
+                      to={child.navLink}
+                      className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+                      activestyle={{ background: "rgb(20, 24, 35)" }}
+                    >
+                      {child.icon}
+                      {child.title}
+                    </NavLink>
+                  );
+                })}
+              </nav>
+            </div>
+          );
+        })}
+
+        {/* <div className="py-4">
           <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
             Dashboards
           </h3>
@@ -109,9 +138,9 @@ export class Sidebar extends Component {
               Crypto
             </NavLink>
           </nav>
-        </div>
+        </div> */}
 
-        <div className="py-4">
+        {/* <div className="py-4">
           <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
             Applications
           </h3>
@@ -152,9 +181,9 @@ export class Sidebar extends Component {
               </button>
               <div className="hidden">
                 <NavLink
-                  to="/ecommerce"
+                  to="/ecommerce/inventory"
                   exact
-                  className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+                  className="flex items-center py-3 text-xs px-6 pl-16 py-4 transition ease-in duration-200"
                   activestyle={{ background: "rgb(20, 24, 35)" }}
                 >
                   Inventory
@@ -192,9 +221,9 @@ export class Sidebar extends Component {
               Tasks
             </NavLink>
           </nav>
-        </div>
+        </div> */}
 
-        <div className="py-4">
+        {/* <div className="py-4">
           <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
             Pages
           </h3>
@@ -330,7 +359,7 @@ export class Sidebar extends Component {
               Tasks
             </NavLink>
           </nav>
-        </div>
+        </div> */}
       </aside>
     );
   }

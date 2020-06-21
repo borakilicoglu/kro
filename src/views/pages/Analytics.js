@@ -12,7 +12,10 @@ export default function Analytics() {
           desc="Monitor key metrics, check reporting and review insights"
         />
         {_.times(6, (i) => (
-          <div class="flex flex-auto w-1/3 min-w-80 h-50 p-4 theme-dark bg-transparent">
+          <div
+            class="flex flex-auto w-1/3 min-w-80 h-50 p-4 theme-dark bg-transparent"
+            key={i}
+          >
             <div class="flex flex-col flex-auto p-6 pb-4 bg-white shadow-md rounded overflow-hidden">
               <div class="flex items-center justify-between">
                 <div class="flex flex-col">
