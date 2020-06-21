@@ -19,6 +19,10 @@ import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
 export class Sidebar extends Component {
+  toggleMenu(e) {
+    e.target.parentElement.lastChild.classList.toggle("hidden");
+  }
+
   render() {
     let { collapsed } = this.props;
     return (
@@ -26,7 +30,7 @@ export class Sidebar extends Component {
         className={classnames(
           `theme-dark bg-sidebar shadow-xl overflow-scroll`,
           {
-            collapsed: collapsed === true,
+            collapsed: collapsed,
           }
         )}
       >
@@ -83,7 +87,7 @@ export class Sidebar extends Component {
               to="/"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <PaymentOutlinedIcon className="mr-4" />
               Finance
@@ -91,7 +95,7 @@ export class Sidebar extends Component {
             <NavLink
               to="/analytics"
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <PieChartOutlinedIcon className="mr-4" />
               Analytics
@@ -99,7 +103,7 @@ export class Sidebar extends Component {
             <NavLink
               to="/crypto"
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <MonetizationOnOutlinedIcon className="mr-4" />
               Crypto
@@ -119,7 +123,7 @@ export class Sidebar extends Component {
               to="/calendar"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <CalendarTodayOutlinedIcon className="mr-4" />
               <div className="flex flex-col">
@@ -131,26 +135,37 @@ export class Sidebar extends Component {
               to="/contacts"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <GroupOutlinedIcon className="mr-4" />
               Contacts
             </NavLink>
-            <NavLink
-              to="/ecommerce"
-              exact
-              className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
-            >
-              <ShoppingCartOutlinedIcon className="mr-4" />
-              ECommerce
-              <ChevronRightIcon className="ml-auto" />
-            </NavLink>
+            <div>
+              <button
+                onClick={this.toggleMenu}
+                className="flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full"
+                activestyle={{ background: "rgb(20, 24, 35)" }}
+              >
+                <ShoppingCartOutlinedIcon className="mr-4" />
+                ECommerce
+                <ChevronRightIcon className="ml-auto" />
+              </button>
+              <div className="hidden">
+                <NavLink
+                  to="/ecommerce"
+                  exact
+                  className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
+                  activestyle={{ background: "rgb(20, 24, 35)" }}
+                >
+                  Inventory
+                </NavLink>
+              </div>
+            </div>
             <NavLink
               to="/mailbox"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <MailOutlinedIcon className="mr-4" />
               Mailbox
@@ -171,7 +186,7 @@ export class Sidebar extends Component {
               to="/tasks"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <CheckCircleOutlinedIcon className="mr-4" />
               Tasks
@@ -189,7 +204,7 @@ export class Sidebar extends Component {
               to="/calendar"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -216,7 +231,7 @@ export class Sidebar extends Component {
               to="/contacts"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -246,7 +261,7 @@ export class Sidebar extends Component {
               to="/ecommerce"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -270,7 +285,7 @@ export class Sidebar extends Component {
               to="/mailbox"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
@@ -294,7 +309,7 @@ export class Sidebar extends Component {
               to="/tasks"
               exact
               className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-              activeStyle={{ background: "rgb(20, 24, 35)" }}
+              activestyle={{ background: "rgb(20, 24, 35)" }}
             >
               <svg
                 className="w-6 mr-4"
