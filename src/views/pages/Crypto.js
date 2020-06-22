@@ -183,19 +183,19 @@ export default function Analytics() {
             </div>
 
             <div className="flex justify-end px-6 py-6">
-              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-normal py-2 px-4 rounded">
                 Hour
               </button>
-              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="hover:bg-gray-200 ml-2 text-gray-500 font-normal py-2 px-4 rounded">
                 Day
               </button>
-              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="hover:bg-gray-200 ml-2 text-gray-500 font-normal py-2 px-4 rounded">
                 Week
               </button>
-              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="hover:bg-gray-200 ml-2 text-gray-500 font-normal py-2 px-4 rounded">
                 Month
               </button>
-              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="hover:bg-gray-200 ml-2 text-gray-500 font-normal py-2 px-4 rounded">
                 Year
               </button>
             </div>

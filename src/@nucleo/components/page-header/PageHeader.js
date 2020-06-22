@@ -1,4 +1,5 @@
 import React from "react";
+import SaveTwoToneIcon from "@material-ui/icons/SaveTwoTone";
 
 export default function PageHeader(props) {
   return (
@@ -9,21 +10,7 @@ export default function PageHeader(props) {
       </div>
       <div className="flex items-center">
         <button className="border border-gray-400 ml-2 hover:bg-gray-300 text-gray-800 font-normal py-2 px-4 rounded inline-flex items-center">
-          <svg
-            className="w-5"
-            x="480"
-            y="1584"
-            viewBox="0 0 24 24"
-            fit=""
-            preserveAspectRatio="xMidYMid meet"
-            focusable="false"
-          >
-            <path
-              opacity=".3"
-              d="M5 5v14h14V7.83L16.17 5H5zm7 13c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm3-8H6V6h9v4z"
-            ></path>
-            <path d="M17 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2V7l-4-4zm2 16H5V5h11.17L19 7.83V19zm-7-7c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3zM6 6h9v4H6z"></path>
-          </svg>
+          <SaveTwoToneIcon style={{ color: "#64748b" }} />
           <span className="ml-2">Export</span>
         </button>
 

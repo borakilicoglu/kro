@@ -2,6 +2,7 @@ import React from "react";
 import _ from "lodash";
 import PageHeader from "../../@nucleo/components/page-header/PageHeader";
 import UniqueVisitor from "../../@nucleo/components/chart/UniqueVisitor";
+import PieChart from "../../@nucleo/components/chart/PieChart";
 
 export default function Analytics() {
   return (
@@ -78,6 +79,16 @@ export default function Analytics() {
             Demographic properties and general behaviors of the users
           </div>
         </div>
+        {_.times(6, (i) => (
+          <div
+            class="flex flex-auto w-1/3 min-w-80 h-50 p-4 theme-dark bg-transparent"
+            key={i}
+          >
+            <div class="flex flex-col flex-auto p-6 pb-4 bg-white shadow-md rounded overflow-hidden">
+              <PieChart></PieChart>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
