@@ -42,7 +42,6 @@ const menuConfig = [
         title: "Calendar",
         type: "item",
         icon: <Icon className="mr-4">today_outlined</Icon>,
-        permissions: ["admin", "editor"],
         navLink: "/calendar",
       },
       {
@@ -50,7 +49,6 @@ const menuConfig = [
         title: "Contacts",
         type: "item",
         icon: <Icon className="mr-4">perm_contact_calendar</Icon>,
-        permissions: ["admin", "editor"],
         navLink: "/contacts",
       },
       {
@@ -58,8 +56,7 @@ const menuConfig = [
         title: "ECommerce",
         type: "item",
         icon: <Icon className="mr-4">shopping_cart_outlined</Icon>,
-        permissions: ["admin", "editor"],
-        childPages: [
+        pages: [
           {
             id: "inventory",
             title: "Inventory",
@@ -95,7 +92,6 @@ const menuConfig = [
         title: "Tasks",
         type: "item",
         icon: <Icon className="mr-4">check_circle_outlined</Icon>,
-        permissions: ["admin", "editor"],
         navLink: "/tasks",
       },
     ],

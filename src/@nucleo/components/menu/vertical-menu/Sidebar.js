@@ -7,11 +7,60 @@ import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-export class Sidebar extends Component {
-  toggleMenu(e) {
-    e.target.parentElement.lastChild.classList.toggle("hidden");
-  }
+const NavItem = (item) => (
+  <div>
+    {item.navLink ? (
+      <NavLink
+        exact
+        to={item.navLink}
+        className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
+          !item.icon && "pl-16"
+        }`}
+        activestyle={{ background: "rgb(20, 24, 35)" }}
+      >
+        {item.icon}
+        {item.title}
+        {item.chip && item.chip}
+      </NavLink>
+    ) : (
+      <div>
+        <button
+          onClick={toggleMenu}
+          className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
+            !item.icon && "pl-16"
+          }`}
+        >
+          {item.icon}
+          {item.title}
+          {item.chip && item.chip}
+          <span
+            className={`material-icons ml-auto transform text-base ${
+              window.location.toString().includes(item.id) && `rotate-90`
+            }`}
+          >
+            chevron_right
+          </span>
+        </button>
+        <div
+          className={`transition-all ease-in-out duration-700 ${
+            !window.location.toString().includes(item.id) && "hidden"
+          }`}
+        >
+          {item.pages.map((page, i) => {
+            return <NavItem {...page} key={i} />;
+          })}
+        </div>
+      </div>
+    )}
+  </div>
+);
 
+const toggleMenu = (e) => {
+  e.target.parentElement.lastChild.classList.toggle("hidden");
+  e.target.lastChild.classList.toggle("rotate-90");
+};
+
+export class Sidebar extends Component {
   render() {
     let { collapsed } = this.props;
     return (
@@ -75,52 +124,7 @@ export class Sidebar extends Component {
               <small className="text-gray-600 px-6">{value.desc}</small>
               <nav className="text-gray-400 text-base pt-3">
                 {value.pages.map((page, index) => {
-                  return (
-                    <div>
-                      {page.navLink ? (
-                        <NavLink
-                          key={index}
-                          exact
-                          to={page.navLink}
-                          className="flex items-center py-3 text-xs px-6 transition ease-in duration-200"
-                          activestyle={{ background: "rgb(20, 24, 35)" }}
-                        >
-                          {page.icon}
-                          {page.title}
-                          {page.chip && page.chip}
-                        </NavLink>
-                      ) : (
-                        <div>
-                          <button
-                            key={index}
-                            className="flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full"
-                          >
-                            {page.icon}
-                            {page.title}
-                            {page.chip && page.chip}
-                            <span class="material-icons ml-auto">
-                              chevron_right
-                            </span>
-                          </button>
-                          {page.childPages.map((childPage, index) => {
-                            return (
-                              <NavLink
-                                key={index}
-                                exact
-                                to={childPage.navLink}
-                                className="flex items-center py-3 text-xs px-6 transition ease-in duration-200 pl-16"
-                                activestyle={{ background: "rgb(20, 24, 35)" }}
-                              >
-                                {childPage.icon}
-                                {childPage.title}
-                                {childPage.chip && childPage.chip}
-                              </NavLink>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  );
+                  return <NavItem {...page} key={index} />;
                 })}
               </nav>
             </div>

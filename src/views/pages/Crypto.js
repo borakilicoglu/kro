@@ -9,7 +9,7 @@ export default function Analytics() {
       <div className="flex flex-wrap w-full min-h-screen bg-white">
         <div className="w-1/4 border-r">
           <div className="overflow-hidden h-auto">
-            {_.times(12, (i) => (
+            {_.times(6, (i) => (
               <div
                 className="flex flex-0 items-center px-4 py-5 border-b ng-star-inserted"
                 key={i}
