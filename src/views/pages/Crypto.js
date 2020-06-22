@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import _ from "lodash";
 import TradingViewWidget from "react-tradingview-widget";
 import Line from "../../@nucleo/components/chart/Line";
 
 export default function Analytics() {
+  const [tab, setTab] = useState(true);
   return (
     <div className="flex flex-col flex-auto w-full h-full xs:p-2">
       <div className="flex flex-wrap w-full h-full bg-white">
-        <div className="w-1/4 border-r">
-          <div className="overflow-hidden h-auto">
+        <div className="w-1/4 border-r overflow-scroll">
+          <div className="h-px">
             {_.times(6, (i) => (
               <div
                 className="flex flex-0 items-center px-4 py-5 border-b ng-star-inserted"
@@ -46,6 +47,60 @@ export default function Analytics() {
                 </div>
               </div>
             ))}
+
+            <div className="flex border-b">
+              <button
+                onClick={() => setTab(!tab)}
+                className={`w-1/2 h-12 ${
+                  tab && "border-b-2 border-indigo-600"
+                }`}
+              >
+                Buy
+              </button>
+              <button
+                onClick={() => setTab(!tab)}
+                className={`w-1/2 h-12 ${
+                  !tab && "border-b-2 border-indigo-600"
+                }`}
+              >
+                Sell
+              </button>
+            </div>
+            <div className="flex flex-col px-6 pt-6">
+              <label
+                className="block text-gray-600 text-sm mb-2"
+                for="username"
+              >
+                Wallet
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="username"
+                type="text"
+                placeholder="XRP - 11278.771123 XRP"
+              ></input>
+              <small className="text-gray-600 pt-1">USD: $2,651.86</small>
+            </div>
+            <div className="flex flex-col px-6 pt-6">
+              <label
+                className="block text-gray-600 text-sm mb-2"
+                for="username"
+              >
+                Amount
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="username"
+                type="text"
+                placeholder="XRP - 11278.771123 XRP"
+              ></input>
+              <small className="text-gray-600 pt-1">It will cost: $0.00</small>
+            </div>
+            <div className="flex flex-col p-6">
+              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 px-4 rounded">
+                {tab ? "Buy" : "Sell"}
+              </button>
+            </div>
           </div>
         </div>
         <div className="w-3/4 min-h-full">
@@ -128,26 +183,26 @@ export default function Analytics() {
             </div>
 
             <div className="flex justify-end px-6 py-6">
-              <button class="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
                 Hour
               </button>
-              <button class="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
                 Day
               </button>
-              <button class="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
                 Week
               </button>
-              <button class="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
                 Month
               </button>
-              <button class="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
+              <button className="bg-indigo-600 hover:bg-indigo-700 ml-2 text-white font-bold py-2 px-4 rounded">
                 Year
               </button>
             </div>
 
-            <div class="flex items-stretch h-full">
-              <div class="flex-1 px-6 pb-6">
-                <TradingViewWidget symbol="NASDAQ:AAPL" autosize />
+            <div className="flex items-stretch h-full">
+              <div className="flex-1 px-6 pb-6">
+                <TradingViewWidget symbol="COINBASE:BTCUSD" autosize />
               </div>
             </div>
           </div>
