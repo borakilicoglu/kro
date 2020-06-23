@@ -9,14 +9,7 @@ import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
 import IconButton from "@material-ui/core/IconButton";
 
-const useStyles = makeStyles((theme) => ({
-  typography: {
-    padding: theme.spacing(2),
-  },
-}));
-
 export default function Messages() {
-  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -89,9 +82,6 @@ export default function Messages() {
             </div>
           ))}
         </div>
-        {/* <Typography className={classes.typography}>
-          The content of the Popover.
-        </Typography> */}
       </Popover>
     </div>
   );

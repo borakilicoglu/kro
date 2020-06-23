@@ -3,7 +3,7 @@ import classnames from "classnames";
 import menuConfig from "../../../../configs/horizontalMenuConfig";
 import IconButton from "@material-ui/core/IconButton";
 import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActiveTwoTone";
-import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
+import AccountMenu from "./AccountMenu";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -90,13 +90,7 @@ export class Sidebar extends Component {
           </div>
 
           <div className="align-middle">
-            <IconButton className="relative">
-              <AccountCircleTwoToneIcon style={{ color: "#96a6ba" }} />
-              <span
-                className="status online bg-green-500 w-2 absolute h-2 rounded-full"
-                style={{ bottom: "8px", right: "8px" }}
-              ></span>
-            </IconButton>
+            <AccountMenu />
           </div>
         </div>
 
