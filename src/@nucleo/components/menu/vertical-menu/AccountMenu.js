@@ -13,6 +13,8 @@ import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
 import LensTwoToneIcon from "@material-ui/icons/LensTwoTone";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
+import Status from "./Status";
+
 const StyledMenu = withStyles({
   paper: {
     // border: "1px solid #d3d4d5",
@@ -80,26 +82,17 @@ export default function AccountMenu() {
         <StyledMenuItem style={{ padding: "0px 16px", marginBottom: "8px" }}>
           <ListItemText
             primary={
-              <Typography style={{ color: "#27303f", padding: "0px" }}>
-                <small
-                  style={{
-                    paddingTop: "2px",
-                    fontSize: "14px",
-                    lineHeight: "14px",
-                    display: "block",
-                  }}
-                >
-                  Signed in as
-                </small>
-                <strong
-                  style={{
-                    fontSize: "13px",
-                    lineHeight: "13px",
-                    marginTop: "6px",
-                  }}
-                >
-                  watkins.andrew@company.com
-                </strong>
+              <Typography
+                variant="subtitle1"
+                style={{
+                  color: "#27303f",
+                  padding: "0px",
+                  fontSize: "13px",
+                }}
+              >
+                Signed in as
+                <br></br>
+                <strong>watkins.andrew@company.com</strong>
               </Typography>
             }
           />
@@ -137,7 +130,10 @@ export default function AccountMenu() {
             }
           />
         </StyledMenuItem>
-        <StyledMenuItem style={{ marginBottom: "8px" }}>
+
+        <Status />
+
+        {/* <StyledMenuItem style={{ marginBottom: "8px" }}>
           <ListItemIcon style={{ minWidth: "auto", marginRight: "12px" }}>
             <LensTwoToneIcon style={{ color: "#64738b" }} />
           </ListItemIcon>
@@ -151,7 +147,7 @@ export default function AccountMenu() {
               </Typography>
             }
           />
-        </StyledMenuItem>
+        </StyledMenuItem> */}
 
         <Divider />
 
