@@ -1,7 +1,9 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Menu from "@material-ui/core/Menu";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import Typography from "@material-ui/core/Typography";
@@ -12,8 +14,6 @@ import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
 import LensTwoToneIcon from "@material-ui/icons/LensTwoTone";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
-
-import Status from "./Status";
 
 const StyledMenu = withStyles({
   paper: {
@@ -52,7 +52,18 @@ const StyledMenuItem = withStyles((theme) => ({
   },
 }))(MenuItem);
 
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    margin: theme.spacing(1),
+    width: "100%",
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(2),
+  },
+}));
+
 export default function AccountMenu() {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -61,6 +72,18 @@ export default function AccountMenu() {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const [status, setStatus] = React.useState({
+    status: "",
+  });
+
+  const handleChange = (event) => {
+    const name = event.target.name;
+    setStatus({
+      ...status,
+      [name]: event.target.value,
+    });
   };
 
   return (
@@ -130,24 +153,29 @@ export default function AccountMenu() {
             }
           />
         </StyledMenuItem>
-
-        <Status />
-
-        {/* <StyledMenuItem style={{ marginBottom: "8px" }}>
+        <StyledMenuItem style={{ marginBottom: "8px" }}>
           <ListItemIcon style={{ minWidth: "auto", marginRight: "12px" }}>
             <LensTwoToneIcon style={{ color: "#64738b" }} />
           </ListItemIcon>
-          <ListItemText
-            primary={
-              <Typography
-                variant="subtitle1"
-                style={{ color: "#27303f", fontSize: "14px" }}
-              >
-                Status
-              </Typography>
-            }
-          />
-        </StyledMenuItem> */}
+          <FormControl variant="outlined" className={classes.formControl}>
+            <InputLabel htmlFor="outlined-age-native-simple">Status</InputLabel>
+            <Select
+              native
+              value={status.status}
+              onChange={handleChange}
+              label="Status"
+              inputProps={{
+                name: "status",
+                id: "outlined-age-native-simple",
+              }}
+            >
+              <option value={"Online"}>Online</option>
+              <option value={"Away"}>Away</option>
+              <option value={"Busy"}>Busy</option>
+              <option value={"Invisible"}>Invisible</option>
+            </Select>
+          </FormControl>
+        </StyledMenuItem>
 
         <Divider />
 
