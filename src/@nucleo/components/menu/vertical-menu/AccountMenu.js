@@ -1,78 +1,43 @@
 import React from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Menu from "@material-ui/core/Menu";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
-import ListItemIcon from "@material-ui/core/ListItemIcon";
-import Typography from "@material-ui/core/Typography";
-import ListItemText from "@material-ui/core/ListItemText";
+import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
+import Popover from "@material-ui/core/Popover";
 import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
+import { withStyles } from "@material-ui/core/styles";
 import LensTwoToneIcon from "@material-ui/icons/LensTwoTone";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
-const StyledMenu = withStyles({
-  paper: {
-    // border: "1px solid #d3d4d5",
-  },
-})((props) => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={null}
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "right",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "right",
-    }}
-    {...props}
-  />
-));
+import { createMuiTheme } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/styles";
 
-const StyledSelect = withStyles((theme) => ({
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#63728b",
+    },
+  },
+});
+
+const StyledButton = withStyles({
   root: {
-    "&:focus": {
-      borderColor: "#edf2f7",
-    },
+    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
+    borderRadius: 3,
+    border: 0,
+    color: "white",
+    height: 48,
+    padding: "0 30px",
+    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
   },
-}))(Select);
-
-const StyledMenuItem = withStyles((theme) => ({
-  root: {
-    "&:hover": {
-      backgroundColor: "#edf2f7",
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.common.white,
-      },
-    },
-    "&:focus": {
-      backgroundColor: "#edf2f7",
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.common.white,
-      },
-    },
+  label: {
+    textTransform: "capitalize",
   },
-}))(MenuItem);
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    width: "100%",
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
+})(Button);
 
 export default function AccountMenu() {
-  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [status, setStatus] = React.useState({ status: "" });
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -82,132 +47,61 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
 
-  const [status, setStatus] = React.useState({
-    status: "",
-  });
-
-  const handleChange = (event) => {
-    const name = event.target.name;
-    setStatus({
-      ...status,
-      [name]: event.target.value,
-    });
-  };
+  const open = Boolean(anchorEl);
+  const id = open ? "simple-popover" : undefined;
 
   return (
-    <div>
-      <IconButton className="relative" onClick={handleClick}>
-        <AccountCircleTwoToneIcon style={{ color: "#96a6ba" }} />
-        <span
-          className="status online bg-green-500 w-2 absolute h-2 rounded-full"
-          style={{ bottom: "8px", right: "8px" }}
-        ></span>
-      </IconButton>
-      <StyledMenu
-        id="customized-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <StyledMenuItem style={{ padding: "0px 16px", marginBottom: "8px" }}>
-          <ListItemText
-            primary={
-              <Typography
-                variant="subtitle1"
-                style={{
-                  color: "#27303f",
-                  padding: "0px",
-                  fontSize: "13px",
-                }}
-              >
-                Signed in as
-                <br></br>
-                <strong>watkins.andrew@company.com</strong>
-              </Typography>
-            }
-          />
-        </StyledMenuItem>
+    <ThemeProvider theme={theme}>
+      <div>
+        <IconButton className="relative" onClick={handleClick}>
+          <AccountCircleTwoToneIcon style={{ color: "#96a6ba" }} />
+          <span
+            className="status online bg-green-500 w-2 absolute h-2 rounded-full"
+            style={{ bottom: "8px", right: "8px" }}
+          ></span>
+        </IconButton>
 
-        <Divider />
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "center",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "center",
+          }}
+        >
+          <Divider />
 
-        <StyledMenuItem style={{ marginTop: "8px" }}>
-          <ListItemIcon style={{ minWidth: "auto", marginRight: "12px" }}>
-            <AccountCircleTwoToneIcon style={{ color: "#64738b" }} />
-          </ListItemIcon>
-          <ListItemText
-            primary={
-              <Typography
-                variant="subtitle1"
-                style={{ color: "#27303f", fontSize: "14px" }}
-              >
-                Profile
-              </Typography>
-            }
-          />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemIcon style={{ minWidth: "auto", marginRight: "12px" }}>
-            <SettingsTwoToneIcon style={{ color: "#64738b" }} />
-          </ListItemIcon>
-          <ListItemText
-            primary={
-              <Typography
-                variant="subtitle1"
-                style={{ color: "#27303f", fontSize: "14px" }}
-              >
-                Settings
-              </Typography>
-            }
-          />
-        </StyledMenuItem>
-        <StyledMenuItem style={{ marginBottom: "8px" }}>
-          <ListItemIcon style={{ minWidth: "auto", marginRight: "12px" }}>
-            <LensTwoToneIcon style={{ color: "#64738b" }} />
-          </ListItemIcon>
-          <FormControl
-            variant="outlined"
-            color="secondary"
-            className={classes.formControl}
-          >
-            <InputLabel htmlFor="outlined-age-native-simple">Status</InputLabel>
-            <Select
-              style={{ fontSize: "14px" }}
-              native
-              value={status.status}
-              onChange={handleChange}
-              label="Status"
-              inputProps={{
-                name: "status",
-                id: "outlined-age-native-simple",
-              }}
-            >
-              <option value={"Online"}>Online</option>
-              <option value={"Away"}>Away</option>
-              <option value={"Busy"}>Busy</option>
-              <option value={"Invisible"}>Invisible</option>
-            </Select>
-          </FormControl>
-        </StyledMenuItem>
+          <div className="flex flex-col">
+            <StyledButton className="flex px-2 capitalize">
+              <AccountCircleTwoToneIcon style={{ color: "#64738b" }} />
+              Profile
+            </StyledButton>
 
-        <Divider />
+            <StyledButton className="flex px-2">
+              <SettingsTwoToneIcon style={{ color: "#64738b" }} />
+              Seetings
+            </StyledButton>
 
-        <StyledMenuItem style={{ marginTop: "8px" }}>
-          <ListItemIcon style={{ minWidth: "auto", marginRight: "12px" }}>
-            <PowerSettingsNewIcon style={{ color: "#64738b" }} />
-          </ListItemIcon>
-          <ListItemText
-            primary={
-              <Typography
-                variant="subtitle1"
-                style={{ color: "#27303f", fontSize: "14px" }}
-              >
-                Sign out
-              </Typography>
-            }
-          />
-        </StyledMenuItem>
-      </StyledMenu>
-    </div>
+            <StyledButton className="flex px-2">
+              <LensTwoToneIcon style={{ color: "#64738b" }} />
+              Status
+            </StyledButton>
+
+            <Divider />
+
+            <StyledButton className="flex px-2">
+              <PowerSettingsNewIcon style={{ color: "#64738b" }} />
+              Profile
+            </StyledButton>
+          </div>
+        </Popover>
+      </div>
+    </ThemeProvider>
   );
 }
