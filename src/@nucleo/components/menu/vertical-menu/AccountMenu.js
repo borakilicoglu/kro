@@ -35,6 +35,14 @@ const StyledMenu = withStyles({
   />
 ));
 
+const StyledSelect = withStyles((theme) => ({
+  root: {
+    "&:focus": {
+      borderColor: "#edf2f7",
+    },
+  },
+}))(Select);
+
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     "&:hover": {
@@ -157,9 +165,14 @@ export default function AccountMenu() {
           <ListItemIcon style={{ minWidth: "auto", marginRight: "12px" }}>
             <LensTwoToneIcon style={{ color: "#64738b" }} />
           </ListItemIcon>
-          <FormControl variant="outlined" className={classes.formControl}>
+          <FormControl
+            variant="outlined"
+            color="secondary"
+            className={classes.formControl}
+          >
             <InputLabel htmlFor="outlined-age-native-simple">Status</InputLabel>
             <Select
+              style={{ fontSize: "14px" }}
               native
               value={status.status}
               onChange={handleChange}
