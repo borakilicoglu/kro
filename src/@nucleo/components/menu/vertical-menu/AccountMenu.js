@@ -11,6 +11,9 @@ import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
+import { findLastIndex } from "lodash";
+import { AlignCenter } from "react-feather";
+import { light } from "@material-ui/core/styles/createPalette";
 
 const theme = createMuiTheme({
   palette: {
@@ -22,16 +25,18 @@ const theme = createMuiTheme({
 
 const StyledButton = withStyles({
   root: {
-    background: "linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)",
-    borderRadius: 3,
+    display: "flex",
+    justifyContent: "flex-start",
+    borderRadius: 0,
     border: 0,
-    color: "white",
+    color: "#27303f",
     height: 48,
-    padding: "0 30px",
-    boxShadow: "0 3px 5px 2px rgba(255, 105, 135, .3)",
+    fontWeight: 400,
+    padding: "0 18px",
+    position: "relative",
   },
   label: {
-    textTransform: "capitalize",
+    textTransform: "none",
   },
 })(Button);
 
@@ -68,36 +73,67 @@ export default function AccountMenu() {
           onClose={handleClose}
           anchorOrigin={{
             vertical: "bottom",
-            horizontal: "center",
+            horizontal: "right",
           }}
           transformOrigin={{
             vertical: "top",
-            horizontal: "center",
+            horizontal: "right",
           }}
         >
-          <Divider />
+          <div className="flex flex-col py-2">
+            <div className="flex flex-col px-4 py-2" style={{ lineHeight: 1 }}>
+              <span>Signed in as</span>
+              <strong
+                style={{ fontSize: "13px", marginTop: "6px" }}
+                className="text-gray-800"
+              >
+                stefan.schmitz@company.com
+              </strong>
+            </div>
 
-          <div className="flex flex-col">
-            <StyledButton className="flex px-2 capitalize">
-              <AccountCircleTwoToneIcon style={{ color: "#64738b" }} />
+            <hr className="mt-2 mb-2" />
+
+            <StyledButton
+              startIcon={
+                <AccountCircleTwoToneIcon
+                  style={{ color: "#64738b", fontSize: 24 }}
+                />
+              }
+            >
               Profile
             </StyledButton>
 
-            <StyledButton className="flex px-2">
-              <SettingsTwoToneIcon style={{ color: "#64738b" }} />
+            <StyledButton
+              startIcon={
+                <SettingsTwoToneIcon
+                  style={{ color: "#64738b", fontSize: 24 }}
+                />
+              }
+            >
               Seetings
+              <div className="absolute h-24 w-24 bg-red-500">
+                Popup Menu Test
+              </div>
             </StyledButton>
 
-            <StyledButton className="flex px-2">
-              <LensTwoToneIcon style={{ color: "#64738b" }} />
+            <StyledButton
+              startIcon={
+                <LensTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+              }
+            >
               Status
             </StyledButton>
 
-            <Divider />
+            <hr className="mt-2 mb-2" />
 
-            <StyledButton className="flex px-2">
-              <PowerSettingsNewIcon style={{ color: "#64738b" }} />
-              Profile
+            <StyledButton
+              startIcon={
+                <PowerSettingsNewIcon
+                  style={{ color: "#64738b", fontSize: 24 }}
+                />
+              }
+            >
+              Sign out
             </StyledButton>
           </div>
         </Popover>
