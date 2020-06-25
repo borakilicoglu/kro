@@ -14,7 +14,8 @@ const Contacts = lazy(() => import("./views/pages/Contacts"));
 const Inventory = lazy(() => import("./views/pages/ecommerce/Inventory"));
 const Mailbox = lazy(() => import("./views/pages/Mailbox"));
 const Tasks = lazy(() => import("./views/pages/Tasks"));
-const Login = lazy(() => import("./views/pages/authentication/login/Login"));
+const Login = lazy(() => import("./views/pages/authentication/Login"));
+const SignIn = lazy(() => import("./views/pages/authentication/SignIn"));
 
 // Set Layout and Component Using App Route
 const RouteConfig = ({
@@ -72,6 +73,7 @@ class AppRouter extends React.Component {
           <AppRoute path="/mailbox" component={Mailbox} />
           <AppRoute path="/tasks" component={Tasks} />
           <AppRoute path="/login" component={Login} fullLayout />
+          <AppRoute path="/sign-in" component={SignIn} fullLayout />
         </Switch>
       </Router>
     );

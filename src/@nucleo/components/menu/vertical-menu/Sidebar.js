@@ -74,13 +74,12 @@ export class Sidebar extends Component {
       >
         <div className="py-4 pl-6 pr-4 w-full flex items-center">
           <div className="logo flex-grow">
-            <a
-              href="index.html"
+            <NavLink
+              to="/"
               className="text-white text-3xl font-semibold hover:text-gray-300"
-              style={{ lineHeight: "normal" }}
             >
               Nucleo
-            </a>
+            </NavLink>
           </div>
 
           <div className="align-middle">

@@ -69,13 +69,13 @@ export default function Analytics() {
             <div className="flex flex-col px-6 pt-6">
               <label
                 className="block text-gray-600 text-sm mb-2"
-                for="username"
+                htmlFor="wallet"
               >
                 Wallet
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
+                id="wallet"
                 type="text"
                 placeholder="XRP - 11278.771123 XRP"
               ></input>
@@ -84,13 +84,13 @@ export default function Analytics() {
             <div className="flex flex-col px-6 pt-6">
               <label
                 className="block text-gray-600 text-sm mb-2"
-                for="username"
+                htmlFor="amount"
               >
                 Amount
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="username"
+                id="amount"
                 type="text"
                 placeholder="XRP - 11278.771123 XRP"
               ></input>
