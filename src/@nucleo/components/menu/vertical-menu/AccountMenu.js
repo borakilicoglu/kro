@@ -1,19 +1,22 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
-import Divider from "@material-ui/core/Divider";
 import IconButton from "@material-ui/core/IconButton";
 import Popover from "@material-ui/core/Popover";
+import LensIcon from "@material-ui/icons/Lens";
 import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
-import { withStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 import LensTwoToneIcon from "@material-ui/icons/LensTwoTone";
 import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import { findLastIndex } from "lodash";
-import { AlignCenter } from "react-feather";
-import { light } from "@material-ui/core/styles/createPalette";
 
 const theme = createMuiTheme({
   palette: {
@@ -40,9 +43,25 @@ const StyledButton = withStyles({
   },
 })(Button);
 
+const useStyles = makeStyles((theme) => ({
+  formControl: {
+    width: "100%",
+    lineHeight: "15px",
+  },
+  select: {
+    padding: "10px 0px",
+  },
+  popover: {
+    pointerEvents: "none",
+  },
+  paper: {
+    padding: theme.spacing(1),
+  },
+}));
+
 export default function AccountMenu() {
+  const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [status, setStatus] = React.useState({ status: "" });
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -54,6 +73,12 @@ export default function AccountMenu() {
 
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
+
+  const [age, setAge] = React.useState("");
+
+  const handleChange = (event) => {
+    setAge(event.target.value);
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -111,9 +136,6 @@ export default function AccountMenu() {
               }
             >
               Seetings
-              <div className="absolute h-24 w-24 bg-red-500">
-                Popup Menu Test
-              </div>
             </StyledButton>
 
             <StyledButton
@@ -121,7 +143,27 @@ export default function AccountMenu() {
                 <LensTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
               }
             >
-              Status
+              <FormControl variant="outlined" className={classes.formControl}>
+                <InputLabel id="demo-simple-select-outlined-label">
+                  Status
+                </InputLabel>
+                <Select
+                  className={classes.select}
+                  labelId="demo-simple-select-outlined-label"
+                  id="demo-simple-select-outlined"
+                  value={status}
+                  onChange={handleChange}
+                  label="Status"
+                >
+                  <MenuItem value="">
+                    <em>None</em>
+                  </MenuItem>
+                  <MenuItem value={10}>Online</MenuItem>
+                  <MenuItem value={20}>Busy</MenuItem>
+                  <MenuItem value={30}>Away</MenuItem>
+                  <MenuItem value={30}>Away</MenuItem>
+                </Select>
+              </FormControl>
             </StyledButton>
 
             <hr className="mt-2 mb-2" />
