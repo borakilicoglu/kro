@@ -46,10 +46,7 @@ const StyledButton = withStyles({
 const useStyles = makeStyles((theme) => ({
   formControl: {
     width: "100%",
-    lineHeight: "15px",
-  },
-  select: {
-    padding: "10px 0px",
+    textAlign: "left",
   },
   popover: {
     pointerEvents: "none",
@@ -74,10 +71,10 @@ export default function AccountMenu() {
   const open = Boolean(anchorEl);
   const id = open ? "simple-popover" : undefined;
 
-  const [age, setAge] = React.useState("");
+  const [status, setStatus] = React.useState("Online");
 
   const handleChange = (event) => {
-    setAge(event.target.value);
+    setStatus(event.target.value);
   };
 
   return (
@@ -86,8 +83,16 @@ export default function AccountMenu() {
         <IconButton className="relative" onClick={handleClick}>
           <AccountCircleTwoToneIcon style={{ color: "#96a6ba" }} />
           <span
-            className="status online bg-green-500 w-2 absolute h-2 rounded-full"
-            style={{ bottom: "8px", right: "8px" }}
+            className="w-2 absolute h-2 rounded-full"
+            style={{
+              bottom: "8px",
+              right: "8px",
+              backgroundColor:
+                (status === "Online" && "#0e9f6e") ||
+                (status === "Away" && "#ff5a1f") ||
+                (status === "Busy" && "#f05252") ||
+                (status === "Invisible" && "#97a6ba"),
+            }}
           ></span>
         </IconButton>
 
@@ -140,28 +145,37 @@ export default function AccountMenu() {
 
             <StyledButton
               startIcon={
-                <LensTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+                <LensTwoToneIcon
+                  style={{
+                    color:
+                      (status === "Online" && "#0e9f6e") ||
+                      (status === "Away" && "#ff5a1f") ||
+                      (status === "Busy" && "#f05252") ||
+                      (status === "Invisible" && "#97a6ba"),
+                    fontSize: 24,
+                  }}
+                />
               }
             >
-              <FormControl variant="outlined" className={classes.formControl}>
+              <FormControl
+                variant="outlined"
+                className={classes.formControl}
+                size="small"
+              >
                 <InputLabel id="demo-simple-select-outlined-label">
                   Status
                 </InputLabel>
                 <Select
-                  className={classes.select}
+                  onChange={handleChange}
                   labelId="demo-simple-select-outlined-label"
                   id="demo-simple-select-outlined"
                   value={status}
-                  onChange={handleChange}
                   label="Status"
                 >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  <MenuItem value={10}>Online</MenuItem>
-                  <MenuItem value={20}>Busy</MenuItem>
-                  <MenuItem value={30}>Away</MenuItem>
-                  <MenuItem value={30}>Away</MenuItem>
+                  <MenuItem value={"Online"}>Online</MenuItem>
+                  <MenuItem value={"Away"}>Away</MenuItem>
+                  <MenuItem value={"Busy"}>Busy</MenuItem>
+                  <MenuItem value={"Invisible"}>Invisible</MenuItem>
                 </Select>
               </FormControl>
             </StyledButton>
