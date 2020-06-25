@@ -77,6 +77,12 @@ export default function AccountMenu() {
     setStatus(event.target.value);
   };
 
+  const color = () =>
+    (status === "Online" && "#0e9f6e") ||
+    (status === "Away" && "#ff5a1f") ||
+    (status === "Busy" && "#f05252") ||
+    (status === "Invisible" && "#97a6ba");
+
   return (
     <ThemeProvider theme={theme}>
       <div>
@@ -87,11 +93,7 @@ export default function AccountMenu() {
             style={{
               bottom: "8px",
               right: "8px",
-              backgroundColor:
-                (status === "Online" && "#0e9f6e") ||
-                (status === "Away" && "#ff5a1f") ||
-                (status === "Busy" && "#f05252") ||
-                (status === "Invisible" && "#97a6ba"),
+              backgroundColor: color,
             }}
           ></span>
         </IconButton>
@@ -147,11 +149,7 @@ export default function AccountMenu() {
               startIcon={
                 <LensTwoToneIcon
                   style={{
-                    color:
-                      (status === "Online" && "#0e9f6e") ||
-                      (status === "Away" && "#ff5a1f") ||
-                      (status === "Busy" && "#f05252") ||
-                      (status === "Invisible" && "#97a6ba"),
+                    color: color,
                     fontSize: 24,
                   }}
                 />
