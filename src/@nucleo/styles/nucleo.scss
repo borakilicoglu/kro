@@ -83,3 +83,34 @@ nav .selected-item {
 #tradingview-widget-0 {
   height: 100% !important;
 }
+
+.custom-button:hover {
+  background-color: #ffffff1c;
+}
+
+.separator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  margin: 32px 0;
+}
+
+.separator:before {
+  content: "";
+  display: flex;
+  flex: 1 1 auto;
+  height: 1px;
+  background: #e2e8f0;
+  margin-right: 8px;
+}
+
+.separator:after {
+  content: "";
+  display: flex;
+  flex: 1 1 auto;
+  height: 1px;
+  background: #e2e8f0;
+  margin-left: 8px;
+}

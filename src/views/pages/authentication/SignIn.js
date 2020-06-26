@@ -4,68 +4,95 @@ export default function SignIn() {
   return (
     <div className="flex flex-auto w-full min-h-screen">
       <div className="w-2/5 bg-white flex justify-end items-center p-16">
-        <div className="w-3/5">
-          <span className="bg-indigo-500 w-20 h-20"></span>
-          <h2 className="text-3xl">Sign in</h2>
+        <div className="w-4/5">
+          <div
+            className="w-12 h-12 mb-8 rounded-full"
+            style={{ backgroundColor: "#f60056" }}
+          ></div>
+          <h2 className="text-3xl font-bold">Sign in</h2>
           <p>
-            Don't have an account? <a href="">Sign up</a>
+            Don't have an account?{" "}
+            <a href="" className="text-indigo-600">
+              Sign up
+            </a>
           </p>
-          <form class="pt-6 pb-8 mb-4">
+          <form class="pt-6">
             <div class="mb-4">
               <label
-                class="block text-gray-700 text-sm font-bold mb-2"
+                class="block text-gray-700 text-sm font-normal mb-2"
                 for="username"
               >
                 Email address
               </label>
               <input
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="username"
                 type="text"
-                placeholder="Username"
+                placeholder="watkins.andrew@company.com"
               />
             </div>
             <div class="mb-6">
               <label
-                class="block text-gray-700 text-sm font-bold mb-2"
+                class="block text-gray-700 text-sm font-normal mb-2"
                 for="password"
               >
                 Password
               </label>
               <input
-                class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+                class="shadow appearance-none border border-red-500 rounded w-full py-3 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                 id="password"
                 type="password"
-                placeholder="******************"
+                placeholder="**********"
               />
               <p class="text-red-500 text-xs italic">
                 Please choose a password.
               </p>
-            </div>
-            <div class="flex items-center justify-between">
-              <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline "
-                type="button"
-              >
-                Sign In
-              </button>
               <a
-                class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                class="inline-block align-baseline font-normal text-sm text-indigo-500 hover:text-indigo-800"
                 href="#"
               >
                 Forgot Password?
               </a>
             </div>
+            <div class="flex items-center justify-between">
+              <button
+                class="bg-indigo-600 hover:bg-indigo-700 w-full text-white font-normal py-3 px-4 rounded focus:outline-none focus:shadow-outline "
+                type="button"
+              >
+                Sign In
+              </button>
+            </div>
           </form>
-          <p class="text-center text-gray-500 text-xs">
-            &copy;2020 Acme Corp. All rights reserved.
-          </p>
+          <div class="separator text-gray-600">Or continue with</div>
+
+          <div className="flex justify-between">
+            <button className="px-4 px-2 border">A</button>
+            <button className="px-4 px-2 border">B</button>
+            <button className="px-4 px-2 border">C</button>
+          </div>
         </div>
       </div>
       <div
-        className="w-3/5 relative overflow-hidden"
+        className="w-3/5 relative overflow-hidden items-center flex justify-center "
         style={{ background: "#5145cd" }}
       >
+        <div className="w-6/12">
+          <h2
+            className="text-white font-semibold leading-tight mb-2"
+            style={{ fontSize: "40px" }}
+          >
+            Well-crafted, <br /> Coded with attention, <br />
+            Build with passion.
+          </h2>
+          <p className="text-gray-400 leading-normal mb-8">
+            Nucleo helps developers to build organized and well-coded admin
+            dashboards full of beautiful and feature rich modules.
+          </p>
+
+          <button class="custom-button text-white font-normal py-2 px-10 border border-white rounded transition ease-in-out duration-500">
+            Learn more
+          </button>
+        </div>
         <svg
           viewBox="0 0 1531 891"
           preserveAspectRatio="xMidYMax slice"

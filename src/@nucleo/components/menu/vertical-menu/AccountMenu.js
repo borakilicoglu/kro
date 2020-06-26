@@ -18,6 +18,8 @@ import Select from "@material-ui/core/Select";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
+import { history } from "../../../../history";
+
 const theme = createMuiTheme({
   palette: {
     primary: {
@@ -78,10 +80,10 @@ export default function AccountMenu() {
   };
 
   const color = () =>
-    (status === "Online" && "#0e9f6e") ||
-    (status === "Away" && "#ff5a1f") ||
-    (status === "Busy" && "#f05252") ||
-    (status === "Invisible" && "#97a6ba");
+    (status == "Online" && "#0e9f6e") ||
+    (status == "Away" && "#ff5a1f") ||
+    (status == "Busy" && "#f05252") ||
+    (status == "Invisible" && "#97a6ba");
 
   return (
     <ThemeProvider theme={theme}>
@@ -93,7 +95,7 @@ export default function AccountMenu() {
             style={{
               bottom: "8px",
               right: "8px",
-              backgroundColor: color,
+              backgroundColor: color(),
             }}
           ></span>
         </IconButton>
@@ -149,7 +151,7 @@ export default function AccountMenu() {
               startIcon={
                 <LensTwoToneIcon
                   style={{
-                    color: color,
+                    color: color(),
                     fontSize: 24,
                   }}
                 />
@@ -181,6 +183,7 @@ export default function AccountMenu() {
             <hr className="mt-2 mb-2" />
 
             <StyledButton
+              onClick={() => history.push("/sign-in")}
               startIcon={
                 <PowerSettingsNewIcon
                   style={{ color: "#64738b", fontSize: 24 }}
