@@ -2,7 +2,6 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Popover from "@material-ui/core/Popover";
-import LensIcon from "@material-ui/icons/Lens";
 import AccountCircleTwoToneIcon from "@material-ui/icons/AccountCircleTwoTone";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
@@ -11,7 +10,6 @@ import PowerSettingsNewIcon from "@material-ui/icons/PowerSettingsNew";
 
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
-import FormHelperText from "@material-ui/core/FormHelperText";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
@@ -80,10 +78,10 @@ export default function AccountMenu() {
   };
 
   const color = () =>
-    (status == "Online" && "#0e9f6e") ||
-    (status == "Away" && "#ff5a1f") ||
-    (status == "Busy" && "#f05252") ||
-    (status == "Invisible" && "#97a6ba");
+    (status === "Online" && "#0e9f6e") ||
+    (status === "Away" && "#ff5a1f") ||
+    (status === "Busy" && "#f05252") ||
+    (status === "Invisible" && "#97a6ba");
 
   return (
     <ThemeProvider theme={theme}>

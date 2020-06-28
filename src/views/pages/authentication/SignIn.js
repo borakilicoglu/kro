@@ -1,5 +1,6 @@
 import React from "react";
 import Checkbox from "@material-ui/core/Checkbox";
+import { history } from "../../../history";
 
 export default function SignIn() {
   return (
@@ -68,6 +69,7 @@ export default function SignIn() {
 
             <div className="flex items-center justify-between">
               <button
+                onClick={() => history.push("/")}
                 className="bg-indigo-700 hover:bg-indigo-800 w-full text-white font-normal py-4 rounded focus:outline-none focus:shadow-outline "
                 type="button"
               >
