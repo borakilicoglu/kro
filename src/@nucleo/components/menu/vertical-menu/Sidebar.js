@@ -18,9 +18,12 @@ const NavItem = (item) => (
         }`}
         activestyle={{ background: "rgb(20, 24, 35)" }}
       >
-        {item.icon}
-        {item.title}
-        {item.chip && item.chip}
+        <div>{item.icon}</div>
+        <div className="flex-grow">
+          <p className="text-left">{item.title}</p>
+          <small className="font-base">{item.desc && item.desc}</small>
+        </div>
+        {item.chip && <div>{item.chip}</div>}
       </NavLink>
     ) : (
       <div>
@@ -30,9 +33,12 @@ const NavItem = (item) => (
             !item.icon && "pl-16"
           }`}
         >
-          {item.icon}
-          {item.title}
-          {item.chip && item.chip}
+          <div>{item.icon}</div>
+          <div className="flex-grow">
+            <p className="text-left">{item.title}</p>
+            <small className="font-base">{item.desc && item.desc}</small>
+          </div>
+          {item.chip && <div>{item.chip}</div>}
           <span
             className={`material-icons ml-auto transform text-base ${
               window.location.toString().includes(item.id) && `rotate-90`
@@ -56,8 +62,8 @@ const NavItem = (item) => (
 );
 
 const toggleMenu = (e) => {
-  e.target.parentElement.lastChild.classList.toggle("hidden");
-  e.target.lastChild.classList.toggle("rotate-90");
+  e.currentTarget.parentElement.lastChild.classList.toggle("hidden");
+  e.currentTarget.parentElement.lastChild.classList.toggle("rotate-90");
 };
 
 export class Sidebar extends Component {
