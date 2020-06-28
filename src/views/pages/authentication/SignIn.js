@@ -68,7 +68,7 @@ export default function SignIn() {
 
             <div className="flex items-center justify-between">
               <button
-                className="bg-indigo-600 hover:bg-indigo-700 w-full text-white font-normal py-3 px-4 rounded focus:outline-none focus:shadow-outline "
+                className="bg-indigo-700 hover:bg-indigo-800 w-full text-white font-normal py-4 rounded focus:outline-none focus:shadow-outline "
                 type="button"
               >
                 Sign In
@@ -78,9 +78,66 @@ export default function SignIn() {
           <div className="separator text-gray-600">Or continue with</div>
 
           <div className="flex justify-between">
-            <button className="px-4 px-2 rounded border">A</button>
-            <button className="px-4 px-2 rounded border">B</button>
-            <button className="px-4 px-2 rounded border">C</button>
+            <button className="px-10 py-2 rounded border">
+              <svg
+                className="w-5 text-gray-600"
+                x="48"
+                y="192"
+                viewBox="0 0 24 24"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  fill="none"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1v0h3z"
+                ></path>
+              </svg>
+            </button>
+            <button className="px-10 py-2 rounded border">
+              <svg
+                className="w-5 text-gray-600"
+                x="432"
+                y="480"
+                viewBox="0 0 24 24"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  fill="none"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  d="M23 3c-.9.642-1.943 1.164-3.063 1.509l-.077.021A4.48 4.48 0 0012 7.47v.063-.003 1a10.646 10.646 0 01-8.977-4.496l-.022-.033s-4 9 5 13A11.54 11.54 0 01.978 19l.023.001c9 5 20 0 20-11.5a4.5 4.5 0 00-.085-.859l.005.029a7.717 7.717 0 002.069-3.617l.011-.053z"
+                ></path>
+              </svg>
+            </button>
+            <button className="px-10 py-2 rounded border">
+              <svg
+                className="w-5 text-gray-600"
+                x="1056"
+                y="192"
+                viewBox="0 0 24 24"
+                fit=""
+                preserveAspectRatio="xMidYMid meet"
+                focusable="false"
+              >
+                <path
+                  fill="none"
+                  stroke-linejoin="round"
+                  stroke-linecap="round"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.36 3.36 0 00-.941-2.611l.001.001c3.14-.35 6.44-1.54 6.44-7a5.422 5.422 0 00-1.502-3.752L20 4.77a4.97 4.97 0 00.32-1.773c0-.722-.151-1.408-.423-2.03L19.91 1S18.73.65 16 2.48c-1.05-.296-2.255-.466-3.5-.466s-2.45.17-3.594.488L9 2.48C6.27.65 5.09 1 5.09 1a4.992 4.992 0 00-.41 1.997c0 .637.117 1.246.332 1.807L5 4.769A5.418 5.418 0 003.5 8.52v.03-.002c0 5.42 3.3 6.61 6.44 7a3.357 3.357 0 00-.939 2.591L9 18.128v3.87"
+                ></path>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
