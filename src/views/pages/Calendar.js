@@ -1,5 +1,6 @@
 import React from "react";
 import _ from "lodash";
+import * as moment from "moment";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import {
   FormControlLabel,
@@ -13,6 +14,21 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TodayTwoToneIcon from "@material-ui/icons/TodayTwoTone";
+
+const currentMonthDates = new Array(moment().daysInMonth())
+  .fill(null)
+  .map((x, i) => moment().startOf("month").add(i, "days"));
+
+console.log(currentMonthDates);
+
+const days = currentMonthDates.map((date, i) => (
+  <div key={i}>
+    {date._d.getDate()}
+    {date.format("dd")}
+  </div>
+));
+
+const wrapper = <div className="grid grid-cols-7 gap-0">{days}</div>;
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -120,6 +136,11 @@ export default function Calendar() {
               </FormControl>
             </div>
           </div>
+
+          {structure === 1 && <div className="">{wrapper}</div>}
+          {structure === 2 && <div className="">{structure}</div>}
+          {structure === 3 && <div className="">{structure}</div>}
+          {structure === 4 && <div className="">{structure}</div>}
         </div>
       </div>
     </div>
