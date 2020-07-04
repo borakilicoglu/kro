@@ -19,16 +19,59 @@ const currentMonthDates = new Array(moment().daysInMonth())
   .fill(null)
   .map((x, i) => moment().startOf("month").add(i, "days"));
 
-console.log(currentMonthDates);
+const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
+  .fill(null)
+  .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
-const days = currentMonthDates.map((date, i) => (
-  <div key={i}>
-    {date._d.getDate()}
-    {date.format("dd")}
+let day;
+
+switch (currentMonthDates[0].format("ddd")) {
+  case "Mon":
+    day = 0;
+    break;
+  case "Tue":
+    day = 1;
+    break;
+  case "Wed":
+    day = 2;
+    break;
+  case "Thu":
+    day = 3;
+    break;
+  case "Fri":
+    day = 4;
+    break;
+  case "Sat":
+    day = 5;
+    break;
+  case "Sun":
+    day = 6;
+}
+
+const composite = [..._.takeRight(prevMonthDates, day), ...currentMonthDates];
+// console.log(35 - composite.length);
+
+const days = composite.map((date, i) => (
+  <div key={i} className="border-b border-r">
+    <p className="uppercase text-xs font-bold py-2 text-gray-500">
+      {i < 7 && date.format("ddd")}
+    </p>
+    <span
+      className={
+        "rounded-full w-6 h-6 inline-flex items-center justify-center leading-none text-xs my-1 " +
+        (moment().format("L") == date.format("L")
+          ? "bg-indigo-600 text-white"
+          : null)
+      }
+    >
+      {date._d.getDate()}
+    </span>
   </div>
 ));
 
-const wrapper = <div className="grid grid-cols-7 gap-0">{days}</div>;
+const wrapper = (
+  <div className="grid grid-cols-7 gap-0 text-center h-full">{days}</div>
+);
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -104,43 +147,49 @@ export default function Calendar() {
             />
           </div>
         </div>
-        <div className="w-3/4">
-          <div className="flex items-center border-b px-8 py-4">
-            <p className="font-medium text-xl mr-4">June 2020</p>
-            <IconButton aria-label="delete">
-              <ChevronLeftIcon />
-            </IconButton>
-            <IconButton aria-label="delete" style={{ marginRight: "8px" }}>
-              <ChevronRightIcon />
-            </IconButton>
-            <IconButton aria-label="delete">
-              <TodayTwoToneIcon />
-            </IconButton>
-            <div className="ml-auto">
-              <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel id="demo-simple-select-outlined-label">
-                  Structure
-                </InputLabel>
-                <Select
-                  labelId="demo-simple-select-outlined-label"
-                  id="demo-simple-select-outlined"
-                  value={structure}
-                  onChange={handleChangeStructure}
-                  label="Structure"
+        <div className="w-3/4 min-h-full">
+          <div className="flex flex-col h-full">
+            <div className="flex items-center border-b px-8 py-4">
+              <p className="font-medium text-xl mr-4">July 2020</p>
+              <IconButton aria-label="delete">
+                <ChevronLeftIcon />
+              </IconButton>
+              <IconButton aria-label="delete" style={{ marginRight: "8px" }}>
+                <ChevronRightIcon />
+              </IconButton>
+              <IconButton aria-label="delete">
+                <TodayTwoToneIcon />
+              </IconButton>
+              <div className="ml-auto">
+                <FormControl
+                  variant="outlined"
+                  className={classes.formControl}
+                  size="small"
                 >
-                  <MenuItem value={1}>Month</MenuItem>
-                  <MenuItem value={2}>Week</MenuItem>
-                  <MenuItem value={3}>Day</MenuItem>
-                  <MenuItem value={4}>Schedule</MenuItem>
-                </Select>
-              </FormControl>
+                  <InputLabel id="demo-simple-select-outlined-label">
+                    Structure
+                  </InputLabel>
+                  <Select
+                    labelId="demo-simple-select-outlined-label"
+                    id="demo-simple-select-outlined"
+                    value={structure}
+                    onChange={handleChangeStructure}
+                    label="Structure"
+                  >
+                    <MenuItem value={1}>Month</MenuItem>
+                    <MenuItem value={2}>Week</MenuItem>
+                    <MenuItem value={3}>Day</MenuItem>
+                    <MenuItem value={4}>Schedule</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
             </div>
-          </div>
 
-          {structure === 1 && <div className="">{wrapper}</div>}
-          {structure === 2 && <div className="">{structure}</div>}
-          {structure === 3 && <div className="">{structure}</div>}
-          {structure === 4 && <div className="">{structure}</div>}
+            {structure === 1 && wrapper}
+            {structure === 2 && <div className="">{structure}</div>}
+            {structure === 3 && <div className="">{structure}</div>}
+            {structure === 4 && <div className="">{structure}</div>}
+          </div>
         </div>
       </div>
     </div>
