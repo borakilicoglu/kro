@@ -23,6 +23,8 @@ const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
   .fill(null)
   .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
+console.log(moment().startOf("month"));
+
 let day;
 
 switch (currentMonthDates[0].format("ddd")) {
