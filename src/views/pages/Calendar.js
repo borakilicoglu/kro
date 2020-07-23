@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import * as moment from "moment";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
@@ -15,6 +15,8 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TodayTwoToneIcon from "@material-ui/icons/TodayTwoTone";
 
+import { events } from "../../@fake-db/calendar/calendar";
+
 const currentMonthDates = new Array(moment().daysInMonth())
   .fill(null)
   .map((x, i) => moment().startOf("month").add(i, "days"));
@@ -23,44 +25,52 @@ const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
   .fill(null)
   .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
-// console.log(moment().startOf("month"));
+const getFirstDayOfTheCurrentMonth = () => {
+  let firstDay;
+  switch (currentMonthDates[0].format("ddd")) {
+    case "Mon":
+      firstDay = 0;
+      break;
+    case "Tue":
+      firstDay = 1;
+      break;
+    case "Wed":
+      firstDay = 2;
+      break;
+    case "Thu":
+      firstDay = 3;
+      break;
+    case "Fri":
+      firstDay = 4;
+      break;
+    case "Sat":
+      firstDay = 5;
+      break;
+    case "Sun":
+      firstDay = 6;
+  }
+  return firstDay;
+};
 
-let day;
+const calendarProgram = (day) => {
+  let data = events.find((event) => moment(event.start).format("DD") == day);
+  return data && <span>{data.title}</span>;
+};
 
-switch (currentMonthDates[0].format("ddd")) {
-  case "Mon":
-    day = 0;
-    break;
-  case "Tue":
-    day = 1;
-    break;
-  case "Wed":
-    day = 2;
-    break;
-  case "Thu":
-    day = 3;
-    break;
-  case "Fri":
-    day = 4;
-    break;
-  case "Sat":
-    day = 5;
-    break;
-  case "Sun":
-    day = 6;
-}
-
-const composite = [..._.takeRight(prevMonthDates, day), ...currentMonthDates];
-// console.log(35 - composite.length);
-
-const days = composite.map((date, i) => (
-  <div key={i} className="border-b border-r">
+const days = [
+  ..._.takeRight(prevMonthDates, getFirstDayOfTheCurrentMonth()),
+  ...currentMonthDates,
+].map((date, i) => (
+  <div
+    key={i}
+    className="border-b border-r flex-col items-center justify-center"
+  >
     <p className="uppercase text-xs font-bold py-2 text-gray-500">
       {i < 7 && date.format("ddd")}
     </p>
     <span
       className={
-        "rounded-full w-6 h-6 inline-flex items-center justify-center leading-none text-xs my-1 " +
+        "rounded-full w-6 h-6 leading-6 text-xs my-1 m-auto block " +
         (moment().format("L") == date.format("L")
           ? "bg-indigo-600 text-white"
           : null)
@@ -68,10 +78,11 @@ const days = composite.map((date, i) => (
     >
       {date._d.getDate()}
     </span>
+    {calendarProgram(date._d.getDate())}
   </div>
 ));
 
-const wrapper = (
+const calendar = (
   <div className="grid grid-cols-7 gap-0 text-center h-full">{days}</div>
 );
 
@@ -92,6 +103,11 @@ export default function Calendar() {
     checkedB: true,
     checkedF: true,
     checkedG: true,
+  });
+
+  useEffect(() => {
+    // Update the document title using the browser API
+    // document.title = `You clicked ${count} times`;
   });
 
   const handleChange = (event) => {
@@ -129,7 +145,7 @@ export default function Calendar() {
                   checked={state.checkedB}
                   onChange={handleChange}
                   name="checkedB"
-                  color="primary"
+                  color="#444"
                 />
               }
               label="Work"
@@ -187,7 +203,7 @@ export default function Calendar() {
               </div>
             </div>
 
-            {structure === 1 && wrapper}
+            {structure === 1 && calendar}
             {structure === 2 && <div className="">{structure}</div>}
             {structure === 3 && <div className="">{structure}</div>}
             {structure === 4 && <div className="">{structure}</div>}
