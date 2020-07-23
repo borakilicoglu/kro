@@ -23,7 +23,7 @@ const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
   .fill(null)
   .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
-console.log(moment().startOf("month"));
+// console.log(moment().startOf("month"));
 
 let day;
 
@@ -106,7 +106,7 @@ export default function Calendar() {
 
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
-      <div className="flex flex-wrap w-full min-h-screen bg-white">
+      <div className="flex flex-wrap w-full h-full bg-white">
         <div className="w-1/4 border-r px-8">
           <h2 className="text-3xl font-bold mt-6">Calendar</h2>
           <p className="text-lg mt-6 mb-1">Calendars</p>

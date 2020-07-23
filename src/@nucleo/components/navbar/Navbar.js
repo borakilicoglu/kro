@@ -8,7 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 export default function Navbar(props) {
   return (
-    <header className="w-full flex items-center bg-white hidden sm:flex shadow z-50 relative">
+    <header className="bg-white shadow">
       <div className="w-1/2">
         <IconButton onClick={() => props.toggle()}>
           <MenuIcon />
