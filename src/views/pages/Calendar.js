@@ -14,8 +14,37 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TodayTwoToneIcon from "@material-ui/icons/TodayTwoTone";
-
 import { events } from "../../@fake-db/calendar/calendar";
+
+const TealCheckbox = withStyles({
+  root: {
+    color: "#4fd1c5",
+    "&$checked": {
+      color: "#319795",
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
+const IndigoCheckbox = withStyles({
+  root: {
+    color: "#7f9cf5",
+    "&$checked": {
+      color: "#5a67d8",
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
+
+const RedCheckbox = withStyles({
+  root: {
+    color: "#fc8181",
+    "&$checked": {
+      color: "#e53e3e",
+    },
+  },
+  checked: {},
+})((props) => <Checkbox color="default" {...props} />);
 
 const currentMonthDates = new Array(moment().daysInMonth())
   .fill(null)
@@ -101,13 +130,11 @@ export default function Calendar() {
   const [state, setState] = React.useState({
     checkedA: true,
     checkedB: true,
-    checkedF: true,
-    checkedG: true,
+    checkedC: true,
   });
 
   useEffect(() => {
-    // Update the document title using the browser API
-    // document.title = `You clicked ${count} times`;
+    console.log(events);
   });
 
   const handleChange = (event) => {
@@ -129,7 +156,7 @@ export default function Calendar() {
           <div>
             <FormControlLabel
               control={
-                <Checkbox
+                <TealCheckbox
                   checked={state.checkedA}
                   onChange={handleChange}
                   name="checkedA"
@@ -141,11 +168,10 @@ export default function Calendar() {
           <div>
             <FormControlLabel
               control={
-                <Checkbox
+                <IndigoCheckbox
                   checked={state.checkedB}
                   onChange={handleChange}
                   name="checkedB"
-                  color="#444"
                 />
               }
               label="Work"
@@ -154,11 +180,10 @@ export default function Calendar() {
           <div>
             <FormControlLabel
               control={
-                <Checkbox
-                  checked={state.checkedB}
+                <RedCheckbox
+                  checked={state.checkedC}
                   onChange={handleChange}
-                  name="checkedB"
-                  color="primary"
+                  name="checkedC"
                 />
               }
               label="Appointment"
