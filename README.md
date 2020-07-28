@@ -1,10 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Nucleo – React Admin Template and Starter Project
 
-In the project directory, you can run:
+Nucleo is a modular, multi-layout React admin template featuring custom made Application and Page layouts, UI elements and UX best practices.
 
-### `yarn start`
+The multi-layout setup allows using multiple template layouts without making any major changes to the general structure of the template. It also allows using a different layout per route.
+
+Being able to set different layout per route makes Treo very flexible as it allows having any kind of page design within the same codebase. For example, you can have the main admin application, a landing page and authentication pages all within the same codebase without the constant need of hiding/showing layout level elements such as Navigation, Header or Footer.
+
+## General Features
+
+Modular design.
+Multiple theme layouts.
+Ability to set a different layout per route.
+Pre-built and ready to use application and page designs.
+Ready to use content layouts.
+Custom components for admin panel specific use cases.
+Starter project included for faster development.
+Full Angular Material theming support with customizable colors.
+Dark and Light color theme support.
+
+<!-- ### `yarn start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -65,4 +79,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 
 ### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify -->
