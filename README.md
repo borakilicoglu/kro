@@ -15,7 +15,7 @@ Being able to set different layout per route makes Treo very flexible as it allo
 - Ready to use content layouts.
 - Custom components for admin panel specific use cases.
 - Starter project included for faster development.
-- Full Angular Material theming support with customizable colors.
+- Full React Material theming support with customizable colors.
 - Dark and Light color theme support.
 
 <!-- ### `yarn start`
