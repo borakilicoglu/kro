@@ -8,15 +8,15 @@ Being able to set different layout per route makes Treo very flexible as it allo
 
 ## General Features
 
-Modular design.
-Multiple theme layouts.
-Ability to set a different layout per route.
-Pre-built and ready to use application and page designs.
-Ready to use content layouts.
-Custom components for admin panel specific use cases.
-Starter project included for faster development.
-Full Angular Material theming support with customizable colors.
-Dark and Light color theme support.
+- Modular design.
+- Multiple theme layouts.
+- Ability to set a different layout per route.
+- Pre-built and ready to use application and page designs.
+- Ready to use content layouts.
+- Custom components for admin panel specific use cases.
+- Starter project included for faster development.
+- Full Angular Material theming support with customizable colors.
+- Dark and Light color theme support.
 
 <!-- ### `yarn start`
 
