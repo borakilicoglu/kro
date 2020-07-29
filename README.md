@@ -18,6 +18,16 @@ Being able to set different layout per route makes Treo very flexible as it allo
 - Full React Material theming support with customizable colors.
 - Dark and Light color theme support.
 
+## Core Libraries
+
+- Angular
+- Angular Material Components
+- TailwindCSS
+
+## Application Designs
+
+Treo provides application designs along with some functionality. These functionalities are for demonstration purposes and shows what you can do with the provided application designs.
+
 <!-- ### `yarn start`
 
 Runs the app in the development mode.<br />
