@@ -28,6 +28,16 @@ Being able to set different layout per route makes Nucleo very flexible as it al
 
 Nucleo provides application designs along with some functionality. These functionalities are for demonstration purposes and shows what you can do with the provided application designs.
 
+## Included applications
+
+- Analytics Dashboard
+- Cryptocurrency Dashboard
+- Calendar
+- Contacts
+- ECommerce
+- Mailbox
+- Tasks
+
 <!-- ### `yarn start`
 
 Runs the app in the development mode.<br />
