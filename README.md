@@ -26,7 +26,7 @@ Being able to set different layout per route makes Treo very flexible as it allo
 
 ## Application Designs
 
-Treo provides application designs along with some functionality. These functionalities are for demonstration purposes and shows what you can do with the provided application designs.
+Nucleo provides application designs along with some functionality. These functionalities are for demonstration purposes and shows what you can do with the provided application designs.
 
 <!-- ### `yarn start`
 
