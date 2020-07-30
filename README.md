@@ -74,7 +74,7 @@ Nucleo provides clean and consistent page designs to help you to create beautifu
 
 ## Browser Support
 
-Treo supports all modern browsers; Chrome, Firefox, Safari and Edge Chromium. Post Chromium versions of Edge, IE11 and below are NOT supported!
+Nucleo supports all modern browsers; Chrome, Firefox, Safari and Edge Chromium. Post Chromium versions of Edge, IE11 and below are NOT supported!
 
 <!-- ### `yarn start`
 
