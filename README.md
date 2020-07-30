@@ -4,7 +4,7 @@ Nucleo is a modular, multi-layout React admin template featuring custom made App
 
 The multi-layout setup allows using multiple template layouts without making any major changes to the general structure of the template. It also allows using a different layout per route.
 
-Being able to set different layout per route makes Treo very flexible as it allows having any kind of page design within the same codebase. For example, you can have the main admin application, a landing page and authentication pages all within the same codebase without the constant need of hiding/showing layout level elements such as Navigation, Header or Footer.
+Being able to set different layout per route makes Nucleo very flexible as it allows having any kind of page design within the same codebase. For example, you can have the main admin application, a landing page and authentication pages all within the same codebase without the constant need of hiding/showing layout level elements such as Navigation, Header or Footer.
 
 ## General Features
 
