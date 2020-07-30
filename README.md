@@ -1,5 +1,7 @@
 ## Nucleo – React Admin Template and Starter Project
 
+![image](https://drive.google.com/uc?export=view&id=1K2Sr6ZWlWuFZDsdSP9qc2rFKPTIuIVMr)
+
 Nucleo is a modular, multi-layout React admin template featuring custom made Application and Page layouts, UI elements and UX best practices.
 
 The multi-layout setup allows using multiple template layouts without making any major changes to the general structure of the template. It also allows using a different layout per route.
@@ -37,6 +39,10 @@ Nucleo provides application designs along with some functionality. These functio
 - ECommerce
 - Mailbox
 - Tasks
+
+## Pages
+
+Nucleo provides clean and consistent page designs to help you to create beautiful looking contents. Some of the page designs also comes with different variations such as Authentication and Pricing pages.
 
 <!-- ### `yarn start`
 
