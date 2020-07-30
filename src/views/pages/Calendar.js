@@ -14,6 +14,7 @@ import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TodayTwoToneIcon from "@material-ui/icons/TodayTwoTone";
+import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
 import { events } from "../../@fake-db/calendar/calendar";
 
 const TealCheckbox = withStyles({
@@ -189,10 +190,18 @@ export default function Calendar() {
               label="Appointment"
             />
           </div>
+          <div className="absolute bottom-0">
+            <button className="-ml-3 mb-3">
+              <IconButton aria-label="delete">
+                <SettingsTwoToneIcon />
+              </IconButton>
+              Settings
+            </button>
+          </div>
         </div>
         <div className="w-3/4 min-h-full">
           <div className="flex flex-col h-full">
-            <div className="flex items-center border-b px-8 py-4">
+            <div className="flex items-center border-b px-8 py-2">
               <p className="font-medium text-xl mr-4">July 2020</p>
               <IconButton aria-label="delete">
                 <ChevronLeftIcon />
