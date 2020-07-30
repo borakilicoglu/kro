@@ -39,6 +39,7 @@ export const events = [
     duration: null,
     allDay: false,
     recurrence: null,
+    type: "personal",
   },
   {
     id: "660f0dcd-48f8-4266-a89a-8ee0789c074a",
@@ -62,6 +63,7 @@ export const events = [
     duration: null,
     allDay: false,
     recurrence: null,
+    type: "personal",
   },
   {
     id: "7471b840-5efb-45da-9092-a0f04ee5617b",
@@ -85,6 +87,7 @@ export const events = [
     duration: null,
     allDay: false,
     recurrence: null,
+    type: "personal",
   },
   {
     id: "c3e6c110-9b67-4e6b-a2ab-3046abf1b074",
@@ -96,6 +99,7 @@ export const events = [
     duration: 0,
     allDay: true,
     recurrence: "FREQ=YEARLY;INTERVAL=1",
+    type: "personal",
   },
   // Appointments
   {
@@ -115,6 +119,7 @@ export const events = [
     duration: 90, // Minutes
     allDay: false,
     recurrence: "FREQ=MONTHLY;INTERVAL=1;BYDAY=1TU",
+    type: "appointment",
   },
   {
     id: "4d88418c-cbdf-4f03-89e1-e3dca14a9e92",
@@ -134,6 +139,7 @@ export const events = [
     duration: 120, // Minutes
     allDay: false,
     recurrence: "FREQ=WEEKLY;INTERVAL=2;BYDAY=SA",
+    type: "appointment",
   },
   // Work
   {
@@ -158,6 +164,7 @@ export const events = [
     duration: null,
     allDay: true,
     recurrence: null,
+    type: "appointment",
   },
   {
     id: "f619eb76-c21b-4bb0-aeff-41e765cae290",
@@ -181,6 +188,7 @@ export const events = [
     duration: null,
     allDay: false,
     recurrence: null,
+    type: "appointment",
   },
   {
     id: "d97ea3ca-0e5a-4b86-a4fa-5b80a261081e",
@@ -200,6 +208,7 @@ export const events = [
     duration: 150, // Minutes
     allDay: false,
     recurrence: "FREQ=WEEKLY;INTERVAL=2;BYDAY=FR",
+    type: "appointment",
   },
 ];
 export const exceptions = [];

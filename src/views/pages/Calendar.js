@@ -82,9 +82,13 @@ const getFirstDayOfTheCurrentMonth = () => {
   return firstDay;
 };
 
-const calendarProgram = (day) => {
+const calendarSetProgram = (day) => {
   let data = events.find((event) => moment(event.start).format("DD") == day);
-  return data && <span>{data.title}</span>;
+  return (
+    data && (
+      <span className={"p-1 rounded-sm text-white text-xs"}>{data.title}</span>
+    )
+  );
 };
 
 const days = [
@@ -108,7 +112,7 @@ const days = [
     >
       {date._d.getDate()}
     </span>
-    {calendarProgram(date._d.getDate())}
+    {calendarSetProgram(date._d.getDate())}
   </div>
 ));
 
@@ -191,11 +195,9 @@ export default function Calendar() {
             />
           </div>
           <div className="absolute bottom-0">
-            <button className="-ml-3 mb-3">
-              <IconButton aria-label="delete">
-                <SettingsTwoToneIcon />
-              </IconButton>
-              Settings
+            <button className="-ml-2 mb-3 py-2">
+              <SettingsTwoToneIcon style={{ color: "#64748b" }} />
+              <span className="ml-1 align-text-top">Settings</span>
             </button>
           </div>
         </div>
@@ -210,7 +212,7 @@ export default function Calendar() {
                 <ChevronRightIcon />
               </IconButton>
               <IconButton aria-label="delete">
-                <TodayTwoToneIcon />
+                <TodayTwoToneIcon style={{ color: "#64748b" }} />
               </IconButton>
               <div className="ml-auto">
                 <FormControl
