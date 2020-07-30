@@ -44,6 +44,34 @@ Nucleo provides application designs along with some functionality. These functio
 
 Nucleo provides clean and consistent page designs to help you to create beautiful looking contents. Some of the page designs also comes with different variations such as Authentication and Pricing pages.
 
+## Included pages
+
+- Authentication Pages
+  - Sign in
+  - Sign up
+  - Sign out
+  - Forgot password
+  - Reset password
+  - Unlock session
+  - Confirmation required
+- Coming soon
+- Error
+  - 404
+  - 500
+- Help center
+  - Home
+  - FAQs
+  - Guides
+  - Guide
+  - Support
+- Maintenance
+- Pricing
+  - Modern
+  - Simple
+  - Single
+  - Table
+- Profile
+
 <!-- ### `yarn start`
 
 Runs the app in the development mode.<br />
