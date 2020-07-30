@@ -20,8 +20,8 @@ Being able to set different layout per route makes Treo very flexible as it allo
 
 ## Core Libraries
 
-- Angular
-- Angular Material Components
+- React
+- React Material Components
 - TailwindCSS
 
 ## Application Designs
