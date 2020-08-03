@@ -86,7 +86,16 @@ const calendarSetProgram = (day) => {
   let data = events.find((event) => moment(event.start).format("DD") == day);
   return (
     data && (
-      <span className={"p-1 rounded-sm text-white text-xs"}>{data.title}</span>
+      <span
+        className={
+          "p-1 rounded-sm text-white text-xs " +
+          (data.type == "personal" ? "bg-teal-600" : "") +
+          (data.type == "work" ? "bg-indigo-600" : "") +
+          (data.type == "appointment" ? "bg-pink-600" : "")
+        }
+      >
+        {data.title}
+      </span>
     )
   );
 };
@@ -99,9 +108,11 @@ const days = [
     key={i}
     className="border-b border-r flex-col items-center justify-center"
   >
-    <p className="uppercase text-xs font-bold py-2 text-gray-500">
-      {i < 7 && date.format("ddd")}
-    </p>
+    {i < 7 && (
+      <p className="uppercase text-xs font-bold py-2 text-gray-500">
+        {date.format("ddd")}
+      </p>
+    )}
     <span
       className={
         "rounded-full w-6 h-6 leading-6 text-xs my-1 m-auto block " +
@@ -115,6 +126,8 @@ const days = [
     {calendarSetProgram(date._d.getDate())}
   </div>
 ));
+
+console.log(days);
 
 const calendar = (
   <div className="grid grid-cols-7 gap-0 text-center h-full">{days}</div>
@@ -139,7 +152,7 @@ export default function Calendar() {
   });
 
   useEffect(() => {
-    console.log(events);
+    // console.log(events);
   });
 
   const handleChange = (event) => {

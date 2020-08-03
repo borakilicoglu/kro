@@ -164,7 +164,7 @@ export const events = [
     duration: null,
     allDay: true,
     recurrence: null,
-    type: "appointment",
+    type: "work",
   },
   {
     id: "f619eb76-c21b-4bb0-aeff-41e765cae290",
@@ -188,7 +188,7 @@ export const events = [
     duration: null,
     allDay: false,
     recurrence: null,
-    type: "appointment",
+    type: "work",
   },
   {
     id: "d97ea3ca-0e5a-4b86-a4fa-5b80a261081e",
@@ -208,7 +208,7 @@ export const events = [
     duration: 150, // Minutes
     allDay: false,
     recurrence: "FREQ=WEEKLY;INTERVAL=2;BYDAY=FR",
-    type: "appointment",
+    type: "work",
   },
 ];
 export const exceptions = [];
