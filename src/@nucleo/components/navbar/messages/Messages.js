@@ -55,7 +55,7 @@ export default function Messages() {
               <div>
                 <img
                   className="w-8 rounded-full"
-                  src="https://treo.pulsethemes.com/angular/demo/assets/images/avatars/male-01.jpg"
+                  src="https://uifaces.co/our-content/donated/FJkauyEa.jpg"
                   alt=""
                 />
               </div>
