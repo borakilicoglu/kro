@@ -11,7 +11,11 @@ const menuConfig = [
         id: "finance",
         title: "Finance",
         type: "item",
-        icon: <Icon className="mr-4 align-middle">payment_outlined</Icon>,
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            payment_outlined
+          </Icon>
+        ),
         permissions: ["admin", "editor"],
         navLink: "/",
       },
@@ -19,7 +23,11 @@ const menuConfig = [
         id: "analytics",
         title: "Analytics",
         type: "item",
-        icon: <Icon className="mr-4 align-middle">pie_chart_outlined</Icon>,
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            pie_chart_outlined
+          </Icon>
+        ),
         permissions: ["admin", "editor"],
         navLink: "/analytics",
       },
@@ -28,7 +36,9 @@ const menuConfig = [
         title: "Crypto",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle">monetization_on_outlined</Icon>
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            monetization_on_outlined
+          </Icon>
         ),
         permissions: ["admin", "editor"],
         navLink: "/crypto",
@@ -44,21 +54,33 @@ const menuConfig = [
         title: "Calendar",
         desc: "3 upcoming events",
         type: "item",
-        icon: <Icon className="mr-4 align-middle">today_outlined</Icon>,
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            today_outlined
+          </Icon>
+        ),
         navLink: "/calendar",
       },
       {
         id: "contacts",
         title: "Contacts",
         type: "item",
-        icon: <Icon className="mr-4 align-middle">perm_contact_calendar</Icon>,
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            perm_contact_calendar
+          </Icon>
+        ),
         navLink: "/contacts",
       },
       {
         id: "ecommerce",
         title: "ECommerce",
         type: "item",
-        icon: <Icon className="mr-4 align-middle">shopping_cart_outlined</Icon>,
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            shopping_cart_outlined
+          </Icon>
+        ),
         pages: [
           {
             id: "inventory",
@@ -72,7 +94,11 @@ const menuConfig = [
         id: "mailbox",
         title: "Mailbox",
         type: "item",
-        icon: <Icon className="mr-4 align-middle">mail_outlined</Icon>,
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            mail_outlined
+          </Icon>
+        ),
         permissions: ["admin", "editor"],
         navLink: "/mailbox",
         chip: (
@@ -94,7 +120,11 @@ const menuConfig = [
         id: "tasks",
         title: "Tasks",
         type: "item",
-        icon: <Icon className="mr-4 align-middle">check_circle_outlined</Icon>,
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            check_circle_outlined
+          </Icon>
+        ),
         navLink: "/tasks",
       },
     ],

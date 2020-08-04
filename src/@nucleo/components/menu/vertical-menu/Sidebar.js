@@ -7,59 +7,107 @@ import AccountMenu from "./AccountMenu";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
-const NavItem = (item) => (
-  <div>
-    {item.navLink ? (
-      <NavLink
-        exact
-        to={item.navLink}
-        className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
-          !item.icon && "pl-16"
-        }`}
-        activestyle={{ background: "rgb(20, 24, 35)" }}
-      >
-        <div>{item.icon}</div>
-        <div className="flex-grow">
-          <p className="text-left">{item.title}</p>
-          <small className="font-base">{item.desc && item.desc}</small>
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+import Collapse from "@material-ui/core/Collapse";
+import InboxIcon from "@material-ui/icons/MoveToInbox";
+import DraftsIcon from "@material-ui/icons/Drafts";
+import SendIcon from "@material-ui/icons/Send";
+import ExpandLess from "@material-ui/icons/ExpandLess";
+import ExpandMore from "@material-ui/icons/ExpandMore";
+import StarBorder from "@material-ui/icons/StarBorder";
+
+function NavItem(item) {
+  // const classes = useStyles();
+  const [open, setOpen] = React.useState(true);
+
+  const handleClick = () => {
+    setOpen(!open);
+  };
+  return (
+    <div>
+      {item.navLink ? (
+        <ListItem button>
+          <ListItemIcon>{item.icon}</ListItemIcon>
+          <ListItemText primary={item.title} />
+        </ListItem>
+      ) : (
+        <div>
+          <ListItem button onClick={handleClick}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Inbox" />
+            {open ? <ExpandLess /> : <ExpandMore />}
+          </ListItem>
+          <Collapse in={open} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItem button>
+                <ListItemIcon>
+                  <StarBorder />
+                </ListItemIcon>
+                <ListItemText primary="Starred" />
+              </ListItem>
+            </List>
+          </Collapse>
         </div>
-        {item.chip && <div>{item.chip}</div>}
-      </NavLink>
-    ) : (
-      <div>
-        <button
-          onClick={toggleMenu}
-          className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
-            !item.icon && "pl-16"
-          }`}
-        >
-          <div>{item.icon}</div>
-          <div className="flex-grow">
-            <p className="text-left">{item.title}</p>
-            <small className="font-base">{item.desc && item.desc}</small>
-          </div>
-          {item.chip && <div>{item.chip}</div>}
-          <span
-            className={`material-icons ml-auto transform text-base ${
-              window.location.toString().includes(item.id) && `rotate-90`
-            }`}
-          >
-            chevron_right
-          </span>
-        </button>
-        <div
-          className={`transition-all ease-in-out duration-700 ${
-            !window.location.toString().includes(item.id) && "hidden"
-          }`}
-        >
-          {item.pages.map((page, i) => {
-            return <NavItem {...page} key={i} />;
-          })}
-        </div>
-      </div>
-    )}
-  </div>
-);
+      )}
+    </div>
+  );
+  // <div>
+  //   {item.navLink ? (
+  //     <NavLink
+  //       exact
+  //       to={item.navLink}
+  //       className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
+  //         !item.icon && "pl-16"
+  //       }`}
+  //       activestyle={{ background: "rgb(20, 24, 35)" }}
+  //     >
+  //       <div>{item.icon}</div>
+  //       <div className="flex-grow">
+  //         <p className="text-left">{item.title}</p>
+  //         <small className="font-base">{item.desc && item.desc}</small>
+  //       </div>
+  //       {item.chip && <div>{item.chip}</div>}
+  //     </NavLink>
+  //   ) : (
+  //     <div>
+  //       <button
+  //         onClick={toggleMenu}
+  //         className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
+  //           !item.icon && "pl-16"
+  //         }`}
+  //       >
+  //         <div>{item.icon}</div>
+  //         <div className="flex-grow">
+  //           <p className="text-left">{item.title}</p>
+  //           <small className="font-base">{item.desc && item.desc}</small>
+  //         </div>
+  //         {item.chip && <div>{item.chip}</div>}
+  //         <span
+  //           className={`material-icons ml-auto transform text-base ${
+  //             window.location.toString().includes(item.id) && `rotate-90`
+  //           }`}
+  //         >
+  //           chevron_right
+  //         </span>
+  //       </button>
+  //       <div
+  //         className={`transition-all ease-in-out duration-700 ${
+  //           !window.location.toString().includes(item.id) && "hidden"
+  //         }`}
+  //       >
+  //         {item.pages.map((page, i) => {
+  //           return <NavItem {...page} key={i} />;
+  //         })}
+  //       </div>
+  //     </div>
+  //   )}
+  // </div>
+}
 
 const toggleMenu = (e) => {
   e.currentTarget.parentElement.lastChild.classList.toggle("hidden");
