@@ -129,6 +129,11 @@ const menuConfig = [
       },
     ],
   },
+  {
+    name: "PAGES",
+    desc: "Custom made page designs",
+    pages: [],
+  },
 ];
 
 export default menuConfig;

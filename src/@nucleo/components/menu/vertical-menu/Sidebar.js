@@ -42,12 +42,9 @@ function NavItem(item) {
           </ListItem>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              <ListItem button>
-                <ListItemIcon>
-                  <StarBorder />
-                </ListItemIcon>
-                <ListItemText primary="Starred" />
-              </ListItem>
+              {item.pages.map((page, i) => {
+                return <NavItem {...page} key={i} />;
+              })}
             </List>
           </Collapse>
         </div>
