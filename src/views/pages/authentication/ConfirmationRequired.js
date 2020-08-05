@@ -1,7 +1,7 @@
 import React from "react";
 import { history } from "../../../history";
 
-export default function SignOut() {
+export default function ConfirmationRequired() {
   return (
     <div className="flex flex-auto w-full min-h-screen">
       <div className="w-2/5 bg-white flex justify-end items-center p-16">
@@ -10,10 +10,14 @@ export default function SignOut() {
             className="w-12 h-12 mb-8 rounded-full"
             style={{ backgroundColor: "#f60056" }}
           ></div>
-          <h2 className="text-3xl font-bold">You have signed out!</h2>
-          <p className="mb-6">You are now being redirected!</p>
+          <h2 className="text-3xl font-bold">Confirmation required</h2>
+          <p className="mb-6">
+            A confirmation mail with instructions has been sent to your email
+            address. Follow those instructions to confirm your email address and
+            activate your account.
+          </p>
           <p>
-            Go to
+            Return to
             <a href="" className="text-indigo-600">
               &nbsp;sign in
             </a>

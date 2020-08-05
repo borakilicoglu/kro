@@ -1,7 +1,7 @@
 import React from "react";
 import { history } from "../../../history";
 
-export default function SignOut() {
+export default function ResetPassword() {
   return (
     <div className="flex flex-auto w-full min-h-screen">
       <div className="w-2/5 bg-white flex justify-end items-center p-16">
@@ -10,14 +10,53 @@ export default function SignOut() {
             className="w-12 h-12 mb-8 rounded-full"
             style={{ backgroundColor: "#f60056" }}
           ></div>
-          <h2 className="text-3xl font-bold">You have signed out!</h2>
-          <p className="mb-6">You are now being redirected!</p>
-          <p>
-            Go to
-            <a href="" className="text-indigo-600">
-              &nbsp;sign in
-            </a>
-          </p>
+          <h2 className="text-3xl font-bold">Unlock Session</h2>
+          <p>Your session is locked due to inactivity</p>
+          <form className="pt-6 mb-6">
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-normal mb-2"
+                for="fullname"
+              >
+                Full name
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="fullname"
+                type="text"
+                placeholder="Stefan Schmitz"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-normal mb-2"
+                for="password"
+              >
+                Password
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder=""
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <button
+                onClick={() => history.push("/")}
+                className="bg-indigo-700 hover:bg-indigo-800 w-full text-white font-normal py-3 rounded focus:outline-none focus:shadow-outline mt-4"
+                type="button"
+              >
+                Reset your password
+              </button>
+            </div>
+          </form>
+
+          <a href="">
+            I'm not <span className="text-indigo-600">Stefan Schmitz</span>
+          </a>
         </div>
       </div>
       <div

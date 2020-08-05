@@ -23,6 +23,12 @@ const ForgotPassword = lazy(() =>
 const ResetPassword = lazy(() =>
   import("./views/pages/authentication/ResetPassword")
 );
+const UnlockSession = lazy(() =>
+  import("./views/pages/authentication/UnlockSession")
+);
+const ConfirmationRequired = lazy(() =>
+  import("./views/pages/authentication/ConfirmationRequired")
+);
 
 // Set Layout and Component Using App Route
 const RouteConfig = ({
@@ -102,6 +108,16 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/authentication/reset-password"
             component={ResetPassword}
+            fullLayout
+          />
+          <AppRoute
+            path="/authentication/unlock-session"
+            component={UnlockSession}
+            fullLayout
+          />
+          <AppRoute
+            path="/authentication/confirmation-required"
+            component={ConfirmationRequired}
             fullLayout
           />
         </Switch>
