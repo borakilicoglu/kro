@@ -15,13 +15,17 @@ export default function Contacts() {
 
   const contactItems = contacts.map((contact, index) => (
     <tr className="border-b" key={index}>
-      <td className="px-4 py-2">
-        <img src={contact.avatar} alt={contact.name} />
+      <td className="pl-8 py-2">
+        <img
+          src={contact.avatar}
+          alt={contact.name}
+          className="w-8 rounded-full"
+        />
       </td>
       <td className="px-4 py-2">{contact.name}</td>
-      <td className="px-4 py-2">{contact.email}</td>
+      <td className="px-4 py-2">{contact.emails[0].email}</td>
       <td className="px-4 py-2">{contact.phoneNumbers[0].number}</td>
-      <td className="px-4 py-2">
+      <td className="pr-8 py-2">
         {contact.job.title} & {contact.job.company}
       </td>
     </tr>
@@ -47,17 +51,17 @@ export default function Contacts() {
         </div>
       </div>
       <div>
-        <table className="table-auto w-full bg-white">
-          <thead>
-            <tr className="border-b">
-              <th className="px-4 py-2"></th>
-              <th className="px-4 py-2">Name</th>
-              <th className="px-4 py-2">Email</th>
-              <th className="px-4 py-2">Phone number</th>
-              <th className="px-4 py-2">Job title & company</th>
+        <table className="table-auto w-full bg-white border-t">
+          <thead className="text-xs text-gray-600">
+            <tr className="border-b text-left">
+              <th className="px-4 py-4"></th>
+              <th className="px-4 py-4">Name</th>
+              <th className="px-4 py-4">Email</th>
+              <th className="px-4 py-4">Phone number</th>
+              <th className="px-4 py-4">Job title & company</th>
             </tr>
           </thead>
-          <tbody>{contactItems}</tbody>
+          <tbody className="px-8">{contactItems}</tbody>
         </table>
       </div>
     </div>
