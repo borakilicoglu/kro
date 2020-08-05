@@ -22,10 +22,10 @@ export default function Contacts() {
           className="w-8 rounded-full"
         />
       </td>
-      <td className="px-4 py-2">{contact.name}</td>
-      <td className="px-4 py-2">{contact.emails[0].email}</td>
-      <td className="px-4 py-2">{contact.phoneNumbers[0].number}</td>
-      <td className="pr-8 py-2">
+      <td className="px-4 py-4">{contact.name}</td>
+      <td className="px-4 py-4">{contact.emails[0].email}</td>
+      <td className="px-4 py-4">{contact.phoneNumbers[0].number}</td>
+      <td className="pr-8 pl-4 py-4">
         {contact.job.title} & {contact.job.company}
       </td>
     </tr>
@@ -52,16 +52,16 @@ export default function Contacts() {
       </div>
       <div>
         <table className="table-auto w-full bg-white border-t">
-          <thead className="text-xs text-gray-600">
+          <thead className="text-xs text-gray-600 bg-gray-100">
             <tr className="border-b text-left">
-              <th className="px-4 py-4"></th>
-              <th className="px-4 py-4">Name</th>
-              <th className="px-4 py-4">Email</th>
-              <th className="px-4 py-4">Phone number</th>
-              <th className="px-4 py-4">Job title & company</th>
+              <th className="px-4 py-4 font-medium"></th>
+              <th className="px-4 py-4 font-medium">Name</th>
+              <th className="px-4 py-4 font-medium">Email</th>
+              <th className="px-4 py-4 font-medium">Phone number</th>
+              <th className="px-4 py-4 font-medium">Job title & company</th>
             </tr>
           </thead>
-          <tbody className="px-8">{contactItems}</tbody>
+          <tbody>{contactItems}</tbody>
         </table>
       </div>
     </div>
