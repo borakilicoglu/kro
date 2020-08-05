@@ -132,7 +132,149 @@ const menuConfig = [
   {
     name: "PAGES",
     desc: "Custom made page designs",
-    pages: [],
+    pages: [
+      {
+        id: "authentication",
+        title: "Authentication",
+        type: "item",
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            lock
+          </Icon>
+        ),
+        permissions: ["admin", "editor"],
+        pages: [
+          {
+            id: "sign-in",
+            title: "Sign in",
+            type: "item",
+            navLink: "/authentication/sign-in",
+          },
+          {
+            id: "sign-up",
+            title: "Sign up",
+            type: "item",
+            navLink: "/authentication/sign-up",
+          },
+          {
+            id: "sign-out",
+            title: "Sign out",
+            type: "item",
+            navLink: "/authentication/sign-out",
+          },
+          {
+            id: "sign-out",
+            title: "Forgot password",
+            type: "item",
+            navLink: "/authentication/forgot-password",
+          },
+          {
+            id: "reset-password",
+            title: "Reset password",
+            type: "item",
+            navLink: "/authentication/reset-password",
+          },
+          {
+            id: "unlock-session",
+            title: "Unlock session",
+            type: "item",
+            navLink: "/authentication/unlock-session",
+          },
+          {
+            id: "confirmation-required",
+            title: "Confirmation required",
+            type: "item",
+            navLink: "/authentication/confirmation-required",
+          },
+        ],
+      },
+      {
+        id: "coming-soon",
+        title: "Coming soon",
+        type: "item",
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            schedule
+          </Icon>
+        ),
+        permissions: ["admin", "editor"],
+        pages: [
+          {
+            id: "classic",
+            title: "Classic",
+            type: "item",
+            navLink: "/coming-soon/classic",
+          },
+          {
+            id: "modern",
+            title: "Modern",
+            type: "item",
+            navLink: "/coming-soon/modern",
+          },
+          {
+            id: "modern-alt",
+            title: "Modern Alt.",
+            type: "item",
+            navLink: "/coming-soon/modern-alt",
+          },
+          {
+            id: "fullscreen",
+            title: "Fullscreen",
+            type: "item",
+            navLink: "/coming-soon/fullscreen",
+          },
+          {
+            id: "fullscree-alt",
+            title: "Fullscreen Alt.",
+            type: "item",
+            navLink: "/coming-soon/fullscreen-alt",
+          },
+        ],
+      },
+      {
+        id: "coming-soon",
+        title: "Coming soon",
+        type: "item",
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            schedule
+          </Icon>
+        ),
+        permissions: ["admin", "editor"],
+        pages: [
+          {
+            id: "classic",
+            title: "Classic",
+            type: "item",
+            navLink: "/coming-soon/classic",
+          },
+          {
+            id: "modern",
+            title: "Modern",
+            type: "item",
+            navLink: "/coming-soon/modern",
+          },
+          {
+            id: "modern-alt",
+            title: "Modern Alt.",
+            type: "item",
+            navLink: "/coming-soon/modern-alt",
+          },
+          {
+            id: "fullscreen",
+            title: "Fullscreen",
+            type: "item",
+            navLink: "/coming-soon/fullscreen",
+          },
+          {
+            id: "fullscree-alt",
+            title: "Fullscreen Alt.",
+            type: "item",
+            navLink: "/coming-soon/fullscreen-alt",
+          },
+        ],
+      },
+    ],
   },
 ];
 
