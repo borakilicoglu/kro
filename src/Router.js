@@ -14,8 +14,12 @@ const Contacts = lazy(() => import("./views/pages/Contacts"));
 const Inventory = lazy(() => import("./views/pages/ecommerce/Inventory"));
 const Mailbox = lazy(() => import("./views/pages/Mailbox"));
 const Tasks = lazy(() => import("./views/pages/Tasks"));
-const Login = lazy(() => import("./views/pages/authentication/Login"));
 const SignIn = lazy(() => import("./views/pages/authentication/SignIn"));
+const SignUp = lazy(() => import("./views/pages/authentication/SignUp"));
+const SignOut = lazy(() => import("./views/pages/authentication/SignOut"));
+const ForgotPassword = lazy(() =>
+  import("./views/pages/authentication/ForgotPassword")
+);
 
 // Set Layout and Component Using App Route
 const RouteConfig = ({
@@ -65,15 +69,28 @@ class AppRouter extends React.Component {
       <Router history={history}>
         <Switch>
           <AppRoute exact path="/" component={Finance} />
-          <AppRoute exact path="/analytics" component={Analytics} />
+          <AppRoute path="/analytics" component={Analytics} />
           <AppRoute path="/crypto" component={Crypto} />
           <AppRoute path="/calendar" component={Calendar} />
           <AppRoute path="/contacts" component={Contacts} />
           <AppRoute path="/ecommerce/inventory" component={Inventory} />
           <AppRoute path="/mailbox" component={Mailbox} />
           <AppRoute path="/tasks" component={Tasks} />
-          <AppRoute path="/login" component={Login} fullLayout />
-          <AppRoute path="/sign-in" component={SignIn} fullLayout />
+          <AppRoute
+            path="/authentication/sign-in"
+            component={SignIn}
+            fullLayout
+          />
+          <AppRoute
+            path="/authentication/sign-up"
+            component={SignUp}
+            fullLayout
+          />
+          <AppRoute
+            path="/authentication/sign-out"
+            component={SignOut}
+            fullLayout
+          />
         </Switch>
       </Router>
     );
