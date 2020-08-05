@@ -1,7 +1,7 @@
 import React from "react";
 import { history } from "../../../history";
 
-export default function ForgotPassword() {
+export default function ResetPassword() {
   return (
     <div className="flex flex-auto w-full min-h-screen">
       <div className="w-2/5 bg-white flex justify-end items-center p-16">
@@ -10,21 +10,36 @@ export default function ForgotPassword() {
             className="w-12 h-12 mb-8 rounded-full"
             style={{ backgroundColor: "#f60056" }}
           ></div>
-          <h2 className="text-3xl font-bold">Forgot password?</h2>
-          <p>Fill the form to reset your password</p>
+          <h2 className="text-3xl font-bold">Reset your password</h2>
+          <p>Create a new password for your account</p>
           <form className="pt-6 mb-6">
             <div className="mb-4">
               <label
                 className="block text-gray-700 text-sm font-normal mb-2"
-                for="email"
+                for="password"
               >
-                Email address
+                Password
               </label>
               <input
                 className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="email"
-                type="email"
-                placeholder="stefan.schmitz@company.com"
+                id="password"
+                type="password"
+                placeholder=""
+              />
+            </div>
+
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 text-sm font-normal mb-2"
+                for="password"
+              >
+                Password (Confirm)
+              </label>
+              <input
+                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="password"
+                type="password"
+                placeholder=""
               />
             </div>
 
@@ -34,7 +49,7 @@ export default function ForgotPassword() {
                 className="bg-indigo-700 hover:bg-indigo-800 w-full text-white font-normal py-3 rounded focus:outline-none focus:shadow-outline mt-4"
                 type="button"
               >
-                Send reset link
+                Reset your password
               </button>
             </div>
           </form>

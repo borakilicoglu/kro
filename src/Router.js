@@ -20,6 +20,9 @@ const SignOut = lazy(() => import("./views/pages/authentication/SignOut"));
 const ForgotPassword = lazy(() =>
   import("./views/pages/authentication/ForgotPassword")
 );
+const ResetPassword = lazy(() =>
+  import("./views/pages/authentication/ResetPassword")
+);
 
 // Set Layout and Component Using App Route
 const RouteConfig = ({
@@ -94,6 +97,11 @@ class AppRouter extends React.Component {
           <AppRoute
             path="/authentication/forgot-password"
             component={ForgotPassword}
+            fullLayout
+          />
+          <AppRoute
+            path="/authentication/reset-password"
+            component={ResetPassword}
             fullLayout
           />
         </Switch>
