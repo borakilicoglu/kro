@@ -91,6 +91,11 @@ class AppRouter extends React.Component {
             component={SignOut}
             fullLayout
           />
+          <AppRoute
+            path="/authentication/forgot-password"
+            component={ForgotPassword}
+            fullLayout
+          />
         </Switch>
       </Router>
     );
