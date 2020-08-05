@@ -23,8 +23,8 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 
 const useStyles = makeStyles((theme) => ({
   listItemIcon: {
-    paddingLeft: "1.5rem",
-    paddingRight: "1.5rem",
+    minWidth: "24px",
+    marginRight: "16px",
   },
   listItem: {
     paddingLeft: "1.5rem",
@@ -59,13 +59,17 @@ function NavItem(item) {
           <ListItemIcon className={classes.listItemIcon}>
             {item.icon}
           </ListItemIcon>
+
           <div className="flex-grow">
             <ListItemText
               primary={item.title}
               className={classes.listItemText}
             />
-            <small className="font-base">{item.desc && item.desc}</small>
+            <div className="font-base text-xs text-gray-500">
+              {item.desc && item.desc}
+            </div>
           </div>
+
           {item.chip && <div>{item.chip}</div>}
         </ListItem>
       ) : (
@@ -79,8 +83,11 @@ function NavItem(item) {
                 primary={item.title}
                 className={classes.listItemText}
               />
-              <small className="font-base">{item.desc && item.desc}</small>
+              <div className="font-base text-xs text-gray-500">
+                {item.desc && item.desc}
+              </div>
             </div>
+
             {item.chip && <div>{item.chip}</div>}
             {open ? <ExpandMore /> : <ChevronRight />}
           </ListItem>
