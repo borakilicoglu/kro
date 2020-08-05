@@ -13,7 +13,7 @@ const menuConfig = [
         type: "item",
         icon: (
           <Icon className="mr-4 align-middle align-middle text-gray-400">
-            payment_outlined
+            payments
           </Icon>
         ),
         permissions: ["admin", "editor"],
@@ -311,7 +311,7 @@ const menuConfig = [
         type: "item",
         icon: (
           <Icon className="mr-4 align-middle align-middle text-gray-400">
-            money
+            payments
           </Icon>
         ),
         permissions: ["admin", "editor"],
@@ -341,6 +341,18 @@ const menuConfig = [
             navLink: "/pricing/table",
           },
         ],
+      },
+      {
+        id: "profile",
+        title: "Profile",
+        type: "item",
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            account_circle
+          </Icon>
+        ),
+        permissions: ["admin", "editor"],
+        navLink: "/profile",
       },
     ],
   },
