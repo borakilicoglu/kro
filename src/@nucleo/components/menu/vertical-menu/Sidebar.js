@@ -7,20 +7,40 @@ import AccountMenu from "./AccountMenu";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 
+import { makeStyles } from "@material-ui/core/styles";
+
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
-import SendIcon from "@material-ui/icons/Send";
+// import InboxIcon from "@material-ui/icons/MoveToInbox";
+// import DraftsIcon from "@material-ui/icons/Drafts";
+// import SendIcon from "@material-ui/icons/Send";
+// import StarBorder from "@material-ui/icons/StarBorder";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import StarBorder from "@material-ui/icons/StarBorder";
+
+const useStyles = makeStyles((theme) => ({
+  listItemIcon: {
+    paddingLeft: "1.5rem",
+    paddingRight: "1.5rem",
+  },
+  listItem: {
+    paddingLeft: "1.5rem",
+    paddingRight: "1.5rem",
+  },
+  listItemText: {
+    marginBottom: "0px",
+    marginTop: "0px",
+    "& span": {
+      fontSize: "13px",
+    },
+  },
+}));
 
 function NavItem(item) {
-  // const classes = useStyles();
+  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const handleClick = () => {
@@ -29,15 +49,39 @@ function NavItem(item) {
   return (
     <div>
       {item.navLink ? (
-        <ListItem button>
-          <ListItemIcon>{item.icon}</ListItemIcon>
-          <ListItemText primary={item.title} />
+        <ListItem
+          button
+          component={NavLink}
+          exact
+          to={item.navLink}
+          className={classes.listItem}
+        >
+          <ListItemIcon className={classes.listItemIcon}>
+            {item.icon}
+          </ListItemIcon>
+          <div className="flex-grow">
+            <ListItemText
+              primary={item.title}
+              className={classes.listItemText}
+            />
+            <small className="font-base">{item.desc && item.desc}</small>
+          </div>
+          {item.chip && <div>{item.chip}</div>}
         </ListItem>
       ) : (
         <div>
-          <ListItem button onClick={handleClick}>
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            <ListItemText primary={item.title} />
+          <ListItem button onClick={handleClick} className={classes.listItem}>
+            <ListItemIcon className={classes.listItemIcon}>
+              {item.icon}
+            </ListItemIcon>
+            <div className="flex-grow">
+              <ListItemText
+                primary={item.title}
+                className={classes.listItemText}
+              />
+              <small className="font-base">{item.desc && item.desc}</small>
+            </div>
+            {item.chip && <div>{item.chip}</div>}
             {open ? <ExpandMore /> : <ChevronRight />}
           </ListItem>
           <Collapse in={open} timeout="auto" unmountOnExit>

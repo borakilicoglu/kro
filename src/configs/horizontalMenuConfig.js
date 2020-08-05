@@ -12,7 +12,7 @@ const menuConfig = [
         title: "Finance",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             payments
           </Icon>
         ),
@@ -24,7 +24,7 @@ const menuConfig = [
         title: "Analytics",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             pie_chart_outlined
           </Icon>
         ),
@@ -36,7 +36,7 @@ const menuConfig = [
         title: "Crypto",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             monetization_on_outlined
           </Icon>
         ),
@@ -55,7 +55,7 @@ const menuConfig = [
         desc: "3 upcoming events",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             today_outlined
           </Icon>
         ),
@@ -66,7 +66,7 @@ const menuConfig = [
         title: "Contacts",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             perm_contact_calendar
           </Icon>
         ),
@@ -77,7 +77,7 @@ const menuConfig = [
         title: "ECommerce",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             shopping_cart_outlined
           </Icon>
         ),
@@ -95,7 +95,7 @@ const menuConfig = [
         title: "Mailbox",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             mail_outlined
           </Icon>
         ),
@@ -121,7 +121,7 @@ const menuConfig = [
         title: "Tasks",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             check_circle_outlined
           </Icon>
         ),
@@ -138,9 +138,7 @@ const menuConfig = [
         title: "Authentication",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
-            lock
-          </Icon>
+          <Icon className="align-middle align-middle text-gray-400">lock</Icon>
         ),
         permissions: ["admin", "editor"],
         pages: [
@@ -193,7 +191,7 @@ const menuConfig = [
         title: "Coming soon",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             schedule
           </Icon>
         ),
@@ -236,7 +234,7 @@ const menuConfig = [
         title: "Errors",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             error_outline
           </Icon>
         ),
@@ -261,7 +259,7 @@ const menuConfig = [
         title: "Help center",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             help_outline
           </Icon>
         ),
@@ -298,7 +296,7 @@ const menuConfig = [
         title: "Maintenance",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             warning
           </Icon>
         ),
@@ -310,7 +308,7 @@ const menuConfig = [
         title: "Pricing",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             payments
           </Icon>
         ),
@@ -347,7 +345,7 @@ const menuConfig = [
         title: "Profile",
         type: "item",
         icon: (
-          <Icon className="mr-4 align-middle align-middle text-gray-400">
+          <Icon className="align-middle align-middle text-gray-400">
             account_circle
           </Icon>
         ),
