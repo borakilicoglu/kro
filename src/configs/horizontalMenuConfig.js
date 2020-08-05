@@ -232,45 +232,113 @@ const menuConfig = [
         ],
       },
       {
-        id: "coming-soon",
-        title: "Coming soon",
+        id: "error",
+        title: "Errors",
         type: "item",
         icon: (
           <Icon className="mr-4 align-middle align-middle text-gray-400">
-            schedule
+            error_outline
           </Icon>
         ),
         permissions: ["admin", "editor"],
         pages: [
           {
-            id: "classic",
-            title: "Classic",
+            id: "404",
+            title: "404",
             type: "item",
-            navLink: "/coming-soon/classic",
+            navLink: "/error/404",
           },
+          {
+            id: "500",
+            title: "500",
+            type: "item",
+            navLink: "/error/500",
+          },
+        ],
+      },
+      {
+        id: "help-center",
+        title: "Help center",
+        type: "item",
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            help_outline
+          </Icon>
+        ),
+        permissions: ["admin", "editor"],
+        pages: [
+          {
+            id: "home",
+            title: "Home",
+            type: "item",
+            navLink: "/help-center/home",
+          },
+          {
+            id: "faqs",
+            title: "FAQs",
+            type: "item",
+            navLink: "/help-center/faqs",
+          },
+          {
+            id: "guides",
+            title: "Guides",
+            type: "item",
+            navLink: "/help-center/quides",
+          },
+          {
+            id: "support",
+            title: "Support",
+            type: "item",
+            navLink: "/help-center/support",
+          },
+        ],
+      },
+      {
+        id: "maintenance",
+        title: "Maintenance",
+        type: "item",
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            warning
+          </Icon>
+        ),
+        permissions: ["admin", "editor"],
+        navLink: "/maintenance",
+      },
+      {
+        id: "pricing",
+        title: "Pricing",
+        type: "item",
+        icon: (
+          <Icon className="mr-4 align-middle align-middle text-gray-400">
+            money
+          </Icon>
+        ),
+        permissions: ["admin", "editor"],
+        pages: [
           {
             id: "modern",
             title: "Modern",
             type: "item",
-            navLink: "/coming-soon/modern",
+            navLink: "/pricing/modern",
           },
           {
-            id: "modern-alt",
-            title: "Modern Alt.",
+            id: "simple",
+            title: "Simple",
             type: "item",
-            navLink: "/coming-soon/modern-alt",
+            navLink: "/pricing/simple",
           },
           {
-            id: "fullscreen",
-            title: "Fullscreen",
+            id: "single",
+            title: "Single",
             type: "item",
-            navLink: "/coming-soon/fullscreen",
+            navLink: "/pricing/single",
           },
           {
-            id: "fullscree-alt",
-            title: "Fullscreen Alt.",
+            id: "table",
+            title: "Table",
             type: "item",
-            navLink: "/coming-soon/fullscreen-alt",
+            navLink: "/pricing/table",
           },
         ],
       },
