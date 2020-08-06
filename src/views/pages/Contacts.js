@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
-import { makeStyles } from "@material-ui/core/styles";
 import Icon from "@material-ui/core/Icon";
 import { contacts } from "../../@fake-db/contacts/contacts";
 
-const useStyles = makeStyles((theme) => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-}));
-
 export default function Contacts() {
-  const classes = useStyles();
-
   const [searchTerm, setSearchTerm] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
   const handleChange = (event) => {
@@ -25,7 +15,7 @@ export default function Contacts() {
     setSearchResults(results);
   }, [searchTerm]);
 
-  const contactItems = searchResults.map((contact, index) => (
+  const contactList = searchResults.map((contact, index) => (
     <tr className="border-b hover:bg-gray-100 cursor-pointer" key={index}>
       <td className="pl-8 py-4">
         <div className="flex items-center">
@@ -50,7 +40,7 @@ export default function Contacts() {
       <div className="flex bg-white w-full px-8 py-10">
         <div>
           <h2 className="text-3xl font-bold pb-0 leading-none">Contacts</h2>
-          <span className="text-gray-700">{contacts.length} contacts</span>
+          <span className="text-gray-700">{searchResults.length} contacts</span>
         </div>
         <div className="flex ml-auto items-center">
           <div className="relative">
@@ -86,7 +76,7 @@ export default function Contacts() {
               <th className="px-4 py-4 font-medium">Job title & company</th>
             </tr>
           </thead>
-          <tbody>{contactItems}</tbody>
+          <tbody>{contactList}</tbody>
         </table>
       </div>
     </div>
