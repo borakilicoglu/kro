@@ -19,20 +19,41 @@ export default function Inventory() {
     <tr className="border-b hover:bg-gray-100 cursor-pointer" key={index}>
       <td className="pl-8 py-4">
         <div className="flex items-center">
-          <img
-            src={require("../../../assets/images/apps/ecommerce/products/watch-01-01.jpg")}
-            alt={product.name}
-            className="w-8 rounded-full"
-          />
+          <div className="rounded border px-2">
+            <img
+              src={require("../../../assets/images/apps/ecommerce/products/watch-01-01.jpg")}
+              alt={product.name}
+              className="w-8"
+            />
+          </div>
           <div className="ml-8">{product.sku}</div>
         </div>
       </td>
       <td className="px-4 py-4">{product.name}</td>
-      <td className="px-4 py-4">{product.price}</td>
-      <td className="pr-8 pl-4 py-4">{product.stock}</td>
-      <td className="pr-8 pl-4 py-4">{product.active ? "yes" : "no"}</td>
+      <td className="px-4 py-4">${product.price}</td>
       <td className="pr-8 pl-4 py-4">
-        <button>open</button>
+        <div className="flex items-center">
+          <span>{product.stock}</span>
+          <span class="flex items-end ml-2 w-1 h-4 bg-red-200 rounded overflow-hidden ng-tns-c159-193 ng-star-inserted">
+            <span class="flex w-full h-1/3 bg-red-600 ng-tns-c159-193"></span>
+          </span>
+        </div>
+      </td>
+      <td className="pr-8 pl-4 py-4">
+        {product.active ? (
+          <Icon color="primary" style={{ color: "#31c48d" }} fontSize="small">
+            check
+          </Icon>
+        ) : (
+          <Icon color="primary" style={{ color: "#97a6ba" }} fontSize="small">
+            close
+          </Icon>
+        )}
+      </td>
+      <td className="pr-8 pl-4 py-4">
+        <button class="bg-white hover:bg-gray-200 text-gray-600 border rounded rounded inline-flex items-center px-2 py-1">
+          <Icon fontSize="small">expand_more</Icon>
+        </button>
       </td>
     </tr>
   ));
@@ -66,10 +87,12 @@ export default function Inventory() {
         </div>
       </div>
       <div>
-        <table className="table-fixed w-full bg-white border-t">
+        <table className="table-auto w-full bg-white border-t">
           <thead className="text-xs text-gray-600 bg-gray-100">
             <tr className="border-b text-left">
-              <th className="pl-24 py-4 font-medium">Sku</th>
+              <th className="pl-24 py-4 font-medium">
+                <span className="ml-4">SKU</span>
+              </th>
               <th className="px-4 py-4 font-medium">Name</th>
               <th className="px-4 py-4 font-medium">Price</th>
               <th className="px-4 py-4 font-medium">Stock</th>

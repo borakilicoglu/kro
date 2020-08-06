@@ -14,10 +14,6 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import Collapse from "@material-ui/core/Collapse";
-// import InboxIcon from "@material-ui/icons/MoveToInbox";
-// import DraftsIcon from "@material-ui/icons/Drafts";
-// import SendIcon from "@material-ui/icons/Send";
-// import StarBorder from "@material-ui/icons/StarBorder";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 
@@ -102,63 +98,7 @@ function NavItem(item) {
       )}
     </div>
   );
-  // <div>
-  //   {item.navLink ? (
-  //     <NavLink
-  //       exact
-  //       to={item.navLink}
-  //       className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
-  //         !item.icon && "pl-16"
-  //       }`}
-  //       activestyle={{ background: "rgb(20, 24, 35)" }}
-  //     >
-  //       <div>{item.icon}</div>
-  //       <div className="flex-grow">
-  //         <p className="text-left">{item.title}</p>
-  //         <small className="font-base">{item.desc && item.desc}</small>
-  //       </div>
-  //       {item.chip && <div>{item.chip}</div>}
-  //     </NavLink>
-  //   ) : (
-  //     <div>
-  //       <button
-  //         onClick={toggleMenu}
-  //         className={`flex items-center py-3 text-xs px-6 transition ease-in duration-200 w-full ${
-  //           !item.icon && "pl-16"
-  //         }`}
-  //       >
-  //         <div>{item.icon}</div>
-  //         <div className="flex-grow">
-  //           <p className="text-left">{item.title}</p>
-  //           <small className="font-base">{item.desc && item.desc}</small>
-  //         </div>
-  //         {item.chip && <div>{item.chip}</div>}
-  //         <span
-  //           className={`material-icons ml-auto transform text-base ${
-  //             window.location.toString().includes(item.id) && `rotate-90`
-  //           }`}
-  //         >
-  //           chevron_right
-  //         </span>
-  //       </button>
-  //       <div
-  //         className={`transition-all ease-in-out duration-700 ${
-  //           !window.location.toString().includes(item.id) && "hidden"
-  //         }`}
-  //       >
-  //         {item.pages.map((page, i) => {
-  //           return <NavItem {...page} key={i} />;
-  //         })}
-  //       </div>
-  //     </div>
-  //   )}
-  // </div>
 }
-
-const toggleMenu = (e) => {
-  e.currentTarget.parentElement.lastChild.classList.toggle("hidden");
-  e.currentTarget.parentElement.lastChild.classList.toggle("rotate-90");
-};
 
 export class Sidebar extends Component {
   render() {
