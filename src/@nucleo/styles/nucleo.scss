@@ -2,6 +2,8 @@
 @import "navigation-vertical";
 @import "finance";
 
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+
 html,
 body {
   -webkit-font-smoothing: auto;
@@ -38,6 +40,7 @@ input {
 }
 
 .logo a {
+  // font-family: "Josefin Sans", sans-serif;
   color: rgb(246, 0, 86);
 }
 

@@ -176,9 +176,9 @@ export class Sidebar extends Component {
           <div className="logo flex-grow">
             <NavLink
               to="/"
-              className="text-white text-3xl font-semibold hover:text-gray-300"
+              className="text-white text-3xl font-semibold hover:text-gray-300 align-middle"
             >
-              Nucleo
+              NUCLEO
             </NavLink>
           </div>
 
