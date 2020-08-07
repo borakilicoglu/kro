@@ -2,7 +2,7 @@
 @import "navigation-vertical";
 @import "finance";
 
-@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap");
 
 html,
 body {
@@ -41,6 +41,7 @@ input {
 
 .logo a {
   // font-family: "Josefin Sans", sans-serif;
+  font-family: "IBM Plex Sans", sans-serif;
   color: rgb(246, 0, 86);
 }
 
