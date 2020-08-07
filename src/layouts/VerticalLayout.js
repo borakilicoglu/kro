@@ -145,8 +145,6 @@ class VerticalLayout extends PureComponent {
   };
 
   toggleSidebarMenu = (val) => {
-    console.log("clicked");
-
     this.setState({
       sidebarState: !this.state.sidebarState,
       collapsedContent: !this.state.collapsedContent,
@@ -222,6 +220,7 @@ class VerticalLayout extends PureComponent {
       deviceWidth: this.state.width,
     };
     let navbarProps = {
+      fixed: this.props.fixed,
       toggleSidebarMenu: this.toggleSidebarMenu,
       toggle: this.toggleSidebarMenu,
       sidebarState: this.state.sidebarState,

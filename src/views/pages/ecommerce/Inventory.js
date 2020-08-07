@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Icon from "@material-ui/core/Icon";
 import { products } from "../../../@fake-db/inventory/inventory";
 
-export default function Inventory() {
+export default function Inventory(props) {
   const [searchTerm, setSearchTerm] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
   const handleChange = (event) => {
@@ -34,8 +34,8 @@ export default function Inventory() {
       <td className="pr-8 pl-4 py-4">
         <div className="flex items-center">
           <span>{product.stock}</span>
-          <span class="flex items-end ml-2 w-1 h-4 bg-red-200 rounded overflow-hidden ng-tns-c159-193 ng-star-inserted">
-            <span class="flex w-full h-1/3 bg-red-600 ng-tns-c159-193"></span>
+          <span className="flex items-end ml-2 w-1 h-4 bg-red-200 rounded overflow-hidden ng-tns-c159-193 ng-star-inserted">
+            <span className="flex w-full h-1/3 bg-red-600 ng-tns-c159-193"></span>
           </span>
         </div>
       </td>
@@ -51,7 +51,7 @@ export default function Inventory() {
         )}
       </td>
       <td className="pr-8 pl-4 py-4">
-        <button class="bg-white hover:bg-gray-200 text-gray-600 border rounded rounded inline-flex items-center px-2 py-1">
+        <button className="bg-white hover:bg-gray-200 text-gray-600 border rounded rounded inline-flex items-center px-2 py-1">
           <Icon fontSize="small">expand_more</Icon>
         </button>
       </td>

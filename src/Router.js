@@ -34,6 +34,7 @@ const ConfirmationRequired = lazy(() =>
 const RouteConfig = ({
   component: Component,
   fullLayout,
+  fixed,
   permission,
   user,
   ...rest
@@ -51,7 +52,7 @@ const RouteConfig = ({
                 ? context.horizontalLayout
                 : context.VerticalLayout;
             return (
-              <LayoutTag {...props} permission={props.user}>
+              <LayoutTag {...props} permission={props.user} fixed>
                 <Suspense fallback={<Fallback />}>
                   <Component {...props} />
                 </Suspense>
@@ -82,7 +83,11 @@ class AppRouter extends React.Component {
           <AppRoute path="/crypto" component={Crypto} />
           <AppRoute path="/calendar" component={Calendar} />
           <AppRoute path="/contacts" component={Contacts} />
-          <AppRoute path="/ecommerce/inventory" component={Inventory} />
+          <AppRoute
+            path="/ecommerce/inventory"
+            component={Inventory}
+            fixed={true}
+          />
           <AppRoute path="/mailbox" component={Mailbox} />
           <AppRoute path="/tasks" component={Tasks} />
           <AppRoute

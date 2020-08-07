@@ -13,6 +13,7 @@ export default function Navbar(props) {
         <IconButton onClick={() => props.toggle()}>
           <MenuIcon />
         </IconButton>
+        {props.fixed ? "true" : "false"}
       </div>
       <div className="w-1/2 flex justify-end">
         <Search {...props} />
