@@ -220,7 +220,7 @@ class VerticalLayout extends PureComponent {
       deviceWidth: this.state.width,
     };
     let navbarProps = {
-      fixed: this.props.fixed,
+      fixedHeader: this.props.fixedHeader,
       toggleSidebarMenu: this.toggleSidebarMenu,
       toggle: this.toggleSidebarMenu,
       sidebarState: this.state.sidebarState,

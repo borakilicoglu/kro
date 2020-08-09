@@ -7,7 +7,6 @@ import { store } from "./redux/storeConfig/store";
 import Fallback from "./@nucleo/components/fallback/Fallback.js";
 
 import "./styles/theme.scss";
-import "./@fake-db";
 
 const LazyApp = lazy(() => import("./App"));
 

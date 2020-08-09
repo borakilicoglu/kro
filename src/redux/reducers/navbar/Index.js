@@ -1,8 +1,8 @@
-import { searchResult } from "../../../@fake-db/navbar/navbarBookmarkSearch"
+import { searchResult } from "../../../@fake-db/navbar/navbarBookmarkSearch";
 
-const defaultStarred = searchResult.filter(item => {
-  return item.starred === true
-})
+const defaultStarred = searchResult.filter((item) => {
+  return item.starred === true;
+});
 
 const initialState = {
   suggestions: [],
@@ -10,8 +10,8 @@ const initialState = {
   value: "",
   starred: defaultStarred,
   noSuggestions: false,
-  extraStarred: []
-}
+  extraStarred: [],
+};
 
 const navbarReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -19,29 +19,29 @@ const navbarReducer = (state = initialState, action) => {
       return {
         ...state,
         suggestions: action.suggestions,
-        isLoading: false
-      }
+        isLoading: false,
+      };
     case "UPDATE_STARRED":
-      const starredState = state.starred.map(i => i.id)
-      const extraStarredState = state.extraStarred.map(j => j.id)
+      const starredState = state.starred.map((i) => i.id);
+      const extraStarredState = state.extraStarred.map((j) => j.id);
       // Update main suggestions
       if (state) {
-        state.suggestions.find(i => {
+        state.suggestions.find((i) => {
           if (i.id === action.object.id) {
-            i.starred = !action.object.starred
-            return { ...state }
+            i.starred = !action.object.starred;
+            return { ...state };
           } else {
-            return null
+            return null;
           }
-        })
+        });
       }
       // checks if it includes and length is 0 < 10 then pushes object
       if (
         !starredState.includes(action.object.id) &&
         state.starred.length < 10
       ) {
-        let newState = state.starred.push(action.object)
-        return { ...state, newState }
+        let newState = state.starred.push(action.object);
+        return { ...state, newState };
       }
 
       // checks if it already includes and then removes it
@@ -50,15 +50,15 @@ const navbarReducer = (state = initialState, action) => {
           let newState = state.starred.splice(
             starredState.indexOf(action.object.id),
             1
-          )
-          return { ...state, newState }
+          );
+          return { ...state, newState };
         } else if (state.extraStarred.length > 0) {
-          let getBookmark = state.extraStarred.splice(0, 1)
-          state.starred.splice(starredState.indexOf(action.object.id), 1)
-          let updatedState = state.starred.push(getBookmark[0])
-          return { ...state, updatedState }
+          let getBookmark = state.extraStarred.splice(0, 1);
+          state.starred.splice(starredState.indexOf(action.object.id), 1);
+          let updatedState = state.starred.push(getBookmark[0]);
+          return { ...state, updatedState };
         } else {
-          return { ...state }
+          return { ...state };
         }
       }
 
@@ -67,15 +67,15 @@ const navbarReducer = (state = initialState, action) => {
         !extraStarredState.includes(action.object.id) &&
         state.starred.length >= 10
       ) {
-        let extraStarred = state.extraStarred.concat(action.object)
-        return { ...state, extraStarred }
+        let extraStarred = state.extraStarred.concat(action.object);
+        return { ...state, extraStarred };
       } else {
-        return { ...state }
+        return { ...state };
       }
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default navbarReducer
+export default navbarReducer;

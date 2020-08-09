@@ -36,6 +36,7 @@ const RouteConfig = ({
   fullLayout,
   permission,
   user,
+  fixedHeader,
   ...rest
 }) => (
   <Route
@@ -51,7 +52,11 @@ const RouteConfig = ({
                 ? context.horizontalLayout
                 : context.VerticalLayout;
             return (
-              <LayoutTag {...props} permission={props.user}>
+              <LayoutTag
+                {...props}
+                permission={props.user}
+                fixedHeader={fixedHeader}
+              >
                 <Suspense fallback={<Fallback />}>
                   <Component {...props} />
                 </Suspense>
@@ -82,7 +87,11 @@ class AppRouter extends React.Component {
           <AppRoute path="/crypto" component={Crypto} />
           <AppRoute path="/calendar" component={Calendar} />
           <AppRoute path="/contacts" component={Contacts} />
-          <AppRoute path="/ecommerce/inventory" component={Inventory} />
+          <AppRoute
+            path="/ecommerce/inventory"
+            component={Inventory}
+            fixedHeader
+          />
           <AppRoute path="/mailbox" component={Mailbox} />
           <AppRoute path="/tasks" component={Tasks} />
           <AppRoute

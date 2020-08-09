@@ -54,6 +54,7 @@
     "@material-ui/icons": "^4.9.1",
     "apexcharts": "^3.19.2",
     "autoprefixer": "^9.8.0",
+    "husky": "^4.2.5",
     "material-ui-popup-state": "^1.5.4",
     "moment": "^2.27.0",
     "node-sass": "^4.14.1",
