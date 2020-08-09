@@ -7,7 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 
 export default function Navbar(props) {
-  console.log(props.fixedHeader);
   return (
     <header className={`bg-white shadow ${props.fixedHeader ? "fixed" : ""}`}>
       <div className="w-1/2">

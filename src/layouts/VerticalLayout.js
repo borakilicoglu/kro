@@ -2,8 +2,8 @@ import React, { PureComponent } from "react";
 import classnames from "classnames";
 import Sidebar from "../@nucleo/components/menu/vertical-menu/Sidebar";
 import Navbar from "../@nucleo/components/navbar/Navbar";
-// import Navbar from "./components/navbar/Navbar";
 // import Footer from "./components/footer/Footer";
+import Customizer from "../@nucleo/components/customizer/Customizer";
 import { connect } from "react-redux";
 import {
   changeMode,
@@ -281,9 +281,9 @@ class VerticalLayout extends PureComponent {
         </div>
 
         {/* <Footer {...footerProps} /> */}
-        {/* {appProps.disableCustomizer !== true ? (
+        {appProps.disableCustomizer !== true ? (
           <Customizer {...customizerProps} />
-        ) : null} */}
+        ) : null}
         <div
           className="sidenav-overlay"
           onClick={this.handleSidebarVisibility}
