@@ -8,6 +8,25 @@ The multi-layout setup allows using multiple template layouts without making any
 
 Being able to set different layout per route makes Nucleo very flexible as it allows having any kind of page design within the same codebase. For example, you can have the main admin application, a landing page and authentication pages all within the same codebase without the constant need of hiding/showing layout level elements such as Navigation, Header or Footer.
 
+## Setup
+
+Clone the repository
+
+- `git clone https://github.com/borakilicoglu/nucleo.git`
+
+Switch to the repo folder
+
+- `cd nucleo`
+
+Install dependencies
+
+- `npm install` or `yarn` if using Yarn
+
+Copy sample .env file and set JWT secret key
+
+- `npm run init:env` or `yarn init:env` will copy `.env.example` to `.env`
+- Manually set the SECRET variable, as well as the database config
+
 ## General Features
 
 - Modular design.
