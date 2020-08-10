@@ -3,6 +3,7 @@ import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
 import classnames from "classnames";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import { ContextLayout } from "../../../utility/context/Layout";
+import layoutImage from "../../../assets/images/demo/layouts/empty-light.png";
 // import Radio from "../radio/RadioVuexy";
 // import "../../../assets/scss/components/customizer.scss";
 
@@ -65,6 +66,7 @@ class Customizer extends React.Component {
     return (
       <ContextLayout.Consumer>
         {(context) => {
+          console.log(context);
           return (
             <div
               className={classnames(
@@ -88,17 +90,33 @@ class Customizer extends React.Component {
                   />
                 </div>
 
-                <div class="flex flex-row w-full items-center px-6 h-20 min-h-20 border-b">
+                <div className="flex flex-row w-full items-center px-6 h-20 min-h-20 border-b">
                   <SettingsTwoToneIcon
                     style={{ color: "#fff" }}
                     className="animate-spin"
                   />
-                  <div class="text-lg font-semibold tracking-wide">
+                  <div className="text-lg font-semibold tracking-wide">
                     SETTINGS
                   </div>
                 </div>
 
-                <div className="flex flex-col p-6"></div>
+                <div className="flex flex-col p-6">
+                  <div class="mb-4 text-sm font-medium text-secondary tracking-widest">
+                    LAYOUT
+                  </div>
+                  <button onClick={() => context.switchLayout("vertical")}>
+                    <img src={layoutImage} alt="Empty Layout" />
+                  </button>
+                  <button onClick={() => context.switchLayout("vertical")}>
+                    <img src={layoutImage} alt="Empty Layout" />
+                  </button>
+                  <button onClick={() => context.switchLayout("vertical")}>
+                    <img src={layoutImage} alt="Empty Layout" />
+                  </button>
+                  <button onClick={() => context.switchLayout("vertical")}>
+                    <img src={layoutImage} alt="Empty Layout" />
+                  </button>
+                </div>
 
                 {/* <div className="header d-flex justify-content-between px-2 pt-2">
                 <div className="title">
@@ -177,7 +195,7 @@ class Customizer extends React.Component {
                       label="Vertical"
                       color="primary"
                       checked={
-                        context.state.activeLayout === "vertical" ||
+                        constext.state.activeLayout === "vertical" ||
                         !["vertical", "horizontal"].includes(
                           context.state.activeLayout
                         )
