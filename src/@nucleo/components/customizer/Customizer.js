@@ -68,8 +68,9 @@ class Customizer extends React.Component {
         {(context) => {
           return (
             <div
+              style={{ width: "320px" }}
               className={classnames(
-                "flex z-50 fixed right-0 top-0 d-none d-md-block w-64 bg-gray-200 h-screen",
+                "flex z-50 fixed right-0 top-0 d-none d-md-block bg-gray-200 h-screen shadow-lg",
                 {
                   open: this.props.customizerState === true,
                 }
@@ -83,15 +84,15 @@ class Customizer extends React.Component {
                   }
                 >
                   {/* <Settings className="open-icon" size={15} /> */}
-                  <SettingsTwoToneIcon style={{ color: "#fff" }} />
-                </div>
-
-                <div className="flex flex-row w-full items-center px-6 h-20 min-h-20 border-b">
                   <SettingsTwoToneIcon
                     style={{ color: "#fff" }}
                     className="animate-spin"
                   />
-                  <div className="text-lg font-semibold tracking-wide">
+                </div>
+
+                <div className="flex flex-row w-full items-center px-6 h-20 min-h-20 border-b">
+                  <SettingsTwoToneIcon style={{ color: "#64738b" }} />
+                  <div className="text-lg font-semibold tracking-wide ml-4">
                     SETTINGS
                   </div>
                 </div>
@@ -100,18 +101,45 @@ class Customizer extends React.Component {
                   <div class="mb-4 text-sm font-medium text-secondary tracking-widest">
                     LAYOUT
                   </div>
-                  <button onClick={() => context.switchLayout("vertical")}>
-                    <img src={layoutImage} alt="Empty Layout" />
-                  </button>
-                  <button onClick={() => context.switchLayout("vertical")}>
-                    <img src={layoutImage} alt="Empty Layout" />
-                  </button>
-                  <button onClick={() => context.switchLayout("vertical")}>
-                    <img src={layoutImage} alt="Empty Layout" />
-                  </button>
-                  <button onClick={() => context.switchLayout("vertical")}>
-                    <img src={layoutImage} alt="Empty Layout" />
-                  </button>
+                  <div className="flex flex-col items-center mb-6 cursor-pointer ng-star-inserted">
+                    <button onClick={() => context.switchLayout("vertical")}>
+                      <img
+                        className="w-full p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 light:bg-card dark:bg-cool-gray-600"
+                        src={layoutImage}
+                        alt="Empty Layout"
+                      />
+                    </button>
+                    <div class="mt-2 text-md font-medium text-secondary tracking-wide">
+                      {" "}
+                      Empty{" "}
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center mb-6 cursor-pointer ng-star-inserted">
+                    <button onClick={() => context.switchLayout("vertical")}>
+                      <img
+                        className="w-full p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 light:bg-card dark:bg-cool-gray-600"
+                        src={layoutImage}
+                        alt="Empty Layout"
+                      />
+                    </button>
+                    <div class="mt-2 text-md font-medium text-secondary tracking-wide">
+                      {" "}
+                      Empty{" "}
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center mb-6 cursor-pointer ng-star-inserted">
+                    <button onClick={() => context.switchLayout("vertical")}>
+                      <img
+                        className="w-full p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 light:bg-card dark:bg-cool-gray-600"
+                        src={layoutImage}
+                        alt="Empty Layout"
+                      />
+                    </button>
+                    <div class="mt-2 text-md font-medium text-secondary tracking-wide">
+                      {" "}
+                      Empty{" "}
+                    </div>
+                  </div>
                 </div>
 
                 {/* <div className="header d-flex justify-content-between px-2 pt-2">
