@@ -66,7 +66,6 @@ class Customizer extends React.Component {
     return (
       <ContextLayout.Consumer>
         {(context) => {
-          console.log(context);
           return (
             <div
               className={classnames(
@@ -84,10 +83,7 @@ class Customizer extends React.Component {
                   }
                 >
                   {/* <Settings className="open-icon" size={15} /> */}
-                  <SettingsTwoToneIcon
-                    style={{ color: "#fff" }}
-                    className="animate-spin"
-                  />
+                  <SettingsTwoToneIcon style={{ color: "#fff" }} />
                 </div>
 
                 <div className="flex flex-row w-full items-center px-6 h-20 min-h-20 border-b">
