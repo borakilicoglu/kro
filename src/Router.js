@@ -50,7 +50,9 @@ const RouteConfig = ({
                 ? context.fullLayout
                 : context.state.activeLayout === "horizontal"
                 ? context.horizontalLayout
-                : context.VerticalLayout;
+                : context.state.activeLayout === "classy"
+                ? context.classylLayout
+                : context.verticalLayout;
             return (
               <LayoutTag
                 {...props}

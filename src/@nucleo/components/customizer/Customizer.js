@@ -129,47 +129,35 @@ export default function Customizer() {
                     LAYOUT
                   </h2>
 
-                  <button
-                    className="mb-6"
-                    onClick={() => context.switchLayout("vertical")}
-                  >
-                    <img
-                      className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
-                      src={layoutImage}
-                      alt="Empty Layout"
-                    />
-                    <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
-                      Empty
-                    </h4>
-                  </button>
-
-                  <button
-                    className="mb-6"
-                    onClick={() => context.switchLayout("horizontal")}
-                  >
-                    <img
-                      className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
-                      src={layoutImage}
-                      alt="Empty Layout"
-                    />
-                    <h4 className="mt-1 text-xs font-medium text-gray-600 tracking-wide">
-                      Basic
-                    </h4>
-                  </button>
-
-                  <button
-                    className="mb-6"
-                    onClick={() => context.switchLayout("vertical")}
-                  >
-                    <img
-                      className="w-full p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
-                      src={layoutImage}
-                      alt="Empty Layout"
-                    />
-                    <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
-                      Classic
-                    </h4>
-                  </button>
+                  {[
+                    "empty",
+                    "centered",
+                    "enterprise",
+                    "material",
+                    "modern",
+                    "basic",
+                    "classic",
+                    "classy",
+                    "compact",
+                    "dense",
+                    "futuristic",
+                    "thin",
+                  ].map((layout, index) => (
+                    <button
+                      key={index}
+                      className="mb-6"
+                      onClick={() => context.switchLayout("layout")}
+                    >
+                      <img
+                        className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
+                        src={layoutImage}
+                        alt="Empty Layout"
+                      />
+                      <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
+                        {layout}
+                      </h4>
+                    </button>
+                  ))}
                 </div>
               </Drawer>
             </React.Fragment>

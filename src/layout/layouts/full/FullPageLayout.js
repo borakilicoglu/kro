@@ -1,6 +1,6 @@
-import React from "react"
-import themeConfig from "../configs/themeConfig"
-import classnames from "classnames"
+import React from "react";
+import themeConfig from "../../../configs/themeConfig";
+import classnames from "classnames";
 
 const FullPageLayout = ({ children, ...rest }) => {
   return (
@@ -8,7 +8,7 @@ const FullPageLayout = ({ children, ...rest }) => {
       className={classnames(
         "full-layout wrapper bg-full-screen-image blank-page dark-layout",
         {
-          "layout-dark": themeConfig.layoutDark
+          "layout-dark": themeConfig.layoutDark,
         }
       )}
     >
@@ -22,7 +22,7 @@ const FullPageLayout = ({ children, ...rest }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default FullPageLayout
+export default FullPageLayout;

@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import classnames from "classnames";
-import VerticalNavbar from "../@nucleo/components/menu/vertical-menu/Sidebar";
-import Header from "../@nucleo/components/navbar/Navbar";
+import VerticalNavbar from "../../../@nucleo/components/menu/vertical-menu/Sidebar";
+import Header from "../../../@nucleo/components/navbar/Navbar";
 // import Navbar from "./components/navbar/Navbar";
 // import Footer from "./components/footer/Footer";
 import { connect } from "react-redux";
@@ -13,7 +13,7 @@ import {
   changeFooterType,
   changeMenuColor,
   hideScrollToTop,
-} from "../redux/actions/customizer/index";
+} from "../../../redux/actions/customizer/index";
 
 class EmptyLayout extends PureComponent {
   state = {

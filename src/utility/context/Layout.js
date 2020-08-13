@@ -1,28 +1,28 @@
 import React from "react";
 
-import FullLayout from "../../layouts/FullpageLayout";
-import VerticalLayout from "../../layouts/VerticalLayout";
-import HorizontalLayout from "../../layouts/HorizontalLayout";
+import FullPageLayout from "../../layout/layouts/full/FullPageLayout";
+import VerticalLayout from "../../layout/VerticalLayout";
+import HorizontalLayout from "../../layout/HorizontalLayout";
 
-import EmptyLayout from "../../layouts/EmptyLayout";
-import BasicLayout from "../../layouts/BasicLayout";
-import ClassicLayout from "../../layouts/ClassicLayout";
+import EmptyLayout from "../../layout/layouts/empty/EmptyLayout";
+import BasicLayout from "../../layout/layouts/vertical/BasicLayout";
+import ClassicLayout from "../../layout/layouts/vertical/ClassicLayout";
 
-import ClassyLayout from "../../layouts/ClassyLayout";
-import CompactLayout from "../../layouts/CompactLayout";
-import DenseLayout from "../../layouts/DenseLayout";
+import ClassyLayout from "../../layout/layouts/vertical/ClassyLayout";
+import CompactLayout from "../../layout/layouts/vertical/CompactLayout";
+import DenseLayout from "../../layout/layouts/vertical/DenseLayout";
 
-import FuturisticLayout from "../../layouts/FuturisticLayout";
-import ThinLayout from "../../layouts/ThinLayout";
-import CenteredLayout from "../../layouts/CenteredLayout";
+import FuturisticLayout from "../../layout/layouts/vertical/FuturisticLayout";
+import ThinLayout from "../../layout/layouts/vertical/ThinLayout";
+import CenteredLayout from "../../layout/layouts/horizontal/CenteredLayout";
 
-import EnterpriseLayout from "../../layouts/EnterpriseLayout";
-import MaterialLayout from "../../layouts/MaterialLayout";
-import ModernLayout from "../../layouts/ModernLayout";
+import EnterpriseLayout from "../../layout/layouts/horizontal/EnterpriseLayout";
+import MaterialLayout from "../../layout/layouts/horizontal/MaterialLayout";
+import ModernLayout from "../../layout/layouts/horizontal/ModernLayout";
 
 import themeConfig from "../../configs/themeConfig";
 const layouts = {
-  full: FullLayout,
+  full: FullPageLayout,
   vertical: VerticalLayout,
   horizontal: HorizontalLayout,
   empty: EmptyLayout,
@@ -113,8 +113,11 @@ class Layout extends React.Component {
         value={{
           state: this.state,
           fullLayout: layouts["full"],
-          VerticalLayout: layouts["vertical"],
+          verticalLayout: layouts["vertical"],
           horizontalLayout: layouts["horizontal"],
+          emptyLayout: layouts["empty"],
+          basicLayout: layouts["basic"],
+          classicLayout: layouts["classic"],
           switchLayout: (layout) => {
             this.setState({ activeLayout: layout });
           },
