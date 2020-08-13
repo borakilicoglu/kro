@@ -508,9 +508,11 @@ import ListItemText from "@material-ui/core/ListItemText";
 import InboxIcon from "@material-ui/icons/MoveToInbox";
 import MailIcon from "@material-ui/icons/Mail";
 
+import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
+
 const useStyles = makeStyles({
   list: {
-    width: 250,
+    width: 320,
   },
   fullList: {
     width: "auto",
@@ -571,19 +573,24 @@ export default function Customizer() {
   );
 
   return (
-    <div>
-      {["left", "right", "top", "bottom"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
+    <div className="fixed right-0" style={{ top: "50%" }}>
+      {/* {["left", "right", "top", "bottom"].map((anchor) => ( */}
+      <React.Fragment key={"right"}>
+        <Button onClick={toggleDrawer("right", true)}>
+          <SettingsTwoToneIcon
+            style={{ color: "#fff" }}
+            className="animate-spin"
+          />
+        </Button>
+        <Drawer
+          anchor={"right"}
+          open={state["right"]}
+          onClose={toggleDrawer("right", false)}
+        >
+          {list("right")}
+        </Drawer>
+      </React.Fragment>
+      {/* ))} */}
     </div>
   );
 }
