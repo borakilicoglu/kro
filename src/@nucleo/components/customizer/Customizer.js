@@ -129,38 +129,47 @@ export default function Customizer() {
                     LAYOUT
                   </h2>
 
-                  <button onClick={() => context.switchLayout("vertical")}>
+                  <button
+                    className="mb-6"
+                    onClick={() => context.switchLayout("vertical")}
+                  >
                     <img
-                      className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 light:bg-card dark:bg-cool-gray-600"
+                      className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
                       src={layoutImage}
                       alt="Empty Layout"
                     />
+                    <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
+                      Empty
+                    </h4>
                   </button>
-                  <div className="mt-2 text-md font-medium text-secondary tracking-wide">
-                    Empty
-                  </div>
 
-                  <button onClick={() => context.switchLayout("horizontal")}>
+                  <button
+                    className="mb-6"
+                    onClick={() => context.switchLayout("horizontal")}
+                  >
                     <img
-                      className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 light:bg-card dark:bg-cool-gray-600"
+                      className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
                       src={layoutImage}
                       alt="Empty Layout"
                     />
+                    <h4 className="mt-1 text-xs font-medium text-gray-600 tracking-wide">
+                      Basic
+                    </h4>
                   </button>
-                  <div className="mt-2 text-md font-medium text-secondary tracking-wide">
-                    Basic
-                  </div>
 
-                  <button onClick={() => context.switchLayout("vertical")}>
+                  <button
+                    className="mb-6"
+                    onClick={() => context.switchLayout("vertical")}
+                  >
                     <img
-                      className="w-full p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 light:bg-card dark:bg-cool-gray-600"
+                      className="w-full p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
                       src={layoutImage}
                       alt="Empty Layout"
                     />
+                    <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
+                      Classic
+                    </h4>
                   </button>
-                  <div className="mt-2 text-md font-medium text-secondary tracking-wide">
-                    Classic
-                  </div>
                 </div>
               </Drawer>
             </React.Fragment>
