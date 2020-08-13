@@ -45,13 +45,16 @@ const RouteConfig = ({
       return (
         <ContextLayout.Consumer>
           {(context) => {
+            console.log(context.state.activeLayout);
             let LayoutTag =
               fullLayout === true
                 ? context.fullLayout
                 : context.state.activeLayout === "horizontal"
                 ? context.horizontalLayout
                 : context.state.activeLayout === "classy"
-                ? context.classylLayout
+                ? context.classyLayout
+                : context.state.activeLayout === "modern"
+                ? context.modernLayout
                 : context.verticalLayout;
             return (
               <LayoutTag

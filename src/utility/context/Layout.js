@@ -55,48 +55,50 @@ class Layout extends React.Component {
     });
   };
 
-  handleWindowResize = () => {
-    this.updateWidth();
-    if (this.state.activeLayout === "horizontal" && this.state.width <= 1199) {
-      this.setState({
-        activeLayout: "vertical",
-        lastLayout: "horizontal",
-      });
-    }
+  // handleWindowResize = () => {
+  //   this.updateWidth();
+  //   if (this.state.activeLayout === "horizontal" && this.state.width <= 1199) {
+  //     this.setState({
+  //       activeLayout: "vertical",
+  //       lastLayout: "horizontal",
+  //     });
+  //   }
 
-    if (this.state.lastLayout === "horizontal" && this.state.width >= 1199) {
-      this.setState({
-        activeLayout: "horizontal",
-        lastLayout: "vertical",
-      });
-    }
-  };
+  //   if (this.state.lastLayout === "horizontal" && this.state.width >= 1199) {
+  //     this.setState({
+  //       activeLayout: "horizontal",
+  //       lastLayout: "vertical",
+  //     });
+  //   }
+  // };
 
   componentDidMount = () => {
-    if (window !== "undefined") {
-      window.addEventListener("resize", this.handleWindowResize);
-    }
+    console.log(themeConfig.layout);
+    // if (window !== "undefined") {
+    //   window.addEventListener("resize", this.handleWindowResize);
+    // }
     this.handleDirUpdate();
-    if (this.state.activeLayout === "horizontal" && this.state.width <= 1199) {
-      this.setState({
-        activeLayout: "vertical",
-      });
-    } else if (
-      themeConfig.layout === "horizontal" &&
-      this.state.width >= 1200
-    ) {
-      this.setState({
-        activeLayout: "horizontal",
-      });
-    } else {
-      this.setState({
-        activeLayout: "vertical",
-      });
-    }
+    // if (this.state.activeLayout === "horizontal" && this.state.width <= 1199) {
+    //   this.setState({
+    //     activeLayout: "vertical",
+    //   });
+    // } else if (
+    //   themeConfig.layout === "horizontal" &&
+    //   this.state.width >= 1200
+    // ) {
+    //   this.setState({
+    //     activeLayout: "horizontal",
+    //   });
+    // } else {
+    //   this.setState({
+    //     activeLayout: "vertical",
+    //   });
+    // }
+    console.log(themeConfig.layout);
   };
 
   componentDidUpdate() {
-    this.handleDirUpdate();
+    // this.handleDirUpdate();
   }
 
   handleDirUpdate = () => {
@@ -115,9 +117,23 @@ class Layout extends React.Component {
           fullLayout: layouts["full"],
           verticalLayout: layouts["vertical"],
           horizontalLayout: layouts["horizontal"],
+
           emptyLayout: layouts["empty"],
+          centeredLayout: layouts["centered"],
+          enterpriseLayout: layouts["enterprise"],
+
+          materialLayout: layouts["material"],
+          modernLayout: layouts["modern"],
           basicLayout: layouts["basic"],
+
           classicLayout: layouts["classic"],
+          classyLayout: layouts["classy"],
+
+          compactLayout: layouts["compact"],
+          denseLayout: layouts["dense"],
+          futuristicLayout: layouts["futuristic"],
+          thinLayout: layouts["thin"],
+
           switchLayout: (layout) => {
             this.setState({ activeLayout: layout });
           },

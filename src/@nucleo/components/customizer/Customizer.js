@@ -146,7 +146,7 @@ export default function Customizer() {
                     <button
                       key={index}
                       className="mb-6"
-                      onClick={() => context.switchLayout("layout")}
+                      onClick={() => context.switchLayout(layout)}
                     >
                       <img
                         className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
@@ -155,6 +155,7 @@ export default function Customizer() {
                       />
                       <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
                         {layout}
+                        {context.state.activeLayout}
                       </h4>
                     </button>
                   ))}
