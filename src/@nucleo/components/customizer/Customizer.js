@@ -149,13 +149,16 @@ export default function Customizer() {
                       onClick={() => context.switchLayout(layout)}
                     >
                       <img
-                        className="p-1 border-4 rounded-sm text-primary light:border-cool-gray-300 dark:border-cool-gray-900 bg-white dark:bg-cool-gray-600"
+                        className={`p-1 border-4 rounded-sm text-primary bg-white ${
+                          context.state.activeLayout === layout
+                            ? "border-indigo-500"
+                            : null
+                        }`}
                         src={layoutImage}
                         alt="Empty Layout"
                       />
                       <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
                         {layout}
-                        {context.state.activeLayout}
                       </h4>
                     </button>
                   ))}

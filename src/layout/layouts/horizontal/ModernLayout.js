@@ -20,7 +20,8 @@ class ModernLayout extends PureComponent {
     width: window.innerWidth,
     sidebarState: this.props.app.customizer.sidebarCollapsed,
     layout: this.props.app.customizer.theme,
-    collapsedContent: this.props.app.customizer.sidebarCollapsed,
+    // collapsedContent: this.props.app.customizer.sidebarCollapsed,
+    collapsedContent: true,
     sidebarHidden: false,
     currentLang: "en",
     appOverlay: false,
@@ -221,6 +222,7 @@ class ModernLayout extends PureComponent {
     };
     let navbarProps = {
       fixedHeader: this.props.fixedHeader,
+      collapsed: this.state.collapsedContent,
       toggleSidebarMenu: this.toggleSidebarMenu,
       toggle: this.toggleSidebarMenu,
       sidebarState: this.state.sidebarState,
@@ -231,6 +233,7 @@ class ModernLayout extends PureComponent {
       appOverlayState: this.state.appOverlay,
       navbarColor: appProps.navbarColor,
       navbarType: appProps.navbarType,
+      layout: this.props.app.customizer.layout,
     };
 
     let footerProps = {
@@ -269,7 +272,7 @@ class ModernLayout extends PureComponent {
           "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
         })}
       >
-        {/* <Sidebar {...sidebarProps} /> */}
+        <Sidebar {...sidebarProps} />
         <div
           className={classnames("wrapper", {
             "show-overlay": this.state.appOverlay === true,
