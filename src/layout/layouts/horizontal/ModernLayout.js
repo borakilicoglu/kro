@@ -280,7 +280,7 @@ class ModernLayout extends PureComponent {
           onClick={this.handleAppOverlayClick}
         >
           <Navbar {...navbarProps} />
-          <div className="content">{this.props.children}</div>
+          <div className="content relative">{this.props.children}</div>
         </div>
 
         {/* <Footer {...footerProps} /> */}

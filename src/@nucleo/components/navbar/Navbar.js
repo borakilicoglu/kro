@@ -8,11 +8,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 export default function Navbar(props) {
   return (
-    <header
-      className={`bg-white shadow w-full justify-between flex relative ${
-        props.fixedHeader ? "" : ""
-      }`}
-    >
+    <header className="bg-white shadow w-full justify-between flex relative">
       <IconButton onClick={() => props.toggle()}>
         <MenuIcon />
       </IconButton>
