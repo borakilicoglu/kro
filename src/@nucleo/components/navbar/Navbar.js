@@ -8,13 +8,16 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 export default function Navbar(props) {
   return (
-    <header className={`bg-white shadow ${props.fixedHeader ? "fixed" : ""}`}>
-      <div className="w-1/2">
-        <IconButton onClick={() => props.toggle()}>
-          <MenuIcon />
-        </IconButton>
-      </div>
-      <div className="w-1/2 flex justify-end">
+    <header
+      className={`bg-white shadow w-full justify-between flex relative ${
+        props.fixedHeader ? "" : ""
+      }`}
+    >
+      <IconButton onClick={() => props.toggle()}>
+        <MenuIcon />
+      </IconButton>
+
+      <div className="flex">
         <Search {...props} />
         <Shortcuts />
         <Messages />
