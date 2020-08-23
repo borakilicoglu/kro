@@ -1,4 +1,4 @@
-import mock from "../mock"
+import mock from "../mock";
 
 export const searchResult = [
   {
@@ -7,7 +7,7 @@ export const searchResult = [
     title: "Home",
     link: "/",
     icon: "Home",
-    starred: false
+    starred: false,
   },
   {
     id: 2,
@@ -15,23 +15,23 @@ export const searchResult = [
     title: "Page 2",
     link: "/page2",
     icon: "File",
-    starred: false
-  }
-]
+    starred: false,
+  },
+];
 
 mock.onGet("/api/search/bookmarks/data").reply(200, {
-  searchResult
-})
+  searchResult,
+});
 
-mock.onPost("/api/update/bookmarks").reply(request => {
-  const bookmarkToUpdate = JSON.parse(request.data).obj
+mock.onPost("/api/update/bookmarks").reply((request) => {
+  const bookmarkToUpdate = JSON.parse(request.data).obj;
 
-  searchResult.filter(i => {
+  searchResult.filter((i) => {
     if (i.id === bookmarkToUpdate.id) {
-      return (i.starred = !bookmarkToUpdate.starred)
+      return (i.starred = !bookmarkToUpdate.starred);
     } else {
-      return null
+      return null;
     }
-  })
-  return [200]
-})
+  });
+  return [200];
+});

@@ -25,7 +25,6 @@ class ClassyLayout extends PureComponent {
     currentLang: "en",
     appOverlay: false,
     customizer: false,
-    isTouropen: false,
     currRoute: this.props.location.pathname,
   };
   collapsedPaths = [];
@@ -220,7 +219,6 @@ class ClassyLayout extends PureComponent {
       deviceWidth: this.state.width,
     };
     let navbarProps = {
-      fixedHeader: this.props.fixedHeader,
       toggleSidebarMenu: this.toggleSidebarMenu,
       toggle: this.toggleSidebarMenu,
       sidebarState: this.state.sidebarState,

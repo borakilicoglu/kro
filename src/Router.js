@@ -10,7 +10,7 @@ const Finance = lazy(() => import("./views/pages/Finance"));
 const Analytics = lazy(() => import("./views/pages/Analytics"));
 const Crypto = lazy(() => import("./views/pages/Crypto"));
 const Calendar = lazy(() => import("./views/pages/Calendar"));
-const Contacts = lazy(() => import("./views/pages/Contacts"));
+const Contacts = lazy(() => import("./views/pages/contact/Contacts"));
 const Inventory = lazy(() => import("./views/pages/ecommerce/Inventory"));
 const Mailbox = lazy(() => import("./views/pages/Mailbox"));
 const Tasks = lazy(() => import("./views/pages/Tasks"));
