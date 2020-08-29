@@ -4400,33 +4400,34 @@ export const countries = [
     flagImagePos: "-1px -2789px",
   },
 ];
+
 export const tags = [
   {
     id: "c31e9e5d-e0cb-4574-a13f-8a6ee5ff8309",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    title: "Work",
   },
   {
     id: "a8991c76-2fda-4bbd-a718-df13d6478847",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    title: "Friend",
   },
   {
     id: "56ddbd47-4078-4ddd-8448-73c5e88d5f59",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    title: "Family",
   },
   {
     id: "2026ce08-d08f-4b4f-9506-b10cdb5b104f",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    title: "High School",
   },
   {
     id: "65930b5a-5d2a-4303-b11f-865d69e6fdb5",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    title: "College",
   },
   {
     id: "3eaab175-ec0d-4db7-bc3b-efc633c769be",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    title: "Baseball Team",
   },
   {
     id: "cbde2486-5033-4e09-838e-e901b108cd41",
-    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
+    title: "Band",
   },
 ];

@@ -10,12 +10,13 @@ const drawerWidth = 510;
 
 const useStyles = makeStyles((theme) => ({
   drawer: {
-    // width: drawerWidth,
-    flexShrink: 0,
+    width: drawerWidth,
+    // position: "absolute",
+    // flexShrink: 0,
   },
-  // drawerPaper: {
-  //   width: drawerWidth,
-  // },
+  drawerPaper: {
+    width: drawerWidth,
+  },
 }));
 
 export default function Contacts() {
@@ -44,9 +45,6 @@ export default function Contacts() {
   }, [searchTerm]);
 
   const [contact, setContact] = React.useState();
-  React.useEffect(() => {
-    setToggleForm((toggleForm) => !toggleForm);
-  }, [contact]);
   const setSelectedContact = (contact) => setContact(contact);
 
   const [open, setOpen] = React.useState(false);
@@ -80,15 +78,15 @@ export default function Contacts() {
       <td className="px-4 py-4">{contact.emails[0].email}</td>
       <td className="px-4 py-4">{contact.phoneNumbers[0].number}</td>
       <td className="pr-8 pl-4 py-4">
-        {contact.job.title} & {contact.job.company}
+        {contact.job.title}, {contact.job.company}
       </td>
     </tr>
   ));
 
   return (
     <div className="inset-0 absolute">
-      <div className="flex flex-row h-full overflow-hidden">
-        <div className="border-r relative flex flex-col overflow-auto">
+      <div className="flex h-full overflow-hidden">
+        <div className="border-r relative flex flex-col overflow-auto flex-grow">
           <div className="flex bg-white w-full px-8 py-10">
             <div>
               <h2 className="text-3xl font-bold pb-0 leading-none">Contacts</h2>
@@ -137,14 +135,14 @@ export default function Contacts() {
 
         <Drawer
           className={classes.drawer}
-          variant="persistent"
           anchor="right"
           open={open}
+          onClose={handleDrawerClose}
           classes={{
             paper: classes.drawerPaper,
           }}
         >
-          <Contact close={handleDrawerClose} />
+          <Contact close={handleDrawerClose} contact={contact} />
         </Drawer>
       </div>
     </div>

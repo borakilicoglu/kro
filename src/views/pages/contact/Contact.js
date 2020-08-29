@@ -1,14 +1,23 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
+import WorkTwoToneIcon from "@material-ui/icons/WorkTwoTone";
+import MailTwoToneIcon from "@material-ui/icons/MailTwoTone";
+import LocalPhoneTwoToneIcon from "@material-ui/icons/LocalPhoneTwoTone";
+import PlaceTwoToneIcon from "@material-ui/icons/PlaceTwoTone";
+import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
+import NotesTwoToneIcon from "@material-ui/icons/NotesTwoTone";
+
 import CloseIcon from "@material-ui/icons/Close";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import Menu from "@material-ui/core/Menu";
+import { tags } from "../../../@fake-db/contacts/contacts";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
+import { map } from "lodash";
 
-const ContactForm = ({ name }) => {
+const ContactForm = ({ contact }) => {
   return (
     <form className="w-full bg-white p-12 h-full">
       <div className="flex flex-wrap -mx-3 mb-6">
@@ -23,7 +32,7 @@ const ContactForm = ({ name }) => {
             className="appearance-none block w-full bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             id="grid-first-name"
             type="text"
-            value={name}
+            value={contact.name}
             placeholder="Jane"
           />
           <p className="text-red-500 text-xs italic">
@@ -125,33 +134,92 @@ const ContactForm = ({ name }) => {
   );
 };
 
-const ContactDetails = (props) => {
+const ContactDetails = ({ contact }) => {
+  let {
+    avatar,
+    name,
+    emails,
+    phoneNumbers,
+    job,
+    birthday,
+    address,
+    notes,
+  } = contact;
+  const [filteredTags, setFilteredTags] = useState([]);
+  useEffect(() => {
+    contact.tags.map((tag) => {
+      setFilteredTags([...filteredTags, tags.find((x) => x.id == tag)]);
+    });
+    return () => {
+      console.log("unmount");
+    };
+  }, []);
   return (
-    <div className="flex flex-col py-20 px-8 h-100">
+    <div className="flex flex-col py-16 px-20 h-100">
       <div>
         <img
-          src="https://randomuser.me/api/portraits/women/44.jpg"
+          src={avatar}
           alt="Dejesus Michael"
-          className="w-32 rounded-full border-3 border-black"
+          className="w-32 rounded-full border-4 border-black"
         ></img>
       </div>
       <div className="py-4">
-        {/* <h3 className="font-bold text-3xl">{contact.name}</h3> */}
+        <h3 className="font-bold text-3xl">{name}</h3>
       </div>
-      <div className="py-2">
-        <span className="py-1 px-3 text-gray-500 bg-gray-200 radius-lg">
-          Work
-        </span>
+      <div className="py-2 mb-8">
+        {filteredTags.map(function (tag, i) {
+          return (
+            <span
+              className="py-1 px-3 text-gray-500 bg-gray-200 rounded-sm"
+              key={i}
+            >
+              {tag.title}
+            </span>
+          );
+        })}
       </div>
       {/* <div className="py-2 flex">
-        <DeleteTwoToneIcon />
-        <p className="ml-4">{name}</p>
+        <DeleteTwoToneIcon style={{ color: "#64748b" }} />
+        <p className="ml-4">
+          {job.title}, {job.company}
+        </p>
+      </div> */}
+      <div className="py-2 flex">
+        <WorkTwoToneIcon style={{ color: "#64748b" }} />
+        <p className="ml-4">
+          {job.title}, {job.company}
+        </p>
       </div>
-      <div className="py-2">{name}</div>
-      <div className="py-2">{name}</div>
-      <div className="py-2">{name}</div>
-      <div className="py-2">{name}</div>
-      <div className="py-2">{name}</div> */}
+      <div className="py-2 flex">
+        <MailTwoToneIcon style={{ color: "#64748b" }} />
+        <p className="ml-4">
+          {job.title}, {job.company}
+        </p>
+      </div>
+      <div className="py-2 flex">
+        <LocalPhoneTwoToneIcon style={{ color: "#64748b" }} />
+        <p className="ml-4">
+          {job.title}, {job.company}
+        </p>
+      </div>
+      <div className="py-2 flex">
+        <PlaceTwoToneIcon style={{ color: "#64748b" }} />
+        <p className="ml-4">
+          {job.title}, {job.company}
+        </p>
+      </div>
+      <div className="py-2 flex">
+        <CakeTwoToneIcon style={{ color: "#64748b" }} />
+        <p className="ml-4">
+          {job.title}, {job.company}
+        </p>
+      </div>
+      <div className="py-2 flex">
+        <NotesTwoToneIcon style={{ color: "#64748b" }} />
+        <p className="ml-4">
+          {job.title}, {job.company}
+        </p>
+      </div>
     </div>
   );
 };
@@ -168,9 +236,19 @@ const Contact = (props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  // useEffect(() => {
+  //   props.contact.tags.map((tag) => {
+  //     setFilteredTags([...filteredTags, tags.find((x) => x.id == tag)]);
+  //   });
+  //   return () => {
+  //     console.log("unmount");
+  //   };
+  // }, []);
+
   return (
     <div className="w-full bg-white h-full">
-      <div className="absolute right-0 top-0 mt-16 mr-10">
+      <div className="absolute right-0 top-0 mt-8 mr-10">
         <IconButton
           aria-label="more"
           aria-controls="long-menu"
