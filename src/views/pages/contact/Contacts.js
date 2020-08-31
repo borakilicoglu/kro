@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Icon from "@material-ui/core/Icon";
 import { contacts } from "../../../@fake-db/contacts/contacts";
 import Contact from "./Contact";
+import { tags, countries } from "../../../@fake-db/contacts/contacts";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -11,8 +12,6 @@ const drawerWidth = 510;
 const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
-    // position: "absolute",
-    // flexShrink: 0,
   },
   drawerPaper: {
     width: drawerWidth,
@@ -27,15 +26,6 @@ export default function Contacts() {
   const handleChange = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
-
-  React.useEffect(() => {
-    const results = contacts.filter((person) =>
-      person.name.toLowerCase().includes(searchTerm)
-    );
-    setSearchResults(results);
-  }, [searchTerm]);
-
-  const [toggleForm, setToggleForm] = React.useState(false);
 
   React.useEffect(() => {
     const results = contacts.filter((person) =>
@@ -59,6 +49,14 @@ export default function Contacts() {
     setOpen(false);
   };
 
+  const [countryCodes, setCountryCodes] = useState([]);
+
+  React.useEffect(() => {
+    return () => {
+      console.log("mounted");
+    };
+  }, []);
+
   const contactList = searchResults.map((contact, index) => (
     <tr
       className="border-b hover:bg-gray-100 cursor-pointer"
@@ -77,9 +75,13 @@ export default function Contacts() {
       </td>
       <td className="px-4 py-4">{contact.emails[0].email}</td>
       <td className="px-4 py-4">{contact.phoneNumbers[0].number}</td>
-      <td className="pr-8 pl-4 py-4">
-        {contact.job.title}, {contact.job.company}
-      </td>
+      {contact.job.title && contact.job.company ? (
+        <td className="pr-8 pl-4 py-4">
+          {contact.job.title}, {contact.job.company}
+        </td>
+      ) : (
+        <td className="pr-8 pl-4 py-4">{contact.job.company}</td>
+      )}
     </tr>
   ));
 

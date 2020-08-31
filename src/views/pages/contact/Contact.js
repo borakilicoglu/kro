@@ -12,7 +12,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import Menu from "@material-ui/core/Menu";
-import { tags } from "../../../@fake-db/contacts/contacts";
+import { tags, countries } from "../../../@fake-db/contacts/contacts";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { map } from "lodash";
@@ -170,7 +170,7 @@ const ContactDetails = ({ contact }) => {
         {filteredTags.map(function (tag, i) {
           return (
             <span
-              className="py-1 px-3 text-gray-500 bg-gray-200 rounded-sm"
+              className="py-1 px-3 text-gray-600 text-xs font-semibold uppercase bg-gray-200 rounded-sm"
               key={i}
             >
               {tag.title}
@@ -178,47 +178,56 @@ const ContactDetails = ({ contact }) => {
           );
         })}
       </div>
-      {/* <div className="py-2 flex">
-        <DeleteTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">
-          {job.title}, {job.company}
-        </p>
-      </div> */}
-      <div className="py-2 flex">
+      <div className="py-2 mb-4 flex">
         <WorkTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">
-          {job.title}, {job.company}
-        </p>
+        {contact.job.title && contact.job.company ? (
+          <p className="ml-4">
+            {job.title}, {job.company}
+          </p>
+        ) : (
+          <p className="ml-4">{job.company}</p>
+        )}
       </div>
-      <div className="py-2 flex">
+      <div className="py-2 mb-4 flex">
         <MailTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">
-          {job.title}, {job.company}
-        </p>
+        <ul>
+          {emails.map((item) => (
+            <li>
+              <p className="ml-4">
+                <a href="#" className="text-indigo-600">
+                  {item.email}
+                </a>
+                <span className="text-xs text-gray-600"> • {item.label}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="py-2 flex">
+      <div className="py-2 mb-4 flex">
         <LocalPhoneTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">
-          {job.title}, {job.company}
-        </p>
+        <ul>
+          {phoneNumbers.map((item) => (
+            <li>
+              <p className="ml-4">
+                {item.number}
+                <span className="text-xs text-gray-600"> • {item.label}</span>
+              </p>
+            </li>
+          ))}
+        </ul>
+        <p className="ml-4"></p>
       </div>
-      <div className="py-2 flex">
+      <div className="py-2 mb-4 flex">
         <PlaceTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">
-          {job.title}, {job.company}
-        </p>
+        <p className="ml-4">{address}</p>
       </div>
-      <div className="py-2 flex">
+      <div className="py-2 mb-4 flex">
         <CakeTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">
-          {job.title}, {job.company}
-        </p>
+        <p className="ml-4">{birthday}</p>
       </div>
-      <div className="py-2 flex">
+      <div className="py-2 mb-4 flex">
         <NotesTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">
-          {job.title}, {job.company}
-        </p>
+        <p className="ml-4">{notes}</p>
       </div>
     </div>
   );
@@ -236,15 +245,6 @@ const Contact = (props) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  // useEffect(() => {
-  //   props.contact.tags.map((tag) => {
-  //     setFilteredTags([...filteredTags, tags.find((x) => x.id == tag)]);
-  //   });
-  //   return () => {
-  //     console.log("unmount");
-  //   };
-  // }, []);
 
   return (
     <div className="w-full bg-white h-full">
