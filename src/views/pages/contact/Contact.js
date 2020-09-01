@@ -17,6 +17,8 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { map } from "lodash";
 
+import moment from "moment";
+
 const ContactForm = ({ contact }) => {
   return (
     <form className="w-full bg-white p-12 h-full">
@@ -223,7 +225,7 @@ const ContactDetails = ({ contact }) => {
       </div>
       <div className="py-2 mb-4 flex">
         <CakeTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">{birthday}</p>
+        <p className="ml-4">{moment(birthday).format("dddd D YYYY")}</p>
       </div>
       <div className="py-2 mb-4 flex">
         <NotesTwoToneIcon style={{ color: "#64748b" }} />
