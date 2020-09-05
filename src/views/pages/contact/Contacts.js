@@ -77,7 +77,9 @@ export default function Contacts() {
             avatar(contact)
           ) : (
             <span className="w-8 h-8 rounded-full bg-gray-300 text-center">
-              B
+              <span className="h-8 text-base items-center flex justify-center">
+                {contact.name.charAt(0).toUpperCase()}
+              </span>
             </span>
           )}
           <div className="ml-8">{contact.name}</div>

@@ -12,6 +12,7 @@ import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
 import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
 import { tags, countries } from "../../../@fake-db/contacts/contacts";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -158,13 +159,20 @@ const ContactDetails = ({ contact }) => {
   }, []);
   return (
     <div className="flex flex-col py-16 px-20 h-100">
-      <div>
+      {contact.avatar && contact.avatar !== null ? (
         <img
-          src={avatar}
+          src={require(`../../../assets/images/avatars/${avatar}.jpg`)}
           alt="Dejesus Michael"
           className="w-32 rounded-full border-4 border-black"
         ></img>
-      </div>
+      ) : (
+        <span className="w-32 h-32 rounded-full bg-gray-400">
+          <span className="flex items-center flex justify-center">
+            {name.charAt(0).toUpperCase()}
+          </span>
+        </span>
+      )}
+
       <div className="py-4">
         <h3 className="font-bold text-3xl">{name}</h3>
       </div>
@@ -262,6 +270,14 @@ const Contact = (props) => {
         <Menu
           id="long-menu"
           anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "right",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
           keepMounted
           open={open}
           onClose={handleClose}
@@ -272,15 +288,7 @@ const Contact = (props) => {
             },
           }}
         >
-          {/* {options.map((option) => (
-            <MenuItem
-              key={option}
-              selected={option === "Pyxis"}
-              onClick={handleClose}
-            >
-              {option}
-            </MenuItem>
-          ))} */}
+          <MenuItem onClick={handleClose}>Edit contact</MenuItem>
         </Menu>
         <Tooltip title="Close">
           <IconButton aria-label="close" onClick={props.close}>
