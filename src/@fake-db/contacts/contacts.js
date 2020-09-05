@@ -1,7 +1,7 @@
 export const contacts = [
   {
     id: "cd5fa417-b667-482d-b208-798d9da3213c",
-    avatar: "assets/images/avatars/male-01.jpg",
+    avatar: "male-01",
     name: "Dejesus Michael",
     emails: [
       {
@@ -68,7 +68,7 @@ export const contacts = [
   },
   {
     id: "9d3f0e7f-dcbd-4e56-a5e8-87b8154e9edf",
-    avatar: "assets/images/avatars/male-02.jpg",
+    avatar: "male-02",
     name: "Bernard Langley",
     emails: [
       {
@@ -99,7 +99,7 @@ export const contacts = [
   },
   {
     id: "42a5da95-5e6d-42fd-a09d-de755d123a47",
-    avatar: "assets/images/avatars/male-03.jpg",
+    avatar: "male-03",
     name: "Mclaughlin Steele",
     emails: [
       {
@@ -139,7 +139,7 @@ export const contacts = [
   },
   {
     id: "a7806ced-03f1-4197-8b30-00bdd463366b",
-    avatar: "assets/images/avatars/male-04.jpg",
+    avatar: "male-04",
     name: "Marsh Cochran",
     emails: [
       {
@@ -171,7 +171,7 @@ export const contacts = [
   },
   {
     id: "f4ad15d9-5a24-463a-88ea-6189d6bb3a53",
-    avatar: "assets/images/avatars/male-05.jpg",
+    avatar: "male-05",
     name: "Parrish Austin",
     emails: [
       {
@@ -212,7 +212,7 @@ export const contacts = [
   },
   {
     id: "780d0111-5e5c-4694-8d1d-0ea421971fbf",
-    avatar: "assets/images/avatars/female-02.jpg",
+    avatar: "female-02",
     name: "Laverne Dodson",
     emails: [
       {
@@ -244,7 +244,7 @@ export const contacts = [
   },
   {
     id: "bf172879-423a-4fd6-8df3-6d1938bbfe1f",
-    avatar: "assets/images/avatars/male-06.jpg",
+    avatar: "male-06",
     name: "Edwards Mckenzie",
     emails: [
       {
@@ -285,7 +285,7 @@ export const contacts = [
   },
   {
     id: "1eaa3213-ece2-4ba6-8e15-eb36ca388f50",
-    avatar: "assets/images/avatars/female-03.jpg",
+    avatar: "female-03",
     name: "Trudy Berg",
     emails: [
       {
@@ -316,7 +316,7 @@ export const contacts = [
   },
   {
     id: "abd9e78b-9e96-428f-b3ff-4d934c401bee",
-    avatar: "assets/images/avatars/female-04.jpg",
+    avatar: "female-04",
     name: "Elsie Melendez",
     emails: [
       {
@@ -352,7 +352,7 @@ export const contacts = [
   },
   {
     id: "efae92cc-3bd1-4c6a-a395-b6760c69bd55",
-    avatar: "assets/images/avatars/male-07.jpg",
+    avatar: "male-07",
     name: "Lamb Underwood",
     emails: [
       {
@@ -426,7 +426,7 @@ export const contacts = [
   },
   {
     id: "6519600a-5eaa-45f8-8bed-c46fddb3b26a",
-    avatar: "assets/images/avatars/male-08.jpg",
+    avatar: "male-08",
     name: "Mcleod Wagner",
     emails: [
       {
@@ -462,7 +462,7 @@ export const contacts = [
   },
   {
     id: "6d80a6f6-2884-4ac4-9c73-06b82c220017",
-    avatar: "assets/images/avatars/female-06.jpg",
+    avatar: "female-06",
     name: "Kristie Hall",
     emails: [
       {
@@ -503,7 +503,7 @@ export const contacts = [
   },
   {
     id: "35190d23-036e-44ef-b545-cc744c626edd",
-    avatar: "assets/images/avatars/female-07.jpg",
+    avatar: "female-07",
     name: "Shannon Kennedy",
     emails: [
       {
@@ -540,7 +540,7 @@ export const contacts = [
   },
   {
     id: "b018c194-68ec-4915-ab56-e9f3bd2d98db",
-    avatar: "assets/images/avatars/female-08.jpg",
+    avatar: "female-08",
     name: "Martha Swanson",
     emails: [
       {
@@ -581,7 +581,7 @@ export const contacts = [
   },
   {
     id: "b7c355e9-e003-467e-82d2-4f6978c1a696",
-    avatar: "assets/images/avatars/female-09.jpg",
+    avatar: "female-09",
     name: "Jacklyn Morgan",
     emails: [
       {
@@ -612,7 +612,7 @@ export const contacts = [
   },
   {
     id: "cfa07b7c-93d1-42e7-9592-493d9efc78ae",
-    avatar: "assets/images/avatars/female-10.jpg",
+    avatar: "female-10",
     name: "Tonya Bowers",
     emails: [
       {
@@ -648,7 +648,7 @@ export const contacts = [
   },
   {
     id: "00feeb63-c83a-4655-a37e-a07da10cfa1c",
-    avatar: "assets/images/avatars/female-11.jpg",
+    avatar: "female-11",
     name: "Latonya Cruz",
     emails: [
       {
@@ -685,7 +685,7 @@ export const contacts = [
   },
   {
     id: "142abf21-e635-4a7d-9330-e57f66adcdbe",
-    avatar: "assets/images/avatars/female-12.jpg",
+    avatar: "female-12",
     name: "Evangelina Mcclain",
     emails: [
       {
@@ -722,7 +722,7 @@ export const contacts = [
   },
   {
     id: "e4f255a3-b5dd-45a7-975f-c399604a399a",
-    avatar: "assets/images/avatars/male-09.jpg",
+    avatar: "male-09",
     name: "Herring Gonzales",
     emails: [
       {
@@ -754,7 +754,7 @@ export const contacts = [
   },
   {
     id: "ab4f712d-d712-41a8-b567-be4c66c349a3",
-    avatar: "assets/images/avatars/female-13.jpg",
+    avatar: "female-13",
     name: "Alyce Cash",
     emails: [
       {
@@ -817,7 +817,7 @@ export const contacts = [
   },
   {
     id: "c500255a-1173-47d0-a0e4-4944d48fc12a",
-    avatar: "assets/images/avatars/male-10.jpg",
+    avatar: "male-10",
     name: "English Haney",
     emails: [
       {
@@ -844,7 +844,7 @@ export const contacts = [
   },
   {
     id: "b62359fd-f2a8-46e6-904e-31052d1cd675",
-    avatar: "assets/images/avatars/male-11.jpg",
+    avatar: "male-11",
     name: "Joseph Strickland",
     emails: [
       {
@@ -875,7 +875,7 @@ export const contacts = [
   },
   {
     id: "16b9e696-ea95-4dd8-86c4-3caf705a1dc6",
-    avatar: "assets/images/avatars/male-12.jpg",
+    avatar: "male-12",
     name: "Nunez Faulkner",
     emails: [
       {
@@ -902,7 +902,7 @@ export const contacts = [
   },
   {
     id: "19662ecf-0686-4aad-a46c-24b552eb2ff5",
-    avatar: "assets/images/avatars/female-15.jpg",
+    avatar: "female-15",
     name: "Juana Morrow",
     emails: [
       {
@@ -929,7 +929,7 @@ export const contacts = [
   },
   {
     id: "26dfe954-8bf3-45ee-b285-1d0a88c8d3ea",
-    avatar: "assets/images/avatars/male-13.jpg",
+    avatar: "male-13",
     name: "Lara Gaines",
     emails: [
       {
@@ -956,7 +956,7 @@ export const contacts = [
   },
   {
     id: "d6462af2-c488-4de7-9b26-3845bd2983f9",
-    avatar: "assets/images/avatars/male-14.jpg",
+    avatar: "male-14",
     name: "Johnston Riddle",
     emails: [
       {
@@ -1025,7 +1025,7 @@ export const contacts = [
   },
   {
     id: "823e6166-c0c8-4373-9270-8a0d17489a08",
-    avatar: "assets/images/avatars/male-16.jpg",
+    avatar: "male-16",
     name: "Mccall Day",
     emails: [
       {
@@ -1062,7 +1062,7 @@ export const contacts = [
   },
   {
     id: "2c37ed00-427a-46d7-8f8f-d711c768d1ee",
-    avatar: "assets/images/avatars/male-17.jpg",
+    avatar: "male-17",
     name: "Silva Foster",
     emails: [
       {
@@ -1094,7 +1094,7 @@ export const contacts = [
   },
   {
     id: "944764c0-b261-4428-9188-bbd3022d66a8",
-    avatar: "assets/images/avatars/female-16.jpg",
+    avatar: "female-16",
     name: "Cathryn Snider",
     emails: [
       {
@@ -1167,7 +1167,7 @@ export const contacts = [
   },
   {
     id: "54b1c201-4b2b-4be0-ad70-a6413e9628cd",
-    avatar: "assets/images/avatars/female-17.jpg",
+    avatar: "female-17",
     name: "Saundra Murphy",
     emails: [
       {
@@ -1194,7 +1194,7 @@ export const contacts = [
   },
   {
     id: "faf979c7-a13b-445a-b30a-08845f5fa90e",
-    avatar: "assets/images/avatars/female-18.jpg",
+    avatar: "female-18",
     name: "Enid Sparks",
     emails: [
       {
@@ -1258,7 +1258,7 @@ export const contacts = [
   },
   {
     id: "77a4383b-b5a5-4943-bc46-04c3431d1566",
-    avatar: "assets/images/avatars/male-19.jpg",
+    avatar: "male-19",
     name: "Best Blackburn",
     emails: [
       {
@@ -1326,7 +1326,7 @@ export const contacts = [
   },
   {
     id: "c318e31f-1d74-49c5-8dae-2bc5805e2fdb",
-    avatar: "assets/images/avatars/male-01.jpg",
+    avatar: "male-01",
     name: "Martin Richards",
     emails: [
       {
@@ -1363,7 +1363,7 @@ export const contacts = [
   },
   {
     id: "0a8bc517-631a-4a93-aacc-000fa2e8294c",
-    avatar: "assets/images/avatars/female-20.jpg",
+    avatar: "female-20",
     name: "Candice Munoz",
     emails: [
       {
@@ -1390,7 +1390,7 @@ export const contacts = [
   },
   {
     id: "a4c9945a-757b-40b0-8942-d20e0543cabd",
-    avatar: "assets/images/avatars/female-01.jpg",
+    avatar: "female-01",
     name: "Vickie Mosley",
     emails: [
       {
@@ -1422,7 +1422,7 @@ export const contacts = [
   },
   {
     id: "b8258ccf-48b5-46a2-9c95-e0bd7580c645",
-    avatar: "assets/images/avatars/female-02.jpg",
+    avatar: "female-02",
     name: "Tina Harris",
     emails: [
       {
@@ -1454,7 +1454,7 @@ export const contacts = [
   },
   {
     id: "f004ea79-98fc-436c-9ba5-6cfe32fe583d",
-    avatar: "assets/images/avatars/male-02.jpg",
+    avatar: "male-02",
     name: "Holt Manning",
     emails: [
       {
@@ -1490,7 +1490,7 @@ export const contacts = [
   },
   {
     id: "8b69fe2d-d7cc-4a3d-983d-559173e37d37",
-    avatar: "assets/images/avatars/female-03.jpg",
+    avatar: "female-03",
     name: "Misty Ramsey",
     emails: [
       {
@@ -1521,7 +1521,7 @@ export const contacts = [
   },
   {
     id: "cdcc62e4-1520-4ccc-803d-52868c7e01ba",
-    avatar: "assets/images/avatars/female-04.jpg",
+    avatar: "female-04",
     name: "Dee Alvarado",
     emails: [
       {
@@ -1558,7 +1558,7 @@ export const contacts = [
   },
   {
     id: "e2946946-b4b5-4fd7-bab4-62c38cdff2f1",
-    avatar: "assets/images/avatars/female-05.jpg",
+    avatar: "female-05",
     name: "Samantha Jacobson",
     emails: [
       {
@@ -1585,7 +1585,7 @@ export const contacts = [
   },
   {
     id: "fdc77706-6ba2-4397-b2f8-a9a0b6495153",
-    avatar: "assets/images/avatars/female-06.jpg",
+    avatar: "female-06",
     name: "Rhea Landry",
     emails: [
       {
@@ -1617,7 +1617,7 @@ export const contacts = [
   },
   {
     id: "12148fa2-e0a4-49fb-b3c5-daeecdb5180a",
-    avatar: "assets/images/avatars/female-07.jpg",
+    avatar: "female-07",
     name: "Olga Rhodes",
     emails: [
       {
@@ -1658,7 +1658,7 @@ export const contacts = [
   },
   {
     id: "07dd64eb-8b8f-4765-a16c-8db083c45096",
-    avatar: "assets/images/avatars/female-08.jpg",
+    avatar: "female-08",
     name: "Lorraine Pennington",
     emails: [
       {
@@ -1695,7 +1695,7 @@ export const contacts = [
   },
   {
     id: "81fdc48c-5572-4123-8a73-71b7892120de",
-    avatar: "assets/images/avatars/female-09.jpg",
+    avatar: "female-09",
     name: "Earlene Rosales",
     emails: [
       {
@@ -1726,7 +1726,7 @@ export const contacts = [
   },
   {
     id: "f8bbf6be-d49a-41a3-bb80-3d51df84c12b",
-    avatar: "assets/images/avatars/female-10.jpg",
+    avatar: "female-10",
     name: "Marcia Hatfield",
     emails: [
       {
@@ -1767,7 +1767,7 @@ export const contacts = [
   },
   {
     id: "cd482941-3eaf-4560-ac37-56a9296025df",
-    avatar: "assets/images/avatars/female-11.jpg",
+    avatar: "female-11",
     name: "Liliana Ayala",
     emails: [
       {
@@ -1794,7 +1794,7 @@ export const contacts = [
   },
   {
     id: "22f18d47-ff8d-440e-888d-a1747c093052",
-    avatar: "assets/images/avatars/female-12.jpg",
+    avatar: "female-12",
     name: "Aimee Harding",
     emails: [
       {
@@ -1831,7 +1831,7 @@ export const contacts = [
   },
   {
     id: "a9a9f382-e4c3-42fb-9fe9-65aa534732b5",
-    avatar: "assets/images/avatars/female-13.jpg",
+    avatar: "female-13",
     name: "Francisca Perkins",
     emails: [
       {
@@ -1908,7 +1908,7 @@ export const contacts = [
   },
   {
     id: "0630f1ca-cdb9-405d-b134-68f733334089",
-    avatar: "assets/images/avatars/female-14.jpg",
+    avatar: "female-14",
     name: "Maryann Mcintyre",
     emails: [
       {
@@ -1944,7 +1944,7 @@ export const contacts = [
   },
   {
     id: "999c24f3-7bb8-4a01-85ca-2fca7863c57e",
-    avatar: "assets/images/avatars/female-15.jpg",
+    avatar: "female-15",
     name: "Sharon Marshall",
     emails: [
       {
@@ -1985,7 +1985,7 @@ export const contacts = [
   },
   {
     id: "7e8e1f1e-d19f-45c7-86bd-6fef599dae71",
-    avatar: "assets/images/avatars/female-16.jpg",
+    avatar: "female-16",
     name: "Margo Witt",
     emails: [
       {
@@ -2026,7 +2026,7 @@ export const contacts = [
   },
   {
     id: "bedcb6a2-da83-4631-866a-77d10d239477",
-    avatar: "assets/images/avatars/male-04.jpg",
+    avatar: "male-04",
     name: "Alvarado Turner",
     emails: [
       {
@@ -2053,7 +2053,7 @@ export const contacts = [
   },
   {
     id: "66f9de1b-f842-4d4c-bb59-f97e91db0462",
-    avatar: "assets/images/avatars/male-05.jpg",
+    avatar: "male-05",
     name: "Maldonado Rodriquez",
     emails: [
       {
@@ -2094,7 +2094,7 @@ export const contacts = [
   },
   {
     id: "9cb0ea57-3461-4182-979b-593b0c1ec6c3",
-    avatar: "assets/images/avatars/male-06.jpg",
+    avatar: "male-06",
     name: "Tran Duke",
     emails: [
       {
@@ -2203,7 +2203,7 @@ export const contacts = [
   },
   {
     id: "7585015c-ada2-4f88-998d-9646865d1ad2",
-    avatar: "assets/images/avatars/male-07.jpg",
+    avatar: "male-07",
     name: "Meyer Roach",
     emails: [
       {
@@ -2276,7 +2276,7 @@ export const contacts = [
   },
   {
     id: "114642a2-ccb7-4cb1-ad2b-5e9b6a0c1d2e",
-    avatar: "assets/images/avatars/male-09.jpg",
+    avatar: "male-09",
     name: "Barber Johnson",
     emails: [
       {
@@ -2313,7 +2313,7 @@ export const contacts = [
   },
   {
     id: "310ece7d-dbb0-45d6-9e69-14c24e50fe3d",
-    avatar: "assets/images/avatars/male-10.jpg",
+    avatar: "male-10",
     name: "Cervantes Kramer",
     emails: [
       {
@@ -2345,7 +2345,7 @@ export const contacts = [
   },
   {
     id: "dcc673f6-de59-4715-94ed-8f64663d449b",
-    avatar: "assets/images/avatars/female-19.jpg",
+    avatar: "female-19",
     name: "Megan Suarez",
     emails: [
       {
@@ -2382,7 +2382,7 @@ export const contacts = [
   },
   {
     id: "3e4ca731-d39b-4ad9-b6e0-f84e67f4b74a",
-    avatar: "assets/images/avatars/female-20.jpg",
+    avatar: "female-20",
     name: "Ofelia Ratliff",
     emails: [
       {
@@ -2418,7 +2418,7 @@ export const contacts = [
   },
   {
     id: "2012d4a5-19e4-444d-aaff-1d8b1d853650",
-    avatar: "assets/images/avatars/female-01.jpg",
+    avatar: "female-01",
     name: "Laurel Parker",
     emails: [
       {
@@ -2455,7 +2455,7 @@ export const contacts = [
   },
   {
     id: "012b8219-74bf-447c-af2c-66904d90a956",
-    avatar: "assets/images/avatars/female-02.jpg",
+    avatar: "female-02",
     name: "Tracy Delacruz",
     emails: [
       {
@@ -2486,7 +2486,7 @@ export const contacts = [
   },
   {
     id: "8b1befd2-66a7-4981-ae52-77f01b382d18",
-    avatar: "assets/images/avatars/female-03.jpg",
+    avatar: "female-03",
     name: "Jeannette Stanton",
     emails: [
       {
@@ -2527,7 +2527,7 @@ export const contacts = [
   },
   {
     id: "844668c3-5e20-4fed-9e3a-7d274f696e61",
-    avatar: "assets/images/avatars/female-04.jpg",
+    avatar: "female-04",
     name: "Johnnie Cleveland",
     emails: [
       {
@@ -2558,7 +2558,7 @@ export const contacts = [
   },
   {
     id: "5a01e870-8be1-45a5-b58a-ec09c06e8f28",
-    avatar: "assets/images/avatars/female-05.jpg",
+    avatar: "female-05",
     name: "Staci Hyde",
     emails: [
       {
@@ -2590,7 +2590,7 @@ export const contacts = [
   },
   {
     id: "5ac1f193-f150-45f9-bfe4-b7b4e1a83ff9",
-    avatar: "assets/images/avatars/female-06.jpg",
+    avatar: "female-06",
     name: "Angela Gallagher",
     emails: [
       {
@@ -2627,7 +2627,7 @@ export const contacts = [
   },
   {
     id: "995df091-d78a-4bb7-840c-ba6a7d14a1bd",
-    avatar: "assets/images/avatars/male-11.jpg",
+    avatar: "male-11",
     name: "Hutchinson Levy",
     emails: [
       {
@@ -2659,7 +2659,7 @@ export const contacts = [
   },
   {
     id: "7184be71-a28f-4f2b-8c45-15f78cf2f825",
-    avatar: "assets/images/avatars/female-05.jpg",
+    avatar: "female-05",
     name: "Alissa Nelson",
     emails: [
       {
@@ -2713,7 +2713,7 @@ export const contacts = [
   },
   {
     id: "c674b6e1-b846-4bba-824b-0b4df0cdec48",
-    avatar: "assets/images/avatars/male-13.jpg",
+    avatar: "male-13",
     name: "Duran Barr",
     emails: [
       {

@@ -21,6 +21,17 @@ const useStyles = makeStyles((theme) => ({
 export default function Contacts() {
   const classes = useStyles();
 
+  // Contact Drawer
+  const [open, setOpen] = React.useState(false);
+  const handleDrawerOpen = (contact) => {
+    setSelectedContact(contact);
+    setOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  // Contact Search
   const [searchTerm, setSearchTerm] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
   const handleChange = (event) => {
@@ -34,21 +45,11 @@ export default function Contacts() {
     setSearchResults(results);
   }, [searchTerm]);
 
+  // Contact Select Set
   const [contact, setContact] = React.useState();
   const setSelectedContact = (contact) => setContact(contact);
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleDrawerOpen = (contact) => {
-    setSelectedContact(contact);
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    console.log("clicked from children component");
-    setOpen(false);
-  };
-
+  // Contact Phone Country Codes
   const [countryCodes, setCountryCodes] = useState([]);
 
   React.useEffect(() => {
@@ -57,6 +58,13 @@ export default function Contacts() {
     };
   }, []);
 
+  // Contact Avatar
+  const avatar = (contact) => {
+    let url = require(`../../../assets/images/avatars/${contact.avatar}.jpg`);
+    return <img src={url} alt={contact.name} className="w-8 rounded-full" />;
+  };
+
+  // Contact List
   const contactList = searchResults.map((contact, index) => (
     <tr
       className="border-b hover:bg-gray-100 cursor-pointer"
@@ -65,11 +73,13 @@ export default function Contacts() {
     >
       <td className="pl-8 py-4">
         <div className="flex items-center">
-          <img
-            src={contact.avatar}
-            alt={contact.name}
-            className="w-8 rounded-full"
-          />
+          {contact.avatar && contact.avatar !== null ? (
+            avatar(contact)
+          ) : (
+            <span className="w-8 h-8 rounded-full bg-gray-300 text-center">
+              B
+            </span>
+          )}
           <div className="ml-8">{contact.name}</div>
         </div>
       </td>
