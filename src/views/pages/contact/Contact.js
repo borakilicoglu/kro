@@ -1,24 +1,44 @@
 import React, { Component, useState, useEffect } from "react";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
+import Button from "@material-ui/core/Button";
 import WorkTwoToneIcon from "@material-ui/icons/WorkTwoTone";
 import MailTwoToneIcon from "@material-ui/icons/MailTwoTone";
 import LocalPhoneTwoToneIcon from "@material-ui/icons/LocalPhoneTwoTone";
 import PlaceTwoToneIcon from "@material-ui/icons/PlaceTwoTone";
 import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import NotesTwoToneIcon from "@material-ui/icons/NotesTwoTone";
+import CreateTwoToneIcon from "@material-ui/icons/CreateTwoTone";
+
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 import CloseIcon from "@material-ui/icons/Close";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import IconButton from "@material-ui/core/IconButton";
 import Tooltip from "@material-ui/core/Tooltip";
-import Menu from "@material-ui/core/Menu";
+import Popover from "@material-ui/core/Popover";
 import MenuItem from "@material-ui/core/MenuItem";
 import { tags, countries } from "../../../@fake-db/contacts/contacts";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { map } from "lodash";
 
 import moment from "moment";
+
+const StyledButton = withStyles({
+  root: {
+    display: "flex",
+    justifyContent: "flex-start",
+    borderRadius: 0,
+    border: 0,
+    color: "#27303f",
+    height: 48,
+    fontWeight: 400,
+    padding: "0 18px",
+    position: "relative",
+  },
+  label: {
+    textTransform: "none",
+  },
+})(Button);
 
 const ContactForm = ({ contact }) => {
   return (
@@ -166,14 +186,14 @@ const ContactDetails = ({ contact }) => {
           className="w-32 rounded-full border-4 border-black"
         ></img>
       ) : (
-        <span className="w-32 h-32 rounded-full bg-gray-400">
-          <span className="flex items-center flex justify-center">
+        <span className="w-32 h-32 rounded-full bg-gray-400 border-4 border-gray-700">
+          <span className="flex items-center flex justify-center h-full text-5xl text-gray-700">
             {name.charAt(0).toUpperCase()}
           </span>
         </span>
       )}
 
-      <div className="py-4">
+      <div className="pb-4 pt-8">
         <h3 className="font-bold text-3xl">{name}</h3>
       </div>
       <div className="py-2 mb-8">
@@ -267,9 +287,10 @@ const Contact = (props) => {
         >
           <MoreVertIcon />
         </IconButton>
-        <Menu
-          id="long-menu"
+        <Popover
+          open={open}
           anchorEl={anchorEl}
+          onClose={handleClose}
           anchorOrigin={{
             vertical: "bottom",
             horizontal: "right",
@@ -278,26 +299,25 @@ const Contact = (props) => {
             vertical: "top",
             horizontal: "right",
           }}
-          keepMounted
-          open={open}
-          onClose={handleClose}
-          PaperProps={{
-            style: {
-              // maxHeight: ITEM_HEIGHT * 4.5,
-              width: "20ch",
-            },
-          }}
         >
-          <MenuItem onClick={handleClose}>Edit contact</MenuItem>
-        </Menu>
+          <div className="flex flex-col py-2">
+            <StyledButton
+              onClick={handleClose}
+              startIcon={
+                <CreateTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+              }
+            >
+              Edit contact
+            </StyledButton>
+          </div>
+        </Popover>
         <Tooltip title="Close">
           <IconButton aria-label="close" onClick={props.close}>
             <CloseIcon />
           </IconButton>
         </Tooltip>
       </div>
-      {!edit && <ContactDetails {...props} />}
-      {edit && <ContactForm {...props} />}
+      {edit ? <ContactForm {...props} /> : <ContactDetails {...props} />}
     </div>
   );
 };

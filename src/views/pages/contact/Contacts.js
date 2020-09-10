@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Icon from "@material-ui/core/Icon";
-import { contacts } from "../../../@fake-db/contacts/contacts";
+import { contacts, tags, countries } from "../../../@fake-db/contacts/contacts";
 import Contact from "./Contact";
-import { tags, countries } from "../../../@fake-db/contacts/contacts";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -53,8 +52,10 @@ export default function Contacts() {
   const [countryCodes, setCountryCodes] = useState([]);
 
   React.useEffect(() => {
+    console.log(countries);
+    console.log(contacts);
     return () => {
-      console.log("mounted");
+      console.log("unmounted");
     };
   }, []);
 
@@ -62,6 +63,11 @@ export default function Contacts() {
   const avatar = (contact) => {
     let url = require(`../../../assets/images/avatars/${contact.avatar}.jpg`);
     return <img src={url} alt={contact.name} className="w-8 rounded-full" />;
+  };
+
+  const getCountryCode = (item) => {
+    let code = countries.find((country) => country.iso == item.country).code;
+    return `${code} ${item.number}`;
   };
 
   // Contact List
@@ -86,7 +92,7 @@ export default function Contacts() {
         </div>
       </td>
       <td className="px-4 py-4">{contact.emails[0].email}</td>
-      <td className="px-4 py-4">{contact.phoneNumbers[0].number}</td>
+      <td className="px-4 py-4">{getCountryCode(contact.phoneNumbers[0])}</td>
       {contact.job.title && contact.job.company ? (
         <td className="pr-8 pl-4 py-4">
           {contact.job.title}, {contact.job.company}
