@@ -65,6 +65,7 @@ export default function Contacts() {
     return <img src={url} alt={contact.name} className="w-8 rounded-full" />;
   };
 
+  // Contact Phone Country Code
   const getCountryCode = (item) => {
     let code = countries.find((country) => country.iso == item.country).code;
     return `${code} ${item.number}`;
