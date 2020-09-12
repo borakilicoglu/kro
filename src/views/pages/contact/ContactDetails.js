@@ -7,6 +7,7 @@ import LocalPhoneTwoToneIcon from "@material-ui/icons/LocalPhoneTwoTone";
 import PlaceTwoToneIcon from "@material-ui/icons/PlaceTwoTone";
 import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import NotesTwoToneIcon from "@material-ui/icons/NotesTwoTone";
+import ContactAvatar from "./ContactAvatar";
 
 const ContactDetails = ({ contact }) => {
   let {
@@ -30,20 +31,7 @@ const ContactDetails = ({ contact }) => {
   }, []);
   return (
     <div className="flex flex-col py-16 px-20 h-100">
-      {contact.avatar && contact.avatar !== null ? (
-        <img
-          src={require(`../../../assets/images/avatars/${avatar}.jpg`)}
-          alt="Dejesus Michael"
-          className="w-32 rounded-full border-4 border-black"
-        ></img>
-      ) : (
-        <span className="w-32 h-32 rounded-full bg-gray-400 border-4 border-gray-700">
-          <span className="flex items-center flex justify-center h-full text-5xl text-gray-700">
-            {name.charAt(0).toUpperCase()}
-          </span>
-        </span>
-      )}
-
+      <ContactAvatar contact={contact} />
       <div className="pb-4 pt-8">
         <h3 className="font-bold text-3xl">{name}</h3>
       </div>

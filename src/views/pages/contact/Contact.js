@@ -97,7 +97,7 @@ const Contact = (props) => {
         ) : (
           <div>
             <Tooltip title="Close">
-              <IconButton aria-label="cancel" onClick={props.close}>
+              <IconButton aria-label="cancel" onClick={handleClose}>
                 <CancelTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
               </IconButton>
             </Tooltip>
