@@ -9,6 +9,11 @@ import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import NotesTwoToneIcon from "@material-ui/icons/NotesTwoTone";
 import ContactAvatar from "./ContactAvatar";
 
+import MenuItem from "@material-ui/core/MenuItem";
+import ListItemText from "@material-ui/core/ListItemText";
+import Checkbox from "@material-ui/core/Checkbox";
+import Popover from "@material-ui/core/Popover";
+
 // Contact Phone Country Code
 const getCountryCode = (item) => {
   let code = countries.find((country) => country.iso == item.country).code;
@@ -17,6 +22,16 @@ const getCountryCode = (item) => {
 
 // Contact Details
 const ContactDetails = (props) => {
+  // Popover Contact Tags
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  // Set Contact State From Props
   const [contact, setContact] = useState(props.contact);
   const [filteredTags, setFilteredTags] = useState([]);
   useEffect(() => {
@@ -54,6 +69,32 @@ const ContactDetails = (props) => {
             {tag.title}
           </span>
         ))}
+        <span
+          className="ml-2 py-1 px-3 text-gray-600 text-xs font-medium bg-gray-200 rounded-sm"
+          onClick={handleClick}
+        >
+          Edit Tags
+        </span>
+        <Popover
+          open={Boolean(anchorEl)}
+          anchorEl={anchorEl}
+          onClose={handleClose}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+        >
+          {tags.map((tag, i) => (
+            <MenuItem key={i} value={tag.title}>
+              <Checkbox checked={"Family".indexOf(tag.title) > -1} />
+              <ListItemText primary={tag.title} />
+            </MenuItem>
+          ))}
+        </Popover>
       </div>
       <div className="mb-4 flex items-center">
         <div className="flex-shrink">
@@ -148,8 +189,8 @@ const ContactDetails = (props) => {
         {!edit ? (
           <div className="flex-grow pl-8">
             <ul>
-              {phoneNumbers.map((item) => (
-                <li>
+              {phoneNumbers.map((item, i) => (
+                <li key={i}>
                   <p>
                     {getCountryCode(item)}
                     <span className="text-xs text-gray-600">
@@ -214,7 +255,7 @@ const ContactDetails = (props) => {
             <input
               class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
               type="text"
-              value={birthday}
+              value={moment(birthday).format("Do dddd MMMM gggg")}
               placeholder="Birthday"
             ></input>
           )}

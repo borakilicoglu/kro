@@ -1,22 +1,18 @@
 import React, { Component, useState, useEffect } from "react";
+import ContactDetails from "./ContactDetails";
+
+import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
+import Popover from "@material-ui/core/Popover";
+import IconButton from "@material-ui/core/IconButton";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+
 import CreateTwoToneIcon from "@material-ui/icons/CreateTwoTone";
 import CancelTwoToneIcon from "@material-ui/icons/CancelTwoTone";
 import SaveTwoToneIcon from "@material-ui/icons/SaveTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
-import Button from "@material-ui/core/Button";
-
-import { withStyles, makeStyles } from "@material-ui/core/styles";
-
-import ContactForm from "./ContactForm";
-import ContactDetails from "./ContactDetails";
-
 import CloseIcon from "@material-ui/icons/Close";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
-import IconButton from "@material-ui/core/IconButton";
-import Tooltip from "@material-ui/core/Tooltip";
-import Popover from "@material-ui/core/Popover";
-import { connect } from "react-redux";
-import PropTypes from "prop-types";
 
 const StyledButton = withStyles({
   root: {
@@ -114,7 +110,6 @@ const Contact = (props) => {
           </div>
         )}
       </div>
-      {/* {edit ? <ContactForm {...props} /> : <ContactDetails {...props} />} */}
       <ContactDetails contact={props.contact} edit={edit} close={props.close} />
     </div>
   );
