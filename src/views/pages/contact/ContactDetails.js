@@ -9,9 +9,19 @@ import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import NotesTwoToneIcon from "@material-ui/icons/NotesTwoTone";
 import ContactAvatar from "./ContactAvatar";
 
-const ContactDetails = ({ contact }) => {
+const ContactDetails = ({ contact, close, edit }) => {
+  const [contactDetails, setContactDetails] = useState(contact);
+  const [filteredTags, setFilteredTags] = useState([]);
+  useEffect(() => {
+    setContactDetails(contact);
+    contact.tags.map((tag) => {
+      setFilteredTags([...filteredTags, tags.find((x) => x.id == tag)]);
+    });
+    return () => {
+      console.log("unmount");
+    };
+  }, [contact]);
   let {
-    avatar,
     name,
     emails,
     phoneNumbers,
@@ -19,84 +29,221 @@ const ContactDetails = ({ contact }) => {
     birthday,
     address,
     notes,
-  } = contact;
-  const [filteredTags, setFilteredTags] = useState([]);
-  useEffect(() => {
-    contact.tags.map((tag) => {
-      setFilteredTags([...filteredTags, tags.find((x) => x.id == tag)]);
-    });
-    return () => {
-      console.log("unmount");
-    };
-  }, []);
+  } = contactDetails;
   return (
     <div className="flex flex-col py-16 px-20 h-100">
-      <ContactAvatar contact={contact} />
+      <ContactAvatar contact={contactDetails} />
       <div className="pb-4 pt-8">
-        <h3 className="font-bold text-3xl">{name}</h3>
+        {!edit ? (
+          <h3 className="font-bold text-3xl">{name}</h3>
+        ) : (
+          <input
+            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            type="text"
+            defaultValue={name}
+            placeholder="name"
+          ></input>
+        )}
       </div>
       <div className="py-2 mb-8">
-        {filteredTags.map(function (tag, i) {
-          return (
-            <span
-              className="py-1 px-3 text-gray-600 text-xs font-semibold uppercase bg-gray-200 rounded-sm"
-              key={i}
-            >
-              {tag.title}
-            </span>
-          );
-        })}
+        {filteredTags.map((tag, i) => (
+          <span
+            className="py-1 px-3 text-gray-600 text-xs font-semibold uppercase bg-gray-200 rounded-sm"
+            key={i}
+          >
+            {tag.title}
+          </span>
+        ))}
       </div>
       <div className="py-2 mb-4 flex">
-        <WorkTwoToneIcon style={{ color: "#64748b" }} />
-        {contact.job.title && contact.job.company ? (
-          <p className="ml-4">
-            {job.title}, {job.company}
-          </p>
+        <div className="flex-shrink p-2">
+          <WorkTwoToneIcon style={{ color: "#64748b" }} />
+        </div>
+        {!edit ? (
+          contact.job.title && contact.job.company ? (
+            <div className="flex-shrink-0 p-2">
+              <p>
+                {job.title}, {job.company}
+              </p>
+            </div>
+          ) : (
+            <div className="flex-shrink-0 p-2">
+              <p>{job.company}</p>
+            </div>
+          )
         ) : (
-          <p className="ml-4">{job.company}</p>
+          <React.Fragment>
+            <div className="flex-shrink-0 p-2">
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-city"
+                type="text"
+                value={job.title}
+                placeholder="Job Title"
+              ></input>
+            </div>
+            <div className="flex-shrink p-2">
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-city"
+                type="text"
+                value={job.company}
+                placeholder="Company"
+              ></input>
+            </div>
+          </React.Fragment>
         )}
       </div>
       <div className="py-2 mb-4 flex">
-        <MailTwoToneIcon style={{ color: "#64748b" }} />
-        <ul>
-          {emails.map((item) => (
-            <li>
-              <p className="ml-4">
-                <a href="#" className="text-indigo-600">
-                  {item.email}
-                </a>
-                <span className="text-xs text-gray-600"> • {item.label}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
+        <div className="flex-shrink pr-2">
+          <MailTwoToneIcon style={{ color: "#64748b" }} />
+        </div>
+        {!edit ? (
+          <div className="flex-shrink-0 p-2">
+            <ul>
+              {emails.map((item, i) => (
+                <li key={i}>
+                  <p>
+                    <a href="#" className="text-indigo-600">
+                      {item.email}
+                    </a>
+                    <span className="text-xs text-gray-600">
+                      {" "}
+                      • {item.label}
+                    </span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div className="flex-shrink">
+            {emails.map((item, i) => (
+              <div className="flex">
+                <div className="flex-shrink-0 p-2">
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-city"
+                    type="text"
+                    value={item.email}
+                    placeholder="Email"
+                  ></input>
+                </div>
+                <div className="flex-shrink p-2">
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    id="grid-city"
+                    type="text"
+                    value={item.label}
+                    placeholder="Label"
+                  ></input>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className="py-2 mb-4 flex">
-        <LocalPhoneTwoToneIcon style={{ color: "#64748b" }} />
-        <ul>
-          {phoneNumbers.map((item) => (
-            <li>
-              <p className="ml-4">
-                {item.number}
-                <span className="text-xs text-gray-600"> • {item.label}</span>
-              </p>
-            </li>
-          ))}
-        </ul>
-        <p className="ml-4"></p>
+        <div className="flex-shrink pr-2">
+          <LocalPhoneTwoToneIcon style={{ color: "#64748b" }} />
+        </div>
+        {!edit ? (
+          <div className="flex-shrink-0 p-2">
+            <ul>
+              {phoneNumbers.map((item) => (
+                <li>
+                  <p>
+                    {item.number}
+                    <span className="text-xs text-gray-600">
+                      {" "}
+                      • {item.label}
+                    </span>
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <div className="flex-shrink">
+            {phoneNumbers.map((item, i) => (
+              <div className="flex">
+                <div className="flex-shrink-0 p-2">
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    type="text"
+                    value={item.number}
+                    placeholder="Email"
+                  ></input>
+                </div>
+                <div className="flex-shrink p-2">
+                  <input
+                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    type="text"
+                    value={item.label}
+                    placeholder="Label"
+                  ></input>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className="py-2 mb-4 flex">
-        <PlaceTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">{address}</p>
+        <div className="flex-shrink pr-2">
+          <PlaceTwoToneIcon style={{ color: "#64748b" }} />
+        </div>
+        {!edit ? (
+          <div className="flex-shrink-0 p-2">
+            <p>{address}</p>
+          </div>
+        ) : (
+          <div className="flex-grow p-2">
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text"
+              value={address}
+              placeholder="Address"
+            ></input>
+          </div>
+        )}
       </div>
       <div className="py-2 mb-4 flex">
-        <CakeTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">{moment(birthday).format("dddd D YYYY")}</p>
+        <div className="flex-shrink pr-2">
+          <CakeTwoToneIcon style={{ color: "#64748b" }} />
+        </div>
+        {!edit ? (
+          <div className="flex-shrink-0 p-2">
+            <p>{birthday}</p>
+          </div>
+        ) : (
+          <div className="flex-grow p-2">
+            <input
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              type="text"
+              value={birthday}
+              placeholder="Birthday"
+            ></input>
+          </div>
+        )}
       </div>
       <div className="py-2 mb-4 flex">
-        <NotesTwoToneIcon style={{ color: "#64748b" }} />
-        <p className="ml-4">{notes}</p>
+        <div className="flex-shrink pr-2">
+          <NotesTwoToneIcon style={{ color: "#64748b" }} />
+        </div>
+        {!edit ? (
+          <div className="flex-shrink-0 p-2">
+            <p>{notes}</p>
+          </div>
+        ) : (
+          <div className="flex-grow p-2">
+            <textarea
+              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              rows="3"
+              placeholder="Enter some long form content."
+              value={notes}
+            ></textarea>
+          </div>
+        )}
       </div>
     </div>
   );

@@ -96,17 +96,17 @@ const Contact = (props) => {
           </div>
         ) : (
           <div>
-            <Tooltip title="Close">
+            <Tooltip title="Cancel">
               <IconButton aria-label="cancel" onClick={handleClose}>
                 <CancelTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Close">
+            <Tooltip title="Save">
               <IconButton aria-label="save" onClick={props.close}>
                 <SaveTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
               </IconButton>
             </Tooltip>
-            <Tooltip title="Close">
+            <Tooltip title="Delete">
               <IconButton aria-label="delete" onClick={props.close}>
                 <DeleteTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
               </IconButton>
@@ -114,7 +114,8 @@ const Contact = (props) => {
           </div>
         )}
       </div>
-      {edit ? <ContactForm {...props} /> : <ContactDetails {...props} />}
+      {/* {edit ? <ContactForm {...props} /> : <ContactDetails {...props} />} */}
+      <ContactDetails contact={props.contact} edit={edit} close={props.close} />
     </div>
   );
 };
