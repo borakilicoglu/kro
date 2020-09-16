@@ -181,7 +181,7 @@ export default function AccountMenu() {
             <hr className="mt-2 mb-2" />
 
             <StyledButton
-              onClick={() => history.push("/sign-in")}
+              onClick={() => history.push("authentication/sign-in")}
               startIcon={
                 <PowerSettingsNewIcon
                   style={{ color: "#64738b", fontSize: 24 }}

@@ -53,8 +53,6 @@ export default function Contacts() {
   const [countryCodes, setCountryCodes] = useState([]);
 
   React.useEffect(() => {
-    console.log(countries);
-    console.log(contacts);
     return () => {
       console.log("unmounted");
     };

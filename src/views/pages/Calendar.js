@@ -151,9 +151,7 @@ export default function Calendar() {
     checkedC: true,
   });
 
-  useEffect(() => {
-    // console.log(events);
-  });
+  useEffect(() => {});
 
   const handleChange = (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });

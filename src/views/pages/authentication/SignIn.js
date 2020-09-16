@@ -14,7 +14,7 @@ export default function SignIn() {
           <h2 className="text-3xl font-bold">Sign in</h2>
           <p>
             Don't have an account?
-            <a href="" className="text-indigo-600 pl-2">
+            <a href="/" className="text-indigo-600 pl-2">
               Sign up
             </a>
           </p>
@@ -61,7 +61,7 @@ export default function SignIn() {
               </div>
               <a
                 className="inline-block align-baseline font-normal text-sm text-indigo-500 hover:text-indigo-800"
-                href="#"
+                href="/"
               >
                 Forgot Password?
               </a>

@@ -73,7 +73,6 @@ class Layout extends React.Component {
   // };
 
   componentDidMount = () => {
-    console.log(themeConfig.layout);
     // if (window !== "undefined") {
     //   window.addEventListener("resize", this.handleWindowResize);
     // }
@@ -94,7 +93,6 @@ class Layout extends React.Component {
     //     activeLayout: "vertical",
     //   });
     // }
-    console.log(themeConfig.layout);
   };
 
   componentDidUpdate() {

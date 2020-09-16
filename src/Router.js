@@ -45,7 +45,6 @@ const RouteConfig = ({
       return (
         <ContextLayout.Consumer>
           {(context) => {
-            console.log(context.state.activeLayout);
             let LayoutTag =
               fullLayout === true
                 ? context.fullLayout

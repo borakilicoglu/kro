@@ -1,5 +1,6 @@
 import React, { Component, useState, useEffect } from "react";
 import moment from "moment";
+import _, { update } from "lodash";
 import { tags, countries } from "../../../@fake-db/contacts/contacts";
 import WorkTwoToneIcon from "@material-ui/icons/WorkTwoTone";
 import MailTwoToneIcon from "@material-ui/icons/MailTwoTone";
@@ -31,13 +32,21 @@ const ContactDetails = (props) => {
     setAnchorEl(null);
   };
 
+  const toggleContactTags = (tag) => {
+    setContactTags(
+      contactTags.some((el) => el.id == tag.id)
+        ? contactTags.filter((elem) => elem.id !== tag.id)
+        : [...contactTags, tag]
+    );
+  };
+
   // Set Contact State From Props
   const [contact, setContact] = useState(props.contact);
-  const [filteredTags, setFilteredTags] = useState([]);
+  const [contactTags, setContactTags] = useState([]);
   useEffect(() => {
     setContact(props.contact);
     contact.tags.map((tag) => {
-      setFilteredTags([...filteredTags, tags.find((x) => x.id == tag)]);
+      setContactTags([...contactTags, tags.find((x) => x.id === tag)]);
     });
     return () => {
       console.log("unmount");
@@ -61,20 +70,22 @@ const ContactDetails = (props) => {
         )}
       </div>
       <div className="mb-8 pl-12 ml-2">
-        {filteredTags.map((tag, i) => (
+        {contactTags.map((tag, i) => (
           <span
-            className="py-1 px-3 text-gray-600 text-xs font-medium uppercase bg-gray-200 rounded-sm"
+            className="py-1 px-3 mr-1 inline-block mb-1 text-gray-600 text-xs font-medium uppercase bg-gray-200 rounded-sm"
             key={i}
           >
             {tag.title}
           </span>
         ))}
-        <span
-          className="ml-2 py-1 px-3 text-gray-600 text-xs font-medium bg-gray-200 rounded-sm"
-          onClick={handleClick}
-        >
-          Edit Tags
-        </span>
+        {edit && (
+          <span
+            className="py-1 px-3 mr-1 inline-block mb-1 text-gray-600 text-xs font-medium bg-gray-200 rounded-sm"
+            onClick={handleClick}
+          >
+            Edit Tags
+          </span>
+        )}
         <Popover
           open={Boolean(anchorEl)}
           anchorEl={anchorEl}
@@ -89,8 +100,11 @@ const ContactDetails = (props) => {
           }}
         >
           {tags.map((tag, i) => (
-            <MenuItem key={i} value={tag.title}>
-              <Checkbox checked={"Family".indexOf(tag.title) > -1} />
+            <MenuItem key={i} defaultValue={tag.title}>
+              <Checkbox
+                checked={contactTags.some((x) => x.title == tag.title)}
+                onClick={() => toggleContactTags(tag)}
+              />
               <ListItemText primary={tag.title} />
             </MenuItem>
           ))}
@@ -114,19 +128,17 @@ const ContactDetails = (props) => {
           <React.Fragment>
             <div className="flex-grow pl-8">
               <input
-                class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
-                id="grid-city"
+                className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                 type="text"
-                value={job.title}
+                defaultValue={job.title}
                 placeholder="Job Title"
               ></input>
             </div>
             <div className="flex-grow pl-4">
               <input
-                class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
-                id="grid-city"
+                className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                 type="text"
-                value={job.company}
+                defaultValue={job.company}
                 placeholder="Company"
               ></input>
             </div>
@@ -158,22 +170,20 @@ const ContactDetails = (props) => {
         ) : (
           <div className="flex-shrink">
             {emails.map((item, i) => (
-              <div className="flex mb-2">
+              <div className="flex mb-2" key={i}>
                 <div className="flex-grow pl-8">
                   <input
-                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
-                    id="grid-city"
+                    className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     type="text"
-                    value={item.email}
+                    defaultValue={item.email}
                     placeholder="Email"
                   ></input>
                 </div>
                 <div className="flex-grow pl-4">
                   <input
-                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
-                    id="grid-city"
+                    className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     type="text"
-                    value={item.label}
+                    defaultValue={item.label}
                     placeholder="Label"
                   ></input>
                 </div>
@@ -205,20 +215,20 @@ const ContactDetails = (props) => {
         ) : (
           <div className="flex-shrink">
             {phoneNumbers.map((item, i) => (
-              <div className="flex mb-2">
+              <div className="flex mb-2" key={i}>
                 <div className="flex-grow pl-8">
                   <input
-                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+                    className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     type="text"
-                    value={item.number}
+                    defaultValue={item.number}
                     placeholder="Email"
                   ></input>
                 </div>
                 <div className="flex-grow pl-4">
                   <input
-                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+                    className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     type="text"
-                    value={item.label}
+                    defaultValue={item.label}
                     placeholder="Label"
                   ></input>
                 </div>
@@ -236,9 +246,9 @@ const ContactDetails = (props) => {
             <p>{address}</p>
           ) : (
             <input
-              class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+              className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
               type="text"
-              value={address}
+              defaultValue={address}
               placeholder="Address"
             ></input>
           )}
@@ -253,9 +263,9 @@ const ContactDetails = (props) => {
             <p>{birthday}</p>
           ) : (
             <input
-              class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+              className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
               type="text"
-              value={moment(birthday).format("Do dddd MMMM gggg")}
+              defaultValue={moment(birthday).format("Do dddd MMMM gggg")}
               placeholder="Birthday"
             ></input>
           )}
@@ -270,10 +280,10 @@ const ContactDetails = (props) => {
             <p>{notes}</p>
           ) : (
             <textarea
-              class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+              className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
               rows="10"
               placeholder="Enter some long form content."
-              value={notes}
+              defaultValue={notes}
             ></textarea>
           )}
         </div>
