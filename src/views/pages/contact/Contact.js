@@ -120,14 +120,4 @@ const Contact = (props) => {
   );
 };
 
-// Contact.propTypes = {
-//   prop: PropTypes,
-// };
-
-// const mapStateToProps = (state) => ({});
-
-// const mapDispatchToProps = {};
-
-// export default connect(mapStateToProps, mapDispatchToProps)(Contact);
-
 export default Contact;

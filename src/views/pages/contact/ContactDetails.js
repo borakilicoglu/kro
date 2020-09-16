@@ -9,58 +9,58 @@ import CakeTwoToneIcon from "@material-ui/icons/CakeTwoTone";
 import NotesTwoToneIcon from "@material-ui/icons/NotesTwoTone";
 import ContactAvatar from "./ContactAvatar";
 
-const ContactDetails = ({ contact, close, edit }) => {
-  const [contactDetails, setContactDetails] = useState(contact);
+// Contact Phone Country Code
+const getCountryCode = (item) => {
+  let code = countries.find((country) => country.iso == item.country).code;
+  return `${code} ${item.number}`;
+};
+
+// Contact Details
+const ContactDetails = (props) => {
+  const [contact, setContact] = useState(props.contact);
   const [filteredTags, setFilteredTags] = useState([]);
   useEffect(() => {
-    setContactDetails(contact);
+    setContact(props.contact);
     contact.tags.map((tag) => {
       setFilteredTags([...filteredTags, tags.find((x) => x.id == tag)]);
     });
     return () => {
       console.log("unmount");
     };
-  }, [contact]);
-  let {
-    name,
-    emails,
-    phoneNumbers,
-    job,
-    birthday,
-    address,
-    notes,
-  } = contactDetails;
+  }, [props.contact]);
+  let { name, emails, phoneNumbers, job, birthday, address, notes } = contact;
+  let { edit } = props;
   return (
-    <div className="flex flex-col py-16 px-12 h-100">
-      <ContactAvatar contact={contactDetails} />
-      <div className="pb-4 pt-8 pl-12">
+    <div className="flex flex-col py-16 px-10 h-100">
+      <ContactAvatar contact={contact} />
+      <div className="pb-4 pt-8 pl-12 ml-2">
         {!edit ? (
           <h3 className="font-bold text-3xl">{name}</h3>
         ) : (
           <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
             type="text"
             defaultValue={name}
             placeholder="name"
           ></input>
         )}
       </div>
-      <div className="mb-8 pl-12">
+      <div className="mb-8 pl-12 ml-2">
         {filteredTags.map((tag, i) => (
           <span
-            className="py-1 px-3 text-gray-600 text-xs font-semibold uppercase bg-gray-200 rounded-sm"
+            className="py-1 px-3 text-gray-600 text-xs font-medium uppercase bg-gray-200 rounded-sm"
             key={i}
           >
             {tag.title}
           </span>
         ))}
       </div>
-      <div className="mb-4 flex items-centera">
+      <div className="mb-4 flex items-center">
         <div className="flex-shrink">
           <WorkTwoToneIcon style={{ color: "#64748b" }} />
         </div>
         {!edit ? (
-          <div className="flex-grow pl-6">
+          <div className="flex-grow pl-8">
             {contact.job.title && contact.job.company ? (
               <p>
                 {job.title}, {job.company}
@@ -71,18 +71,18 @@ const ContactDetails = ({ contact, close, edit }) => {
           </div>
         ) : (
           <React.Fragment>
-            <div className="flex-grow pl-6">
+            <div className="flex-grow pl-8">
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                 id="grid-city"
                 type="text"
                 value={job.title}
                 placeholder="Job Title"
               ></input>
             </div>
-            <div className="flex-grow pl-6">
+            <div className="flex-grow pl-4">
               <input
-                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                 id="grid-city"
                 type="text"
                 value={job.company}
@@ -92,12 +92,12 @@ const ContactDetails = ({ contact, close, edit }) => {
           </React.Fragment>
         )}
       </div>
-      <div className="mb-4 flex items-centera">
+      <div className="mb-4 flex items-center">
         <div className="flex-shrink">
           <MailTwoToneIcon style={{ color: "#64748b" }} />
         </div>
         {!edit ? (
-          <div className="flex-shrink-0 pl-6">
+          <div className="flex-shrink-0 pl-8">
             <ul>
               {emails.map((item, i) => (
                 <li key={i}>
@@ -118,18 +118,18 @@ const ContactDetails = ({ contact, close, edit }) => {
           <div className="flex-shrink">
             {emails.map((item, i) => (
               <div className="flex mb-2">
-                <div className="flex-grow pl-6">
+                <div className="flex-grow pl-8">
                   <input
-                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     id="grid-city"
                     type="text"
                     value={item.email}
                     placeholder="Email"
                   ></input>
                 </div>
-                <div className="flex-grow pl-6">
+                <div className="flex-grow pl-4">
                   <input
-                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     id="grid-city"
                     type="text"
                     value={item.label}
@@ -141,17 +141,17 @@ const ContactDetails = ({ contact, close, edit }) => {
           </div>
         )}
       </div>
-      <div className="mb-4 flex items-centera">
+      <div className="mb-4 flex items-center">
         <div className="flex-shrink">
           <LocalPhoneTwoToneIcon style={{ color: "#64748b" }} />
         </div>
         {!edit ? (
-          <div className="flex-grow pl-6">
+          <div className="flex-grow pl-8">
             <ul>
               {phoneNumbers.map((item) => (
                 <li>
                   <p>
-                    {item.number}
+                    {getCountryCode(item)}
                     <span className="text-xs text-gray-600">
                       {" "}
                       • {item.label}
@@ -165,17 +165,17 @@ const ContactDetails = ({ contact, close, edit }) => {
           <div className="flex-shrink">
             {phoneNumbers.map((item, i) => (
               <div className="flex mb-2">
-                <div className="flex-grow pl-6">
+                <div className="flex-grow pl-8">
                   <input
-                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     type="text"
                     value={item.number}
                     placeholder="Email"
                   ></input>
                 </div>
-                <div className="flex-grow pl-6">
+                <div className="flex-grow pl-4">
                   <input
-                    class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                    class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
                     type="text"
                     value={item.label}
                     placeholder="Label"
@@ -186,16 +186,16 @@ const ContactDetails = ({ contact, close, edit }) => {
           </div>
         )}
       </div>
-      <div className="mb-4 flex items-centera">
+      <div className="mb-4 flex items-center">
         <div className="flex-shrink">
           <PlaceTwoToneIcon style={{ color: "#64748b" }} />
         </div>
-        <div className="flex-grow pl-6">
+        <div className="flex-grow pl-8">
           {!edit ? (
             <p>{address}</p>
           ) : (
             <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
               type="text"
               value={address}
               placeholder="Address"
@@ -203,16 +203,16 @@ const ContactDetails = ({ contact, close, edit }) => {
           )}
         </div>
       </div>
-      <div className="mb-4 flex items-centera">
+      <div className="mb-4 flex items-center">
         <div className="flex-shrink">
           <CakeTwoToneIcon style={{ color: "#64748b" }} />
         </div>
-        <div className="flex-grow pl-6">
+        <div className="flex-grow pl-8">
           {!edit ? (
             <p>{birthday}</p>
           ) : (
             <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
               type="text"
               value={birthday}
               placeholder="Birthday"
@@ -220,17 +220,17 @@ const ContactDetails = ({ contact, close, edit }) => {
           )}
         </div>
       </div>
-      <div className="mb-4 flex items-centera">
+      <div className="mb-4 flex items-center">
         <div className="flex-shrink">
           <NotesTwoToneIcon style={{ color: "#64748b" }} />
         </div>
-        <div className="flex-grow pl-6">
+        <div className="flex-grow pl-8">
           {!edit ? (
             <p>{notes}</p>
           ) : (
             <textarea
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-              rows="3"
+              class="appearance-none shadow-sm block w-full text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-indigo-500"
+              rows="10"
               placeholder="Enter some long form content."
               value={notes}
             ></textarea>
