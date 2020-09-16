@@ -6,8 +6,8 @@ import Contact from "./Contact";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 
+// Custom Contact Styles
 const drawerWidth = 510;
-
 const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Contacts
 export default function Contacts() {
   const classes = useStyles();
 

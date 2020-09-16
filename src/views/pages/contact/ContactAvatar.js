@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactAvatar = ({ contact }) => {
   return (
-    <div>
+    <div className="pl-12">
       {contact.avatar && contact.avatar !== null ? (
         <img
           src={require(`../../../assets/images/avatars/${contact.avatar}.jpg`)}
