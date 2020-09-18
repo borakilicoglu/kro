@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import Icon from "@material-ui/core/Icon";
 import { contacts, tags, countries } from "../../../@fake-db/contacts/contacts";
 import Contact from "./Contact";
@@ -18,18 +18,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Contacts
-export default function Contacts() {
+function Contacts() {
   const classes = useStyles();
-
-  // Contact Drawer
-  const [open, setOpen] = React.useState(false);
-  const handleDrawerOpen = (contact) => {
-    setSelectedContact(contact);
-    setOpen(true);
-  };
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
 
   // Contact Search
   const [searchTerm, setSearchTerm] = React.useState("");
@@ -49,6 +39,21 @@ export default function Contacts() {
   const [contact, setContact] = React.useState();
   const setSelectedContact = (contact) => setContact(contact);
 
+  // Contact Drawer
+  const [open, setOpen] = React.useState(false);
+
+  const handleDrawerOpen = useCallback(
+    (contact) => {
+      setSelectedContact(contact);
+      setOpen(true);
+    },
+    [contact]
+  );
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
   // Contact Phone Country Codes
   const [countryCodes, setCountryCodes] = useState([]);
 
@@ -60,6 +65,7 @@ export default function Contacts() {
 
   // Contact Avatar
   const avatar = (contact) => {
+    console.log("Contact Avatar Rendered");
     let url = require(`../../../assets/images/avatars/${contact.avatar}.jpg`);
     return <img src={url} alt={contact.name} className="w-8 rounded-full" />;
   };
@@ -168,3 +174,5 @@ export default function Contacts() {
     </div>
   );
 }
+
+export default React.memo(Contacts);
