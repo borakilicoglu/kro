@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 import Icon from "@material-ui/core/Icon";
 import { contacts, tags, countries } from "../../../@fake-db/contacts/contacts";
 import Contact from "./Contact";
