@@ -80,7 +80,7 @@ const ContactDetails = (props) => {
         ))}
         {edit && (
           <span
-            className="py-1 px-3 mr-1 inline-block mb-1 text-gray-600 text-xs font-medium bg-gray-200 rounded-sm"
+            className="py-1 px-3 mr-1 inline-block mb-1 text-gray-600 text-xs font-medium bg-gray-200 rounded-sm cursor-pointer"
             onClick={handleClick}
           >
             Edit Tags

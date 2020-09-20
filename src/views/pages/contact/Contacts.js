@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Icon from "@material-ui/core/Icon";
 import { contacts, tags, countries } from "../../../@fake-db/contacts/contacts";
 import Contact from "./Contact";
+import ContactList from "./ContactList";
 
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -18,12 +19,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Contacts
-function Contacts() {
+const Contacts = () => {
   const classes = useStyles();
-
-  // Contact Search
   const [searchTerm, setSearchTerm] = React.useState("");
   const [searchResults, setSearchResults] = React.useState([]);
+  const [contact, setContact] = React.useState();
+  const [open, setOpen] = React.useState(false);
+
   const handleChange = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
   };
@@ -35,79 +37,17 @@ function Contacts() {
     setSearchResults(results);
   }, [searchTerm]);
 
-  // Contact Select Set
-  const [contact, setContact] = React.useState();
-  const setSelectedContact = (contact) => setContact(contact);
-
-  // Contact Drawer
-  const [open, setOpen] = React.useState(false);
-
   const handleDrawerOpen = useCallback(
     (contact) => {
-      setSelectedContact(contact);
+      setContact(contact);
       setOpen(true);
     },
-    [contact]
+    [setContact, setOpen]
   );
 
-  const handleDrawerClose = () => {
+  const handleDrawerClose = useCallback(() => {
     setOpen(false);
-  };
-
-  // Contact Phone Country Codes
-  const [countryCodes, setCountryCodes] = useState([]);
-
-  React.useEffect(() => {
-    return () => {
-      console.log("unmounted");
-    };
   }, []);
-
-  // Contact Avatar
-  const avatar = (contact) => {
-    console.log("Contact Avatar Rendered");
-    let url = require(`../../../assets/images/avatars/${contact.avatar}.jpg`);
-    return <img src={url} alt={contact.name} className="w-8 rounded-full" />;
-  };
-
-  // Contact Phone Country Code
-  const getCountryCode = (item) => {
-    let code = countries.find((country) => country.iso == item.country).code;
-    return `${code} ${item.number}`;
-  };
-
-  // Contact List
-  const contactList = searchResults.map((contact, index) => (
-    <tr
-      className="border-b hover:bg-gray-100 cursor-pointer"
-      key={index}
-      onClick={() => handleDrawerOpen(contact)}
-    >
-      <td className="pl-8 py-4">
-        <div className="flex items-center">
-          {contact.avatar && contact.avatar !== null ? (
-            avatar(contact)
-          ) : (
-            <span className="w-8 h-8 rounded-full bg-gray-300 text-center">
-              <span className="h-8 text-base items-center flex justify-center">
-                {contact.name.charAt(0).toUpperCase()}
-              </span>
-            </span>
-          )}
-          <div className="ml-8">{contact.name}</div>
-        </div>
-      </td>
-      <td className="px-4 py-4">{contact.emails[0].email}</td>
-      <td className="px-4 py-4">{getCountryCode(contact.phoneNumbers[0])}</td>
-      {contact.job.title && contact.job.company ? (
-        <td className="pr-8 pl-4 py-4">
-          {contact.job.title}, {contact.job.company}
-        </td>
-      ) : (
-        <td className="pr-8 pl-4 py-4">{contact.job.company}</td>
-      )}
-    </tr>
-  ));
 
   return (
     <div className="inset-0 absolute">
@@ -154,7 +94,12 @@ function Contacts() {
                   <th className="px-4 py-4 font-medium">Job title & company</th>
                 </tr>
               </thead>
-              <tbody>{contactList}</tbody>
+              <tbody>
+                <ContactList
+                  handleDrawerOpen={handleDrawerOpen}
+                  searchResults={searchResults}
+                />
+              </tbody>
             </table>
           </div>
         </div>
@@ -173,6 +118,6 @@ function Contacts() {
       </div>
     </div>
   );
-}
+};
 
-export default React.memo(Contacts);
+export default Contacts;

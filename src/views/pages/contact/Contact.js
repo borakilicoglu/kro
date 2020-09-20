@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import ContactDetails from "./ContactDetails";
 
 import Button from "@material-ui/core/Button";

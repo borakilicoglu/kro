@@ -68,7 +68,7 @@ export default function Inventory(props) {
               onChange={handleChange}
               className="bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 pr-4 pl-10 block w-full appearance-none leading-normal"
               type="email"
-              placeholder="jane@example.com"
+              placeholder="Search products"
             />
             <div className="pointer-events-none absolute inset-y-0 left-0 pl-4 flex items-center">
               <svg
