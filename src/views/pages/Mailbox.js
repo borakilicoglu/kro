@@ -41,7 +41,7 @@ const Mailbox = () => {
   return (
     <div className="flex flex-col flex-auto w-full h-full xs:p-2">
       <div className="flex flex-wrap w-full h-full bg-white">
-        <div className="w-1/4 border-r px-8 overflow-scroll">
+        <div className="w-1/5 border-r px-8 overflow-scroll">
           <div className="h-px">
             <h3 className="pt-8 pb-6 font-bold text-3xl">Mailbox</h3>
             <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center w-full justify-center">
@@ -125,7 +125,7 @@ const Mailbox = () => {
             </ul>
           </div>
         </div>
-        <div className="w-1/4 border-r overflow-scroll">
+        <div className="w-2/5 border-r overflow-scroll">
           <div className="flex p-4 border-b items-center">
             <IconButton color="primary" component="span">
               <MenuIcon />
@@ -155,7 +155,7 @@ const Mailbox = () => {
             ))}
           </div>
         </div>
-        <div className="w-2/4 border-r bg-gray-200 h-100">
+        <div className="w-2/5 border-r bg-gray-200 h-100">
           <div className="flex flex-col h-full items-center justify-center">
             <LocalPostOfficeTwoToneIcon
               style={{ color: "#64748b", fontSize: "150px" }}
