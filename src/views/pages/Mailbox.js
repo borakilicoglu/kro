@@ -51,38 +51,38 @@ const Mailbox = () => {
             <h6 className="uppercase pt-8 text-indigo-500 text-xs font-semibold mb-2">
               Mailboxes
             </h6>
-            <ul className="list-none">
-              <li>
+            <ul className="list-none -mx-6">
+              <li className="hover:bg-gray-300 bg-gray-200 px-6">
                 <button className="inline-flex w-full items-center py-2">
                   <InboxTwoToneIcon style={{ color: "#64748b" }} />
                   <span className="flex-grow text-left ml-4">Inbox</span>
                   <span className="text-xs font-bold">{mails.length}</span>
                 </button>
               </li>
-              <li>
+              <li className="hover:bg-gray-300 px-6">
                 <button className="inline-flex w-full items-center py-2">
                   <SendTwoToneIcon style={{ color: "#64748b" }} />
                   <span className="flex-grow text-left ml-4">Sent</span>
                 </button>
               </li>
-              <li>
+              <li className="hover:bg-gray-300 px-6">
                 <button className="inline-flex w-full items-center py-2">
                   <DraftsTwoToneIcon style={{ color: "#64748b" }} />
                   <span className="flex-grow text-left ml-4">Drafts</span>
                   <span className="text-xs font-bold">7</span>
                 </button>
               </li>
-              <li>
+              <li className="hover:bg-gray-300 px-6">
                 <button className="inline-flex w-full items-center py-2">
                   <ErrorTwoToneIcon style={{ color: "#64748b" }} />
                   <span className="flex-grow text-left ml-4">Spam</span>
                   <span className="text-xs font-bold">13</span>
                 </button>
               </li>
-              <li>
+              <li className="hover:bg-gray-300 px-6">
                 <button className="inline-flex w-full items-center py-2">
                   <DeleteTwoToneIcon style={{ color: "#64748b" }} />
-                  <span className="flex-grow text-left ml-4">Spam</span>
+                  <span className="flex-grow text-left ml-4">Trash</span>
                 </button>
               </li>
             </ul>
@@ -149,7 +149,11 @@ const Mailbox = () => {
             {mails.map((mail, index) => (
               <div className="border-b p-6" key={index}>
                 <div>
-                  <p className="pb-2 font-semibold">{mail.from.contact}</p>
+                  <p className="pb-2 font-semibold">
+                    {mail.from.contact
+                      .slice(0, mail.from.contact.lastIndexOf("<"))
+                      .trim()}
+                  </p>
                 </div>
                 <div>{mail.subject}</div>
                 <div>{mail.to}</div>
@@ -159,7 +163,7 @@ const Mailbox = () => {
             ))}
           </div>
         </div>
-        <div className="w-2/4 border-r bg-gray-200 h-100">
+        <div className="w-2/4 border-r h-100">
           <div className="flex flex-col h-full items-center justify-center">
             <LocalPostOfficeTwoToneIcon
               style={{ color: "#64748b", fontSize: "150px" }}
