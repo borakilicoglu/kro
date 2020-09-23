@@ -126,7 +126,7 @@ const Mailbox = () => {
           </div>
         </div>
         <div className="w-1/4 border-r overflow-scroll relative">
-          <div className="flex p-4 border-b items-center absolute">
+          <div className="flex p-4 border-b items-center relative sticky top-0 bg-white">
             <IconButton color="primary" component="span">
               <MenuIcon />
             </IconButton>
@@ -148,7 +148,10 @@ const Mailbox = () => {
           <div className="h-px">
             {mails.map((mail, index) => (
               <div className="border-b p-6" key={index}>
-                <div>{mail.from.contact}</div>
+                <div>
+                  <p className="pb-2 font-semibold">{mail.from.contact}</p>
+                </div>
+                <div>{mail.subject}</div>
                 <div>{mail.to}</div>
                 <div>{mail.cc}</div>
                 <div>{mail.bcc}</div>
