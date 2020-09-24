@@ -12,7 +12,7 @@ const Crypto = lazy(() => import("./views/pages/Crypto"));
 const Calendar = lazy(() => import("./views/pages/Calendar"));
 const Contacts = lazy(() => import("./views/pages/contact/Contacts"));
 const Inventory = lazy(() => import("./views/pages/ecommerce/Inventory"));
-const Mailbox = lazy(() => import("./views/pages/Mailbox"));
+const Mailbox = lazy(() => import("./views/pages/mailbox/Mailbox"));
 const Tasks = lazy(() => import("./views/pages/Tasks"));
 const SignIn = lazy(() => import("./views/pages/authentication/SignIn"));
 const SignUp = lazy(() => import("./views/pages/authentication/SignUp"));
