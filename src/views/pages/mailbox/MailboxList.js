@@ -31,12 +31,12 @@ const MailboxList = ({ mails, mailSet }) => {
       <div className="h-px">
         {mails.map((mail, index) => (
           <div
-            className="border-b p-6"
+            className="border-b p-6 cursor-pointer"
             key={index}
             onClick={() => mailSet(mail)}
           >
             <div>
-              <p className="font-semibold cursor-pointer">
+              <p className="font-semibold">
                 {mail.from.contact
                   .slice(0, mail.from.contact.lastIndexOf("<"))
                   .trim()}

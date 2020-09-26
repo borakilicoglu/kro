@@ -88,12 +88,13 @@ export const labels = [
 export const settings = {
   messageLayout: "right",
 };
+
 export const mails = [
   {
     id: "f9c4c091-3ac4-4df9-ac5d-aec7b07c8e3f",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-01.jpg",
+      avatar: "female-01",
       contact: "Myra Dudley <myra.dudley@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -140,7 +141,7 @@ export const mails = [
     id: "c531bc01-8a9e-481b-adf8-95303a6938c5",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-01.jpg",
+      avatar: "male-01",
       contact: "Shaw Murray <shaw.murray@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -159,7 +160,7 @@ export const mails = [
     id: "ebc80fc3-6c56-4cae-a45a-771b15ced076",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-02.jpg",
+      avatar: "male-02",
       contact: "Sanders Beck <sanders.beck@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -179,7 +180,7 @@ export const mails = [
     id: "981c5ffb-7c88-47a8-b60f-f16150eeae9d",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-03.jpg",
+      avatar: "male-03",
       contact: "Zimmerman Gould <zimmerman.gould@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -198,7 +199,7 @@ export const mails = [
     id: "a8d0645d-ac30-4f1a-a163-06e949120289",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-02.jpg",
+      avatar: "female-02",
       contact: "Karina Alford <karina.alford@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -218,7 +219,7 @@ export const mails = [
     id: "fd117ed9-1285-4aca-8c1c-5c96e732c558",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-03.jpg",
+      avatar: "female-03",
       contact: "Carla Gray <carla.gray@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -239,7 +240,7 @@ export const mails = [
     id: "a307d83b-d256-4af5-948a-148878a7eaad",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-04.jpg",
+      avatar: "male-04",
       contact: "Rice Cash <rice.cash@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -284,7 +285,7 @@ export const mails = [
     id: "67664fa3-3a87-4ab8-8c2c-dfd2b1de4c14",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-04.jpg",
+      avatar: "female-04",
       contact: "Elaine Ortiz <elaine.ortiz@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -309,7 +310,7 @@ export const mails = [
     id: "d5913a7e-25f8-4163-bbf0-81d034163ce7",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-05.jpg",
+      avatar: "male-05",
       contact: "Fleming Stone <fleming.stone@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -333,7 +334,7 @@ export const mails = [
     id: "b099a8e2-ffcc-4ae1-866d-8f8f6bd95ab3",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-06.jpg",
+      avatar: "male-06",
       contact: "England Wiley <england.wiley@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -357,7 +358,7 @@ export const mails = [
     id: "7bd21940-3388-479c-b1bc-3ebceb0472d8",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-07.jpg",
+      avatar: "male-07",
       contact: "Ingram Fowler <ingram.fowler@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -377,7 +378,7 @@ export const mails = [
     id: "2d105bae-b4e5-4ba3-a40e-e9e2b5cc671a",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-05.jpg",
+      avatar: "female-05",
       contact: "Diana Walsh <diana.walsh@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -423,7 +424,7 @@ export const mails = [
     id: "4c3bd79a-6429-466d-b962-8eb09c524969",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-08.jpg",
+      avatar: "male-08",
       contact: "Mckinney Marsh <mckinney.marsh@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -449,7 +450,7 @@ export const mails = [
     id: "770d24d1-1b9b-49ec-bcb4-f6feffc305ff",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-09.jpg",
+      avatar: "male-09",
       contact: "Meyer Fuller <meyer.fuller@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -475,7 +476,7 @@ export const mails = [
     id: "3e2100de-ca0a-4a8e-a1c5-6c13172333dc",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-06.jpg",
+      avatar: "female-06",
       contact: "Carolina Wade <carolina.wade@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -499,7 +500,7 @@ export const mails = [
     id: "e1291d1a-fba6-4b23-b259-dd7c9074e976",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-10.jpg",
+      avatar: "male-10",
       contact: "Graves Huber <graves.huber@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -518,7 +519,7 @@ export const mails = [
     id: "7cba834c-3011-4897-be7d-ee43bbe69114",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-11.jpg",
+      avatar: "male-11",
       contact: "Tucker Santiago <tucker.santiago@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -543,7 +544,7 @@ export const mails = [
     id: "d0de071d-2d72-4e0f-b903-79ca6ade9dbd",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-07.jpg",
+      avatar: "female-07",
       contact: "Becky Cain <becky.cain@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -589,7 +590,7 @@ export const mails = [
     id: "d39c93b9-10d3-426f-a205-0ee5b30cd983",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-12.jpg",
+      avatar: "male-12",
       contact: "Miller Vazquez <miller.vazquez@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -616,7 +617,7 @@ export const mails = [
     id: "4e881b4f-bf47-472f-a1fe-f787a66d37dd",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-13.jpg",
+      avatar: "male-13",
       contact: "Delgado Stevens <delgado.stevens@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -641,7 +642,7 @@ export const mails = [
     id: "5dad8b60-8d98-4215-88b8-41158e167686",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-08.jpg",
+      avatar: "female-08",
       contact: "Concepcion Cleveland <concepcion.cleveland@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -664,7 +665,7 @@ export const mails = [
     id: "eeccc250-8952-47e1-adff-31847289b4dd",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-09.jpg",
+      avatar: "female-09",
       contact: "Robin Berger <robin.berger@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -685,7 +686,7 @@ export const mails = [
     id: "e8b006ad-e140-4fea-bb32-cc346e66eb93",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-10.jpg",
+      avatar: "female-10",
       contact: "Lynnette Burton <lynnette.burton@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -706,7 +707,7 @@ export const mails = [
     id: "c6fc1d86-4a1f-4071-9c75-618fe2d853aa",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-11.jpg",
+      avatar: "female-11",
       contact: "Carmella Rios <carmella.rios@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -730,7 +731,7 @@ export const mails = [
     id: "c062a90f-52e9-4102-8def-1f8f9813deb4",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-14.jpg",
+      avatar: "male-14",
       contact: "Molina Pace <molina.pace@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -764,7 +765,7 @@ export const mails = [
     id: "545d12a6-e0f3-464d-af45-618163933a71",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-12.jpg",
+      avatar: "female-12",
       contact: "Olga Osborn <olga.osborn@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -794,7 +795,7 @@ export const mails = [
     id: "23456530-2cd4-4558-95d0-6311c2ee2ee8",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-13.jpg",
+      avatar: "female-13",
       contact: "Brooke Petersen <brooke.petersen@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -822,7 +823,7 @@ export const mails = [
     id: "affeecf6-e3c5-4377-8070-96f5ed9c6500",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-15.jpg",
+      avatar: "male-15",
       contact: "Estes Walter <estes.walter@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -842,7 +843,7 @@ export const mails = [
     id: "cb00d05c-6660-4dbb-a794-f22cff93f001",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-16.jpg",
+      avatar: "male-16",
       contact: "Holman Oconnor <holman.oconnor@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -862,7 +863,7 @@ export const mails = [
     id: "7bd27a67-df7c-4a2d-8042-1fb8a690d98e",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-17.jpg",
+      avatar: "male-17",
       contact: "Oneill Irwin <oneill.irwin@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -892,7 +893,7 @@ export const mails = [
     id: "ccfb3a90-e18c-4645-8c00-4357d9bcd321",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-14.jpg",
+      avatar: "female-14",
       contact: "Marcie Morgan <marcie.morgan@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -913,7 +914,7 @@ export const mails = [
     id: "a18b1961-ad32-4d00-984f-afef8ee0f4e9",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-18.jpg",
+      avatar: "male-18",
       contact: "Crane Trevino <crane.trevino@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -942,7 +943,7 @@ export const mails = [
     id: "3aaa5e3f-b8b5-47fc-9967-5f65dd8c7251",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-15.jpg",
+      avatar: "female-15",
       contact: "Kristine Wiggins <kristine.wiggins@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -985,7 +986,7 @@ export const mails = [
     id: "0f72d2d0-bea4-4c0f-ace0-0be9f14c37f1",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-16.jpg",
+      avatar: "female-16",
       contact: "Terrie Carney <terrie.carney@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1006,7 +1007,7 @@ export const mails = [
     id: "f825c5a3-2be8-4d48-9c4e-da60ff0e63f3",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-19.jpg",
+      avatar: "male-19",
       contact: "Goff Jennings <goff.jennings@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1035,7 +1036,7 @@ export const mails = [
     id: "e6dc9600-a3ab-4571-b2f2-ed00ee08e163",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-20.jpg",
+      avatar: "male-20",
       contact: "Browning Sanchez <browning.sanchez@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1060,7 +1061,7 @@ export const mails = [
     id: "0f22fedf-ea89-414e-91a4-0df0d9501ef2",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-01.jpg",
+      avatar: "male-01",
       contact: "Carey Lyons <carey.lyons@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1079,7 +1080,7 @@ export const mails = [
     id: "d942f99b-8925-49f0-b75b-2c48b714b1cf",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-02.jpg",
+      avatar: "male-02",
       contact: "Hendrix Goodwin <hendrix.goodwin@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1103,7 +1104,7 @@ export const mails = [
     id: "036c24e8-d8bc-4f0e-9a72-6fa884d69bb3",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-17.jpg",
+      avatar: "female-17",
       contact: "Leticia Fulton <leticia.fulton@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1123,7 +1124,7 @@ export const mails = [
     id: "3dac4463-73aa-4bd4-a3d8-662ce38635cc",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-18.jpg",
+      avatar: "female-18",
       contact: "Carmen Shannon <carmen.shannon@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1146,7 +1147,7 @@ export const mails = [
     id: "6bb27e81-ee53-4db3-acc7-bd1267cd475d",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-19.jpg",
+      avatar: "female-19",
       contact: "Hattie Snow <hattie.snow@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1174,7 +1175,7 @@ export const mails = [
     id: "bfac8e5d-6487-4747-b827-67179ac5c206",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-20.jpg",
+      avatar: "female-20",
       contact: "Brandi Bradley <brandi.bradley@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1212,7 +1213,7 @@ export const mails = [
     id: "81b49a0a-e934-422a-81a8-8506d6f24e0e",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-01.jpg",
+      avatar: "female-01",
       contact: "Patsy Potter <patsy.potter@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1233,7 +1234,7 @@ export const mails = [
     id: "8355b50a-f347-4177-8cef-6410c0aa46d1",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-02.jpg",
+      avatar: "female-02",
       contact: "Kathleen Cox <kathleen.cox@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1254,7 +1255,7 @@ export const mails = [
     id: "6d2bfbce-465b-4e8f-a79e-cd13ab8571c6",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-03.jpg",
+      avatar: "female-03",
       contact: "Kristina Ramirez <kristina.ramirez@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1279,7 +1280,7 @@ export const mails = [
     id: "d8815854-8726-4280-a5bf-eafd40b3972a",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-03.jpg",
+      avatar: "male-03",
       contact: "Mays Glass <mays.glass@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1303,7 +1304,7 @@ export const mails = [
     id: "bd7ac4df-77fa-45da-8eaf-31303ba794c4",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-04.jpg",
+      avatar: "male-04",
       contact: "Barber Zimmerman <barber.zimmerman@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1324,7 +1325,7 @@ export const mails = [
     id: "f5fe9764-70b0-407e-a015-96b04da948a7",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-04.jpg",
+      avatar: "female-04",
       contact: "Ginger Fry <ginger.fry@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1351,7 +1352,7 @@ export const mails = [
     id: "3de07c8c-e687-4138-9967-7fd1feea17ee",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-05.jpg",
+      avatar: "male-05",
       contact: "Gardner Burnett <gardner.burnett@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1373,7 +1374,7 @@ export const mails = [
     id: "d2bbcbbb-aa31-48ee-bbe4-2976b7043e78",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-05.jpg",
+      avatar: "female-05",
       contact: "Lula Lucas <lula.lucas@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1402,7 +1403,7 @@ export const mails = [
     id: "1a166107-cc66-42dd-96a2-91b1a40f8c62",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-06.jpg",
+      avatar: "male-06",
       contact: "Mcguire Crosby <mcguire.crosby@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1425,7 +1426,7 @@ export const mails = [
     id: "3fbf66d3-cc2d-4256-a276-ad73da93b7fd",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-07.jpg",
+      avatar: "male-07",
       contact: "Walsh Bender <walsh.bender@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1465,7 +1466,7 @@ export const mails = [
     id: "b460fff2-8530-4464-8c44-744cd3de3bf8",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-08.jpg",
+      avatar: "male-08",
       contact: "Baker Guthrie <baker.guthrie@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1489,7 +1490,7 @@ export const mails = [
     id: "16c18231-82ea-403d-895a-2a4bc27b61ca",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-06.jpg",
+      avatar: "female-06",
       contact: "Olivia Ratliff <olivia.ratliff@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1512,7 +1513,7 @@ export const mails = [
     id: "dfa4d802-b833-49c1-afdc-02116d73e35a",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-09.jpg",
+      avatar: "male-09",
       contact: "Schneider Kirby <schneider.kirby@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1542,7 +1543,7 @@ export const mails = [
     id: "84c4ef35-da0d-4d1f-a966-f7f413545b04",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-10.jpg",
+      avatar: "male-10",
       contact: "Griffith Keith <griffith.keith@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1567,7 +1568,7 @@ export const mails = [
     id: "0c78627f-5cbe-4d21-8491-455e98bf6f69",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-07.jpg",
+      avatar: "female-07",
       contact: "Beverly Pugh <beverly.pugh@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1593,7 +1594,7 @@ export const mails = [
     id: "3d382fb3-b5f5-43e3-b0bc-f2a6f29a5ee6",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-08.jpg",
+      avatar: "female-08",
       contact: "Ila Mclaughlin <ila.mclaughlin@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1618,7 +1619,7 @@ export const mails = [
     id: "7fd27d57-ccca-432d-af26-c3b609448fb7",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-09.jpg",
+      avatar: "female-09",
       contact: "Jenna Manning <jenna.manning@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1646,7 +1647,7 @@ export const mails = [
     id: "18ba20d3-d7bc-4fc7-85dd-2db4db3196fe",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-10.jpg",
+      avatar: "female-10",
       contact: "Deann Hansen <deann.hansen@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1667,7 +1668,7 @@ export const mails = [
     id: "476cb471-b3c1-4235-b5ef-3066b028483d",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-11.jpg",
+      avatar: "female-11",
       contact: "Tisha Moore <tisha.moore@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1691,7 +1692,7 @@ export const mails = [
     id: "a8aea501-17e9-4e40-b3a9-04f33b13cb8a",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-12.jpg",
+      avatar: "female-12",
       contact: "Janette Elliott <janette.elliott@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1715,7 +1716,7 @@ export const mails = [
     id: "cb55f824-40ed-4696-afaa-f3f8d3fb8614",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-13.jpg",
+      avatar: "female-13",
       contact: "Bettie Wyatt <bettie.wyatt@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1738,7 +1739,7 @@ export const mails = [
     id: "92dddecc-4758-4c48-8ef4-a59de4ab0705",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-11.jpg",
+      avatar: "male-11",
       contact: "Hardy Dale <hardy.dale@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1761,7 +1762,7 @@ export const mails = [
     id: "3f3f6154-a8ff-40d6-8b57-4c0f73d2cd8b",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-14.jpg",
+      avatar: "female-14",
       contact: "Eileen Bush <eileen.bush@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1780,7 +1781,7 @@ export const mails = [
     id: "2c80bcbe-c9cd-4eec-83fa-b9994713a784",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-15.jpg",
+      avatar: "female-15",
       contact: "Melody Mcintosh <melody.mcintosh@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1801,7 +1802,7 @@ export const mails = [
     id: "2a44e5b7-e01c-43db-b586-540390f46f95",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-12.jpg",
+      avatar: "male-12",
       contact: "Dale Talley <dale.talley@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1829,7 +1830,7 @@ export const mails = [
     id: "be1e969d-d52f-4824-83e5-c184b042b601",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-13.jpg",
+      avatar: "male-13",
       contact: "Britt Massey <britt.massey@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1855,7 +1856,7 @@ export const mails = [
     id: "8c7c9bff-6ca6-47ba-9242-cd9b1715eac7",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-16.jpg",
+      avatar: "female-16",
       contact: "Madelyn Haynes <madelyn.haynes@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1883,7 +1884,7 @@ export const mails = [
     id: "afd52898-82e9-4fd4-8d6a-2391ec817e2a",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-14.jpg",
+      avatar: "male-14",
       contact: "Rowland Sweet <rowland.sweet@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1907,7 +1908,7 @@ export const mails = [
     id: "e43d83f0-51ea-4da9-b18f-0de380b5156a",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-17.jpg",
+      avatar: "female-17",
       contact: "Fern Shaw <fern.shaw@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1928,7 +1929,7 @@ export const mails = [
     id: "4e1d4820-e907-405a-990a-4a5772f482ad",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-18.jpg",
+      avatar: "female-18",
       contact: "Lorraine Ballard <lorraine.ballard@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1952,7 +1953,7 @@ export const mails = [
     id: "f0f2d069-50a0-484f-a4a2-3a272fcb433b",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-15.jpg",
+      avatar: "male-15",
       contact: "Jennings Franklin <jennings.franklin@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1976,7 +1977,7 @@ export const mails = [
     id: "7c93dbde-8b56-43a3-ade1-b132906679c4",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-19.jpg",
+      avatar: "female-19",
       contact: "Colette Cole <colette.cole@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -1999,7 +2000,7 @@ export const mails = [
     id: "7335d11d-04b1-4250-817a-6fdf3e099239",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-20.jpg",
+      avatar: "female-20",
       contact: "Kim Carlson <kim.carlson@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2023,7 +2024,7 @@ export const mails = [
     id: "e9dd17ec-4fc3-424e-89e5-c58d9d235764",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-01.jpg",
+      avatar: "female-01",
       contact: "Rena Park <rena.park@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2043,7 +2044,7 @@ export const mails = [
     id: "5fb8f4b5-fad4-4a82-8519-a732e68a48be",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-16.jpg",
+      avatar: "male-16",
       contact: "Haney Gibson <haney.gibson@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2066,7 +2067,7 @@ export const mails = [
     id: "e766ddd9-e9ea-499c-bb10-72fa57a03059",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-02.jpg",
+      avatar: "female-02",
       contact: "Freda Frank <freda.frank@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2086,7 +2087,7 @@ export const mails = [
     id: "03693a62-d6bd-47c8-8f8e-112f21042722",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-17.jpg",
+      avatar: "male-17",
       contact: "Burns White <burns.white@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2106,7 +2107,7 @@ export const mails = [
     id: "c59f5ea4-4f5d-4b9e-9c3c-a996b18fd98c",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-18.jpg",
+      avatar: "male-18",
       contact: "Fischer Cervantes <fischer.cervantes@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2128,7 +2129,7 @@ export const mails = [
     id: "9ed5d4c1-819a-4719-88d7-cd7b08b2228d",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-19.jpg",
+      avatar: "male-19",
       contact: "Cervantes Reyes <cervantes.reyes@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2152,7 +2153,7 @@ export const mails = [
     id: "a769720b-0c64-483c-925c-5d747c61bff4",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-20.jpg",
+      avatar: "male-20",
       contact: "Cooke Whitney <cooke.whitney@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2171,7 +2172,7 @@ export const mails = [
     id: "e6b83f13-c25e-4355-913f-54d93d8393f6",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-03.jpg",
+      avatar: "female-03",
       contact: "Lee Lloyd <lee.lloyd@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2198,7 +2199,7 @@ export const mails = [
     id: "5c5c4ba7-542b-46b0-b0ce-976f5189d72c",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-01.jpg",
+      avatar: "male-01",
       contact: "Benson Shields <benson.shields@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2221,7 +2222,7 @@ export const mails = [
     id: "36abfef2-f86a-4c9e-99de-1869f0b3e71b",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-02.jpg",
+      avatar: "male-02",
       contact: "Emerson Whitehead <emerson.whitehead@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2249,7 +2250,7 @@ export const mails = [
     id: "b1a0ab26-6c86-4888-b2f1-69928b3ca718",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-04.jpg",
+      avatar: "female-04",
       contact: "Annabelle Greene <annabelle.greene@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2269,7 +2270,7 @@ export const mails = [
     id: "87cf5188-34dc-4947-b780-48c7fb6b6b23",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-03.jpg",
+      avatar: "male-03",
       contact: "Dawson Lewis <dawson.lewis@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2293,7 +2294,7 @@ export const mails = [
     id: "8749e3bc-24b3-43f3-997b-ee0b5bd7a442",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-04.jpg",
+      avatar: "male-04",
       contact: "Cole Dotson <cole.dotson@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2321,7 +2322,7 @@ export const mails = [
     id: "108ca3fa-a4dd-4988-a7ea-659ab4446050",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-05.jpg",
+      avatar: "male-05",
       contact: "Bernard Cunningham <bernard.cunningham@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2346,7 +2347,7 @@ export const mails = [
     id: "63a362be-4ea7-4cc1-985f-5202db9c1370",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-06.jpg",
+      avatar: "male-06",
       contact: "Edwards Mcconnell <edwards.mcconnell@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2373,7 +2374,7 @@ export const mails = [
     id: "ce206b7e-bbd0-4cd1-b69a-a8d4ef5b10bf",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-05.jpg",
+      avatar: "female-05",
       contact: "Lizzie Sanders <lizzie.sanders@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2399,7 +2400,7 @@ export const mails = [
     id: "f7c2e821-b2e2-4103-bb20-ddcd3a42dc7c",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-06.jpg",
+      avatar: "female-06",
       contact: "Elise Hicks <elise.hicks@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2423,7 +2424,7 @@ export const mails = [
     id: "d8ca28a0-7fb7-4cd4-9058-3a867f841f76",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-07.jpg",
+      avatar: "female-07",
       contact: "Sherri Roth <sherri.roth@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2447,7 +2448,7 @@ export const mails = [
     id: "b48be636-410c-485a-9442-7de7ce807dc2",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-07.jpg",
+      avatar: "male-07",
       contact: "Skinner Hawkins <skinner.hawkins@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2471,7 +2472,7 @@ export const mails = [
     id: "efe990eb-6559-48a6-a909-320c465de739",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-08.jpg",
+      avatar: "female-08",
       contact: "Velma Ellison <velma.ellison@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2493,7 +2494,7 @@ export const mails = [
     id: "d2bc3670-63f7-47c3-9d3d-4998c716f04a",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-09.jpg",
+      avatar: "female-09",
       contact: "Tamara Fitzgerald <tamara.fitzgerald@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2513,7 +2514,7 @@ export const mails = [
     id: "07b4d696-7657-4535-9838-3efb42355cbb",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-08.jpg",
+      avatar: "male-08",
       contact: "Duncan Gilmore <duncan.gilmore@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2532,7 +2533,7 @@ export const mails = [
     id: "b8424db5-c607-4b9a-b88f-78c54343a342",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/female-10.jpg",
+      avatar: "female-10",
       contact: "Betty Dean <betty.dean@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2557,7 +2558,7 @@ export const mails = [
     id: "edf1399f-e829-4bde-ae5b-e03d18ad2f76",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-09.jpg",
+      avatar: "male-09",
       contact: "Pate Gardner <pate.gardner@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
@@ -2576,7 +2577,7 @@ export const mails = [
     id: "bcc422a2-8a39-416e-8205-a5ce354ea622",
     type: "mail",
     from: {
-      avatar: "assets/images/avatars/male-10.jpg",
+      avatar: "male-10",
       contact: "Lawson Kidd <lawson.kidd@company.com>",
     },
     to: "me <watkins.andrew@company.com>",
