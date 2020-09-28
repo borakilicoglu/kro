@@ -16,10 +16,6 @@ const useStyles = makeStyles({
   },
 });
 
-const format = (content) => {
-  return <div>Content</div>;
-};
-
 const avatar = (mail) => {
   let url = require(`../../../assets/images/avatars/${mail.from.avatar}.jpg`);
   return (
@@ -29,7 +25,7 @@ const avatar = (mail) => {
 
 const label = (mail) => {
   return (
-    <div className="">
+    <div className="flex flex-col p-4">
       <span>
         <strong>from:</strong> {mail.from.contact}
       </span>
@@ -37,10 +33,10 @@ const label = (mail) => {
         <strong>to: </strong> {mail.to}
       </span>
       <span>
-        <strong>date: </strong> {mail.to}
+        <strong>date: </strong> {mail.date}
       </span>
       <span>
-        <strong>subject: </strong> {mail.to}
+        <strong>subject: </strong> {mail.subject}
       </span>
     </div>
   );
@@ -49,56 +45,76 @@ const label = (mail) => {
 const Mail = ({ mail, labels }) => {
   const classes = useStyles();
   return (
-    <div className="w-2/4 border-r h-100">
+    <div className="w-2/4 border-r h-100 bg-gray-100">
       {mail && mail ? (
-        <div className="flex flex-col justify-center bg-gray-100">
+        <div className="flex flex-col justify-center overflow-scroll">
           <div className="border-b flex py-3 px-6 bg-white">
             <CustomPopover
               icon={<LabelTwoToneIcon style={{ color: "#64748b" }} />}
             ></CustomPopover>
             <CustomPopover
-              icon={<LabelImportantTwoToneIcon style={{ color: "#64748b" }} />}
+              icon={
+                <LabelImportantTwoToneIcon
+                  style={{ color: mail.important ? "#f56565" : "#64748b" }}
+                />
+              }
             ></CustomPopover>
             <CustomPopover
-              icon={<StarTwoToneIcon style={{ color: "#64748b" }} />}
+              icon={
+                <StarTwoToneIcon
+                  style={{ color: mail.starred ? "#f56565" : "#64748b" }}
+                />
+              }
             ></CustomPopover>
             <CustomPopover
               icon={<MoreVertTwoToneIcon style={{ color: "#64748b" }} />}
             ></CustomPopover>
           </div>
-          <div className="border-b flex px-6 py-4 bg-white">
+          <div className="border-b px-6 py-4 bg-white">
             <h3 className="text-2xl font-normal">{mail.subject}</h3>
-          </div>
-          <div className="p-4">
-            <div className="bg-white border py-4 px-6 rounded">
-              <div className="flex items-center py-4">
-                {avatar(mail)}
-                <span className="ml-4">
-                  <strong>
-                    {mail.from.contact
-                      .slice(0, mail.from.contact.lastIndexOf("<"))
-                      .trim()}
-                  </strong>
-                  <span className="flex items-center">
-                    to <strong className="ml-2">me</strong>
-                    <div>
-                      <CustomPopover
-                        style={classes.root}
-                        size="small"
-                        icon={
-                          <ArrowDropDownTwoToneIcon
-                            fontSize="inherit"
-                            style={{ color: "#64748b" }}
-                          />
-                        }
-                        content={label(mail)}
-                      ></CustomPopover>
-                    </div>
+
+            {labels.map((label, index) => {
+              return (
+                mail.labels.find((element) => element == label.id) && (
+                  <span
+                    className={`text-white bg-${label.color}-500 text-xs rounded-full py-1 px-2 mr-2`}
+                    key={index}
+                  >
+                    {label.title}
                   </span>
+                )
+              );
+            })}
+          </div>
+
+          <div className="m-2 bg-white border py-4 px-6 rounded">
+            <div className="flex items-center py-4">
+              {avatar(mail)}
+              <span className="ml-4">
+                <strong>
+                  {mail.from.contact
+                    .slice(0, mail.from.contact.lastIndexOf("<"))
+                    .trim()}
+                </strong>
+                <span className="flex items-center">
+                  to <strong className="ml-2">me</strong>
+                  <div>
+                    <CustomPopover
+                      style={classes.root}
+                      size="small"
+                      icon={
+                        <ArrowDropDownTwoToneIcon
+                          fontSize="inherit"
+                          style={{ color: "#64748b" }}
+                        />
+                      }
+                      content={label(mail)}
+                    ></CustomPopover>
+                  </div>
                 </span>
-              </div>
-              {format(mail.content)}
+              </span>
             </div>
+            <p className="whitespace-pre-wrap">{mail.content}</p>
           </div>
         </div>
       ) : (

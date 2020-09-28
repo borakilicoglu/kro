@@ -88,7 +88,6 @@ export const labels = [
 export const settings = {
   messageLayout: "right",
 };
-
 export const mails = [
   {
     id: "f9c4c091-3ac4-4df9-ac5d-aec7b07c8e3f",

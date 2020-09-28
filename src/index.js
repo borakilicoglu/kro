@@ -6,6 +6,7 @@ import * as serviceWorker from "./serviceWorker";
 import { store } from "./redux/storeConfig/store";
 import Fallback from "./@nucleo/components/fallback/Fallback.js";
 
+import "./@fake-db";
 import "./styles/theme.scss";
 
 const LazyApp = lazy(() => import("./App"));

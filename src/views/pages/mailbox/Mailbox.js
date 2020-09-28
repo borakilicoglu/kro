@@ -10,22 +10,22 @@ import {
   filters as filtersMailbox,
   settings as settingsMailbox,
   mails as mailsMailbox,
-} from "../../../@fake-db/mailbox";
+} from "../../../@fake-db/mailbox/mailbox";
 
 const Mailbox = () => {
   const [labels, setLabels] = React.useState([]);
-  const [folders, setFolders] = React.useState([]);
-  const [filters, setFilters] = React.useState([]);
-  const [settings, setSettings] = React.useState([]);
+  // const [folders, setFolders] = React.useState([]);
+  // const [filters, setFilters] = React.useState([]);
+  // const [settings, setSettings] = React.useState([]);
   const [mails, setMails] = React.useState([]);
   const [mail, setMail] = React.useState();
 
   const mailSet = (mail) => setMail(mail);
 
   useEffect(() => {
-    setFolders(foldersMailbox);
-    setFilters(filtersMailbox);
-    setSettings(settingsMailbox);
+    // setFolders(foldersMailbox);
+    // setFilters(filtersMailbox);
+    // setSettings(settingsMailbox);
     setMails(mailsMailbox);
     setLabels(labelsMailbox);
     return () => {};
@@ -35,7 +35,7 @@ const Mailbox = () => {
     <div className="flex flex-col flex-auto w-full xs:p-2">
       <div className="flex flex-wrap w-full h-full bg-white">
         <MailboxMenu count={mails.length}></MailboxMenu>
-        <MailboxList mailSet={mailSet} mails={mails}></MailboxList>
+        <MailboxList select={mailSet} mails={mails} active={mail}></MailboxList>
         <Mail mail={mail} labels={labels}></Mail>
       </div>
     </div>
