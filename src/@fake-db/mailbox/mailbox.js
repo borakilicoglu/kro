@@ -1,4 +1,5 @@
 import * as moment from "moment";
+import mock from "../mock";
 
 /* tslint:disable:max-line-length */
 export const folders = [
@@ -2599,3 +2600,33 @@ export const mails = [
     ],
   },
 ];
+
+// Get Mails
+mock.onGet("/api/email/mails").reply((request) => {
+  const filter = request.params.filter;
+
+  const filteredEmails = mails
+    .filter((email) => {
+      if (filter === "") return email;
+      else if (
+        filter === "7c004a19-4506-48ef-93ab-f16381302e3b" ||
+        ![
+          "7c004a19-4506-48ef-93ab-f16381302e3b",
+          "1ee2ea29-9a1f-4c27-b4d2-5e465703b6a0",
+          "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5",
+          "0197c436-2ef3-424d-b546-8b7f49186e15",
+          "2fa74637-d362-4fd2-9a88-f7195a88bdde",
+        ].includes(filter)
+      )
+        return email.folder === "7c004a19-4506-48ef-93ab-f16381302e3b";
+      // if (filter === "sent") return email.mailFolder === "sent";
+      // if (filter === "draft") return email.mailFolder === "draft";
+      // if (filter === "starred")
+      //   return email.isStarred && email.mailFolder !== "trash";
+      // if (filter === "trash") return email.mailFolder === "trash";
+      // if (filter === "spam") return email.mailFolder === "spam";
+      else return email.folder !== "trash" && email.labels.includes(filter);
+    })
+    .reverse();
+  return [200, JSON.parse(JSON.stringify(filteredEmails))];
+});

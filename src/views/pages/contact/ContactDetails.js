@@ -1,6 +1,6 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import moment from "moment";
-import _, { update } from "lodash";
+// import _, { update } from "lodash";
 import { tags, countries } from "../../../@fake-db/contacts/contacts";
 import WorkTwoToneIcon from "@material-ui/icons/WorkTwoTone";
 import MailTwoToneIcon from "@material-ui/icons/MailTwoTone";
@@ -17,7 +17,7 @@ import Popover from "@material-ui/core/Popover";
 
 // Contact Phone Country Code
 const getCountryCode = (item) => {
-  let code = countries.find((country) => country.iso == item.country).code;
+  let code = countries.find((country) => country.iso === item.country).code;
   return `${code} ${item.number}`;
 };
 
@@ -34,7 +34,7 @@ const ContactDetails = (props) => {
 
   const toggleContactTags = (tag) => {
     setContactTags(
-      contactTags.some((el) => el.id == tag.id)
+      contactTags.some((el) => el.id === tag.id)
         ? contactTags.filter((elem) => elem.id !== tag.id)
         : [...contactTags, tag]
     );
@@ -102,7 +102,7 @@ const ContactDetails = (props) => {
           {tags.map((tag, i) => (
             <MenuItem key={i} defaultValue={tag.title}>
               <Checkbox
-                checked={contactTags.some((x) => x.title == tag.title)}
+                checked={contactTags.some((x) => x.title === tag.title)}
                 onClick={() => toggleContactTags(tag)}
               />
               <ListItemText primary={tag.title} />

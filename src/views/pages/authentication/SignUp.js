@@ -14,7 +14,7 @@ export default function SignUp() {
           <h2 className="text-3xl font-bold">Sign up</h2>
           <p>
             Already have an account?
-            <a href="" className="text-indigo-600 pl-2">
+            <a href="/" className="text-indigo-600 pl-2">
               Sign in
             </a>
           </p>
@@ -84,11 +84,11 @@ export default function SignUp() {
                 />
                 <span>
                   I agree to the
-                  <a href="" className="text-indigo-600">
+                  <a href="/" className="text-indigo-600">
                     &nbsp;Terms of Service
                   </a>
                   and
-                  <a href="" className="text-indigo-600">
+                  <a href="/" className="text-indigo-600">
                     &nbsp;Privacy Policy
                   </a>
                 </span>

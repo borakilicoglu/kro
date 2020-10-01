@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getEmails } from "../../../redux/actions/email";
 
 import MailboxMenu from "./MailboxMenu";
 import MailboxList from "./MailboxList";
@@ -9,7 +11,7 @@ import {
   folders as foldersMailbox,
   filters as filtersMailbox,
   settings as settingsMailbox,
-  mails as mailsMailbox,
+  // mails as mailsMailbox,
 } from "../../../@fake-db/mailbox/mailbox";
 
 const Mailbox = () => {
@@ -17,25 +19,34 @@ const Mailbox = () => {
   // const [folders, setFolders] = React.useState([]);
   // const [filters, setFilters] = React.useState([]);
   // const [settings, setSettings] = React.useState([]);
-  const [mails, setMails] = React.useState([]);
+  const [allMail, setallMail] = React.useState([]);
   const [mail, setMail] = React.useState();
-
   const mailSet = (mail) => setMail(mail);
 
+  const dispatch = useDispatch();
+  // setMails(data);
+
   useEffect(() => {
-    // setFolders(foldersMailbox);
-    // setFilters(filtersMailbox);
-    // setSettings(settingsMailbox);
-    setMails(mailsMailbox);
     setLabels(labelsMailbox);
+    dispatch(getEmails({ filter: "" }));
     return () => {};
   }, []);
+
+  const { mails } = useSelector((state) => state.emailApp.mails);
+
+  useEffect(() => {
+    setallMail(mails);
+  }, [mails]); // set the relation between redux campaign and local state
 
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
       <div className="flex flex-wrap w-full h-full bg-white">
-        <MailboxMenu count={mails.length}></MailboxMenu>
-        <MailboxList select={mailSet} mails={mails} active={mail}></MailboxList>
+        <MailboxMenu count={allMail.length}></MailboxMenu>
+        <MailboxList
+          select={mailSet}
+          mails={allMail}
+          active={mail}
+        ></MailboxList>
         <Mail mail={mail} labels={labels}></Mail>
       </div>
     </div>
