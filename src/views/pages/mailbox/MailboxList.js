@@ -8,7 +8,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 
-const MailboxList = ({ mails, select, active }) => {
+const MailboxList = ({ mails, select, active, folders }) => {
   return (
     <div className="w-1/4 border-r overflow-scroll relative">
       <div className="flex p-3 border-b items-center sticky top-0 bg-white z-40">
@@ -74,6 +74,8 @@ const MailboxList = ({ mails, select, active }) => {
                 </span>
               </div>
               <div className="truncate text-gray-500">{mail.content}</div>
+              <div className="truncate text-gray-500">{mail.folder}</div>
+              <p>{folders.find((folder) => folder.id === mail.folder).title}</p>
             </div>
           </div>
         ))}

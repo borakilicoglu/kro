@@ -16,7 +16,7 @@ import {
 
 const Mailbox = () => {
   const [labels, setLabels] = React.useState([]);
-  // const [folders, setFolders] = React.useState([]);
+  const [folders, setFolders] = React.useState([]);
   // const [filters, setFilters] = React.useState([]);
   // const [settings, setSettings] = React.useState([]);
   const [allMail, setallMail] = React.useState([]);
@@ -28,6 +28,7 @@ const Mailbox = () => {
 
   useEffect(() => {
     setLabels(labelsMailbox);
+    setFolders(foldersMailbox);
     dispatch(getEmails({ filter: "" }));
     return () => {};
   }, []);
@@ -41,10 +42,11 @@ const Mailbox = () => {
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
       <div className="flex flex-wrap w-full h-full bg-white">
-        <MailboxMenu count={allMail.length}></MailboxMenu>
+        <MailboxMenu mails={allMail} folders={folders}></MailboxMenu>
         <MailboxList
           select={mailSet}
           mails={allMail}
+          folders={folders}
           active={mail}
         ></MailboxList>
         <Mail mail={mail} labels={labels}></Mail>

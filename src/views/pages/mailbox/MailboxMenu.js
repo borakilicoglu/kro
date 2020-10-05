@@ -10,7 +10,7 @@ import GradeTwoToneIcon from "@material-ui/icons/GradeTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
 
-const MailboxMenu = ({ count }) => {
+const MailboxMenu = ({ mails, folders }) => {
   return (
     <div className="w-1/4 border-r px-6 overflow-scroll">
       <div className="h-px">
@@ -27,7 +27,13 @@ const MailboxMenu = ({ count }) => {
             <button className="inline-flex w-full items-center py-3">
               <InboxTwoToneIcon style={{ color: "#64748b" }} />
               <span className="flex-grow text-left ml-4">Inbox</span>
-              <span className="text-xs font-bold">{count}</span>
+              <span className="text-xs font-bold">
+                {
+                  mails.filter(
+                    (mail) => mail.folder == folders[0].id && mail.unread
+                  ).length
+                }
+              </span>
             </button>
           </li>
           <li className="hover:bg-gray-300 px-6">
@@ -40,14 +46,18 @@ const MailboxMenu = ({ count }) => {
             <button className="inline-flex w-full items-center py-3">
               <DraftsTwoToneIcon style={{ color: "#64748b" }} />
               <span className="flex-grow text-left ml-4">Drafts</span>
-              <span className="text-xs font-bold">7</span>
+              <span className="text-xs font-bold">
+                {mails.filter((mail) => mail.folder == folders[2].id).length}
+              </span>
             </button>
           </li>
           <li className="hover:bg-gray-300 px-6">
             <button className="inline-flex w-full items-center py-3">
               <ErrorTwoToneIcon style={{ color: "#64748b" }} />
               <span className="flex-grow text-left ml-4">Spam</span>
-              <span className="text-xs font-bold">13</span>
+              <span className="text-xs font-bold">
+                {mails.filter((mail) => mail.folder == folders[3].id).length}
+              </span>
             </button>
           </li>
           <li className="hover:bg-gray-300 px-6">

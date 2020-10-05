@@ -1,6 +1,7 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 
+import Button from "@material-ui/core/Button";
 import CustomPopover from "../../../@nucleo/components/CustomPopover";
 import LocalPostOfficeTwoToneIcon from "@material-ui/icons/LocalPostOfficeTwoTone";
 import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
@@ -8,6 +9,9 @@ import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone"
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import MoreVertTwoToneIcon from "@material-ui/icons/MoreVertTwoTone";
 import ArrowDropDownTwoToneIcon from "@material-ui/icons/ArrowDropDownTwoTone";
+import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
+import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
+import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 
 const useStyles = makeStyles({
   root: {
@@ -15,6 +19,23 @@ const useStyles = makeStyles({
     height: 20,
   },
 });
+
+const StyledButton = withStyles({
+  root: {
+    display: "flex",
+    justifyContent: "flex-start",
+    borderRadius: 0,
+    border: 0,
+    color: "#27303f",
+    height: 48,
+    fontWeight: 400,
+    padding: "0 18px",
+    position: "relative",
+  },
+  label: {
+    textTransform: "none",
+  },
+})(Button);
 
 const avatar = (mail) => {
   let url = require(`../../../assets/images/avatars/${mail.from.avatar}.jpg`);
@@ -38,6 +59,34 @@ const label = (mail) => {
       <span>
         <strong>subject: </strong> {mail.subject}
       </span>
+    </div>
+  );
+};
+
+const menu = () => {
+  return (
+    <div className="flex flex-col py-2">
+      <StyledButton
+        startIcon={
+          <EmailTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+        }
+      >
+        Mark as read
+      </StyledButton>
+      <StyledButton
+        startIcon={
+          <ErrorTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+        }
+      >
+        Spam
+      </StyledButton>
+      <StyledButton
+        startIcon={
+          <DeleteTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+        }
+      >
+        Delete
+      </StyledButton>
     </div>
   );
 };
@@ -67,6 +116,7 @@ const Mail = ({ mail, labels }) => {
           ></CustomPopover>
           <CustomPopover
             icon={<MoreVertTwoToneIcon style={{ color: "#64748b" }} />}
+            content={menu()}
           ></CustomPopover>
         </div>
         <div className="border-b px-6 py-4 bg-white">
@@ -89,7 +139,7 @@ const Mail = ({ mail, labels }) => {
 
       <div className="h-px">
         <div className="flex flex-col justify-center">
-          <div className="m-2 bg-white border py-4 px-6 rounded">
+          <div className="m-3 bg-white border py-4 px-6 rounded">
             <div className="flex items-center py-4">
               {avatar(mail)}
               <span className="ml-4">
