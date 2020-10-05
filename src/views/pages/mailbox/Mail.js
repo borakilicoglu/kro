@@ -44,49 +44,51 @@ const label = (mail) => {
 
 const Mail = ({ mail, labels }) => {
   const classes = useStyles();
-  return (
-    <div className="w-2/4 border-r h-100 bg-gray-100">
-      {mail && mail ? (
-        <div className="flex flex-col justify-center overflow-scroll">
-          <div className="border-b flex py-3 px-6 bg-white">
-            <CustomPopover
-              icon={<LabelTwoToneIcon style={{ color: "#64748b" }} />}
-            ></CustomPopover>
-            <CustomPopover
-              icon={
-                <LabelImportantTwoToneIcon
-                  style={{ color: mail.important ? "#f56565" : "#64748b" }}
-                />
-              }
-            ></CustomPopover>
-            <CustomPopover
-              icon={
-                <StarTwoToneIcon
-                  style={{ color: mail.starred ? "#f56565" : "#64748b" }}
-                />
-              }
-            ></CustomPopover>
-            <CustomPopover
-              icon={<MoreVertTwoToneIcon style={{ color: "#64748b" }} />}
-            ></CustomPopover>
-          </div>
-          <div className="border-b px-6 py-4 bg-white">
-            <h3 className="text-2xl font-normal">{mail.subject}</h3>
+  return mail && mail ? (
+    <div className="w-2/4 overflow-scroll relative bg-gray-100">
+      <div className="flex flex-col justify-center relative sticky top-0 z-40">
+        <div className="border-b flex py-3 px-6 bg-white">
+          <CustomPopover
+            icon={<LabelTwoToneIcon style={{ color: "#64748b" }} />}
+          ></CustomPopover>
+          <CustomPopover
+            icon={
+              <LabelImportantTwoToneIcon
+                style={{ color: mail.important ? "#f56565" : "#64748b" }}
+              />
+            }
+          ></CustomPopover>
+          <CustomPopover
+            icon={
+              <StarTwoToneIcon
+                style={{ color: mail.starred ? "#f56565" : "#64748b" }}
+              />
+            }
+          ></CustomPopover>
+          <CustomPopover
+            icon={<MoreVertTwoToneIcon style={{ color: "#64748b" }} />}
+          ></CustomPopover>
+        </div>
+        <div className="border-b px-6 py-4 bg-white">
+          <h3 className="text-2xl font-normal">{mail.subject}</h3>
 
-            {labels.map((label, index) => {
-              return (
-                mail.labels.find((element) => element == label.id) && (
-                  <span
-                    className={`text-white bg-${label.color}-500 text-xs rounded-full py-1 px-2 mr-2`}
-                    key={index}
-                  >
-                    {label.title}
-                  </span>
-                )
-              );
-            })}
-          </div>
+          {labels.map((label, index) => {
+            return (
+              mail.labels.find((element) => element == label.id) && (
+                <span
+                  className={`text-white bg-${label.color}-500 text-xs rounded-full py-1 px-2 mr-2`}
+                  key={index}
+                >
+                  {label.title}
+                </span>
+              )
+            );
+          })}
+        </div>
+      </div>
 
+      <div className="h-px">
+        <div className="flex flex-col justify-center">
           <div className="m-2 bg-white border py-4 px-6 rounded">
             <div className="flex items-center py-4">
               {avatar(mail)}
@@ -117,14 +119,16 @@ const Mail = ({ mail, labels }) => {
             <p className="whitespace-pre-wrap">{mail.content}</p>
           </div>
         </div>
-      ) : (
-        <div className="flex flex-col h-full items-center justify-center">
-          <LocalPostOfficeTwoToneIcon
-            style={{ color: "#64748b", fontSize: "150px" }}
-          />
-          <p className="text-3xl text-gray-500">Select a mail to read</p>
-        </div>
-      )}
+      </div>
+    </div>
+  ) : (
+    <div className="w-2/4 bg-gray-100">
+      <div className="flex flex-col h-full items-center justify-center">
+        <LocalPostOfficeTwoToneIcon
+          style={{ color: "#64748b", fontSize: "150px" }}
+        />
+        <p className="text-3xl text-gray-500">Select a mail to read</p>
+      </div>
     </div>
   );
 };

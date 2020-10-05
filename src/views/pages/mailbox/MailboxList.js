@@ -11,7 +11,7 @@ import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone"
 const MailboxList = ({ mails, select, active }) => {
   return (
     <div className="w-1/4 border-r overflow-scroll relative">
-      <div className="flex p-3 border-b items-center relative sticky top-0 bg-white">
+      <div className="flex p-3 border-b items-center sticky top-0 bg-white z-40">
         <IconButton color="primary" component="span">
           <MenuIcon />
         </IconButton>
