@@ -8,7 +8,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 
-const MailboxList = ({ mails, select, active, folders }) => {
+const MailboxList = ({ mails, select, active, folders, folder }) => {
   return (
     <div className="w-1/4 border-r overflow-scroll relative">
       <div className="flex p-3 border-b items-center sticky top-0 bg-white z-40">
@@ -16,7 +16,7 @@ const MailboxList = ({ mails, select, active, folders }) => {
           <MenuIcon />
         </IconButton>
         <div className="pl-2 flex-grow">
-          <strong>INBOX</strong>
+          <strong className="uppercase">{folder}</strong>
         </div>
         <div>1-10 of 45</div>
         <div>

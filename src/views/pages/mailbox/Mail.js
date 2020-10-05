@@ -3,7 +3,7 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 import Button from "@material-ui/core/Button";
 import CustomPopover from "../../../@nucleo/components/CustomPopover";
-import LocalPostOfficeTwoToneIcon from "@material-ui/icons/LocalPostOfficeTwoTone";
+import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
@@ -31,6 +31,7 @@ const StyledButton = withStyles({
     fontWeight: 400,
     padding: "0 18px",
     position: "relative",
+    fontFamily: "Inter",
   },
   label: {
     textTransform: "none",
@@ -174,10 +175,8 @@ const Mail = ({ mail, labels }) => {
   ) : (
     <div className="w-2/4 bg-gray-100">
       <div className="flex flex-col h-full items-center justify-center">
-        <LocalPostOfficeTwoToneIcon
-          style={{ color: "#64748b", fontSize: "150px" }}
-        />
-        <p className="text-3xl text-gray-500">Select a mail to read</p>
+        <MailOutlineIcon style={{ color: "#64748b", fontSize: "120px" }} />
+        <p className="text-2xl text-gray-500">Select a mail to read</p>
       </div>
     </div>
   );

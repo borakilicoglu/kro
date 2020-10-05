@@ -1,5 +1,10 @@
 import React from "react";
 
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import Icon from "@material-ui/core/Icon";
 import InboxTwoToneIcon from "@material-ui/icons/InboxTwoTone";
 import SendTwoToneIcon from "@material-ui/icons/SendTwoTone";
@@ -9,62 +14,100 @@ import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import GradeTwoToneIcon from "@material-ui/icons/GradeTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
+import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
+
+const Compose = withStyles({
+  root: {
+    display: "flex",
+    justifyContent: "flex-start",
+    borderRadius: 0,
+    border: 0,
+    backgroundColor: "#5850ec",
+    color: "white",
+    height: 40,
+    width: "100%",
+    justifyContent: "center",
+    borderRadius: "4px",
+    fontWeight: 400,
+    padding: "0 18px",
+    position: "relative",
+    fontFamily: "Inter",
+    "&:hover": {
+      //you want this to be the same as the backgroundColor above
+      backgroundColor: "#4741bf",
+    },
+  },
+  label: {
+    textTransform: "none",
+  },
+})(Button);
 
 const MailboxMenu = ({ mails, folders }) => {
   return (
     <div className="w-1/4 border-r px-6 overflow-scroll">
       <div className="h-px">
         <h3 className="pt-8 pb-6 font-bold text-3xl">Mailbox</h3>
-        <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center w-full justify-center">
+        {/* <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center w-full justify-center">
           <Icon fontSize="small">add</Icon>
           <span className="ml-2">Compose</span>
-        </button>
+        </button> */}
+        <Compose startIcon={<Icon fontSize="small">add</Icon>}>Compose</Compose>
         <h6 className="uppercase pt-8 text-indigo-500 text-xs font-semibold mb-2">
           Mailboxes
         </h6>
         <ul className="list-none -mx-6">
           <li className="hover:bg-gray-300 bg-gray-200 px-6">
-            <button className="inline-flex w-full items-center py-3">
-              <InboxTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Inbox</span>
-              <span className="text-xs font-bold">
-                {
-                  mails.filter(
-                    (mail) => mail.folder == folders[0].id && mail.unread
-                  ).length
-                }
-              </span>
-            </button>
+            <Link to="/mailbox/inbox">
+              <button className="inline-flex w-full items-center py-3">
+                <InboxTwoToneIcon style={{ color: "#64748b" }} />
+                <span className="flex-grow text-left ml-4">Inbox</span>
+                <span className="text-xs font-bold">
+                  {
+                    mails.filter(
+                      (mail) => mail.folder == folders[0].id && mail.unread
+                    ).length
+                  }
+                </span>
+              </button>
+            </Link>
           </li>
           <li className="hover:bg-gray-300 px-6">
-            <button className="inline-flex w-full items-center py-3">
-              <SendTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Sent</span>
-            </button>
+            <Link to="/mailbox/sent">
+              <button className="inline-flex w-full items-center py-3">
+                <SendTwoToneIcon style={{ color: "#64748b" }} />
+                <span className="flex-grow text-left ml-4">Sent</span>
+              </button>
+            </Link>
           </li>
           <li className="hover:bg-gray-300 px-6">
-            <button className="inline-flex w-full items-center py-3">
-              <DraftsTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Drafts</span>
-              <span className="text-xs font-bold">
-                {mails.filter((mail) => mail.folder == folders[2].id).length}
-              </span>
-            </button>
+            <Link to="/mailbox/drafts">
+              <button className="inline-flex w-full items-center py-3">
+                <DraftsTwoToneIcon style={{ color: "#64748b" }} />
+                <span className="flex-grow text-left ml-4">Drafts</span>
+                <span className="text-xs font-bold">
+                  {mails.filter((mail) => mail.folder == folders[2].id).length}
+                </span>
+              </button>
+            </Link>
           </li>
           <li className="hover:bg-gray-300 px-6">
-            <button className="inline-flex w-full items-center py-3">
-              <ErrorTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Spam</span>
-              <span className="text-xs font-bold">
-                {mails.filter((mail) => mail.folder == folders[3].id).length}
-              </span>
-            </button>
+            <Link to="/mailbox/spam">
+              <button className="inline-flex w-full items-center py-3">
+                <ErrorTwoToneIcon style={{ color: "#64748b" }} />
+                <span className="flex-grow text-left ml-4">Spam</span>
+                <span className="text-xs font-bold">
+                  {mails.filter((mail) => mail.folder == folders[3].id).length}
+                </span>
+              </button>
+            </Link>
           </li>
           <li className="hover:bg-gray-300 px-6">
-            <button className="inline-flex w-full items-center py-3">
-              <DeleteTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Trash</span>
-            </button>
+            <Link to="/mailbox/trash">
+              <button className="inline-flex w-full items-center py-3">
+                <DeleteTwoToneIcon style={{ color: "#64748b" }} />
+                <span className="flex-grow text-left ml-4">Trash</span>
+              </button>
+            </Link>
           </li>
         </ul>
         <h6 className="uppercase pt-8 text-indigo-500 text-xs font-semibold mb-2">
@@ -103,6 +146,12 @@ const MailboxMenu = ({ mails, folders }) => {
               </button>
             </li>
           ))}
+          <li key="0000">
+            <button className="inline-flex w-full items-center py-3">
+              <SettingsTwoToneIcon style={{ color: "#64748b" }} />
+              <span className="flex-grow text-left ml-4">Settings</span>
+            </button>
+          </li>
         </ul>
       </div>
     </div>

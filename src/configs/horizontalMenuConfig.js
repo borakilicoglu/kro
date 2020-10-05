@@ -100,7 +100,7 @@ const menuConfig = [
           </Icon>
         ),
         permissions: ["admin", "editor"],
-        navLink: "/mailbox",
+        navLink: "/mailbox/inbox",
         chip: (
           <Chip
             size="small"

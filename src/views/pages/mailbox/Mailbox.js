@@ -14,7 +14,10 @@ import {
   // mails as mailsMailbox,
 } from "../../../@fake-db/mailbox/mailbox";
 
-const Mailbox = () => {
+const Mailbox = ({ match }) => {
+  const {
+    params: { folder },
+  } = match;
   const [labels, setLabels] = React.useState([]);
   const [folders, setFolders] = React.useState([]);
   // const [filters, setFilters] = React.useState([]);
@@ -35,15 +38,47 @@ const Mailbox = () => {
 
   const { mails } = useSelector((state) => state.emailApp.mails);
 
+  const filteredMails = (raw) => {
+    switch (folder) {
+      case "inbox":
+        return raw.filter(
+          (mail) => mail.folder == "7c004a19-4506-48ef-93ab-f16381302e3b"
+        );
+      case "sent":
+        return raw.filter(
+          (mail) => mail.folder == "1ee2ea29-9a1f-4c27-b4d2-5e465703b6a0"
+        );
+      case "drafts":
+        return raw.filter(
+          (mail) => mail.folder == "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
+        );
+      case "spam":
+        return raw.filter(
+          (mail) => mail.folder == "0197c436-2ef3-424d-b546-8b7f49186e15"
+        );
+      case "trash":
+        return raw.filter(
+          (mail) => mail.folder == "2fa74637-d362-4fd2-9a88-f7195a88bdde"
+        );
+      default:
+        return raw;
+    }
+  };
+
   useEffect(() => {
-    setallMail(mails);
+    setallMail(filteredMails(mails));
+  }, [folder]);
+
+  useEffect(() => {
+    setallMail(filteredMails(mails));
   }, [mails]); // set the relation between redux campaign and local state
 
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
       <div className="flex flex-wrap w-full h-full bg-white">
-        <MailboxMenu mails={allMail} folders={folders}></MailboxMenu>
+        <MailboxMenu mails={mails} folders={folders}></MailboxMenu>
         <MailboxList
+          folder={folder}
           select={mailSet}
           mails={allMail}
           folders={folders}
