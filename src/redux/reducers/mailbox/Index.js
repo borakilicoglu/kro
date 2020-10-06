@@ -6,7 +6,7 @@ let initialState = {
   filteredMails: [],
 };
 
-const emails = (state = initialState, action) => {
+const mailbox = (state = initialState, action) => {
   switch (action.type) {
     case "GET_MAILS":
       let mails = [...state.mails];
@@ -80,4 +80,4 @@ const emails = (state = initialState, action) => {
       return { ...state };
   }
 };
-export default emails;
+export default mailbox;

@@ -16,7 +16,7 @@ import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone"
 import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
 
-const Compose = withStyles({
+const ComposeButton = withStyles({
   root: {
     display: "flex",
     justifyContent: "flex-start",
@@ -42,6 +42,23 @@ const Compose = withStyles({
   },
 })(Button);
 
+const StyledButton = withStyles({
+  root: {
+    display: "flex",
+    justifyContent: "flex-start",
+    borderRadius: 0,
+    border: 0,
+    color: "#27303f",
+    height: 48,
+    fontWeight: 400,
+    padding: "0 18px",
+    position: "relative",
+  },
+  label: {
+    textTransform: "none",
+  },
+})(Button);
+
 const MailboxMenu = ({ mails, folders }) => {
   return (
     <div className="w-1/4 border-r px-6 overflow-scroll">
@@ -51,7 +68,9 @@ const MailboxMenu = ({ mails, folders }) => {
           <Icon fontSize="small">add</Icon>
           <span className="ml-2">Compose</span>
         </button> */}
-        <Compose startIcon={<Icon fontSize="small">add</Icon>}>Compose</Compose>
+        <ComposeButton startIcon={<Icon fontSize="small">add</Icon>}>
+          Compose
+        </ComposeButton>
         <h6 className="uppercase pt-8 text-indigo-500 text-xs font-semibold mb-2">
           Mailboxes
         </h6>

@@ -96,7 +96,7 @@ class AppRouter extends React.Component {
             component={Inventory}
             fixedHeader
           />
-          <AppRoute path="/mailbox/:folder" component={Mailbox} />
+          <AppRoute path="/mailbox/:filter" component={Mailbox} />
           <AppRoute path="/tasks" component={Tasks} />
           <AppRoute
             path="/authentication/sign-in"

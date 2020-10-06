@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import moment from "moment";
 
 import IconButton from "@material-ui/core/IconButton";
@@ -9,6 +9,41 @@ import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 
 const MailboxList = ({ mails, select, active, folders, folder }) => {
+  const [filtered, setfFiltered] = React.useState([]);
+
+  useEffect(() => {
+    setfFiltered(filter(mails));
+  }, [mails, folder]);
+
+  const filter = (raw) => {
+    switch (folder) {
+      case "inbox":
+        return raw.filter(
+          (mail) => mail.folder == "7c004a19-4506-48ef-93ab-f16381302e3b"
+        );
+      case "sent":
+        return raw.filter(
+          (mail) => mail.folder == "1ee2ea29-9a1f-4c27-b4d2-5e465703b6a0"
+        );
+      case "drafts":
+        return raw.filter(
+          (mail) => mail.folder == "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
+        );
+      case "spam":
+        return raw.filter(
+          (mail) => mail.folder == "0197c436-2ef3-424d-b546-8b7f49186e15"
+        );
+      case "trash":
+        return raw.filter(
+          (mail) => mail.folder == "2fa74637-d362-4fd2-9a88-f7195a88bdde"
+        );
+      case "starred":
+        return raw.filter((mail) => mail.starred === true);
+      default:
+        return raw;
+    }
+  };
+
   return (
     <div className="w-1/4 border-r overflow-scroll relative">
       <div className="flex p-3 border-b items-center sticky top-0 bg-white z-40">
@@ -18,7 +53,7 @@ const MailboxList = ({ mails, select, active, folders, folder }) => {
         <div className="pl-2 flex-grow">
           <strong className="uppercase">{folder}</strong>
         </div>
-        <div>1-10 of 45</div>
+        <div>1-10 of {filtered.length}</div>
         <div>
           <IconButton color="primary" component="span">
             <ChevronLeftIcon />
@@ -31,7 +66,7 @@ const MailboxList = ({ mails, select, active, folders, folder }) => {
         </div>
       </div>
       <div className="h-px">
-        {mails.map((mail, index) => (
+        {filtered.map((mail, index) => (
           <div
             className={`border-b cursor-pointer ${
               active && active.id == mail.id
