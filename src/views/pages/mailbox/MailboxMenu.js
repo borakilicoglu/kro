@@ -78,7 +78,7 @@ const MailboxMenu = ({ mails }) => {
                 key={index}
                 button
                 component={NavLink}
-                exact
+                exact="true"
                 to={`/mailbox/${folder.slug}`}
                 className={classes.listItem}
               >
@@ -146,7 +146,7 @@ const MailboxMenu = ({ mails }) => {
           <ListItem
             key="0000"
             button
-            style={{ paddingTop: "1rem" }}
+            style={{ marginTop: "1rem" }}
             component="button"
             className={classes.listItem}
           >

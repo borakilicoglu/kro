@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 import Button from "@material-ui/core/Button";
@@ -94,10 +94,19 @@ const menu = () => {
   );
 };
 
-const Mail = ({ mail }) => {
+const Mail = ({ mail, raw }) => {
   const classes = useStyles();
-  return mail && mail ? (
-    <div className="w-2/4 overflow-scroll relative bg-gray-100">
+  const scrollMenu = useRef(null);
+  useEffect(() => {
+    scrollMenu.current.scrollTop = 0;
+
+    return () => {};
+  }, [mail]);
+  return (
+    <div
+      ref={scrollMenu}
+      className="w-2/4 overflow-scroll relative bg-gray-100"
+    >
       <div className="flex flex-col justify-center relative sticky top-0 z-40">
         <div className="border-b flex py-3 px-6 bg-white">
           <CustomPopover
@@ -172,13 +181,6 @@ const Mail = ({ mail }) => {
             <p className="whitespace-pre-wrap">{mail.content}</p>
           </div>
         </div>
-      </div>
-    </div>
-  ) : (
-    <div className="w-2/4 bg-gray-100">
-      <div className="flex flex-col h-full items-center justify-center">
-        <MailOutlineIcon style={{ color: "#64748b", fontSize: "120px" }} />
-        <p className="text-2xl text-gray-500">Select a mail to read</p>
       </div>
     </div>
   );
