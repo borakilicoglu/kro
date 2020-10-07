@@ -13,6 +13,8 @@ import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 
+import { labels } from "../../../configs/mailboxConfig";
+
 const useStyles = makeStyles({
   root: {
     width: 20,
@@ -92,7 +94,7 @@ const menu = () => {
   );
 };
 
-const Mail = ({ mail, labels }) => {
+const Mail = ({ mail }) => {
   const classes = useStyles();
   return mail && mail ? (
     <div className="w-2/4 overflow-scroll relative bg-gray-100">

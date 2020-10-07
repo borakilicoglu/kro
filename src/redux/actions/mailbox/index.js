@@ -4,7 +4,7 @@ import { history } from "../../../history";
 export const getEmails = (routeParams) => {
   return async (dispatch) => {
     await axios
-      .get("api/email/mails", {
+      .get("api/mailbox/mails", {
         params: routeParams,
       })
       .then((result) => {

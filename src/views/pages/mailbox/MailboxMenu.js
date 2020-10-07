@@ -1,40 +1,36 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 import { withStyles, makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Icon from "@material-ui/core/Icon";
-import InboxTwoToneIcon from "@material-ui/icons/InboxTwoTone";
-import SendTwoToneIcon from "@material-ui/icons/SendTwoTone";
-import DraftsTwoToneIcon from "@material-ui/icons/DraftsTwoTone";
-import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
-import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
-import GradeTwoToneIcon from "@material-ui/icons/GradeTwoTone";
-import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
+import Button from "@material-ui/core/Button";
 import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
+
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import ListItemIcon from "@material-ui/core/ListItemIcon";
+import ListItemText from "@material-ui/core/ListItemText";
+
+import { folders, filters, labels } from "../../../configs/mailboxConfig";
 
 const ComposeButton = withStyles({
   root: {
     display: "flex",
-    justifyContent: "flex-start",
+    justifyContent: "flex-center",
     borderRadius: 0,
     border: 0,
     backgroundColor: "#5850ec",
     color: "white",
     height: 40,
     width: "100%",
-    justifyContent: "center",
-    borderRadius: "4px",
     fontWeight: 400,
     padding: "0 18px",
     position: "relative",
-    fontFamily: "Inter",
+    borderRadius: "0.25rem",
     "&:hover": {
-      //you want this to be the same as the backgroundColor above
-      backgroundColor: "#4741bf",
+      backgroundColor: "#4f48d5",
     },
   },
   label: {
@@ -42,136 +38,125 @@ const ComposeButton = withStyles({
   },
 })(Button);
 
-const StyledButton = withStyles({
-  root: {
+const useStyles = makeStyles((theme) => ({
+  listItemIcon: {
+    minWidth: "24px",
+    marginRight: "16px",
+  },
+  listItem: {
+    paddingLeft: "1.5rem",
     display: "flex",
-    justifyContent: "flex-start",
-    borderRadius: 0,
-    border: 0,
-    color: "#27303f",
-    height: 48,
-    fontWeight: 400,
-    padding: "0 18px",
-    position: "relative",
+    paddingRight: "1.5rem",
   },
-  label: {
-    textTransform: "none",
+  listItemText: {
+    marginBottom: "0px",
+    marginTop: "0px",
+    "& span": {
+      fontSize: "13px",
+    },
   },
-})(Button);
+}));
 
-const MailboxMenu = ({ mails, folders }) => {
+const MailboxMenu = ({ mails }) => {
+  const classes = useStyles();
   return (
-    <div className="w-1/4 border-r px-6 overflow-scroll">
+    <div className="w-1/4 border-r overflow-scroll">
       <div className="h-px">
-        <h3 className="pt-8 pb-6 font-bold text-3xl">Mailbox</h3>
-        {/* <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center w-full justify-center">
-          <Icon fontSize="small">add</Icon>
-          <span className="ml-2">Compose</span>
-        </button> */}
-        <ComposeButton startIcon={<Icon fontSize="small">add</Icon>}>
-          Compose
-        </ComposeButton>
-        <h6 className="uppercase pt-8 text-indigo-500 text-xs font-semibold mb-2">
+        <h3 className="pt-8 pb-6 px-6 font-bold text-3xl">Mailbox</h3>
+        <div className="px-6">
+          <ComposeButton startIcon={<Icon fontSize="small">add</Icon>}>
+            Compose
+          </ComposeButton>
+        </div>
+        <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
           Mailboxes
         </h6>
-        <ul className="list-none -mx-6">
-          <li className="hover:bg-gray-300 bg-gray-200 px-6">
-            <Link to="/mailbox/inbox">
-              <button className="inline-flex w-full items-center py-3">
-                <InboxTwoToneIcon style={{ color: "#64748b" }} />
-                <span className="flex-grow text-left ml-4">Inbox</span>
-                <span className="text-xs font-bold">
-                  {
-                    mails.filter(
-                      (mail) => mail.folder == folders[0].id && mail.unread
-                    ).length
-                  }
-                </span>
-              </button>
-            </Link>
-          </li>
-          <li className="hover:bg-gray-300 px-6">
-            <Link to="/mailbox/sent">
-              <button className="inline-flex w-full items-center py-3">
-                <SendTwoToneIcon style={{ color: "#64748b" }} />
-                <span className="flex-grow text-left ml-4">Sent</span>
-              </button>
-            </Link>
-          </li>
-          <li className="hover:bg-gray-300 px-6">
-            <Link to="/mailbox/drafts">
-              <button className="inline-flex w-full items-center py-3">
-                <DraftsTwoToneIcon style={{ color: "#64748b" }} />
-                <span className="flex-grow text-left ml-4">Drafts</span>
-                <span className="text-xs font-bold">
-                  {mails.filter((mail) => mail.folder == folders[2].id).length}
-                </span>
-              </button>
-            </Link>
-          </li>
-          <li className="hover:bg-gray-300 px-6">
-            <Link to="/mailbox/spam">
-              <button className="inline-flex w-full items-center py-3">
-                <ErrorTwoToneIcon style={{ color: "#64748b" }} />
-                <span className="flex-grow text-left ml-4">Spam</span>
-                <span className="text-xs font-bold">
-                  {mails.filter((mail) => mail.folder == folders[3].id).length}
-                </span>
-              </button>
-            </Link>
-          </li>
-          <li className="hover:bg-gray-300 px-6">
-            <Link to="/mailbox/trash">
-              <button className="inline-flex w-full items-center py-3">
-                <DeleteTwoToneIcon style={{ color: "#64748b" }} />
-                <span className="flex-grow text-left ml-4">Trash</span>
-              </button>
-            </Link>
-          </li>
-        </ul>
-        <h6 className="uppercase pt-8 text-indigo-500 text-xs font-semibold mb-2">
+        <List component="div" disablePadding>
+          {folders.map((folder, index) => {
+            return (
+              <ListItem
+                key={index}
+                button
+                component={NavLink}
+                exact
+                to={`/mailbox/${folder.slug}`}
+                className={classes.listItem}
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  {folder.icon}
+                </ListItemIcon>
+
+                <ListItemText
+                  primary={folder.title}
+                  className={classes.listItemText}
+                />
+              </ListItem>
+            );
+          })}
+        </List>
+        <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
           Filters
         </h6>
-        <ul>
-          <li>
-            <button className="inline-flex w-full items-center py-3">
-              <GradeTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Starred</span>
-            </button>
-          </li>
-          <li>
-            <button className="inline-flex w-full items-center py-3">
-              <LabelImportantTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Important</span>
-            </button>
-          </li>
-        </ul>
-        <h6 className="uppercase pt-8 text-indigo-500 text-xs font-semibold mb-2">
+        <List component="div" disablePadding>
+          {filters.map((filter, index) => {
+            return (
+              <ListItem
+                key={index}
+                button
+                component={NavLink}
+                exact
+                to={`/mailbox/${filter.slug}`}
+                className={classes.listItem}
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  {filter.icon}
+                </ListItemIcon>
+
+                <ListItemText
+                  primary={filter.title}
+                  className={classes.listItemText}
+                />
+              </ListItem>
+            );
+          })}
+        </List>
+        <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
           Labels
         </h6>
-        <ul>
-          {[
-            "Personal",
-            "Work",
-            "Payment",
-            "Invoices",
-            "Accounts",
-            "Forums",
-          ].map((label, index) => (
-            <li key={index}>
-              <button className="inline-flex w-full items-center py-2">
-                <LabelTwoToneIcon style={{ color: "#64748b" }} />
-                <span className="flex-grow text-left ml-4">{label}</span>
-              </button>
-            </li>
+        <List component="div" disablePadding>
+          {labels.map((label, index) => (
+            <ListItem
+              key={index}
+              button
+              component={NavLink}
+              exact
+              to={`/mailbox/${label.slug}`}
+              className={classes.listItem}
+            >
+              <ListItemIcon className={classes.listItemIcon}>
+                <LabelTwoToneIcon className={`text-${label.color}-500`} />
+              </ListItemIcon>
+
+              <ListItemText
+                primary={label.title}
+                className={classes.listItemText}
+              />
+            </ListItem>
           ))}
-          <li key="0000">
-            <button className="inline-flex w-full items-center py-3">
+          <ListItem
+            key="0000"
+            button
+            style={{ paddingTop: "1rem" }}
+            component="button"
+            className={classes.listItem}
+          >
+            <ListItemIcon className={classes.listItemIcon}>
               <SettingsTwoToneIcon style={{ color: "#64748b" }} />
-              <span className="flex-grow text-left ml-4">Settings</span>
-            </button>
-          </li>
-        </ul>
+            </ListItemIcon>
+
+            <ListItemText primary="Settings" className={classes.listItemText} />
+          </ListItem>
+        </List>
       </div>
     </div>
   );
