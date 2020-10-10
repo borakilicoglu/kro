@@ -99,7 +99,6 @@ const Mail = ({ mail, raw }) => {
   const scrollMenu = useRef(null);
   useEffect(() => {
     scrollMenu.current.scrollTop = 0;
-
     return () => {};
   }, [mail]);
   return (

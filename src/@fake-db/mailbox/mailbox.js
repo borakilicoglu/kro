@@ -7,31 +7,26 @@ export const folders = [
     id: "7c004a19-4506-48ef-93ab-f16381302e3b",
     title: "Inbox",
     slug: "inbox",
-    icon: "inbox",
   },
   {
     id: "1ee2ea29-9a1f-4c27-b4d2-5e465703b6a0",
     title: "Sent",
     slug: "sent",
-    icon: "send",
   },
   {
     id: "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5",
     title: "Drafts",
     slug: "drafts",
-    icon: "drafts",
   },
   {
     id: "0197c436-2ef3-424d-b546-8b7f49186e15",
     title: "Spam",
     slug: "spam",
-    icon: "error",
   },
   {
     id: "2fa74637-d362-4fd2-9a88-f7195a88bdde",
     title: "Trash",
     slug: "trash",
-    icon: "delete",
   },
 ];
 export const filters = [
@@ -39,13 +34,11 @@ export const filters = [
     id: "de1b41f6-6839-4f1b-9d2c-07e55f6f8f82",
     title: "Starred",
     slug: "starred",
-    icon: "star",
   },
   {
     id: "71bba1ec-a90e-4a71-9932-4bab0a99aa1c",
     title: "Important",
     slug: "important",
-    icon: "label_important",
   },
 ];
 export const labels = [
@@ -2603,37 +2596,57 @@ export const mails = [
 
 // Get Mails
 mock.onGet("/api/mailbox/mails").reply((request) => {
-  const filter = request.params.filter;
+  // const filter = request.params.filter;
 
-  const filteredEmails = mails
-    .filter((email) => {
-      if (filter === "") return email;
-      else if (filter === "inbox")
-        return email.folder === "7c004a19-4506-48ef-93ab-f16381302e3b";
-      else if (filter === "sent")
-        return email.folder === "1ee2ea29-9a1f-4c27-b4d2-5e465703b6a0";
-      else if (filter === "drafts")
-        return email.folder === "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5";
-      else if (filter === "spam")
-        return email.folder === "0197c436-2ef3-424d-b546-8b7f49186e15";
-      else if (filter === "trash")
-        return email.folder === "2fa74637-d362-4fd2-9a88-f7195a88bdde";
-      else if (filter === "starred") return email.starred === true;
-      else if (filter === "important") return email.important === true;
-      else if (filter === "personal")
-        return email.labels.includes("b167d3c4-f6ed-4ea6-9579-a12f95a9d76e");
-      else if (filter === "work")
-        return email.labels.includes("745cf30e-ca84-47a1-a553-b70eb630d8e7");
-      else if (filter === "payments")
-        return email.labels.includes("8b035cb5-65c0-4ab1-bb4c-43b0e442d1f3");
-      else if (filter === "invoices")
-        return email.labels.includes("b2d1e4e7-7cfd-4b51-ae59-217a093df754");
-      else if (filter === "accounts")
-        return email.labels.includes("184cd689-4ee4-47cf-9f8a-12233d614326");
-      else if (filter === "forums")
-        return email.labels.includes("b67fc437-6118-4ec8-a3c7-9320b828e3fc");
-      else return [];
-    })
-    .reverse();
-  return [200, JSON.parse(JSON.stringify(filteredEmails))];
+  // const filteredEmails = mails
+  //   .filter((email) => {
+  //     if (filter === "") return email;
+  //     else if (filter === "inbox")
+  //       return email.folder === "7c004a19-4506-48ef-93ab-f16381302e3b";
+  //     else if (filter === "sent")
+  //       return email.folder === "1ee2ea29-9a1f-4c27-b4d2-5e465703b6a0";
+  //     else if (filter === "drafts")
+  //       return email.folder === "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5";
+  //     else if (filter === "spam")
+  //       return email.folder === "0197c436-2ef3-424d-b546-8b7f49186e15";
+  //     else if (filter === "trash")
+  //       return email.folder === "2fa74637-d362-4fd2-9a88-f7195a88bdde";
+  //     else if (filter === "starred") return email.starred === true;
+  //     else if (filter === "important") return email.important === true;
+  //     else if (filter === "personal")
+  //       return email.labels.includes("b167d3c4-f6ed-4ea6-9579-a12f95a9d76e");
+  //     else if (filter === "work")
+  //       return email.labels.includes("745cf30e-ca84-47a1-a553-b70eb630d8e7");
+  //     else if (filter === "payments")
+  //       return email.labels.includes("8b035cb5-65c0-4ab1-bb4c-43b0e442d1f3");
+  //     else if (filter === "invoices")
+  //       return email.labels.includes("b2d1e4e7-7cfd-4b51-ae59-217a093df754");
+  //     else if (filter === "accounts")
+  //       return email.labels.includes("184cd689-4ee4-47cf-9f8a-12233d614326");
+  //     else if (filter === "forums")
+  //       return email.labels.includes("b67fc437-6118-4ec8-a3c7-9320b828e3fc");
+  //     else return [];
+  //   })
+  //   .reverse();
+  return [200, JSON.parse(JSON.stringify(mails))];
+});
+
+// Get Mails
+mock.onGet("/api/mailbox/stats").reply((request) => {
+  const inbox = mails.filter(
+    (mail) =>
+      mail.unread && mail.folder == "7c004a19-4506-48ef-93ab-f16381302e3b"
+  ).length;
+  const drafts = mails.filter(
+    (mail) => mail.folder == "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
+  ).length;
+  const spam = mails.filter(
+    (mail) => mail.folder == "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
+  ).length;
+  const stats = {
+    inbox,
+    drafts,
+    spam,
+  };
+  return [200, JSON.parse(JSON.stringify(stats))];
 });

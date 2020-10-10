@@ -5,7 +5,6 @@ import SendTwoToneIcon from "@material-ui/icons/SendTwoTone";
 import DraftsTwoToneIcon from "@material-ui/icons/DraftsTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
-import GradeTwoToneIcon from "@material-ui/icons/GradeTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 
@@ -41,7 +40,6 @@ export const folders = [
     icon: <DeleteTwoToneIcon style={{ color: "#64748b" }} />,
   },
 ];
-
 export const filters = [
   {
     id: "de1b41f6-6839-4f1b-9d2c-07e55f6f8f82",
@@ -56,7 +54,6 @@ export const filters = [
     icon: <LabelImportantTwoToneIcon style={{ color: "#64748b" }} />,
   },
 ];
-
 export const labels = [
   {
     id: "b167d3c4-f6ed-4ea6-9579-a12f95a9d76e",
@@ -95,3 +92,6 @@ export const labels = [
     color: "green",
   },
 ];
+export const settings = {
+  messageLayout: "right",
+};

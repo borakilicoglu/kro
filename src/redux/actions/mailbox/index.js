@@ -18,6 +18,26 @@ export const getEmails = (routeParams) => {
   };
 };
 
+export const setUtilities = ({ folders, filters, labels }) => {
+  return (dispatch) => {
+    dispatch({
+      type: "SET_UTILITIES",
+      folders: folders,
+      filters: filters,
+      labels: labels,
+    });
+  };
+};
+
+export const getFilteredMails = (filter) => {
+  return (dispatch) => {
+    dispatch({
+      type: "GET_FILTERED_MAILS",
+      filter,
+    });
+  };
+};
+
 export const StarEmail = (id) => {
   return async (dispatch) => {
     await axios

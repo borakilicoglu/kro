@@ -1,5 +1,9 @@
 let initialState = {
   mails: [],
+  stats: [],
+  folders: [],
+  filters: [],
+  labels: [],
   params: null,
   query: null,
   selectedEmails: [],
@@ -12,6 +16,63 @@ const mailbox = (state = initialState, action) => {
       let mails = [...state.mails];
       mails = action.mails;
       return { ...state, mails, params: action.routeParams };
+
+    case "GET_FILTERED_MAILS":
+      if (
+        action.filter === "inbox" ||
+        action.filter === "sent" ||
+        action.filter === "drafts" ||
+        action.filter === "spam" ||
+        action.filter === "trash"
+      ) {
+        let folder = state.folders.find(
+          (folder) => folder.slug == action.filter
+        );
+        return {
+          ...state,
+          filteredMails: state.mails.filter((mail) => mail.folder == folder.id),
+        };
+      } else if (action.filter === "starred") {
+        return {
+          ...state,
+          filteredMails: state.mails.filter((mail) => mail.starred),
+        };
+      } else if (action.filter === "important") {
+        return {
+          ...state,
+          filteredMails: state.mails.filter((mail) => mail.important),
+        };
+      } else if (
+        action.filter === "personal" ||
+        action.filter === "work" ||
+        action.filter === "payments" ||
+        action.filter === "invoices" ||
+        action.filter === "accounts" ||
+        action.filter === "forums"
+      ) {
+        return {
+          ...state,
+          filteredMails: state.mails.filter((mail) =>
+            mail.labels.includes(
+              state.labels.find((label) => label.slug == action.filter).id
+            )
+          ),
+        };
+      } else {
+        let folder = state.folders.find((folder) => folder.slug == "inbox");
+        return {
+          ...state,
+          filteredMails: state.mails.filter((mail) => mail.folder == folder.id),
+        };
+      }
+
+    case "SET_UTILITIES":
+      return {
+        ...state,
+        folders: action.folders,
+        filters: action.filters,
+        labels: action.labels,
+      };
 
     case "SET_STARRED":
       state.mails.find(
@@ -66,6 +127,7 @@ const mailbox = (state = initialState, action) => {
     }
     case "MOVE_MAIL":
       return { ...state, selectedEmails: [] };
+
     case "SET_UNREAD":
       let updatedEmails = action.id.forEach((mailId) => {
         const mailIndex = state.mails.findIndex((mail) => mail.id === mailId);
@@ -73,9 +135,11 @@ const mailbox = (state = initialState, action) => {
         state.selectedEmails = [];
       });
       return { ...state, updatedEmails };
+
     case "CHANGE_FILTER":
       state.params = action.filter;
       return { ...state };
+
     default:
       return { ...state };
   }
