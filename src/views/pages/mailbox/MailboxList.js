@@ -9,9 +9,9 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 
-import { getFilteredMails, setEmails } from "../../../redux/actions/mailbox";
+import { getFilteredMails, setMail } from "../../../redux/actions/mailbox";
 
-const MailboxList = ({ select, params }) => {
+const MailboxList = ({ params }) => {
   const dispatch = useDispatch();
   const scrollMenu = useRef(null);
   const [mails, setMails] = React.useState();
@@ -66,7 +66,7 @@ const MailboxList = ({ select, params }) => {
                 // }`}
                 className="border-b cursor-pointer"
                 key={index}
-                onClick={() => select(mail.id)}
+                onClick={() => dispatch(setMail(mail.id))}
               >
                 <div
                   className={`p-6 ${

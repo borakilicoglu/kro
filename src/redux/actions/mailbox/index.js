@@ -29,6 +29,15 @@ export const setUtilities = ({ folders, filters, labels }) => {
   };
 };
 
+export const setMail = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: "SET_MAIL",
+      id: id,
+    });
+  };
+};
+
 export const getFilteredMails = (filter) => {
   return (dispatch) => {
     dispatch({
@@ -64,8 +73,8 @@ export const searchMail = (val) => {
 };
 
 export const selectMail = (id) => {
-  console.log(id);
   return (dispatch) => {
+    console.log(id);
     dispatch({
       type: "SELECT_MAIL",
       id: id,

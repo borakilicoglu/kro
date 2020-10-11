@@ -1,4 +1,5 @@
 let initialState = {
+  mail: {},
   mails: [],
   stats: [],
   folders: [],
@@ -16,21 +17,6 @@ const mailbox = (state = initialState, action) => {
       let mails = [...state.mails];
       mails = action.mails;
       return { ...state, mails, params: action.routeParams };
-
-    case "SELECT_MAIL":
-      console.log(`${action} reducers`);
-      const mailId = action.id;
-      let selectedEmails = [...state.selectedEmails];
-
-      if (selectedEmails.find((id) => id === mailId) !== undefined) {
-        console.log(mailId);
-        selectedEmails = selectedEmails.filter((id) => id !== mailId);
-      } else {
-        console.log(mailId);
-        selectedEmails = [...selectedEmails, mailId];
-      }
-
-      return { ...state, selectedEmails };
 
     case "GET_FILTERED_MAILS":
       if (
@@ -81,6 +67,13 @@ const mailbox = (state = initialState, action) => {
         };
       }
 
+    case "SET_MAIL":
+      let mail = state.mails.filter((mail) => mail.id == action.id);
+      return {
+        ...state,
+        mail: mail,
+      };
+
     case "SET_UTILITIES":
       return {
         ...state,
@@ -110,6 +103,18 @@ const mailbox = (state = initialState, action) => {
       });
 
       return { ...state, query: action.query, filteredMails };
+
+    case "SELECT_MAIL":
+      const mailId = action.id;
+      let selectedEmails = [...state.selectedEmails];
+
+      if (selectedEmails.find((id) => id === mailId) !== undefined) {
+        selectedEmails = selectedEmails.filter((id) => id !== mailId);
+      } else {
+        selectedEmails = [...selectedEmails, mailId];
+      }
+
+      return { ...state, selectedEmails };
 
     case "SELECT_ALL_MAILS":
       const arr = Object.keys(state.mails).map((k) => {

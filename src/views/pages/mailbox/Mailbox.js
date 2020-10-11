@@ -1,10 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getEmails,
-  setUtilities,
-  selectMail,
-} from "../../../redux/actions/mailbox";
+import { getEmails, setUtilities } from "../../../redux/actions/mailbox";
 import { folders, filters, labels } from "../../../configs/mailboxConfig.js";
 
 import MailboxSplash from "./MailboxSplash";
@@ -37,7 +33,7 @@ const Mailbox = ({ match }) => {
     }));
   }, [params]);
 
-  const { mails, filteredMails } = useSelector((state) => state.mailbox);
+  const { mail, mails, filteredMails } = useSelector((state) => state.mailbox);
 
   useEffect(() => {
     setData((prevState) => ({
@@ -48,6 +44,16 @@ const Mailbox = ({ match }) => {
     setLoading(false);
     return () => {};
   }, [mails]);
+
+  useEffect(() => {
+    setData((prevState) => ({
+      ...prevState,
+      mail: mail,
+    }));
+    setLoading(false);
+    console.log(mail.type);
+    return () => {};
+  }, [mail]);
 
   useEffect(() => {
     setData((prevState) => ({
@@ -67,10 +73,14 @@ const Mailbox = ({ match }) => {
             utilities={data.utilities}
           ></MailboxMenu>
 
-          <MailboxList select={selectMail} params={params}></MailboxList>
+          <MailboxList params={params}></MailboxList>
+
+          {
+            !!Object.keys(data.mail).length && <h1>{data.mail.type}</h1>
+            // <Mail labels={data.utilities.labels}></Mail>
+          }
 
           {/* {mail ? ( */}
-          {/* <Mail raw={data.mails}></Mail> */}
           {/* ) : ( */}
           {/* <MailboxSplash
               toggle={!!data.filteredMails.length}
