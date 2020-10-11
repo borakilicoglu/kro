@@ -64,10 +64,11 @@ export const searchMail = (val) => {
 };
 
 export const selectMail = (id) => {
+  console.log(id);
   return (dispatch) => {
     dispatch({
       type: "SELECT_MAIL",
-      id,
+      id: id,
     });
   };
 };

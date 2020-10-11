@@ -1,6 +1,10 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getEmails, setUtilities } from "../../../redux/actions/mailbox";
+import {
+  getEmails,
+  setUtilities,
+  selectMail,
+} from "../../../redux/actions/mailbox";
 import { folders, filters, labels } from "../../../configs/mailboxConfig.js";
 
 import MailboxSplash from "./MailboxSplash";
@@ -15,11 +19,11 @@ const Mailbox = ({ match }) => {
   } = match;
   const [loading, setLoading] = React.useState(true);
   const [data, setData] = React.useState({
+    mail: {},
     mails: [],
     utilities: {},
+    filteredMails: [],
   });
-  const [mail, setMail] = React.useState();
-  const mailSet = (mail) => setMail(mail);
 
   useEffect(() => {
     dispatch(getEmails({ filter: "" }));
@@ -27,10 +31,13 @@ const Mailbox = ({ match }) => {
   }, []);
 
   useEffect(() => {
-    setMail();
+    setData((prevState) => ({
+      ...prevState,
+      mail: {},
+    }));
   }, [params]);
 
-  const { mails } = useSelector((state) => state.mailbox);
+  const { mails, filteredMails } = useSelector((state) => state.mailbox);
 
   useEffect(() => {
     setData((prevState) => ({
@@ -42,6 +49,14 @@ const Mailbox = ({ match }) => {
     return () => {};
   }, [mails]);
 
+  useEffect(() => {
+    setData((prevState) => ({
+      ...prevState,
+      filteredMails: filteredMails,
+    }));
+    return () => {};
+  }, [filteredMails]);
+
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
       {!loading && (
@@ -52,20 +67,16 @@ const Mailbox = ({ match }) => {
             utilities={data.utilities}
           ></MailboxMenu>
 
-          <MailboxList
-            select={mailSet}
-            active={mail}
-            params={params}
-          ></MailboxList>
+          <MailboxList select={selectMail} params={params}></MailboxList>
 
-          {mail ? (
-            <Mail mail={mail} raw={data.mails}></Mail>
-          ) : (
-            <MailboxSplash
-              toggle={!!data.mails.length}
-              count={data.mails.length}
-            />
-          )}
+          {/* {mail ? ( */}
+          {/* <Mail raw={data.mails}></Mail> */}
+          {/* ) : ( */}
+          {/* <MailboxSplash
+              toggle={!!data.filteredMails.length}
+              count={data.filteredMails.length}
+            /> */}
+          {/* )} */}
         </div>
       )}
     </div>

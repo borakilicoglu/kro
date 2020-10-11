@@ -17,7 +17,6 @@ const ComposeButton = withStyles({
   root: {
     display: "flex",
     justifyContent: "flex-center",
-    borderRadius: 0,
     border: 0,
     backgroundColor: "#5850ec",
     color: "white",
