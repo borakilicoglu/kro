@@ -14,6 +14,10 @@ import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 
+import ReplyIcon from "@material-ui/icons/Reply";
+import ReplyAllIcon from "@material-ui/icons/ReplyAll";
+import ForwardTwoToneIcon from "@material-ui/icons/ForwardTwoTone";
+
 const useStyles = makeStyles({
   root: {
     width: 20,
@@ -23,16 +27,9 @@ const useStyles = makeStyles({
 
 const StyledButton = withStyles({
   root: {
-    display: "flex",
-    justifyContent: "flex-start",
-    borderRadius: 0,
-    border: 0,
-    color: "#27303f",
-    height: 48,
-    fontWeight: 400,
-    padding: "0 18px",
-    position: "relative",
+    // color: "#27303f",
     fontFamily: "Inter",
+    marginRight: "1rem",
   },
   label: {
     textTransform: "none",
@@ -46,20 +43,20 @@ const avatar = (mail) => {
   );
 };
 
-const label = (mail) => {
+const label = (a) => {
   return (
     <div className="flex flex-col p-4">
       <span>
-        <strong>from:</strong> {mail.from.contact}
+        <strong>from:</strong> {a.from.contact}
       </span>
       <span>
-        <strong>to: </strong> {mail.to}
+        <strong>to: </strong> {a.to}
       </span>
       <span>
-        <strong>date: </strong> {mail.date}
+        <strong>date: </strong> {avatar.date}
       </span>
       <span>
-        <strong>subject: </strong> {mail.subject}
+        <strong>subject: </strong> {a.subject}
       </span>
     </div>
   );
@@ -93,28 +90,18 @@ const menu = () => {
   );
 };
 
-const Mail = () => {
+const Mail = ({ mail }) => {
   const classes = useStyles();
   const scrollMenu = useRef(null);
-  const [data, setData] = React.useState({
-    loading: true,
-    mail: {},
-    labels: [],
-  });
-  const { mail, labels } = useSelector((state) => state.mailbox);
+  const { labels } = useSelector((state) => state.mailbox);
+
   useEffect(() => {
     scrollMenu.current.scrollTop = 0;
-    setData((prevState) => ({
-      ...prevState,
-      mail: mail,
-      labels: labels,
-      loading: false,
-    }));
     return () => {};
-  }, [mail, labels]);
+  }, [mail]);
 
   return (
-    !!data.loading && (
+    mail?.from && (
       <div
         ref={scrollMenu}
         className="w-2/4 overflow-scroll relative bg-gray-100"
@@ -127,14 +114,16 @@ const Mail = () => {
             <CustomPopover
               icon={
                 <LabelImportantTwoToneIcon
-                  style={{ color: data.mail.important ? "#f56565" : "#64748b" }}
+                  style={{
+                    color: mail.important ? "#f56565" : "#64748b",
+                  }}
                 />
               }
             ></CustomPopover>
             <CustomPopover
               icon={
                 <StarTwoToneIcon
-                  style={{ color: data.mail.starred ? "#f56565" : "#64748b" }}
+                  style={{ color: mail.starred ? "#f56565" : "#64748b" }}
                 />
               }
             ></CustomPopover>
@@ -144,11 +133,11 @@ const Mail = () => {
             ></CustomPopover>
           </div>
           <div className="border-b px-6 py-4 bg-white">
-            <h3 className="text-2xl font-normal">{data.mail.subject}</h3>
+            <h3 className="text-2xl font-normal">{mail.subject}</h3>
 
-            {data.labels.map((label, index) => {
+            {labels.map((label, index) => {
               return (
-                data.mail.labels.find((element) => element == label.id) && (
+                mail.labels.find((element) => element == label.id) && (
                   <span
                     className={`text-white bg-${label.color}-500 text-xs rounded-full py-1 px-2 mr-2`}
                     key={index}
@@ -165,11 +154,11 @@ const Mail = () => {
           <div className="flex flex-col justify-center">
             <div className="m-3 bg-white border py-4 px-6 rounded">
               <div className="flex items-center py-4">
-                {/* {avatar(data.mail)} */}
+                {avatar(mail)}
                 <span className="ml-4">
                   <strong>
-                    {data.mail.from.contact
-                      .slice(0, data.mail.from.contact.lastIndexOf("<"))
+                    {mail.from.contact
+                      .slice(0, mail.from.contact.lastIndexOf("<"))
                       .trim()}
                   </strong>
                   <span className="flex items-center">
@@ -190,7 +179,30 @@ const Mail = () => {
                   </span>
                 </span>
               </div>
-              <p className="whitespace-pre-wrap">{data.mail.content}</p>
+              <p className="whitespace-pre-wrap mb-16">{mail.content}</p>
+              <div className="flex flex-row mb-2">
+                <StyledButton
+                  variant="outlined"
+                  color="primary"
+                  startIcon={<ReplyIcon />}
+                >
+                  Reply
+                </StyledButton>
+                <StyledButton
+                  variant="outlined"
+                  color="primary"
+                  startIcon={<ReplyAllIcon />}
+                >
+                  Reply All
+                </StyledButton>
+                <StyledButton
+                  variant="outlined"
+                  color="primary"
+                  startIcon={<ForwardTwoToneIcon />}
+                >
+                  Forward
+                </StyledButton>
+              </div>
             </div>
           </div>
         </div>

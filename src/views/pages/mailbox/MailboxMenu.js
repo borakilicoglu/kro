@@ -62,7 +62,7 @@ const MailboxMenu = ({ utilities, data, params }) => {
   let { folders, filters, labels } = utilities;
   return (
     <div className="w-1/4 border-r overflow-scroll">
-      {utilities && (
+      {utilities?.folders && (
         <div className="h-px">
           <h3 className="pt-8 pb-6 px-6 font-bold text-3xl">Mailbox</h3>
           <div className="px-6">

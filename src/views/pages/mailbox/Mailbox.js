@@ -14,7 +14,7 @@ const Mailbox = ({ match }) => {
     params: { params },
   } = match;
   const [loading, setLoading] = React.useState(true);
-  const [data, setData] = React.useState({
+  const [state, setState] = React.useState({
     mail: {},
     mails: [],
     utilities: {},
@@ -27,7 +27,7 @@ const Mailbox = ({ match }) => {
   }, []);
 
   useEffect(() => {
-    setData((prevState) => ({
+    setState((prevState) => ({
       ...prevState,
       mail: {},
     }));
@@ -36,7 +36,7 @@ const Mailbox = ({ match }) => {
   const { mail, mails, filteredMails } = useSelector((state) => state.mailbox);
 
   useEffect(() => {
-    setData((prevState) => ({
+    setState((prevState) => ({
       ...prevState,
       mails: mails,
       utilities: { folders, filters, labels },
@@ -46,17 +46,15 @@ const Mailbox = ({ match }) => {
   }, [mails]);
 
   useEffect(() => {
-    setData((prevState) => ({
-      ...prevState,
+    setState({
+      ...state,
       mail: mail,
-    }));
-    setLoading(false);
-    console.log(mail.type);
+    });
     return () => {};
   }, [mail]);
 
   useEffect(() => {
-    setData((prevState) => ({
+    setState((prevState) => ({
       ...prevState,
       filteredMails: filteredMails,
     }));
@@ -68,25 +66,21 @@ const Mailbox = ({ match }) => {
       {!loading && (
         <div className="flex flex-wrap w-full h-full bg-white">
           <MailboxMenu
-            data={data.mails}
+            data={state.mails}
             params={params}
-            utilities={data.utilities}
+            utilities={state.utilities}
           ></MailboxMenu>
 
-          <MailboxList params={params}></MailboxList>
+          <MailboxList active={mail.id} params={params}></MailboxList>
 
-          {
-            !!Object.keys(data.mail).length && <h1>{data.mail.type}</h1>
-            // <Mail labels={data.utilities.labels}></Mail>
-          }
-
-          {/* {mail ? ( */}
-          {/* ) : ( */}
-          {/* <MailboxSplash
-              toggle={!!data.filteredMails.length}
-              count={data.filteredMails.length}
-            /> */}
-          {/* )} */}
+          {Object.keys(state.mail).length > 0 ? (
+            <Mail mail={state.mail}></Mail>
+          ) : (
+            <MailboxSplash
+              toggle={!!state.filteredMails.length}
+              count={state.filteredMails.length}
+            />
+          )}
         </div>
       )}
     </div>

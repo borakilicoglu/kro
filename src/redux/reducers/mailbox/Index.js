@@ -68,10 +68,11 @@ const mailbox = (state = initialState, action) => {
       }
 
     case "SET_MAIL":
-      let mail = state.mails.filter((mail) => mail.id == action.id);
+      let mail = state.mails.find((mail) => mail.id == action.id);
+      mail.unread = false;
       return {
         ...state,
-        mail: mail,
+        mail: { ...mail },
       };
 
     case "SET_UTILITIES":
