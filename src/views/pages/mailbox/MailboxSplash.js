@@ -1,6 +1,6 @@
 import React from "react";
 
-const MailboxSplash = ({ toggle, count }) => {
+const MailboxSplash = ({ toggle }) => {
   return (
     <div className={`bg-gray-100 ${toggle ? "w-2/4 " : "w-3/4 "}`}>
       <div className="flex flex-col h-full items-center justify-center">

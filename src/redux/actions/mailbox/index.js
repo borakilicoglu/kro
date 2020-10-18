@@ -29,6 +29,24 @@ export const setUtilities = ({ folders, filters, labels }) => {
   };
 };
 
+export const toggleImportant = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: "TOGGLE_IMPORTANT",
+      id: id,
+    });
+  };
+};
+
+export const toggleStar = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: "TOGGLE_STAR",
+      id: id,
+    });
+  };
+};
+
 export const setMail = (id) => {
   return (dispatch) => {
     dispatch({

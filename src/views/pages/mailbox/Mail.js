@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
 import { useSelector, useDispatch } from "react-redux";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 
-import Button from "@material-ui/core/Button";
+import { toggleImportant, toggleStar } from "../../../redux/actions/mailbox";
+
+import { Button, IconButton } from "@material-ui/core";
 import CustomPopover from "../../../@nucleo/components/CustomPopover";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
+import AttachmentIcon from "@material-ui/icons/Attachment";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import MoreVertTwoToneIcon from "@material-ui/icons/MoreVertTwoTone";
@@ -13,7 +15,6 @@ import ArrowDropDownTwoToneIcon from "@material-ui/icons/ArrowDropDownTwoTone";
 import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
 import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
 import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
-
 import ReplyIcon from "@material-ui/icons/Reply";
 import ReplyAllIcon from "@material-ui/icons/ReplyAll";
 import ForwardTwoToneIcon from "@material-ui/icons/ForwardTwoTone";
@@ -40,6 +41,23 @@ const avatar = (mail) => {
   let url = require(`../../../assets/images/avatars/${mail.from.avatar}.jpg`);
   return (
     <img src={url} alt={mail.from.contact} className="w-10 rounded-full" />
+  );
+};
+
+const attachmentAsset = (attachment) => {
+  return attachment.preview !== "pdf" ? (
+    <img
+      src={require(`../../../assets/images/apps/mailbox/${attachment.preview.replace(
+        /\.[^/.]+$/,
+        ""
+      )}.jpg`)}
+      alt=""
+      className="w-10 rounded-sm"
+    />
+  ) : (
+    <span className="w-10 h-10 leading-10 text-center text-center rounded-md bg-indigo-200 text-indigo-600 text-xs font-semibold">
+      PDF
+    </span>
   );
 };
 
@@ -92,6 +110,7 @@ const menu = () => {
 
 const Mail = ({ mail }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const scrollMenu = useRef(null);
   const { labels } = useSelector((state) => state.mailbox);
 
@@ -111,22 +130,18 @@ const Mail = ({ mail }) => {
             <CustomPopover
               icon={<LabelTwoToneIcon style={{ color: "#64748b" }} />}
             ></CustomPopover>
-            <CustomPopover
-              icon={
-                <LabelImportantTwoToneIcon
-                  style={{
-                    color: mail.important ? "#f56565" : "#64748b",
-                  }}
-                />
-              }
-            ></CustomPopover>
-            <CustomPopover
-              icon={
-                <StarTwoToneIcon
-                  style={{ color: mail.starred ? "#f56565" : "#64748b" }}
-                />
-              }
-            ></CustomPopover>
+            <IconButton onClick={() => dispatch(toggleImportant(mail.id))}>
+              <LabelImportantTwoToneIcon
+                style={{
+                  color: mail.important ? "#f56565" : "#64748b",
+                }}
+              />
+            </IconButton>
+            <IconButton onClick={() => dispatch(toggleStar(mail.id))}>
+              <StarTwoToneIcon
+                style={{ color: mail.starred ? "#f56565" : "#64748b" }}
+              />
+            </IconButton>
             <CustomPopover
               icon={<MoreVertTwoToneIcon style={{ color: "#64748b" }} />}
               content={menu()}
@@ -180,6 +195,35 @@ const Mail = ({ mail }) => {
                 </span>
               </div>
               <p className="whitespace-pre-wrap mb-16">{mail.content}</p>
+
+              {mail.attachments.length > 0 && (
+                <React.Fragment>
+                  <div className="flex items-center mb-6">
+                    <AttachmentIcon
+                      style={{ fontSize: "16px" }}
+                    ></AttachmentIcon>
+                    <h3 className="ml-2 font-bold">
+                      {mail.attachments.length} Attachments
+                    </h3>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 mb-12">
+                    {mail.attachments.map((attachment, index) => (
+                      <div className="flex items-center" key={index}>
+                        {attachmentAsset(attachment)}
+                        <span className="ml-4">
+                          <span className="block text-xs font-semibold">
+                            {attachment.name}
+                          </span>
+                          <span className="block text-gray-600 text-sm">
+                            {attachment.size / 1000} KB
+                          </span>
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </React.Fragment>
+              )}
+
               <div className="flex flex-row mb-2">
                 <StyledButton
                   variant="outlined"

@@ -15,7 +15,7 @@ const Mailbox = ({ match }) => {
   } = match;
   const [loading, setLoading] = React.useState(true);
   const [state, setState] = React.useState({
-    mail: {},
+    mail: "",
     mails: [],
     utilities: {},
     filteredMails: [],
@@ -29,7 +29,7 @@ const Mailbox = ({ match }) => {
   useEffect(() => {
     setState((prevState) => ({
       ...prevState,
-      mail: {},
+      mail: "",
     }));
   }, [params]);
 
@@ -71,15 +71,12 @@ const Mailbox = ({ match }) => {
             utilities={state.utilities}
           ></MailboxMenu>
 
-          <MailboxList active={mail.id} params={params}></MailboxList>
+          <MailboxList active={mail} params={params}></MailboxList>
 
-          {Object.keys(state.mail).length > 0 ? (
-            <Mail mail={state.mail}></Mail>
+          {state.mail.length > 0 ? (
+            <Mail mail={state.mails.find((x) => x.id == mail)}></Mail>
           ) : (
-            <MailboxSplash
-              toggle={!!state.filteredMails.length}
-              count={state.filteredMails.length}
-            />
+            <MailboxSplash toggle={!!state.filteredMails.length} />
           )}
         </div>
       )}

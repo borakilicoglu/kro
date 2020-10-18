@@ -67,12 +67,28 @@ const mailbox = (state = initialState, action) => {
         };
       }
 
-    case "SET_MAIL":
-      let mail = state.mails.find((mail) => mail.id == action.id);
-      mail.unread = false;
+    case "TOGGLE_IMPORTANT":
+      state.mails.find(
+        (mail) => mail.id === action.id
+      ).important = !state.mails.find((mail) => mail.id === action.id)
+        .important;
       return {
         ...state,
-        mail: { ...mail },
+      };
+
+    case "TOGGLE_STAR":
+      state.mails.find(
+        (mail) => mail.id === action.id
+      ).starred = !state.mails.find((mail) => mail.id === action.id).starred;
+      return {
+        ...state,
+      };
+
+    case "SET_MAIL":
+      state.mails.find((mail) => mail.id == action.id).unread = false;
+      return {
+        ...state,
+        mail: state.mails.find((mail) => mail.id == action.id).id,
       };
 
     case "SET_UTILITIES":
