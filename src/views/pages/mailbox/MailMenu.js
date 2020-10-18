@@ -28,44 +28,11 @@ const StyledButton = withStyles({
   },
 })(Button);
 
-const menu = (mail, dispatch) => {
-  return (
-    <div className="flex flex-col py-2">
-      <StyledButton
-        onClick={() => dispatch(toggleMarkAsRead(mail.id))}
-        startIcon={
-          <EmailTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
-        }
-      >
-        {mail.unread ? "Mark as read" : "Mark as unread"}
-      </StyledButton>
-      <StyledButton
-        startIcon={
-          <ErrorTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
-        }
-      >
-        Spam
-      </StyledButton>
-      <StyledButton
-        startIcon={
-          <DeleteTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
-        }
-      >
-        Delete
-      </StyledButton>
-    </div>
-  );
-};
-
 const MailMenu = ({ mail }) => {
-  const dispatch = useDispatch();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [data, setData] = React.useState();
-
-  React.useEffect(() => {
-    setData(mail);
-    return () => {};
-  }, [mail]);
+  const dispatch = useDispatch();
+  const open = Boolean(anchorEl);
+  const [state, setState] = React.useState();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -75,7 +42,12 @@ const MailMenu = ({ mail }) => {
     setAnchorEl(null);
   };
 
-  const open = Boolean(anchorEl);
+  React.useEffect(() => {
+    console.log("Mail changed " + mail.unread);
+    setState(mail);
+    return () => {};
+  }, [mail]);
+
   return (
     <div className="mr-2">
       <IconButton onClick={handleClick} size="small">
@@ -95,7 +67,34 @@ const MailMenu = ({ mail }) => {
           horizontal: "right",
         }}
       >
-        {data && menu(data, dispatch)}
+        <div className="flex flex-col py-2">
+          <StyledButton
+            onClick={() => dispatch(toggleMarkAsRead(state.id))}
+            startIcon={
+              <EmailTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+            }
+          >
+            {state && state.unread ? (
+              <span>Mark as read</span>
+            ) : (
+              <span>Mark as unread</span>
+            )}
+          </StyledButton>
+          <StyledButton
+            startIcon={
+              <ErrorTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+            }
+          >
+            Spam
+          </StyledButton>
+          <StyledButton
+            startIcon={
+              <DeleteTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
+            }
+          >
+            Delete
+          </StyledButton>
+        </div>
       </Popover>
     </div>
   );

@@ -29,8 +29,16 @@ export const setUtilities = ({ folders, filters, labels }) => {
   };
 };
 
+export const deleteMail = (id) => {
+  return (dispatch) => {
+    dispatch({
+      type: "DELETE_MAIL",
+      id: id,
+    });
+  };
+};
+
 export const toggleMarkAsRead = (id) => {
-  console.log(id);
   return (dispatch) => {
     dispatch({
       type: "TOGGLE_MARK_AS_READ",

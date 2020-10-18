@@ -46,10 +46,10 @@ const Mailbox = ({ match }) => {
   }, [mails]);
 
   useEffect(() => {
-    setState({
-      ...state,
+    setState((prevState) => ({
+      ...prevState,
       mail: mail,
-    });
+    }));
     return () => {};
   }, [mail]);
 

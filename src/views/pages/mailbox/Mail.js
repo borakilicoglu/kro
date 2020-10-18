@@ -12,9 +12,6 @@ import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone"
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import MoreVertTwoToneIcon from "@material-ui/icons/MoreVertTwoTone";
 import ArrowDropDownTwoToneIcon from "@material-ui/icons/ArrowDropDownTwoTone";
-// import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
-// import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
-// import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import ReplyIcon from "@material-ui/icons/Reply";
 import ReplyAllIcon from "@material-ui/icons/ReplyAll";
 import ForwardTwoToneIcon from "@material-ui/icons/ForwardTwoTone";
