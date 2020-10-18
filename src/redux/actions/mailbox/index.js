@@ -29,6 +29,16 @@ export const setUtilities = ({ folders, filters, labels }) => {
   };
 };
 
+export const toggleMarkAsRead = (id) => {
+  console.log(id);
+  return (dispatch) => {
+    dispatch({
+      type: "TOGGLE_MARK_AS_READ",
+      id: id,
+    });
+  };
+};
+
 export const toggleImportant = (id) => {
   return (dispatch) => {
     dispatch({

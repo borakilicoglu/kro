@@ -12,12 +12,14 @@ import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone"
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import MoreVertTwoToneIcon from "@material-ui/icons/MoreVertTwoTone";
 import ArrowDropDownTwoToneIcon from "@material-ui/icons/ArrowDropDownTwoTone";
-import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
-import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
-import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
+// import EmailTwoToneIcon from "@material-ui/icons/EmailTwoTone";
+// import ErrorTwoToneIcon from "@material-ui/icons/ErrorTwoTone";
+// import DeleteTwoToneIcon from "@material-ui/icons/DeleteTwoTone";
 import ReplyIcon from "@material-ui/icons/Reply";
 import ReplyAllIcon from "@material-ui/icons/ReplyAll";
 import ForwardTwoToneIcon from "@material-ui/icons/ForwardTwoTone";
+
+import MailMenu from "./MailMenu";
 
 const useStyles = makeStyles({
   root: {
@@ -26,11 +28,10 @@ const useStyles = makeStyles({
   },
 });
 
-const StyledButton = withStyles({
+const ReplyForwardButton = withStyles({
   root: {
-    // color: "#27303f",
     fontFamily: "Inter",
-    marginRight: "1rem",
+    marginRight: "0.5rem",
   },
   label: {
     textTransform: "none",
@@ -80,34 +81,6 @@ const label = (a) => {
   );
 };
 
-const menu = () => {
-  return (
-    <div className="flex flex-col py-2">
-      <StyledButton
-        startIcon={
-          <EmailTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
-        }
-      >
-        Mark as read
-      </StyledButton>
-      <StyledButton
-        startIcon={
-          <ErrorTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
-        }
-      >
-        Spam
-      </StyledButton>
-      <StyledButton
-        startIcon={
-          <DeleteTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
-        }
-      >
-        Delete
-      </StyledButton>
-    </div>
-  );
-};
-
 const Mail = ({ mail }) => {
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -142,10 +115,7 @@ const Mail = ({ mail }) => {
                 style={{ color: mail.starred ? "#f56565" : "#64748b" }}
               />
             </IconButton>
-            <CustomPopover
-              icon={<MoreVertTwoToneIcon style={{ color: "#64748b" }} />}
-              content={menu()}
-            ></CustomPopover>
+            <MailMenu mail={mail}></MailMenu>
           </div>
           <div className="border-b px-6 py-4 bg-white">
             <h3 className="text-2xl font-normal">{mail.subject}</h3>
@@ -225,27 +195,27 @@ const Mail = ({ mail }) => {
               )}
 
               <div className="flex flex-row mb-2">
-                <StyledButton
+                <ReplyForwardButton
                   variant="outlined"
                   color="primary"
                   startIcon={<ReplyIcon />}
                 >
                   Reply
-                </StyledButton>
-                <StyledButton
+                </ReplyForwardButton>
+                <ReplyForwardButton
                   variant="outlined"
                   color="primary"
                   startIcon={<ReplyAllIcon />}
                 >
                   Reply All
-                </StyledButton>
-                <StyledButton
+                </ReplyForwardButton>
+                <ReplyForwardButton
                   variant="outlined"
                   color="primary"
                   startIcon={<ForwardTwoToneIcon />}
                 >
                   Forward
-                </StyledButton>
+                </ReplyForwardButton>
               </div>
             </div>
           </div>

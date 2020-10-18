@@ -10,7 +10,7 @@ import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
 import IconButton from "@material-ui/core/IconButton";
 
-const CustomPopover = ({ icon, content, size, style }) => {
+const CustomPopover = ({ icon, children, size, style }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -28,7 +28,7 @@ const CustomPopover = ({ icon, content, size, style }) => {
       <IconButton onClick={handleClick} size={size} className={style}>
         {icon}
       </IconButton>
-      {content && (
+      {children && (
         <Popover
           open={open}
           anchorEl={anchorEl}
@@ -42,7 +42,7 @@ const CustomPopover = ({ icon, content, size, style }) => {
             horizontal: "right",
           }}
         >
-          {content}
+          {children}
         </Popover>
       )}
     </div>

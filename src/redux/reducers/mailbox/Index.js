@@ -84,6 +84,14 @@ const mailbox = (state = initialState, action) => {
         ...state,
       };
 
+    case "TOGGLE_MARK_AS_READ":
+      state.mails.find(
+        (mail) => mail.id == action.id
+      ).unread = !state.mails.find((mail) => mail.id == action.id).unread;
+      return {
+        ...state,
+      };
+
     case "SET_MAIL":
       state.mails.find((mail) => mail.id == action.id).unread = false;
       return {
