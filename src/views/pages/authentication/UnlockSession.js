@@ -54,7 +54,7 @@ export default function ResetPassword() {
             </div>
           </form>
 
-          <a href="">
+          <a href="/authentication/sign-in">
             I'm not <span className="text-indigo-600">Stefan Schmitz</span>
           </a>
         </div>

@@ -14,7 +14,7 @@ export default function SignOut() {
           <p className="mb-6">You are now being redirected!</p>
           <p>
             Go to
-            <a href="" className="text-indigo-600">
+            <a href="/authentication/sign-in" className="text-indigo-600">
               &nbsp;sign in
             </a>
           </p>

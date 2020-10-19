@@ -18,7 +18,7 @@ export default function ConfirmationRequired() {
           </p>
           <p>
             Return to
-            <a href="" className="text-indigo-600">
+            <a href="/authentication/sign-in" className="text-indigo-600">
               &nbsp;sign in
             </a>
           </p>

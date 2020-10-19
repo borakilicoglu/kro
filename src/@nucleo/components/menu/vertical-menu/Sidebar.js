@@ -5,7 +5,8 @@ import IconButton from "@material-ui/core/IconButton";
 import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActiveTwoTone";
 import AccountMenu from "./AccountMenu";
 import { NavLink } from "react-router-dom";
-import { connect } from "react-redux";
+
+import { useDispatch, useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -35,7 +36,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function NavItem(item) {
+const NavItem = (item) => {
+  const { tasks } = useSelector((state) => state.tasks);
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
@@ -61,9 +63,16 @@ function NavItem(item) {
               primary={item.title}
               className={classes.listItemText}
             />
-            <div className="font-base text-xs text-gray-500">
-              {item.desc && item.desc}
-            </div>
+            {tasks.length > 0 && item.title == "Tasks" ? (
+              <div className="font-base text-xs text-gray-500">
+                {tasks.filter((task) => task.completed == false).length}{" "}
+                remaining tasks
+              </div>
+            ) : (
+              <div className="font-base text-xs text-gray-500">
+                {item.desc && item.desc}
+              </div>
+            )}
           </div>
 
           {item.chip && <div>{item.chip}</div>}
@@ -98,7 +107,7 @@ function NavItem(item) {
       )}
     </div>
   );
-}
+};
 
 export class Sidebar extends Component {
   render() {
@@ -168,8 +177,4 @@ export class Sidebar extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({});
-
-const mapDispatchToProps = {};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);
+export default Sidebar;

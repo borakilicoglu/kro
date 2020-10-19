@@ -17,6 +17,15 @@ const Tasks = lazy(() => import("./views/pages/tasks/Tasks"));
 const SignIn = lazy(() => import("./views/pages/authentication/SignIn"));
 const SignUp = lazy(() => import("./views/pages/authentication/SignUp"));
 const SignOut = lazy(() => import("./views/pages/authentication/SignOut"));
+
+const Classic = lazy(() => import("./views/pages/comingsoon/Classic"));
+const Modern = lazy(() => import("./views/pages/comingsoon/Modern"));
+const ModernAlt = lazy(() => import("./views/pages/comingsoon/ModernAlt"));
+const Fullscreen = lazy(() => import("./views/pages/comingsoon/Fullscreen"));
+const FullscreenAlt = lazy(() =>
+  import("./views/pages/comingsoon/FullscreenAlt")
+);
+
 const ForgotPassword = lazy(() =>
   import("./views/pages/authentication/ForgotPassword")
 );
@@ -133,6 +142,14 @@ class AppRouter extends React.Component {
             component={ConfirmationRequired}
             fullLayout
           />
+          <AppRoute path="/coming-soon/classic" component={Classic} />
+          <AppRoute path="/coming-soon/fullscreen" component={Fullscreen} />
+          <AppRoute
+            path="/coming-soon/fullscreen-alt"
+            component={FullscreenAlt}
+          />
+          <AppRoute path="/coming-soon/modern" component={Modern} />
+          <AppRoute path="/coming-soon/modern-alt" component={ModernAlt} />
         </Switch>
       </Router>
     );

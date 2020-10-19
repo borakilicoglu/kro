@@ -39,7 +39,7 @@ export default function ForgotPassword() {
             </div>
           </form>
 
-          <a href="">
+          <a href="/authentication/sign-in">
             Return to <span className="text-indigo-600">sign in</span>
           </a>
         </div>
