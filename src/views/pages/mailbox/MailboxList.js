@@ -12,7 +12,7 @@ import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone"
 
 import { getFilteredMails, setMail } from "../../../redux/actions/mailbox";
 
-const MailboxList = ({ params, active }) => {
+const MailboxList = ({ params, active, mails }) => {
   const dispatch = useDispatch();
   const scrollMenu = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -21,7 +21,7 @@ const MailboxList = ({ params, active }) => {
     dispatch(getFilteredMails(params));
     scrollMenu.current.scrollTop = 0;
     setCurrentPage(1);
-  }, [params]);
+  }, [params, dispatch, mails]);
 
   useEffect(() => {
     scrollMenu.current.scrollTop = 0;

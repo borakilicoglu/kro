@@ -10,7 +10,6 @@ import LabelTwoToneIcon from "@material-ui/icons/LabelTwoTone";
 import AttachmentIcon from "@material-ui/icons/Attachment";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
-import MoreVertTwoToneIcon from "@material-ui/icons/MoreVertTwoTone";
 import ArrowDropDownTwoToneIcon from "@material-ui/icons/ArrowDropDownTwoTone";
 import ReplyIcon from "@material-ui/icons/Reply";
 import ReplyAllIcon from "@material-ui/icons/ReplyAll";
@@ -43,19 +42,19 @@ const avatar = (mail) => {
 };
 
 const attachmentAsset = (attachment) => {
-  return attachment.preview !== "pdf" ? (
+  return attachment.preview == "pdf" ? (
+    <span className="w-10 h-10 leading-10 text-center text-center rounded-md bg-indigo-200 text-indigo-600 text-xs font-semibold">
+      PDF
+    </span>
+  ) : (
     <img
       src={require(`../../../assets/images/apps/mailbox/${attachment.preview.replace(
         /\.[^/.]+$/,
         ""
-      )}.jpg`)}
-      alt=""
-      className="w-10 rounded-sm"
+      )}.${attachment.type == "image/jpeg" ? "jpg" : "image/png"}`)}
+      alt={attachment.name}
+      className="w-10 rounded-md"
     />
-  ) : (
-    <span className="w-10 h-10 leading-10 text-center text-center rounded-md bg-indigo-200 text-indigo-600 text-xs font-semibold">
-      PDF
-    </span>
   );
 };
 
@@ -119,7 +118,7 @@ const Mail = ({ mail }) => {
 
             {labels.map((label, index) => {
               return (
-                mail.labels.find((element) => element == label.id) && (
+                mail.labels.find((element) => element === label.id) && (
                   <span
                     className={`text-white bg-${label.color}-500 text-xs rounded-full py-1 px-2 mr-2`}
                     key={index}

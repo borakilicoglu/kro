@@ -93,6 +93,11 @@ const mailbox = (state = initialState, action) => {
       };
 
     case "DELETE_MAIL":
+      return {
+        ...state,
+        mail: {},
+        mails: state.mails.filter((mail) => mail.id !== action.id),
+      };
 
     case "SET_MAIL":
       state.mails.find((mail) => mail.id == action.id).unread = false;

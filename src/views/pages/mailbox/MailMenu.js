@@ -2,7 +2,7 @@ import React from "react";
 import { withStyles } from "@material-ui/core/styles";
 import { useDispatch } from "react-redux";
 import Popover from "@material-ui/core/Popover";
-import { toggleMarkAsRead } from "../../../redux/actions/mailbox";
+import { toggleMarkAsRead, deleteMail } from "../../../redux/actions/mailbox";
 
 import { IconButton, Button } from "@material-ui/core";
 import MoreVertTwoToneIcon from "@material-ui/icons/MoreVertTwoTone";
@@ -32,7 +32,6 @@ const MailMenu = ({ mail }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const dispatch = useDispatch();
   const open = Boolean(anchorEl);
-  const [state, setState] = React.useState();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -41,12 +40,6 @@ const MailMenu = ({ mail }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  React.useEffect(() => {
-    console.log("Mail changed " + mail.unread);
-    setState(mail);
-    return () => {};
-  }, [mail]);
 
   return (
     <div className="mr-2">
@@ -69,12 +62,12 @@ const MailMenu = ({ mail }) => {
       >
         <div className="flex flex-col py-2">
           <StyledButton
-            onClick={() => dispatch(toggleMarkAsRead(state.id))}
+            onClick={() => dispatch(toggleMarkAsRead(mail.id))}
             startIcon={
               <EmailTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
             }
           >
-            {state && state.unread ? (
+            {mail && mail.unread ? (
               <span>Mark as read</span>
             ) : (
               <span>Mark as unread</span>
@@ -88,6 +81,7 @@ const MailMenu = ({ mail }) => {
             Spam
           </StyledButton>
           <StyledButton
+            onClick={() => dispatch(deleteMail(mail.id))}
             startIcon={
               <DeleteTwoToneIcon style={{ color: "#64738b", fontSize: 24 }} />
             }

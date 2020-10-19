@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Icon from "@material-ui/core/Icon";
 import { products } from "../../../@fake-db/inventory/inventory";
 

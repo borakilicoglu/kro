@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import ContactDetails from "./ContactDetails";
 
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
 import IconButton from "@material-ui/core/IconButton";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 
 import CreateTwoToneIcon from "@material-ui/icons/CreateTwoTone";
 import CancelTwoToneIcon from "@material-ui/icons/CancelTwoTone";

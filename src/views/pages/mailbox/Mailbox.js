@@ -36,6 +36,7 @@ const Mailbox = ({ match }) => {
   const { mail, mails, filteredMails } = useSelector((state) => state.mailbox);
 
   useEffect(() => {
+    setLoading(true);
     setState((prevState) => ({
       ...prevState,
       mails: mails,
@@ -63,7 +64,7 @@ const Mailbox = ({ match }) => {
 
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
-      {!loading && (
+      {!loading && state.mails.length && (
         <div className="flex flex-wrap w-full h-full bg-white">
           <MailboxMenu
             data={state.mails}
@@ -71,10 +72,14 @@ const Mailbox = ({ match }) => {
             utilities={state.utilities}
           ></MailboxMenu>
 
-          <MailboxList active={mail} params={params}></MailboxList>
+          <MailboxList
+            active={mail}
+            params={params}
+            mails={mails}
+          ></MailboxList>
 
           {state.mail.length > 0 ? (
-            <Mail mail={state.mails.find((x) => x.id == mail)}></Mail>
+            <Mail mail={state.mails.find((x) => x.id == state.mail)}></Mail>
           ) : (
             <MailboxSplash toggle={!!state.filteredMails.length} />
           )}
