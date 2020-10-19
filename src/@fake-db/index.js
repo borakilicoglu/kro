@@ -4,4 +4,5 @@ import "./contacts/contacts";
 import "./mailbox/mailbox";
 import "./navbar/navbarBookmarkSearch";
 import "./auth/authentication";
+import "./tasks/tasks";
 mock.onAny().passThrough();
