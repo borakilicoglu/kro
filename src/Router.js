@@ -143,10 +143,15 @@ class AppRouter extends React.Component {
             fullLayout
           />
           <AppRoute path="/coming-soon/classic" component={Classic} />
-          <AppRoute path="/coming-soon/fullscreen" component={Fullscreen} />
+          <AppRoute
+            path="/coming-soon/fullscreen"
+            component={Fullscreen}
+            fullLayout
+          />
           <AppRoute
             path="/coming-soon/fullscreen-alt"
             component={FullscreenAlt}
+            fullLayout
           />
           <AppRoute path="/coming-soon/modern" component={Modern} />
           <AppRoute path="/coming-soon/modern-alt" component={ModernAlt} />
