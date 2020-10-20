@@ -46,7 +46,15 @@ const NavItem = (item) => {
   };
 
   useEffect(() => {
-    window.location.pathname == item.navLink && setOpen(true);
+    setOpen(false);
+    if (item.title.match(/\s/g)) {
+      window.location.pathname.includes(
+        item.title.substr(0, item.title.indexOf(" ")).toLowerCase()
+      ) && setOpen(true);
+    } else {
+      window.location.pathname.includes(item.title.toLowerCase()) &&
+        setOpen(true);
+    }
     return () => {};
   }, [item]);
 
