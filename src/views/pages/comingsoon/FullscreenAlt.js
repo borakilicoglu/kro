@@ -46,24 +46,24 @@ const LeranMoreButton = withStyles({
 
 const FullscreenAlt = () => {
   return (
-    <div className="h-full w-full justify-center flex items-center">
-      <div className="flex m-2">
-        <div
-          className="w-2/3 p-32 flex items-center"
-          style={{ backgroundColor: "#5145cd" }}
-        >
-          <div>
-            <h3 className="text-4xl font-bold text-white leading-tight">
-              Well-crafted, Coded with attention, Build with passion.{" "}
-            </h3>
-            <p className="text-indigo-300 mt-4 mb-10">
-              Treo helps developers to build organized and well-coded admin
-              dashboards full of beautiful and feature rich modules.
-            </p>
-            <LeranMoreButton variant="outlined">Learn more</LeranMoreButton>
-          </div>
+    <div className="w-full min-h-screen justify-center flex">
+      <div
+        className="h-screen w-7/12 p-32 flex items-center"
+        style={{ backgroundColor: "#5145cd" }}
+      >
+        <div>
+          <h3 className="text-4xl font-bold text-white leading-tight">
+            Well-crafted, Coded with attention, Build with passion.{" "}
+          </h3>
+          <p className="text-indigo-300 mt-4 mb-10">
+            Treo helps developers to build organized and well-coded admin
+            dashboards full of beautiful and feature rich modules.
+          </p>
+          <LeranMoreButton variant="outlined">Learn more</LeranMoreButton>
         </div>
-        <div className="bg-white p-12 w-1/3">
+      </div>
+      <div className="h-screen bg-white p-12 w-5/12 flex items-center">
+        <div className="w-3/4">
           <span
             className="bg-red-500 h-10 w-10 inline-block rounded-full mb-4"
             style={{ backgroundColor: "rgb(246, 0, 86)" }}

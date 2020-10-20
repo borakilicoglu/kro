@@ -48,7 +48,8 @@ const Fullscreen = () => {
   return (
     <div className="w-full min-h-screen justify-center flex">
       <div className="h-screen bg-white p-12 w-5/12 flex items-center">
-        <div>
+        <div className="w-1/4"></div>
+        <div className="w-3/4">
           <span
             className="bg-red-500 h-10 w-10 inline-block rounded-full mb-4"
             style={{ backgroundColor: "rgb(246, 0, 86)" }}

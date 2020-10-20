@@ -49,7 +49,7 @@ const ModernAlt = () => {
     <div className="h-full w-full justify-center flex items-center">
       <div className="flex m-2">
         <div
-          className="w-2/3 p-32 flex items-center"
+          className="w-2/3 p-32 flex items-center rounded-l-md"
           style={{ backgroundColor: "#5145cd" }}
         >
           <div>
@@ -63,7 +63,7 @@ const ModernAlt = () => {
             <LeranMoreButton variant="outlined">Learn more</LeranMoreButton>
           </div>
         </div>
-        <div className="bg-white p-12 w-1/3">
+        <div className="bg-white p-12 w-1/3 rounded-r-md">
           <span
             className="bg-red-500 h-10 w-10 inline-block rounded-full mb-4"
             style={{ backgroundColor: "rgb(246, 0, 86)" }}
