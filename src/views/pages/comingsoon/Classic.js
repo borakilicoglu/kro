@@ -38,13 +38,13 @@ const Classic = () => {
           notify you about the launch!
         </p>
         <label
-          class="block text-gray-700 text-sm font-semibold mb-2"
-          for="username"
+          className="block text-gray-700 text-sm font-semibold mb-2"
+          htmlFor="username"
         >
           Email address
         </label>
         <input
-          class="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-6 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 mb-6 leading-tight focus:outline-none focus:shadow-outline"
           type="text"
           placeholder=""
         />

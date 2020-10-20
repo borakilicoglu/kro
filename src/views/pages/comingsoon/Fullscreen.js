@@ -81,7 +81,7 @@ const Fullscreen = () => {
         className="h-screen w-7/12 p-32 flex items-center"
         style={{ backgroundColor: "#5145cd" }}
       >
-        <div>
+        <div className="px-12">
           <h3 className="text-4xl font-bold text-white leading-tight">
             Well-crafted, Coded with attention, Build with passion.{" "}
           </h3>

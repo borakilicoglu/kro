@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import classnames from "classnames";
+
 import menuConfig from "../../../../configs/horizontalMenuConfig";
-import IconButton from "@material-ui/core/IconButton";
 import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActiveTwoTone";
 import AccountMenu from "./AccountMenu";
-import { NavLink } from "react-router-dom";
-
-import { useDispatch, useSelector } from "react-redux";
 
 import { makeStyles } from "@material-ui/core/styles";
 
+import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -44,6 +44,12 @@ const NavItem = (item) => {
   const handleClick = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    window.location.pathname == item.navLink && setOpen(true);
+    return () => {};
+  }, [item]);
+
   return (
     <div>
       {item.navLink ? (
