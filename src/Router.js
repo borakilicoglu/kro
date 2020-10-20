@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Router, Switch, Route } from "react-router-dom";
-import { history } from "./history";
 import { connect } from "react-redux";
+import { history } from "./history";
 import Fallback from "./@nucleo/components/fallback/Fallback.js";
 import { ContextLayout } from "./utility/context/Layout";
 
@@ -17,7 +17,6 @@ const Tasks = lazy(() => import("./views/pages/tasks/Tasks"));
 const SignIn = lazy(() => import("./views/pages/authentication/SignIn"));
 const SignUp = lazy(() => import("./views/pages/authentication/SignUp"));
 const SignOut = lazy(() => import("./views/pages/authentication/SignOut"));
-
 const Classic = lazy(() => import("./views/pages/comingsoon/Classic"));
 const Modern = lazy(() => import("./views/pages/comingsoon/Modern"));
 const ModernAlt = lazy(() => import("./views/pages/comingsoon/ModernAlt"));
@@ -25,7 +24,6 @@ const Fullscreen = lazy(() => import("./views/pages/comingsoon/Fullscreen"));
 const FullscreenAlt = lazy(() =>
   import("./views/pages/comingsoon/FullscreenAlt")
 );
-
 const ForgotPassword = lazy(() =>
   import("./views/pages/authentication/ForgotPassword")
 );
