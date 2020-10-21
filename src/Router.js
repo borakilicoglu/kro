@@ -40,6 +40,11 @@ const ConfirmationRequired = lazy(() =>
 const Error404 = lazy(() => import("./views/pages/errors/Error404"));
 const Error500 = lazy(() => import("./views/pages/errors/Error500"));
 
+const Home = lazy(() => import("./views/pages/helpcenter/Home"));
+const Faqs = lazy(() => import("./views/pages/helpcenter/Faqs"));
+const Guides = lazy(() => import("./views/pages/helpcenter/Guides"));
+const Support = lazy(() => import("./views/pages/helpcenter/Support"));
+
 // Set Layout and Component Using App Route
 const RouteConfig = ({
   component: Component,
@@ -159,6 +164,11 @@ class AppRouter extends React.Component {
 
           <AppRoute path="/errors/404" component={Error404} />
           <AppRoute path="/errors/500" component={Error500} />
+
+          <AppRoute path="/help-center" component={Home} />
+          <AppRoute path="/help-center/faqs" component={Faqs} />
+          <AppRoute path="/help-center/guides" component={Guides} />
+          <AppRoute path="/help-center/support" component={Support} />
         </Switch>
       </Router>
     );

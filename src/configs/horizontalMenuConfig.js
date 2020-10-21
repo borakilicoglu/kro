@@ -271,7 +271,7 @@ const menuConfig = [
             id: "home",
             title: "Home",
             type: "item",
-            navLink: "/help-center/home",
+            navLink: "/help-center",
           },
           {
             id: "faqs",
