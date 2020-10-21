@@ -64,7 +64,7 @@ const Mailbox = ({ match }) => {
 
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
-      {!loading && state.mails.length > 0 && (
+      {!loading && state.mails.length && (
         <div className="flex flex-wrap w-full h-full bg-white">
           <MailboxMenu
             data={state.mails}

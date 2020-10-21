@@ -17,8 +17,7 @@ const Accordion = withStyles({
   root: {
     border: "0px",
     borderRadius: "0.25rem !important",
-    boxShadow:
-      "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+    boxShadow: "none",
     "&:not(:last-child)": {
       borderBottom: 0,
     },
@@ -67,7 +66,7 @@ const Home = () => {
   useEffect(() => {
     setData(faqs);
     return () => {};
-  }, [faqs]);
+  }, [data]);
 
   return (
     <div className="flex items-center justify-center">
@@ -111,7 +110,7 @@ const Home = () => {
         <h5 className="text-black font-semibold text-center mt-16 text-xl">
           ... or choose a category to quickly find the help you need
         </h5>
-        <div className="grid grid-cols-3 gap-8 mt-16 m-auto">
+        <div className="grid grid-cols-3 gap-8 mt-16 m-auto w-3/4">
           <div className="h-64 w-64 bg-white rounded-md shadow text-center p-12">
             <DescriptionTwoToneIcon
               style={{ fontSize: "58px", color: "#4C51BF" }}
@@ -147,39 +146,100 @@ const Home = () => {
             getting started
           </h5>
           <div className="my-12">
-            {data.length > 0 &&
-              data
-                .filter(
-                  (faq) =>
-                    faq.categoryId == "28924eab-97cc-465a-ba21-f232bb95843f"
-                )
-                .map((faq, index) => (
-                  <Accordion
-                    className="my-6"
-                    expanded={expanded === `panel${index}`}
-                    onChange={handleChange(`panel${index}`)}
-                  >
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1bh-content"
-                      id="panel1bh-header"
-                    >
-                      <Typography className={classes.heading}>
-                        {faq.question}
-                      </Typography>
-                      {/* <Typography className={classes.secondaryHeading}>
-                        I am an accordion
-                      </Typography> */}
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      <Typography>
-                        Nulla facilisi. Phasellus sollicitudin nulla et quam
-                        mattis feugiat. Aliquam eget maximus est, id dignissim
-                        quam.
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                ))}
+            <Accordion
+              className="my-6"
+              expanded={expanded === "panel1"}
+              onChange={handleChange("panel1")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <Typography className={classes.heading}>
+                  General settings
+                </Typography>
+                <Typography className={classes.secondaryHeading}>
+                  I am an accordion
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Nulla facilisi. Phasellus sollicitudin nulla et quam mattis
+                  feugiat. Aliquam eget maximus est, id dignissim quam.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              className="my-6"
+              expanded={expanded === "panel2"}
+              onChange={handleChange("panel2")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2bh-content"
+                id="panel2bh-header"
+              >
+                <Typography className={classes.heading}>Users</Typography>
+                <Typography className={classes.secondaryHeading}>
+                  You are currently not an owner
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Donec placerat, lectus sed mattis semper, neque lectus feugiat
+                  lectus, varius pulvinar diam eros in elit. Pellentesque
+                  convallis laoreet laoreet.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              className="my-6"
+              expanded={expanded === "panel3"}
+              onChange={handleChange("panel3")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel3bh-content"
+                id="panel3bh-header"
+              >
+                <Typography className={classes.heading}>
+                  Advanced settings
+                </Typography>
+                <Typography className={classes.secondaryHeading}>
+                  Filtering has been entirely disabled for whole web server
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Nunc vitae orci ultricies, auctor nunc in, volutpat nisl.
+                  Integer sit amet egestas eros, vitae egestas augue. Duis vel
+                  est augue.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              className="my-6"
+              expanded={expanded === "panel4"}
+              onChange={handleChange("panel4")}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel4bh-content"
+                id="panel4bh-header"
+              >
+                <Typography className={classes.heading}>
+                  Personal data
+                </Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Nunc vitae orci ultricies, auctor nunc in, volutpat nisl.
+                  Integer sit amet egestas eros, vitae egestas augue. Duis vel
+                  est augue.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
           </div>
         </div>
       </div>
