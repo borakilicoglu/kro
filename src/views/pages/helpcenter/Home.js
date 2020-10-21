@@ -1,5 +1,7 @@
 import React from "react";
 import DescriptionTwoToneIcon from "@material-ui/icons/DescriptionTwoTone";
+import LibraryBooksTwoToneIcon from "@material-ui/icons/LibraryBooksTwoTone";
+import HelpTwoToneIcon from "@material-ui/icons/HelpTwoTone";
 
 const Home = () => {
   return (
@@ -32,33 +34,43 @@ const Home = () => {
           style={{ opacity: ".1" }}
         ></path>
       </svg>
-      <div className="flex flex-col">
-        <h3 className="text-3xl font-bold mt-16 mb-12">
+      <div className="flex flex-col justify-center align-items">
+        <h3 className="text-3xl font-bold mt-16 mb-12 text-center">
           Welcome! How can we help you today?
         </h3>
         <input
-          class="appearance-none block w-full bg-white text-gray-700 border border-gray-200 rounded-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 shadow"
+          className="appearance-none block m-auto w-3/4 bg-white text-gray-700 border border-gray-200 rounded-full py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500 shadow"
           type="text"
           placeholder="Enter a question, topic or keyword"
         />
         <h5 className="text-black font-semibold text-center mt-16 text-xl">
           ... or choose a category to quickly find the help you need
         </h5>
-        <div class="grid grid-cols-3 gap-8 mt-16">
-          <div className="h-64 w-64 bg-white rounded-md shadow text-center">
+        <div className="grid grid-cols-3 gap-8 mt-16">
+          <div className="h-64 w-64 bg-white rounded-md shadow text-center p-12">
             <DescriptionTwoToneIcon
-              style={{ fontSize: "32px", color: "#4C51BF" }}
+              style={{ fontSize: "58px", color: "#4C51BF" }}
             ></DescriptionTwoToneIcon>
-            <h5 className="font-bold">FAQs</h5>
-            <p className="">Frequently asked questions and answers</p>
+            <h5 className="font-bold pt-6">FAQs</h5>
+            <p className="text-gray-600">
+              Frequently asked questions and answers
+            </p>
           </div>
-          <div className="h-64 w-64 bg-white rounded-md shadow text-center">
-            <h5 className="font-bold">Guides</h5>
-            <p className="">Articles and resources to guide you</p>
+          <div className="h-64 w-64 bg-white rounded-md shadow text-center p-12">
+            <LibraryBooksTwoToneIcon
+              style={{ fontSize: "58px", color: "#4C51BF" }}
+            ></LibraryBooksTwoToneIcon>
+            <h5 className="font-bold pt-6">Guides</h5>
+            <p className="text-gray-600">Articles and resources to guide you</p>
           </div>
-          <div className="h-64 w-64 bg-white rounded-md shadow text-center">
-            <h5 className="font-bold">Support</h5>
-            <p className="">Contact us for more detailed support</p>
+          <div className="h-64 w-64 bg-white rounded-md shadow text-center p-12">
+            <HelpTwoToneIcon
+              style={{ fontSize: "58px", color: "#4C51BF" }}
+            ></HelpTwoToneIcon>
+            <h5 className="font-bold pt-6">Support</h5>
+            <p className="text-gray-600">
+              Contact us for more detailed support
+            </p>
           </div>
         </div>
       </div>
