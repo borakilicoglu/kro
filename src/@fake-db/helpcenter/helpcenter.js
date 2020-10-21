@@ -1,3 +1,5 @@
+import mock from "../mock";
+
 /* tslint:disable:max-line-length */
 export const faqCategories = [
   {
