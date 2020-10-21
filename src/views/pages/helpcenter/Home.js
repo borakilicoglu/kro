@@ -16,7 +16,7 @@ import { getFaqs } from "../../../redux/actions/helpcenter/index.js";
 const Accordion = withStyles({
   root: {
     border: "0px",
-    borderRadius: "0.25rem !important",
+    borderRadius: "0.50rem !important",
     boxShadow:
       "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
     "&:not(:last-child)": {
@@ -146,7 +146,7 @@ const Home = () => {
             Here are the most frequently asked questions you may check before
             getting started
           </h5>
-          <div className="my-12">
+          <div className="mt-12 mb-16">
             {data.length > 0 &&
               data
                 .filter(
@@ -155,6 +155,7 @@ const Home = () => {
                 )
                 .map((faq, index) => (
                   <Accordion
+                    key={index}
                     className="my-6"
                     expanded={expanded === `panel${index}`}
                     onChange={handleChange(`panel${index}`)}
@@ -164,7 +165,7 @@ const Home = () => {
                       aria-controls="panel1bh-content"
                       id="panel1bh-header"
                     >
-                      <Typography className={classes.heading}>
+                      <Typography className="w-full p-1">
                         {faq.question}
                       </Typography>
                       {/* <Typography className={classes.secondaryHeading}>
@@ -172,10 +173,8 @@ const Home = () => {
                       </Typography> */}
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Typography>
-                        Nulla facilisi. Phasellus sollicitudin nulla et quam
-                        mattis feugiat. Aliquam eget maximus est, id dignissim
-                        quam.
+                      <Typography className="text-gray-600">
+                        {faq.answer}
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
