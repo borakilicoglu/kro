@@ -1,43 +1,6 @@
 import React from "react";
-
-import FullPageLayout from "../../layout/layouts/full/FullPageLayout";
-import VerticalLayout from "../../layout/VerticalLayout";
-import HorizontalLayout from "../../layout/HorizontalLayout";
-
-import EmptyLayout from "../../layout/layouts/empty/EmptyLayout";
-import BasicLayout from "../../layout/layouts/vertical/BasicLayout";
-import ClassicLayout from "../../layout/layouts/vertical/ClassicLayout";
-
-import ClassyLayout from "../../layout/layouts/vertical/ClassyLayout";
-import CompactLayout from "../../layout/layouts/vertical/CompactLayout";
-import DenseLayout from "../../layout/layouts/vertical/DenseLayout";
-
-import FuturisticLayout from "../../layout/layouts/vertical/FuturisticLayout";
-import ThinLayout from "../../layout/layouts/vertical/ThinLayout";
-import CenteredLayout from "../../layout/layouts/horizontal/CenteredLayout";
-
-import EnterpriseLayout from "../../layout/layouts/horizontal/EnterpriseLayout";
-import MaterialLayout from "../../layout/layouts/horizontal/MaterialLayout";
-import ModernLayout from "../../layout/layouts/horizontal/ModernLayout";
-
 import themeConfig from "../../configs/themeConfig";
-const layouts = {
-  full: FullPageLayout,
-  vertical: VerticalLayout,
-  horizontal: HorizontalLayout,
-  empty: EmptyLayout,
-  basic: BasicLayout,
-  classic: ClassicLayout,
-  classy: ClassyLayout,
-  compact: CompactLayout,
-  dense: DenseLayout,
-  futuristic: FuturisticLayout,
-  thin: ThinLayout,
-  centered: CenteredLayout,
-  enterprise: EnterpriseLayout,
-  material: MaterialLayout,
-  modern: ModernLayout,
-};
+import layouts from "../../configs/layouts.js";
 
 const ContextLayout = React.createContext();
 
@@ -112,26 +75,7 @@ class Layout extends React.Component {
       <ContextLayout.Provider
         value={{
           state: this.state,
-          fullLayout: layouts["full"],
-          verticalLayout: layouts["vertical"],
-          horizontalLayout: layouts["horizontal"],
-
-          emptyLayout: layouts["empty"],
-          centeredLayout: layouts["centered"],
-          enterpriseLayout: layouts["enterprise"],
-
-          materialLayout: layouts["material"],
-          modernLayout: layouts["modern"],
-          basicLayout: layouts["basic"],
-
-          classicLayout: layouts["classic"],
-          classyLayout: layouts["classy"],
-
-          compactLayout: layouts["compact"],
-          denseLayout: layouts["dense"],
-          futuristicLayout: layouts["futuristic"],
-          thinLayout: layouts["thin"],
-
+          layouts: layouts,
           switchLayout: (layout) => {
             this.setState({ activeLayout: layout });
           },

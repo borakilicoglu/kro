@@ -4,8 +4,8 @@ import { NavLink } from "react-router-dom";
 import classnames from "classnames";
 
 import menuConfig from "../../../../configs/horizontalMenuConfig";
-import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActiveTwoTone";
 import AccountMenu from "./AccountMenu";
+import Notifications from "./Notifications";
 
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -26,6 +26,11 @@ const useStyles = makeStyles((theme) => ({
   listItem: {
     paddingLeft: "1.5rem",
     paddingRight: "1.5rem",
+    paddingTop: "0.75rem",
+    paddingBottom: "0.75rem",
+    "&:hover": {
+      background: "#2d3748",
+    },
   },
   listItemText: {
     marginBottom: "0px",
@@ -146,9 +151,7 @@ export class Sidebar extends Component {
           </div>
 
           <div className="align-middle">
-            <IconButton>
-              <NotificationsActiveTwoToneIcon style={{ color: "#96a6ba" }} />
-            </IconButton>
+            <Notifications />
           </div>
 
           <div className="align-middle">

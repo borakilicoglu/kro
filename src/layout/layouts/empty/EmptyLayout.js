@@ -1,10 +1,8 @@
 import React, { PureComponent } from "react";
 import classnames from "classnames";
-import VerticalNavbar from "../../../@nucleo/components/menu/vertical-menu/Sidebar";
-import Header from "../../../@nucleo/components/navbar/Navbar";
-// import Navbar from "./components/navbar/Navbar";
-// import Footer from "./components/footer/Footer";
 import { connect } from "react-redux";
+import Customizer from "../../../@nucleo/components/customizer/Customizer";
+
 import {
   changeMode,
   collapseSidebar,
@@ -256,44 +254,22 @@ class EmptyLayout extends PureComponent {
     };
     return (
       <div
-        className={classnames(
-          `wrapper vertical-layout theme-${appProps.menuTheme}`,
-          {
-            "menu-collapsed":
-              this.state.collapsedContent === true && this.state.width >= 1200,
-            "fixed-footer": appProps.footerType === "sticky",
-            "navbar-static": appProps.navbarType === "static",
-            "navbar-sticky": appProps.navbarType === "sticky",
-            "navbar-floating": appProps.navbarType === "floating",
-            "navbar-hidden": appProps.navbarType === "hidden",
-            "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
-          }
-        )}
+        className={classnames(`h-full theme-${appProps.menuTheme}`, {
+          "menu-collapsed":
+            this.state.collapsedContent === true && this.state.width >= 1200,
+          "fixed-footer": appProps.footerType === "sticky",
+          "navbar-static": appProps.navbarType === "static",
+          "navbar-sticky": appProps.navbarType === "sticky",
+          "navbar-floating": appProps.navbarType === "floating",
+          "navbar-hidden": appProps.navbarType === "hidden",
+          "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
+        })}
       >
-        {/* <Sidebar {...sidebarProps} /> */}
-        <VerticalNavbar />
-        <div
-          className={classnames("app-content content", {
-            "show-overlay": this.state.appOverlay === true,
-          })}
-          onClick={this.handleAppOverlayClick}
-        >
-          {/* <Navbar {...navbarProps} /> */}
-          <Header />
-          <div className="content-wrapper">
-            Vertical Layout
-            {this.props.children}
-          </div>
-        </div>
+        {this.props.children}
 
-        {/* <Footer {...footerProps} /> */}
-        {/* {appProps.disableCustomizer !== true ? (
+        {appProps.disableCustomizer !== true && (
           <Customizer {...customizerProps} />
-        ) : null} */}
-        <div
-          className="sidenav-overlay"
-          onClick={this.handleSidebarVisibility}
-        />
+        )}
       </div>
     );
   }
