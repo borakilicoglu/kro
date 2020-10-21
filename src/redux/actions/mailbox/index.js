@@ -1,5 +1,6 @@
 import axios from "axios";
 import { history } from "../../../history";
+
 // Get Initial Emails
 export const getEmails = (routeParams) => {
   return async (dispatch) => {
