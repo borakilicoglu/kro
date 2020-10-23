@@ -8,99 +8,93 @@ export default function Analytics() {
   return (
     <div className="flex flex-col flex-auto w-full h-full xs:p-2">
       <div className="flex flex-wrap w-full h-full bg-white">
-        <div className="w-1/4 border-r overflow-scroll">
-          <div className="h-px">
-            {_.times(6, (i) => (
-              <div
-                className="flex flex-0 items-center px-4 py-5 border-b ng-star-inserted"
-                key={i}
-              >
-                <div className="flex flex-col flex-auto pr-6">
-                  <div className="flex items-baseline">
-                    <div className="mr-1 font-medium text-xs text-secondary">
-                      Ethereum
-                    </div>
-                    <div className="font-medium text-sm text-hint uppercase tracking-wider">
-                      (ETH)
-                    </div>
+        <div className="w-1/4 border-r overflow-scroll max-h-screen">
+          {_.times(6, (i) => (
+            <div
+              className="flex flex-0 items-center px-4 py-5 border-b ng-star-inserted"
+              key={i}
+            >
+              <div className="flex flex-col flex-auto pr-6">
+                <div className="flex items-baseline">
+                  <div className="mr-1 font-medium text-xs text-secondary">
+                    Ethereum
                   </div>
-                  <div className="flex items-center mt-2">
-                    <div className="min-w-20 font-mono text-2xl tracking-tighter leading-none">
-                      $170.46
-                    </div>
-                    <svg
-                      className="w-6"
-                      x="816"
-                      y="96"
-                      viewBox="0 0 24 24"
-                      fit=""
-                      fill="#0e9f6e"
-                      preserveAspectRatio="xMidYMid meet"
-                      focusable="false"
-                    >
-                      <path d="M7 14l5-5 5 5H7z"></path>
-                    </svg>
-                    <div className="font-mono font-medium text-sm leading-none text-green-500">
-                      2.35%
-                    </div>
+                  <div className="font-medium text-sm text-hint uppercase tracking-wider">
+                    (ETH)
+                  </div>
+                </div>
+                <div className="flex items-center mt-2">
+                  <div className="min-w-20 font-mono text-2xl tracking-tighter leading-none">
+                    $170.46
+                  </div>
+                  <svg
+                    className="w-6"
+                    x="816"
+                    y="96"
+                    viewBox="0 0 24 24"
+                    fit=""
+                    fill="#0e9f6e"
+                    preserveAspectRatio="xMidYMid meet"
+                    focusable="false"
+                  >
+                    <path d="M7 14l5-5 5 5H7z"></path>
+                  </svg>
+                  <div className="font-mono font-medium text-sm leading-none text-green-500">
+                    2.35%
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+          ))}
 
-            <div className="flex border-b">
-              <button
-                onClick={() => setTab(!tab)}
-                className={`w-1/2 h-12 ${
-                  tab && "border-b-2 border-indigo-600"
-                }`}
-              >
-                Buy
-              </button>
-              <button
-                onClick={() => setTab(!tab)}
-                className={`w-1/2 h-12 ${
-                  !tab && "border-b-2 border-indigo-600"
-                }`}
-              >
-                Sell
-              </button>
-            </div>
-            <div className="flex flex-col px-6 pt-6">
-              <label
-                className="block text-gray-600 text-sm mb-2"
-                htmlFor="wallet"
-              >
-                Wallet
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="wallet"
-                type="text"
-                placeholder="XRP - 11278.771123 XRP"
-              ></input>
-              <small className="text-gray-600 pt-1">USD: $2,651.86</small>
-            </div>
-            <div className="flex flex-col px-6 pt-6">
-              <label
-                className="block text-gray-600 text-sm mb-2"
-                htmlFor="amount"
-              >
-                Amount
-              </label>
-              <input
-                className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="amount"
-                type="text"
-                placeholder="XRP - 11278.771123 XRP"
-              ></input>
-              <small className="text-gray-600 pt-1">It will cost: $0.00</small>
-            </div>
-            <div className="flex flex-col p-6">
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 px-4 rounded">
-                {tab ? "Buy" : "Sell"}
-              </button>
-            </div>
+          <div className="flex border-b">
+            <button
+              onClick={() => setTab(!tab)}
+              className={`w-1/2 h-12 ${tab && "border-b-2 border-indigo-600"}`}
+            >
+              Buy
+            </button>
+            <button
+              onClick={() => setTab(!tab)}
+              className={`w-1/2 h-12 ${!tab && "border-b-2 border-indigo-600"}`}
+            >
+              Sell
+            </button>
+          </div>
+          <div className="flex flex-col px-6 pt-6">
+            <label
+              className="block text-gray-600 text-sm mb-2"
+              htmlFor="wallet"
+            >
+              Wallet
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="wallet"
+              type="text"
+              placeholder="XRP - 11278.771123 XRP"
+            ></input>
+            <small className="text-gray-600 pt-1">USD: $2,651.86</small>
+          </div>
+          <div className="flex flex-col px-6 pt-6">
+            <label
+              className="block text-gray-600 text-sm mb-2"
+              htmlFor="amount"
+            >
+              Amount
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="amount"
+              type="text"
+              placeholder="XRP - 11278.771123 XRP"
+            ></input>
+            <small className="text-gray-600 pt-1">It will cost: $0.00</small>
+          </div>
+          <div className="flex flex-col p-6">
+            <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 px-4 rounded">
+              {tab ? "Buy" : "Sell"}
+            </button>
           </div>
         </div>
         <div className="w-3/4 min-h-full">

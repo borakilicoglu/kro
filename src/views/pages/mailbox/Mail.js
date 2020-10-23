@@ -19,6 +19,10 @@ import MailMenu from "./MailMenu";
 
 const useStyles = makeStyles({
   root: {
+    overflowY: "auto",
+    maxHeight: "calc(100vh - 64px)",
+  },
+  popover: {
     width: 20,
     height: 20,
   },
@@ -90,10 +94,7 @@ const Mail = ({ mail }) => {
 
   return (
     mail?.from && (
-      <div
-        ref={scrollMenu}
-        className="w-2/4 overflow-scroll relative bg-gray-100"
-      >
+      <div ref={scrollMenu} className="w-2/4 bg-gray-100 overflow-scroll">
         <div className="flex flex-col justify-center relative sticky top-0 z-40">
           <div className="border-b flex py-3 px-6 bg-white">
             <CustomPopover
@@ -131,88 +132,84 @@ const Mail = ({ mail }) => {
           </div>
         </div>
 
-        <div className="h-px">
-          <div className="flex flex-col justify-center">
-            <div className="m-3 bg-white border py-4 px-6 rounded">
-              <div className="flex items-center py-4">
-                {avatar(mail)}
-                <span className="ml-4">
-                  <strong>
-                    {mail.from.contact
-                      .slice(0, mail.from.contact.lastIndexOf("<"))
-                      .trim()}
-                  </strong>
-                  <span className="flex items-center">
-                    to <strong className="ml-2">me</strong>
-                    <div>
-                      <CustomPopover
-                        style={classes.root}
-                        size="small"
-                        icon={
-                          <ArrowDropDownTwoToneIcon
-                            fontSize="inherit"
-                            style={{ color: "#64748b" }}
-                          />
-                        }
-                        content={label(mail)}
-                      ></CustomPopover>
-                    </div>
-                  </span>
+        <div className="flex flex-col justify-center">
+          <div className="m-3 bg-white border py-4 px-6 rounded">
+            <div className="flex items-center py-4">
+              {avatar(mail)}
+              <span className="ml-4">
+                <strong>
+                  {mail.from.contact
+                    .slice(0, mail.from.contact.lastIndexOf("<"))
+                    .trim()}
+                </strong>
+                <span className="flex items-center">
+                  to <strong className="ml-2">me</strong>
+                  <div>
+                    <CustomPopover
+                      style={classes.popover}
+                      size="small"
+                      icon={
+                        <ArrowDropDownTwoToneIcon
+                          fontSize="inherit"
+                          style={{ color: "#64748b" }}
+                        />
+                      }
+                      content={label(mail)}
+                    ></CustomPopover>
+                  </div>
                 </span>
-              </div>
-              <p className="whitespace-pre-wrap mb-16">{mail.content}</p>
+              </span>
+            </div>
+            <p className="whitespace-pre-wrap mb-16">{mail.content}</p>
 
-              {mail.attachments.length > 0 && (
-                <React.Fragment>
-                  <div className="flex items-center mb-6">
-                    <AttachmentIcon
-                      style={{ fontSize: "16px" }}
-                    ></AttachmentIcon>
-                    <h3 className="ml-2 font-bold">
-                      {mail.attachments.length} Attachments
-                    </h3>
-                  </div>
-                  <div className="grid grid-cols-2 gap-4 mb-12">
-                    {mail.attachments.map((attachment, index) => (
-                      <div className="flex items-center" key={index}>
-                        {attachmentAsset(attachment)}
-                        <span className="ml-4">
-                          <span className="block text-xs font-semibold">
-                            {attachment.name}
-                          </span>
-                          <span className="block text-gray-600 text-sm">
-                            {attachment.size / 1000} KB
-                          </span>
+            {mail.attachments.length > 0 && (
+              <React.Fragment>
+                <div className="flex items-center mb-6">
+                  <AttachmentIcon style={{ fontSize: "16px" }}></AttachmentIcon>
+                  <h3 className="ml-2 font-bold">
+                    {mail.attachments.length} Attachments
+                  </h3>
+                </div>
+                <div className="grid grid-cols-2 gap-4 mb-12">
+                  {mail.attachments.map((attachment, index) => (
+                    <div className="flex items-center" key={index}>
+                      {attachmentAsset(attachment)}
+                      <span className="ml-4">
+                        <span className="block text-xs font-semibold">
+                          {attachment.name}
                         </span>
-                      </div>
-                    ))}
-                  </div>
-                </React.Fragment>
-              )}
+                        <span className="block text-gray-600 text-sm">
+                          {attachment.size / 1000} KB
+                        </span>
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </React.Fragment>
+            )}
 
-              <div className="flex flex-row mb-2">
-                <ReplyForwardButton
-                  variant="outlined"
-                  color="primary"
-                  startIcon={<ReplyIcon />}
-                >
-                  Reply
-                </ReplyForwardButton>
-                <ReplyForwardButton
-                  variant="outlined"
-                  color="primary"
-                  startIcon={<ReplyAllIcon />}
-                >
-                  Reply All
-                </ReplyForwardButton>
-                <ReplyForwardButton
-                  variant="outlined"
-                  color="primary"
-                  startIcon={<ForwardTwoToneIcon />}
-                >
-                  Forward
-                </ReplyForwardButton>
-              </div>
+            <div className="flex flex-row mb-2">
+              <ReplyForwardButton
+                variant="outlined"
+                color="primary"
+                startIcon={<ReplyIcon />}
+              >
+                Reply
+              </ReplyForwardButton>
+              <ReplyForwardButton
+                variant="outlined"
+                color="primary"
+                startIcon={<ReplyAllIcon />}
+              >
+                Reply All
+              </ReplyForwardButton>
+              <ReplyForwardButton
+                variant="outlined"
+                color="primary"
+                startIcon={<ForwardTwoToneIcon />}
+              >
+                Forward
+              </ReplyForwardButton>
             </div>
           </div>
         </div>

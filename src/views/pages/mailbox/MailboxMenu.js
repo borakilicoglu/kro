@@ -36,6 +36,10 @@ const ComposeButton = withStyles({
 })(Button);
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    overflowY: "auto",
+    maxHeight: "calc(100vh - 64px)",
+  },
   listItemIcon: {
     minWidth: "24px",
     marginRight: "16px",
@@ -61,119 +65,114 @@ const MailboxMenu = ({ utilities, data, params }) => {
   const classes = useStyles();
   let { folders, filters, labels } = utilities;
   return (
-    <div className="w-1/4 border-r overflow-scroll">
-      {utilities?.folders && (
-        <div className="h-px">
-          <h3 className="pt-8 pb-6 px-6 font-bold text-3xl">Mailbox</h3>
-          <div className="px-6">
-            <ComposeButton startIcon={<Icon fontSize="small">add</Icon>}>
-              Compose
-            </ComposeButton>
-          </div>
-          <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
-            Mailboxes
-          </h6>
-          <List component="div" disablePadding>
-            {folders.map((folder, index) => {
-              return (
-                <ListItem
-                  key={index}
-                  button
-                  component={NavLink}
-                  exact
-                  to={`/mailbox/${folder.slug}`}
-                  className={classes.listItem}
-                >
-                  <ListItemIcon className={classes.listItemIcon}>
-                    {folder.icon}
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={folder.title}
-                    className={classes.listItemText}
-                  />
-                  <span className="text-xs font-bold">
-                    {folder.slug === "inbox" &&
-                      data.filter(
-                        (mail) => mail.unread && mail.folder === folder.id
-                      ).length}
-                    {folder.slug === "drafts" &&
-                      data.filter((mail) => mail.folder === folder.id).length}
-                    {folder.slug === "spam" &&
-                      data.filter((mail) => mail.folder === folder.id).length}
-                  </span>
-                </ListItem>
-              );
-            })}
-          </List>
-          <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
-            Filters
-          </h6>
-          <List component="div" disablePadding>
-            {filters.map((filter, index) => {
-              return (
-                <ListItem
-                  key={index}
-                  button
-                  component={NavLink}
-                  exact
-                  to={`/mailbox/${filter.slug}`}
-                  className={classes.listItem}
-                >
-                  <ListItemIcon className={classes.listItemIcon}>
-                    {filter.icon}
-                  </ListItemIcon>
-
-                  <ListItemText
-                    primary={filter.title}
-                    className={classes.listItemText}
-                  />
-                </ListItem>
-              );
-            })}
-          </List>
-          <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
-            Labels
-          </h6>
-          <List component="div" disablePadding>
-            {labels.map((label, index) => (
+    utilities?.folders && (
+      <div className="w-1/4 bg-white border-r">
+        <h3 className="pt-8 pb-6 px-6 font-bold text-3xl">Mailbox</h3>
+        <div className="px-6">
+          <ComposeButton startIcon={<Icon fontSize="small">add</Icon>}>
+            Compose
+          </ComposeButton>
+        </div>
+        <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
+          Mailboxes
+        </h6>
+        <List component="div" disablePadding>
+          {folders.map((folder, index) => {
+            return (
               <ListItem
                 key={index}
                 button
                 component={NavLink}
                 exact
-                to={`/mailbox/${label.slug}`}
+                to={`/mailbox/${folder.slug}`}
                 className={classes.listItem}
               >
                 <ListItemIcon className={classes.listItemIcon}>
-                  <LabelTwoToneIcon className={`text-${label.color}-500`} />
+                  {folder.icon}
+                </ListItemIcon>
+                <ListItemText
+                  primary={folder.title}
+                  className={classes.listItemText}
+                />
+                <span className="text-xs font-bold">
+                  {folder.slug === "inbox" &&
+                    data.filter(
+                      (mail) => mail.unread && mail.folder === folder.id
+                    ).length}
+                  {folder.slug === "drafts" &&
+                    data.filter((mail) => mail.folder === folder.id).length}
+                  {folder.slug === "spam" &&
+                    data.filter((mail) => mail.folder === folder.id).length}
+                </span>
+              </ListItem>
+            );
+          })}
+        </List>
+        <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
+          Filters
+        </h6>
+        <List component="div" disablePadding>
+          {filters.map((filter, index) => {
+            return (
+              <ListItem
+                key={index}
+                button
+                component={NavLink}
+                exact
+                to={`/mailbox/${filter.slug}`}
+                className={classes.listItem}
+              >
+                <ListItemIcon className={classes.listItemIcon}>
+                  {filter.icon}
                 </ListItemIcon>
 
                 <ListItemText
-                  primary={label.title}
+                  primary={filter.title}
                   className={classes.listItemText}
                 />
               </ListItem>
-            ))}
+            );
+          })}
+        </List>
+        <h6 className="uppercase pt-8 px-6 text-indigo-500 text-xs font-semibold mb-2">
+          Labels
+        </h6>
+        <List component="div" disablePadding>
+          {labels.map((label, index) => (
             <ListItem
-              key="0000"
+              key={index}
               button
-              style={{ marginTop: "1rem" }}
-              component="button"
+              component={NavLink}
+              exact
+              to={`/mailbox/${label.slug}`}
               className={classes.listItem}
             >
               <ListItemIcon className={classes.listItemIcon}>
-                <SettingsTwoToneIcon style={{ color: "#64748b" }} />
+                <LabelTwoToneIcon className={`text-${label.color}-500`} />
               </ListItemIcon>
 
               <ListItemText
-                primary="Settings"
+                primary={label.title}
                 className={classes.listItemText}
               />
             </ListItem>
-          </List>
-        </div>
-      )}
-    </div>
+          ))}
+          <ListItem
+            key="0000"
+            button
+            style={{ marginTop: "1rem" }}
+            component="button"
+            className={classes.listItem}
+          >
+            <ListItemIcon className={classes.listItemIcon}>
+              <SettingsTwoToneIcon style={{ color: "#64748b" }} />
+            </ListItemIcon>
+
+            <ListItemText primary="Settings" className={classes.listItemText} />
+          </ListItem>
+        </List>
+      </div>
+    )
   );
 };
 

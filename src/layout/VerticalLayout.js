@@ -258,16 +258,19 @@ class VerticalLayout extends PureComponent {
     };
     return (
       <div
-        className={classnames(`vertical-layout theme-${appProps.menuTheme}`, {
-          "menu-collapsed":
-            this.state.collapsedContent === true && this.state.width >= 1200,
-          "fixed-footer": appProps.footerType === "sticky",
-          "navbar-static": appProps.navbarType === "static",
-          "navbar-sticky": appProps.navbarType === "sticky",
-          "navbar-floating": appProps.navbarType === "floating",
-          "navbar-hidden": appProps.navbarType === "hidden",
-          "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
-        })}
+        className={classnames(
+          `relative flex w-full theme-${appProps.menuTheme}`,
+          {
+            "menu-collapsed":
+              this.state.collapsedContent === true && this.state.width >= 1200,
+            "fixed-footer": appProps.footerType === "sticky",
+            "navbar-static": appProps.navbarType === "static",
+            "navbar-sticky": appProps.navbarType === "sticky",
+            "navbar-floating": appProps.navbarType === "floating",
+            "navbar-hidden": appProps.navbarType === "hidden",
+            "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
+          }
+        )}
       >
         <Sidebar {...sidebarProps} />
         <div
@@ -277,17 +280,13 @@ class VerticalLayout extends PureComponent {
           onClick={this.handleAppOverlayClick}
         >
           <Navbar {...navbarProps} />
-          <div className="content">{this.props.children}</div>
+          <div className="flex flex-col flex-auto">{this.props.children}</div>
         </div>
 
         {/* <Footer {...footerProps} /> */}
         {appProps.disableCustomizer !== true ? (
           <Customizer {...customizerProps} />
         ) : null}
-        <div
-          className="sidenav-overlay"
-          onClick={this.handleSidebarVisibility}
-        />
       </div>
     );
   }

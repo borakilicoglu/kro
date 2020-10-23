@@ -63,29 +63,24 @@ const Mailbox = ({ match }) => {
   }, [filteredMails]);
 
   return (
-    <div className="flex flex-col flex-auto w-full xs:p-2">
-      {!loading && state.mails.length > 0 && (
-        <div className="flex flex-wrap w-full h-full bg-white">
-          <MailboxMenu
-            data={state.mails}
-            params={params}
-            utilities={state.utilities}
-          ></MailboxMenu>
+    !loading &&
+    state.mails.length > 0 && (
+      <div className="flex flex-row items-stretch">
+        <MailboxMenu
+          data={state.mails}
+          params={params}
+          utilities={state.utilities}
+        ></MailboxMenu>
 
-          <MailboxList
-            active={mail}
-            params={params}
-            mails={mails}
-          ></MailboxList>
+        <MailboxList active={mail} params={params} mails={mails}></MailboxList>
 
-          {state.mail.length > 0 ? (
-            <Mail mail={state.mails.find((x) => x.id == state.mail)}></Mail>
-          ) : (
-            <MailboxSplash toggle={!!state.filteredMails.length} />
-          )}
-        </div>
-      )}
-    </div>
+        {state.mail.length > 0 ? (
+          <Mail mail={state.mails.find((x) => x.id == state.mail)}></Mail>
+        ) : (
+          <MailboxSplash toggle={!!state.filteredMails.length} />
+        )}
+      </div>
+    )
   );
 };
 

@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import moment from "moment";
 
+import { withStyles, makeStyles } from "@material-ui/core/styles";
+
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import AttachmentIcon from "@material-ui/icons/Attachment";
@@ -12,7 +14,15 @@ import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone"
 
 import { getFilteredMails, setMail } from "../../../redux/actions/mailbox";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    overflowY: "auto",
+    maxHeight: "calc(100vh - 64px)",
+  },
+}));
+
 const MailboxList = ({ params, active, mails }) => {
+  const classes = useStyles();
   const dispatch = useDispatch();
   const scrollMenu = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -33,50 +43,51 @@ const MailboxList = ({ params, active, mails }) => {
     filteredMails && (
       <div
         ref={scrollMenu}
-        className={`w-1/4 border-r overflow-scroll relative ${
+        className={`w-1/4 bg-white border-r ${
           filteredMails && filteredMails.length ? "" : "hidden"
         }`}
       >
-        <div className="flex p-3 border-b items-center sticky top-0 bg-white z-40">
-          <IconButton color="primary" component="span">
-            <MenuIcon />
-          </IconButton>
-          <div className="flex flex-row justify-between w-full items-center text-xs">
-            <strong className="uppercase">{params}</strong>
-            <span className="font-medium">
-              <span>{currentPage * 10 - 10 + 1}</span>
-              <span className="mx-1 text-gray-600">-</span>
-              <span>
-                {currentPage * 10 > filteredMails.length
-                  ? filteredMails.length
-                  : currentPage * 10}
+        <div className="overflow-scroll max-h-screen">
+          <div className="flex p-3 border-b items-center sticky top-0 bg-white z-40">
+            <IconButton color="primary" component="span">
+              <MenuIcon />
+            </IconButton>
+            <div className="flex flex-row justify-between w-full items-center text-xs">
+              <strong className="uppercase">{params}</strong>
+              <span className="font-medium">
+                <span>{currentPage * 10 - 10 + 1}</span>
+                <span className="mx-1 text-gray-600">-</span>
+                <span>
+                  {currentPage * 10 > filteredMails.length
+                    ? filteredMails.length
+                    : currentPage * 10}
+                </span>
+                <span className="mx-1 text-gray-600">of</span>
+                <span>{filteredMails && filteredMails.length}</span>
               </span>
-              <span className="mx-1 text-gray-600">of</span>
-              <span>{filteredMails && filteredMails.length}</span>
-            </span>
+            </div>
+            <div>
+              <IconButton
+                color="primary"
+                component="span"
+                disabled={currentPage == 1}
+                onClick={() => setCurrentPage((currentPage) => currentPage - 1)}
+              >
+                <ChevronLeftIcon />
+              </IconButton>
+            </div>
+            <div>
+              <IconButton
+                color="primary"
+                component="span"
+                disabled={filteredMails.length / currentPage < 10}
+                onClick={() => setCurrentPage((currentPage) => currentPage + 1)}
+              >
+                <ChevronRightIcon />
+              </IconButton>
+            </div>
           </div>
-          <div>
-            <IconButton
-              color="primary"
-              component="span"
-              disabled={currentPage == 1}
-              onClick={() => setCurrentPage((currentPage) => currentPage - 1)}
-            >
-              <ChevronLeftIcon />
-            </IconButton>
-          </div>
-          <div>
-            <IconButton
-              color="primary"
-              component="span"
-              disabled={filteredMails.length / currentPage < 10}
-              onClick={() => setCurrentPage((currentPage) => currentPage + 1)}
-            >
-              <ChevronRightIcon />
-            </IconButton>
-          </div>
-        </div>
-        <div className="h-px">
+
           {filteredMails &&
             filteredMails
               .slice(currentPage * 10 - 10, currentPage * 10)

@@ -254,19 +254,21 @@ class EmptyLayout extends PureComponent {
     };
     return (
       <div
-        className={classnames(`h-full theme-${appProps.menuTheme}`, {
-          "menu-collapsed":
-            this.state.collapsedContent === true && this.state.width >= 1200,
-          "fixed-footer": appProps.footerType === "sticky",
-          "navbar-static": appProps.navbarType === "static",
-          "navbar-sticky": appProps.navbarType === "sticky",
-          "navbar-floating": appProps.navbarType === "floating",
-          "navbar-hidden": appProps.navbarType === "hidden",
-          "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
-        })}
+        className={classnames(
+          `max-w-screen-xl w-full theme-${appProps.menuTheme}`,
+          {
+            "menu-collapsed":
+              this.state.collapsedContent === true && this.state.width >= 1200,
+            "fixed-footer": appProps.footerType === "sticky",
+            "navbar-static": appProps.navbarType === "static",
+            "navbar-sticky": appProps.navbarType === "sticky",
+            "navbar-floating": appProps.navbarType === "floating",
+            "navbar-hidden": appProps.navbarType === "hidden",
+            "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
+          }
+        )}
       >
         {this.props.children}
-
         {appProps.disableCustomizer !== true && (
           <Customizer {...customizerProps} />
         )}
