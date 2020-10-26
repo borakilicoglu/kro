@@ -5,10 +5,11 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@700&display=swap");
 
 html,
-body {
+body,
+#root {
   -webkit-font-smoothing: auto;
   -moz-osx-font-smoothing: auto;
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
@@ -79,8 +80,14 @@ input {
   color: #97a6ba;
 }
 
+.vertical-layout {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  width: 100%;
+}
+
 .vertical-layout > .wrapper {
-  // .classy-layout > .wrapper {
   display: flex;
   flex-direction: column;
   flex: 1 1 auto;
@@ -138,20 +145,25 @@ nav .selected-item {
   top: 50%;
 }
 
-.content-layout.left-sidebar-fullheight-basic-inner-scroll {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  overflow: hidden;
-}
-
-.content-layout {
+.fill-height-or-more {
+  min-height: 100%;
   display: flex;
-  flex-direction: column;
-  flex: 1 1 auto;
-  width: 100%;
-  max-width: 100%;
-  min-width: 0;
+  flex-direction: row;
+  > div {
+    // these are flex items
+
+    // flex: 1; same as:
+    // flex-grow: 1;
+    // flex-shrink: 1;
+    // flex-basis: auto;
+    // flex: 1 1 auto;
+    flex: 1;
+
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    // > div {
+    //   // also flex items
+    // }
+  }
 }

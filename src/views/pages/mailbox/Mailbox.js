@@ -65,20 +65,30 @@ const Mailbox = ({ match }) => {
   return (
     !loading &&
     state.mails.length > 0 && (
-      <div className="flex flex-row items-stretch">
-        <MailboxMenu
-          data={state.mails}
-          params={params}
-          utilities={state.utilities}
-        ></MailboxMenu>
-
-        <MailboxList active={mail} params={params} mails={mails}></MailboxList>
-
-        {state.mail.length > 0 ? (
-          <Mail mail={state.mails.find((x) => x.id == state.mail)}></Mail>
-        ) : (
-          <MailboxSplash toggle={!!state.filteredMails.length} />
-        )}
+      <div className="relative min-h-full">
+        <div className="flex flex-col w-full absolute inset-0 overflow-hidden">
+          {/* <section className="some-area fill-height-or-more w-full"> */}
+          <div className="flex flex-row overflow-scroll">
+            <div className="overflow-scroll w-1/4 ">
+              <MailboxMenu
+                data={state.mails}
+                params={params}
+                utilities={state.utilities}
+              ></MailboxMenu>
+            </div>
+            <MailboxList
+              active={mail}
+              params={params}
+              mails={mails}
+            ></MailboxList>
+            {state.mail.length > 0 ? (
+              <Mail mail={state.mails.find((x) => x.id == state.mail)}></Mail>
+            ) : (
+              <MailboxSplash toggle={!!state.filteredMails.length} />
+            )}
+            {/* </section> */}
+          </div>
+        </div>
       </div>
     )
   );

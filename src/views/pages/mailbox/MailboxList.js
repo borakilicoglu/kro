@@ -43,11 +43,11 @@ const MailboxList = ({ params, active, mails }) => {
     filteredMails && (
       <div
         ref={scrollMenu}
-        className={`w-1/4 bg-white border-r ${
+        className={`w-1/4 bg-white border-r flex ${
           filteredMails && filteredMails.length ? "" : "hidden"
         }`}
       >
-        <div className="overflow-scroll max-h-screen">
+        <div className="overflow-scroll max-h-full">
           <div className="flex p-3 border-b items-center sticky top-0 bg-white z-40">
             <IconButton color="primary" component="span">
               <MenuIcon />

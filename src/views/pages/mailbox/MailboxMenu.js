@@ -66,7 +66,7 @@ const MailboxMenu = ({ utilities, data, params }) => {
   let { folders, filters, labels } = utilities;
   return (
     utilities?.folders && (
-      <div className="w-1/4 bg-white border-r">
+      <div className="bg-white border-r">
         <h3 className="pt-8 pb-6 px-6 font-bold text-3xl">Mailbox</h3>
         <div className="px-6">
           <ComposeButton startIcon={<Icon fontSize="small">add</Icon>}>
