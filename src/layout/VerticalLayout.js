@@ -272,15 +272,17 @@ class VerticalLayout extends PureComponent {
         <Sidebar {...sidebarProps} />
         <div className="wrapper">
           <Navbar {...navbarProps} />
+          {Object.values(appProps).map((prop) => (
+            <h1 className="font-bold ml-8">{prop}</h1>
+          ))}
 
           <div className="content">{this.props.children}</div>
         </div>
 
-        {/* // <Footer {...footerProps} /> */}
-        {/* //   {appProps.disableCustomizer !== true ? (
-      //     <Customizer {...customizerProps} />
-      //   ) : null}
-      // </div> */}
+        {/* <Footer {...footerProps} /> */}
+        {appProps.disableCustomizer !== true ? (
+          <Customizer {...customizerProps} />
+        ) : null}
       </div>
     );
   }

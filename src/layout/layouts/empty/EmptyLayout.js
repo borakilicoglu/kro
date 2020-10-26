@@ -255,7 +255,7 @@ class EmptyLayout extends PureComponent {
     return (
       <div
         className={classnames(
-          `max-w-screen-xl w-full theme-${appProps.menuTheme}`,
+          `empty-layout w-full theme-${appProps.menuTheme}`,
           {
             "menu-collapsed":
               this.state.collapsedContent === true && this.state.width >= 1200,
@@ -268,7 +268,13 @@ class EmptyLayout extends PureComponent {
           }
         )}
       >
-        {this.props.children}
+        <div className="wrapper">
+          {Object.values(appProps).map((prop) => (
+            <h1 className="font-bold ml-8">{prop}</h1>
+          ))}
+
+          <div className="content">{this.props.children}</div>
+        </div>
         {appProps.disableCustomizer !== true && (
           <Customizer {...customizerProps} />
         )}
