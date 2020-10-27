@@ -259,7 +259,7 @@ class ClassyLayout extends PureComponent {
     return (
       <div
         className={classnames(
-          `flex flex-auto w-full h-full relative theme-${appProps.menuTheme}`,
+          `flex flex-auto w-full min-h-full relative theme-${appProps.menuTheme}`,
           {
             "menu-collapsed":
               this.state.collapsedContent === true && this.state.width >= 1200,

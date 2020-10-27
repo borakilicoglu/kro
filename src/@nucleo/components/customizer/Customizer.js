@@ -131,10 +131,6 @@ export default function Customizer() {
 
                   {[
                     "empty",
-                    "centered",
-                    "enterprise",
-                    "material",
-                    "modern",
                     "basic",
                     "classic",
                     "classy",
@@ -142,6 +138,10 @@ export default function Customizer() {
                     "dense",
                     "futuristic",
                     "thin",
+                    "centered",
+                    "enterprise",
+                    "material",
+                    "modern",
                   ].map((layout, index) => (
                     <button
                       key={index}
@@ -157,7 +157,7 @@ export default function Customizer() {
                         src={layoutImage}
                         alt="Empty Layout"
                       />
-                      <h4 className="mt-2 text-xs font-medium text-gray-600 tracking-wide">
+                      <h4 className="mt-2 text-xs font-semibold text-gray-600 tracking-wide capitalize">
                         {layout}
                       </h4>
                     </button>
