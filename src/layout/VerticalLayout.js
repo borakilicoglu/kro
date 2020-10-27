@@ -258,24 +258,23 @@ class VerticalLayout extends PureComponent {
     };
     return (
       <div
-        className={classnames(`vertical-layout theme-${appProps.menuTheme}`, {
-          "menu-collapsed":
-            this.state.collapsedContent === true && this.state.width >= 1200,
-          "fixed-footer": appProps.footerType === "sticky",
-          "navbar-static": appProps.navbarType === "static",
-          "navbar-sticky": appProps.navbarType === "sticky",
-          "navbar-floating": appProps.navbarType === "floating",
-          "navbar-hidden": appProps.navbarType === "hidden",
-          "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
-        })}
+        className={classnames(
+          `relative flex w-full flex-auto theme-${appProps.menuTheme}`,
+          {
+            "menu-collapsed":
+              this.state.collapsedContent === true && this.state.width >= 1200,
+            "fixed-footer": appProps.footerType === "sticky",
+            "navbar-static": appProps.navbarType === "static",
+            "navbar-sticky": appProps.navbarType === "sticky",
+            "navbar-floating": appProps.navbarType === "floating",
+            "navbar-hidden": appProps.navbarType === "hidden",
+            "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
+          }
+        )}
       >
         <Sidebar {...sidebarProps} />
         <div className="wrapper">
           <Navbar {...navbarProps} />
-          {Object.values(appProps).map((prop) => (
-            <h1 className="font-bold ml-8">{prop}</h1>
-          ))}
-
           <div className="content">{this.props.children}</div>
         </div>
 

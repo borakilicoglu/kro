@@ -255,7 +255,7 @@ class EmptyLayout extends PureComponent {
     return (
       <div
         className={classnames(
-          `empty-layout w-full theme-${appProps.menuTheme}`,
+          `flex flex-auto w-full h-full relative theme-${appProps.menuTheme}`,
           {
             "menu-collapsed":
               this.state.collapsedContent === true && this.state.width >= 1200,
@@ -268,12 +268,8 @@ class EmptyLayout extends PureComponent {
           }
         )}
       >
-        <div className="wrapper">
-          {Object.values(appProps).map((prop) => (
-            <h1 className="font-bold ml-8">{prop}</h1>
-          ))}
-
-          <div className="content">{this.props.children}</div>
+        <div className="flex flex-col flex-auto">
+          <div className="flex flex-col flex-auto">{this.props.children}</div>
         </div>
         {appProps.disableCustomizer !== true && (
           <Customizer {...customizerProps} />

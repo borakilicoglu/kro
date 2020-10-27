@@ -25,6 +25,7 @@ class ClassyLayout extends PureComponent {
     currentLang: "en",
     appOverlay: false,
     customizer: false,
+    isTouropen: false,
     currRoute: this.props.location.pathname,
   };
   collapsedPaths = [];
@@ -219,6 +220,7 @@ class ClassyLayout extends PureComponent {
       deviceWidth: this.state.width,
     };
     let navbarProps = {
+      fixedHeader: this.props.fixedHeader,
       toggleSidebarMenu: this.toggleSidebarMenu,
       toggle: this.toggleSidebarMenu,
       sidebarState: this.state.sidebarState,
@@ -256,36 +258,30 @@ class ClassyLayout extends PureComponent {
     };
     return (
       <div
-        className={classnames(`vertical-layout theme-${appProps.menuTheme}`, {
-          "menu-collapsed":
-            this.state.collapsedContent === true && this.state.width >= 1200,
-          "fixed-footer": appProps.footerType === "sticky",
-          "navbar-static": appProps.navbarType === "static",
-          "navbar-sticky": appProps.navbarType === "sticky",
-          "navbar-floating": appProps.navbarType === "floating",
-          "navbar-hidden": appProps.navbarType === "hidden",
-          "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
-        })}
+        className={classnames(
+          `flex flex-auto w-full h-full relative theme-${appProps.menuTheme}`,
+          {
+            "menu-collapsed":
+              this.state.collapsedContent === true && this.state.width >= 1200,
+            "fixed-footer": appProps.footerType === "sticky",
+            "navbar-static": appProps.navbarType === "static",
+            "navbar-sticky": appProps.navbarType === "sticky",
+            "navbar-floating": appProps.navbarType === "floating",
+            "navbar-hidden": appProps.navbarType === "hidden",
+            "theme-primary": !menuThemeArr.includes(appProps.menuTheme),
+          }
+        )}
       >
         <Sidebar {...sidebarProps} />
-        <div
-          className={classnames("wrapper", {
-            "show-overlay": this.state.appOverlay === true,
-          })}
-          onClick={this.handleAppOverlayClick}
-        >
+        <div className="flex flex-col flex-auto ">
           <Navbar {...navbarProps} />
-          <div className="content relative">{this.props.children}</div>
+          <div className="flex flex-col flex-auto">{this.props.children}</div>
         </div>
 
         {/* <Footer {...footerProps} /> */}
         {appProps.disableCustomizer !== true ? (
           <Customizer {...customizerProps} />
         ) : null}
-        <div
-          className="sidenav-overlay"
-          onClick={this.handleSidebarVisibility}
-        />
       </div>
     );
   }

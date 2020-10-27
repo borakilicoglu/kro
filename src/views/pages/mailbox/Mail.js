@@ -55,7 +55,7 @@ const attachmentAsset = (attachment) => {
       src={require(`../../../assets/images/apps/mailbox/${attachment.preview.replace(
         /\.[^/.]+$/,
         ""
-      )}.${attachment.type == "image/jpeg" ? "jpg" : "image/png"}`)}
+      )}.${attachment.type == "image/jpeg" ? "jpg" : "png"}`)}
       alt={attachment.name}
       className="w-10 rounded-md"
     />

@@ -1,6 +1,6 @@
 import React from "react";
 import themeConfig from "../../configs/themeConfig";
-import layouts from "../../configs/layouts.js";
+import layouts from "../../layout/layouts";
 
 const ContextLayout = React.createContext();
 

@@ -50,8 +50,8 @@ const Contacts = () => {
   }, []);
 
   return (
-    <div className="inset-0 absolute">
-      <div className="flex h-full overflow-hidden">
+    <div className="relative min-h-full">
+      <div className="flex flex-col w-full absolute inset-0 overflow-hidden">
         <div className="border-r relative flex flex-col overflow-auto flex-grow">
           <div className="flex bg-white w-full px-8 py-10">
             <div>
