@@ -23,7 +23,6 @@ class EmptyLayout extends PureComponent {
     currentLang: "en",
     appOverlay: false,
     customizer: false,
-    isTouropen: false,
     currRoute: this.props.location.pathname,
   };
   collapsedPaths = [];
@@ -216,6 +215,8 @@ class EmptyLayout extends PureComponent {
       collapsed: this.state.collapsedContent,
       permission: this.props.permission,
       deviceWidth: this.state.width,
+
+      activeLayout: this.props.context.activeLayout,
     };
     let navbarProps = {
       toggleSidebarMenu: this.toggleSidebarMenu,

@@ -130,11 +130,11 @@ const NavItem = (item) => {
 
 export class Sidebar extends Component {
   render() {
-    let { collapsed, activeLayout } = this.props;
+    let { collapsed, activeLayout, sidebarDark } = this.props;
     let asideClass = classNames({
-      "bg-sidebar overflow-scroll": true,
-      "theme-dark shadow-xl": activeLayout !== "basic",
-      "bg-white border-r": activeLayout == "basic",
+      "overflow-scroll": true,
+      "bg-gray-900 shadow-xl": sidebarDark,
+      "bg-white border-r": !sidebarDark,
       collapsed: collapsed,
     });
 

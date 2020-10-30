@@ -25,8 +25,9 @@ class ClassyLayout extends PureComponent {
     currentLang: "en",
     appOverlay: false,
     customizer: false,
-    isTouropen: false,
     currRoute: this.props.location.pathname,
+
+    sidebarDark: true,
   };
   collapsedPaths = [];
   updateWidth = () => {
@@ -219,6 +220,7 @@ class ClassyLayout extends PureComponent {
       permission: this.props.permission,
       deviceWidth: this.state.width,
 
+      sidebarDark: this.state.sidebarDark,
       activeLayout: this.props.context.activeLayout,
     };
     let navbarProps = {
@@ -234,6 +236,7 @@ class ClassyLayout extends PureComponent {
       navbarColor: appProps.navbarColor,
       navbarType: appProps.navbarType,
 
+      sidebarDark: this.state.sidebarDark,
       activeLayout: this.props.context.activeLayout,
     };
 
