@@ -233,6 +233,8 @@ class ClassyLayout extends PureComponent {
       appOverlayState: this.state.appOverlay,
       navbarColor: appProps.navbarColor,
       navbarType: appProps.navbarType,
+
+      activeLayout: this.props.context.activeLayout,
     };
 
     let footerProps = {

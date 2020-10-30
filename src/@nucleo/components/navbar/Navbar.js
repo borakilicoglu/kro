@@ -1,5 +1,7 @@
 import React from "react";
+import classNames from "classnames";
 import _ from "lodash";
+
 import Messages from "./messages/Messages";
 import Shortcuts from "./shortcuts/Shortcuts";
 import Search from "./search/Search";
@@ -10,9 +12,14 @@ import AccountMenu from "../menu/vertical-menu/AccountMenu";
 import Notifications from "../menu/vertical-menu/Notifications";
 
 export default function Navbar(props) {
-  console.log(props);
+  let { activeLayout } = props;
+  let navbarClass = classNames({
+    "bg-white w-full justify-between flex relative": true,
+    shadow: activeLayout !== "basic",
+    "border-b": activeLayout == "basic",
+  });
   return (
-    <header className="bg-white shadow w-full justify-between flex relative">
+    <header className={navbarClass}>
       <IconButton onClick={() => props.toggle()}>
         <MenuIcon />
       </IconButton>

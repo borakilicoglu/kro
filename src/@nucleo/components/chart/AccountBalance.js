@@ -24,13 +24,15 @@ export default class AccountBalance extends Component {
   }
   render() {
     return (
-      <Chart
-        options={this.state.options}
-        series={this.state.series}
-        type="bar"
-        width={500}
-        height={185}
-      />
+      <div className="relative px-4">
+        <Chart
+          options={this.state.options}
+          series={this.state.series}
+          type="bar"
+          width={"100%"}
+          height={185}
+        />
+      </div>
     );
   }
 }

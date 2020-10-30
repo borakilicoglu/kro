@@ -139,7 +139,7 @@ export class Sidebar extends Component {
     });
 
     let logoPart = classNames({
-      "w-full flex items-center px-6": true,
+      "w-full flex items-center pl-6 pr-4": true,
       "border-b": activeLayout == "basic",
     });
 
@@ -148,7 +148,7 @@ export class Sidebar extends Component {
         <div className={logoPart} style={{ minHeight: "64px" }}>
           <NavLink
             to="/"
-            className="logo flex-grow text-2xl font-semibold align-middle"
+            className="logo flex-grow text-3xl font-semibold align-middle"
           >
             NUCLEO
           </NavLink>
@@ -184,7 +184,12 @@ export class Sidebar extends Component {
 
         {menuConfig.map((value, index) => {
           return (
-            <div className="py-4" key={index}>
+            <div
+              className={`${
+                index == 0 && activeLayout == "basic" ? "pt-8 pb-4" : "py-4"
+              }`}
+              key={index}
+            >
               <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
                 {value.name}
               </h3>
