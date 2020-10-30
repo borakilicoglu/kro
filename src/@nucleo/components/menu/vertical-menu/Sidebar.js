@@ -23,14 +23,23 @@ const useStyles = makeStyles((theme) => ({
     minWidth: "24px",
     marginRight: "16px",
   },
-  listItem: {
+  listItemLight: {
     paddingLeft: "1.5rem",
     paddingRight: "1.5rem",
     paddingTop: "0.75rem",
     paddingBottom: "0.75rem",
-    // "&:hover": {
-    //   background: "#2d3748",
-    // },
+    "&:hover": {
+      background: "#2d3748",
+    },
+  },
+  listItemDark: {
+    paddingLeft: "1.5rem",
+    paddingRight: "1.5rem",
+    paddingTop: "0.75rem",
+    paddingBottom: "0.75rem",
+    "&:hover": {
+      background: "#2d3748",
+    },
   },
   listItemText: {
     marginBottom: "0px",
@@ -71,7 +80,9 @@ const NavItem = (item) => {
           component={NavLink}
           exact
           to={item.navLink}
-          className={classes.listItem}
+          className={
+            item.sidebarDark ? classes.listItemDark : classes.listItemLight
+          }
         >
           <ListItemIcon className={classes.listItemIcon}>
             {item.icon}
@@ -98,7 +109,13 @@ const NavItem = (item) => {
         </ListItem>
       ) : (
         <div>
-          <ListItem button onClick={handleClick} className={classes.listItem}>
+          <ListItem
+            button
+            onClick={handleClick}
+            className={
+              item.sidebarDark ? classes.listItemDark : classes.listItemLight
+            }
+          >
             <ListItemIcon className={classes.listItemIcon}>
               {item.icon}
             </ListItemIcon>
@@ -143,6 +160,11 @@ export class Sidebar extends Component {
       "border-b": activeLayout == "basic",
     });
 
+    let textColor = classNames({
+      "text-white": sidebarDark,
+      "text-gray-500": !sidebarDark,
+    });
+
     return (
       <aside className={asideClass}>
         <div className={logoPart} style={{ minHeight: "64px" }}>
@@ -174,8 +196,14 @@ export class Sidebar extends Component {
             />
 
             <div className="mt-4 text-center">
-              <div className="name">Stefan Schmitz</div>
-              <div className="email text-secondary">
+              <div
+                className={`${sidebarDark ? "text-white" : "text-gray-500"}`}
+              >
+                Stefan Schmitz
+              </div>
+              <div
+                className={`${sidebarDark ? "text-gray-500" : "text-gray-500"}`}
+              >
                 stefan.schmitz@company.com
               </div>
             </div>
@@ -196,7 +224,9 @@ export class Sidebar extends Component {
               <small className="text-gray-600 px-6">{value.desc}</small>
               <nav className="text-gray-400 text-base pt-3">
                 {value.pages.map((page, index) => {
-                  return <NavItem {...page} key={index} />;
+                  return (
+                    <NavItem {...page} key={index} sidebarDark={sidebarDark} />
+                  );
                 })}
               </nav>
             </div>
