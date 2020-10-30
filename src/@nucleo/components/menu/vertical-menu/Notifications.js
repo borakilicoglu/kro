@@ -8,7 +8,7 @@ import NotificationsActiveTwoToneIcon from "@material-ui/icons/NotificationsActi
 import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
 import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
 
-const Notifications = () => {
+const Notifications = ({ color }) => {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {
@@ -25,7 +25,9 @@ const Notifications = () => {
   return (
     <div>
       <IconButton onClick={handleClick}>
-        <NotificationsActiveTwoToneIcon style={{ color: "#96a6ba" }} />
+        <NotificationsActiveTwoToneIcon
+          style={{ color: color && color ? color : "#96a6ba" }}
+        />
       </IconButton>
       <Popover
         id={id}

@@ -30,8 +30,8 @@ export default function Navbar(props) {
         <Messages />
         {props.activeLayout && props.activeLayout == "basic" && (
           <React.Fragment>
-            <Notifications />
-            <AccountMenu />
+            <Notifications color={"#64748b"} />
+            <AccountMenu color={"#64748b"} />
           </React.Fragment>
         )}
       </div>

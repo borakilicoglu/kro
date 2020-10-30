@@ -56,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function AccountMenu() {
+export default function AccountMenu(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -87,7 +87,11 @@ export default function AccountMenu() {
     <ThemeProvider theme={theme}>
       <div>
         <IconButton className="relative" onClick={handleClick}>
-          <AccountCircleTwoToneIcon style={{ color: "#96a6ba" }} />
+          <AccountCircleTwoToneIcon
+            style={{
+              color: props.color && props.color ? props.color : "#96a6ba",
+            }}
+          />
           <span
             className="w-2 absolute h-2 rounded-full"
             style={{

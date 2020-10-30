@@ -28,9 +28,9 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: "1.5rem",
     paddingTop: "0.75rem",
     paddingBottom: "0.75rem",
-    "&:hover": {
-      background: "#2d3748",
-    },
+    // "&:hover": {
+    //   background: "#2d3748",
+    // },
   },
   listItemText: {
     marginBottom: "0px",
