@@ -43,7 +43,7 @@ export default class UniqueVisitor extends React.Component {
         series={this.state.seriesSpark3}
         type="area"
         height={75}
-        width={132}
+        width={"100%"}
       />
     );
   }
