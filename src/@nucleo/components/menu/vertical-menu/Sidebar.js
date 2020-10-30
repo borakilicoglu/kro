@@ -29,7 +29,10 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "0.75rem",
     paddingBottom: "0.75rem",
     "&:hover": {
-      background: "#2d3748",
+      background: "#edf2f7",
+    },
+    "&.active": {
+      background: "#e2e8f0",
     },
   },
   listItemDark: {
@@ -39,6 +42,9 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "0.75rem",
     "&:hover": {
       background: "#2d3748",
+    },
+    "&.active": {
+      background: "#000",
     },
   },
   listItemText: {
@@ -134,8 +140,14 @@ const NavItem = (item) => {
           </ListItem>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <List component="div" disablePadding>
-              {item.pages.map((page, i) => {
-                return <NavItem {...page} key={i} />;
+              {item.pages.map((page, index) => {
+                return (
+                  <NavItem
+                    {...page}
+                    key={index}
+                    sidebarDark={item.sidebarDark}
+                  />
+                );
               })}
             </List>
           </Collapse>
@@ -170,9 +182,17 @@ export class Sidebar extends Component {
         <div className={logoPart} style={{ minHeight: "64px" }}>
           <NavLink
             to="/"
-            className="logo flex-grow text-3xl font-semibold align-middle"
+            className="logo flex items-center flex-grow text-2xl font-semibold align-middle"
           >
-            NUCLEO
+            {!sidebarDark && (
+              <span
+                className="h-6 w-6 rounded-full inline-block mr-2"
+                style={{ backgroundColor: "rgb(246, 0, 86)" }}
+              ></span>
+            )}
+            <span style={{ color: sidebarDark ? "rgb(246, 0, 86)" : "" }}>
+              NUCLEO
+            </span>
           </NavLink>
           {activeLayout && activeLayout !== "basic" && (
             <React.Fragment>
@@ -218,11 +238,15 @@ export class Sidebar extends Component {
               }`}
               key={index}
             >
-              <h3 className="font-semibold font-xs text-indigo-400 uppercase px-6">
+              <h3 className="font-semibold font-xs text-indigo-500 uppercase px-6">
                 {value.name}
               </h3>
               <small className="text-gray-600 px-6">{value.desc}</small>
-              <nav className="text-gray-400 text-base pt-3">
+              <nav
+                className={`text-base pt-3 ${
+                  sidebarDark ? "text-gray-400" : "text-gray-700"
+                }`}
+              >
                 {value.pages.map((page, index) => {
                   return (
                     <NavItem {...page} key={index} sidebarDark={sidebarDark} />
