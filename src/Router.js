@@ -51,7 +51,6 @@ const RouteConfig = ({
   fullLayout,
   permission,
   user,
-  fixedHeader,
   ...rest
 }) => (
   <Route
@@ -64,8 +63,8 @@ const RouteConfig = ({
             return (
               <LayoutTag
                 {...props}
+                context={context.state}
                 permission={props.user}
-                fixedHeader={fixedHeader}
               >
                 <Suspense fallback={<Fallback />}>
                   <Component {...props} />
@@ -97,11 +96,7 @@ class AppRouter extends React.Component {
           <AppRoute path="/crypto" component={Crypto} />
           <AppRoute path="/calendar" component={Calendar} />
           <AppRoute path="/contacts" component={Contacts} />
-          <AppRoute
-            path="/ecommerce/inventory"
-            component={Inventory}
-            fixedHeader
-          />
+          <AppRoute path="/ecommerce/inventory" component={Inventory} />
           <AppRoute path="/mailbox/:params" component={Mailbox} />
           <AppRoute path="/tasks" component={Tasks} />
           <AppRoute

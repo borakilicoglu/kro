@@ -218,6 +218,8 @@ class ClassyLayout extends PureComponent {
       collapsed: this.state.collapsedContent,
       permission: this.props.permission,
       deviceWidth: this.state.width,
+
+      activeLayout: this.props.context.activeLayout,
     };
     let navbarProps = {
       fixedHeader: this.props.fixedHeader,

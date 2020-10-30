@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import classnames from "classnames";
+import classNames from "classnames";
 
 import menuConfig from "../../../../configs/horizontalMenuConfig";
 import AccountMenu from "./AccountMenu";
@@ -130,49 +130,57 @@ const NavItem = (item) => {
 
 export class Sidebar extends Component {
   render() {
-    let { collapsed } = this.props;
+    let { collapsed, activeLayout } = this.props;
+    let asideClass = classNames({
+      "bg-sidebar overflow-scroll": true,
+      "theme-dark shadow-xl": activeLayout !== "basic",
+      "bg-white border-r": activeLayout == "basic",
+      collapsed: collapsed,
+    });
+
+    let logoPart = classNames({
+      "w-full flex items-center px-6": true,
+      "border-b": activeLayout == "basic",
+    });
+
     return (
-      <aside
-        className={classnames(
-          `theme-dark bg-sidebar shadow-xl overflow-scroll`,
-          {
-            collapsed: collapsed,
-          }
-        )}
-      >
-        <div className="py-4 pl-6 pr-4 w-full flex items-center">
-          <div className="logo flex-grow">
-            <NavLink
-              to="/"
-              className="text-white text-3xl font-semibold hover:text-gray-300 align-middle"
-            >
-              NUCLEO
-            </NavLink>
-          </div>
+      <aside className={asideClass}>
+        <div className={logoPart} style={{ minHeight: "64px" }}>
+          <NavLink
+            to="/"
+            className="logo flex-grow text-2xl font-semibold align-middle"
+          >
+            NUCLEO
+          </NavLink>
+          {activeLayout && activeLayout !== "basic" && (
+            <React.Fragment>
+              <div className="align-middle">
+                <Notifications />
+              </div>
 
-          <div className="align-middle">
-            <Notifications />
-          </div>
-
-          <div className="align-middle">
-            <AccountMenu />
-          </div>
+              <div className="align-middle">
+                <AccountMenu />
+              </div>
+            </React.Fragment>
+          )}
         </div>
 
-        <div className="p-4 px-6 flex items-center w-full flex-col mb-4">
-          <img
-            alt=""
-            src="https://davidgrzyb.com/storage/david-grzyb-animoji.jpg"
-            className="rounded-full w-24"
-          />
+        {activeLayout && activeLayout !== "basic" && (
+          <div className="p-4 px-6 flex items-center w-full flex-col mb-4">
+            <img
+              alt=""
+              src="https://davidgrzyb.com/storage/david-grzyb-animoji.jpg"
+              className="rounded-full w-24"
+            />
 
-          <div className="mt-4 text-center">
-            <div className="name">Stefan Schmitz</div>
-            <div className="email text-secondary">
-              stefan.schmitz@company.com
+            <div className="mt-4 text-center">
+              <div className="name">Stefan Schmitz</div>
+              <div className="email text-secondary">
+                stefan.schmitz@company.com
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {menuConfig.map((value, index) => {
           return (
