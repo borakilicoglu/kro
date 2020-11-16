@@ -43,6 +43,7 @@ class ClassyLayout extends PureComponent {
   };
 
   componentDidMount() {
+    console.log(this.props);
     let {
       location: { pathname },
       app: {

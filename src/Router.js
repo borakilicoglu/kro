@@ -47,10 +47,10 @@ const Support = lazy(() => import("./views/pages/helpcenter/Support"));
 
 // Set Layout and Component Using App Route
 const RouteConfig = ({
-  component: Component,
-  fullLayout,
   permission,
   user,
+  component: Component,
+  fullLayout,
   ...rest
 }) => (
   <Route

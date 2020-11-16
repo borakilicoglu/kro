@@ -25,8 +25,9 @@ class ClassicLayout extends PureComponent {
     currentLang: "en",
     appOverlay: false,
     customizer: false,
-    isTouropen: false,
     currRoute: this.props.location.pathname,
+
+    sidebarDark: true,
   };
   collapsedPaths = [];
   updateWidth = () => {
@@ -218,6 +219,9 @@ class ClassicLayout extends PureComponent {
       collapsed: this.state.collapsedContent,
       permission: this.props.permission,
       deviceWidth: this.state.width,
+
+      sidebarDark: this.state.sidebarDark,
+      activeLayout: this.props.context.activeLayout,
     };
     let navbarProps = {
       fixedHeader: this.props.fixedHeader,
@@ -231,6 +235,9 @@ class ClassicLayout extends PureComponent {
       appOverlayState: this.state.appOverlay,
       navbarColor: appProps.navbarColor,
       navbarType: appProps.navbarType,
+
+      sidebarDark: this.state.sidebarDark,
+      activeLayout: this.props.context.activeLayout,
     };
 
     let footerProps = {

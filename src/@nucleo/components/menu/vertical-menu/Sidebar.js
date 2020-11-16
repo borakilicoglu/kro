@@ -18,6 +18,8 @@ import Collapse from "@material-ui/core/Collapse";
 import ChevronRight from "@material-ui/icons/ChevronRight";
 import ExpandMore from "@material-ui/icons/ExpandMore";
 
+import Logo from "./Logo.js";
+
 const useStyles = makeStyles((theme) => ({
   listItemIcon: {
     minWidth: "24px",
@@ -180,21 +182,15 @@ export class Sidebar extends Component {
     return (
       <aside className={asideClass}>
         <div className={logoPart} style={{ minHeight: "64px" }}>
-          <NavLink
-            to="/"
-            className="logo flex items-center flex-grow text-2xl font-semibold align-middle"
-          >
-            {!sidebarDark && (
-              <span
-                className="h-6 w-6 rounded-full inline-block mr-2"
-                style={{ backgroundColor: "rgb(246, 0, 86)" }}
-              ></span>
-            )}
-            <span style={{ color: sidebarDark ? "rgb(246, 0, 86)" : "" }}>
-              NUCLEO
-            </span>
-          </NavLink>
-          {activeLayout && activeLayout !== "basic" && (
+          {/* <span
+              className="h-6 w-6 rounded-full inline-block mr-2"
+              style={{ backgroundColor: "rgb(246, 0, 86)" }}
+            ></span> */}
+
+          <div className="logo flex items-center flex-grow text-2xl font-semibold align-middle">
+            <Logo color={"#f60056"} theme={sidebarDark} layout={activeLayout} />
+          </div>
+          {activeLayout && activeLayout == "classy" && (
             <React.Fragment>
               <div className="align-middle">
                 <Notifications />
@@ -207,7 +203,7 @@ export class Sidebar extends Component {
           )}
         </div>
 
-        {activeLayout && activeLayout !== "basic" && (
+        {activeLayout && activeLayout == "classy" && (
           <div className="p-4 px-6 flex items-center w-full flex-col mb-4">
             <img
               alt=""

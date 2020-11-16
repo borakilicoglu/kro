@@ -1,5 +1,5 @@
 import React from "react";
-import themeConfig from "../../../configs/themeConfig";
+import themeConfig from "../configs/themeConfig";
 import classnames from "classnames";
 
 const FullPageLayout = ({ children, ...rest }) => {

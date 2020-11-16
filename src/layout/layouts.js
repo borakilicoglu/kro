@@ -1,8 +1,8 @@
-import FullPageLayout from "./layouts/full/FullPageLayout";
+import FullPageLayout from "./FullPageLayout";
 import VerticalLayout from "./VerticalLayout";
 import HorizontalLayout from "./HorizontalLayout";
 
-import EmptyLayout from "./layouts/empty/EmptyLayout";
+import EmptyLayout from "./EmptyLayout";
 import BasicLayout from "./layouts/vertical/BasicLayout";
 import ClassicLayout from "./layouts/vertical/ClassicLayout";
 

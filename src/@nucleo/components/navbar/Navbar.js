@@ -28,12 +28,13 @@ export default function Navbar(props) {
         <Search {...props} />
         <Shortcuts />
         <Messages />
-        {props.activeLayout && props.activeLayout == "basic" && (
+        {console.log(activeLayout)}
+        {activeLayout == "basic" || activeLayout == "classic" ? (
           <React.Fragment>
             <Notifications color={"#64748b"} />
             <AccountMenu color={"#64748b"} />
           </React.Fragment>
-        )}
+        ) : null}
       </div>
     </header>
   );

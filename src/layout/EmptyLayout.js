@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import classnames from "classnames";
 import { connect } from "react-redux";
-import Customizer from "../../../@nucleo/components/customizer/Customizer";
+import Customizer from "../@nucleo/components/customizer/Customizer";
 
 import {
   changeMode,
@@ -11,7 +11,7 @@ import {
   changeFooterType,
   changeMenuColor,
   hideScrollToTop,
-} from "../../../redux/actions/customizer/index";
+} from "../redux/actions/customizer/index";
 
 class EmptyLayout extends PureComponent {
   state = {
