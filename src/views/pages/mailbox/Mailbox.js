@@ -65,7 +65,7 @@ const Mailbox = ({ match }) => {
   return (
     !loading &&
     state.mails.length > 0 && (
-      <div className="relative min-h-full">
+      <div className="relative min-h-full flex-auto">
         <div className="flex flex-col w-full absolute inset-0 overflow-hidden">
           {/* <section className="some-area fill-height-or-more w-full"> */}
           <div className="flex flex-row overflow-scroll">
