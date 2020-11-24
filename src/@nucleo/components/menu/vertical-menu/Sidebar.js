@@ -204,11 +204,11 @@ export class Sidebar extends Component {
         </div>
 
         {activeLayout && activeLayout == "classy" && (
-          <div className="p-4 px-6 flex items-center w-full flex-col mb-4">
+          <div className="mb-4 p-4 px-6">
             <img
               alt=""
               src="https://davidgrzyb.com/storage/david-grzyb-animoji.jpg"
-              className="rounded-full w-24"
+              className="rounded-full w-24 m-auto"
             />
 
             <div className="mt-4 text-center">
