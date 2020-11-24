@@ -69,30 +69,34 @@ const Tasks = () => {
 
   return (
     !isLoading && (
-      <div className="relative min-h-full">
+      <div className="relative min-h-full flex-auto">
         <div className="flex flex-col w-full absolute inset-0 overflow-hidden">
           <div className="border-r relative flex flex-col overflow-auto flex-grow">
-            <div className="flex bg-white w-full px-8 py-10">
-              <div>
-                <h2 className="text-3xl font-bold pb-0 leading-none">Tasks</h2>
-                <span className="text-gray-700">
-                  {data.filter((task) => task.completed == false).length}{" "}
-                  remaining tasks
-                </span>
-              </div>
-              <div className="flex ml-auto items-center">
-                <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center ml-3">
-                  <Icon fontSize="small">add</Icon>
-                  <span className="ml-2" onClick={handleDrawerOpen}>
-                    Add Task
-                  </span>
-                </button>
-                <button className="bg-black hover:bg-gray-900 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center ml-3">
-                  <Icon fontSize="small">add</Icon>
-                  <span className="ml-2" onClick={handleDrawerOpen}>
-                    Add Section
-                  </span>
-                </button>
+            <div>
+              <div className="flex flex-row bg-white w-full px-8 py-10">
+                <div class="flex flex-col">
+                  <h2 className="text-3xl font-bold pb-0 leading-none">
+                    Tasks
+                  </h2>
+                  <p className="text-gray-700">
+                    {data.filter((task) => task.completed == false).length}{" "}
+                    remaining tasks
+                  </p>
+                </div>
+                <div className="flex ml-auto items-center">
+                  <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center ml-3">
+                    <Icon fontSize="small">add</Icon>
+                    <span className="ml-2" onClick={handleDrawerOpen}>
+                      Add Task
+                    </span>
+                  </button>
+                  <button className="bg-black hover:bg-gray-900 text-white font-normal py-2 pr-4 pl-3 rounded inline-flex items-center ml-3">
+                    <Icon fontSize="small">add</Icon>
+                    <span className="ml-2" onClick={handleDrawerOpen}>
+                      Add Section
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
             <div>
