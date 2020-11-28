@@ -2603,13 +2603,13 @@ mock.onGet("/api/mailbox/mails").reply((request) => {
 mock.onGet("/api/mailbox/stats").reply((request) => {
   const inbox = mails.filter(
     (mail) =>
-      mail.unread && mail.folder == "7c004a19-4506-48ef-93ab-f16381302e3b"
+      mail.unread && mail.folder === "7c004a19-4506-48ef-93ab-f16381302e3b"
   ).length;
   const drafts = mails.filter(
-    (mail) => mail.folder == "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
+    (mail) => mail.folder === "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
   ).length;
   const spam = mails.filter(
-    (mail) => mail.folder == "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
+    (mail) => mail.folder === "fbdc8e79-a0c4-4a27-bc98-9c81ee7a86e5"
   ).length;
   const stats = {
     inbox,

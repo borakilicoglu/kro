@@ -1,13 +1,6 @@
 import React from "react";
-import _ from "lodash";
 
-import Tooltip from "@material-ui/core/Tooltip";
 import Popover from "@material-ui/core/Popover";
-
-import CloseIcon from "@material-ui/icons/Close";
-import MessageTwoToneIcon from "@material-ui/icons/MessageTwoTone";
-import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
-import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
 import IconButton from "@material-ui/core/IconButton";
 
 const CustomPopover = ({ icon, children, size, style }) => {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { history } from "../../../history";
+
 // Get Initial Tasks
 export const getTasks = (routeParams) => {
   return async (dispatch) => {

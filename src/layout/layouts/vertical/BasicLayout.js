@@ -239,10 +239,10 @@ class BasicLayout extends PureComponent {
       activeLayout: this.props.context.activeLayout,
     };
 
-    let footerProps = {
-      footerType: appProps.footerType,
-      hideScrollToTop: appProps.hideScrollToTop,
-    };
+    // let footerProps = {
+    //   footerType: appProps.footerType,
+    //   hideScrollToTop: appProps.hideScrollToTop,
+    // };
 
     let customizerProps = {
       customizerState: this.state.customizer,

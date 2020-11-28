@@ -236,10 +236,10 @@ class ModernLayout extends PureComponent {
       layout: this.props.app.customizer.layout,
     };
 
-    let footerProps = {
-      footerType: appProps.footerType,
-      hideScrollToTop: appProps.hideScrollToTop,
-    };
+    // let footerProps = {
+    //   footerType: appProps.footerType,
+    //   hideScrollToTop: appProps.hideScrollToTop,
+    // };
 
     let customizerProps = {
       customizerState: this.state.customizer,

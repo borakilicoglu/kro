@@ -9,7 +9,6 @@ import Notifications from "./Notifications";
 
 import { makeStyles } from "@material-ui/core/styles";
 
-import IconButton from "@material-ui/core/IconButton";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
@@ -101,9 +100,9 @@ const NavItem = (item) => {
               primary={item.title}
               className={classes.listItemText}
             />
-            {tasks.length > 0 && item.title == "Tasks" ? (
+            {tasks.length > 0 && item.title === "Tasks" ? (
               <div className="font-base text-xs text-gray-500">
-                {tasks.filter((task) => task.completed == false).length}{" "}
+                {tasks.filter((task) => task.completed === false).length}{" "}
                 remaining tasks
               </div>
             ) : (
@@ -169,19 +168,19 @@ export class Sidebar extends Component {
       collapsed: collapsed,
     });
 
-    let logoPart = classNames({
+    let logoClass = classNames({
       "w-full flex items-center pl-6 pr-4": true,
-      "border-b": activeLayout == "basic",
+      "border-b": activeLayout === "basic",
     });
 
-    let textColor = classNames({
-      "text-white": sidebarDark,
-      "text-gray-500": !sidebarDark,
-    });
+    // let textColor = classNames({
+    //   "text-white": sidebarDark,
+    //   "text-gray-500": !sidebarDark,
+    // });
 
     return (
       <aside className={asideClass}>
-        <div className={logoPart} style={{ minHeight: "64px" }}>
+        <div className={logoClass} style={{ minHeight: "64px" }}>
           {/* <span
               className="h-6 w-6 rounded-full inline-block mr-2"
               style={{ backgroundColor: "rgb(246, 0, 86)" }}
@@ -190,7 +189,7 @@ export class Sidebar extends Component {
           <div className="logo flex items-center flex-grow text-2xl font-semibold align-middle">
             <Logo color={"#f60056"} theme={sidebarDark} layout={activeLayout} />
           </div>
-          {activeLayout && activeLayout == "classy" && (
+          {activeLayout && activeLayout === "classy" && (
             <React.Fragment>
               <div className="align-middle">
                 <Notifications />
@@ -203,7 +202,7 @@ export class Sidebar extends Component {
           )}
         </div>
 
-        {activeLayout && activeLayout == "classy" && (
+        {activeLayout && activeLayout === "classy" && (
           <div className="mb-4 p-4 px-6">
             <img
               alt=""
@@ -230,7 +229,7 @@ export class Sidebar extends Component {
           return (
             <div
               className={`${
-                index == 0 && activeLayout == "basic" ? "pt-8 pb-4" : "py-4"
+                index === 0 && activeLayout === "basic" ? "pt-8 pb-4" : "py-4"
               }`}
               key={index}
             >

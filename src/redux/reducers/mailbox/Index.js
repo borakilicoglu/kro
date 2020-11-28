@@ -27,11 +27,13 @@ const mailbox = (state = initialState, action) => {
         action.filter === "trash"
       ) {
         let folder = state.folders.find(
-          (folder) => folder.slug == action.filter
+          (folder) => folder.slug === action.filter
         );
         return {
           ...state,
-          filteredMails: state.mails.filter((mail) => mail.folder == folder.id),
+          filteredMails: state.mails.filter(
+            (mail) => mail.folder === folder.id
+          ),
         };
       } else if (action.filter === "starred") {
         return {
@@ -55,15 +57,17 @@ const mailbox = (state = initialState, action) => {
           ...state,
           filteredMails: state.mails.filter((mail) =>
             mail.labels.includes(
-              state.labels.find((label) => label.slug == action.filter).id
+              state.labels.find((label) => label.slug === action.filter).id
             )
           ),
         };
       } else {
-        let folder = state.folders.find((folder) => folder.slug == "inbox");
+        let folder = state.folders.find((folder) => folder.slug === "inbox");
         return {
           ...state,
-          filteredMails: state.mails.filter((mail) => mail.folder == folder.id),
+          filteredMails: state.mails.filter(
+            (mail) => mail.folder === folder.id
+          ),
         };
       }
 
@@ -88,7 +92,7 @@ const mailbox = (state = initialState, action) => {
       return {
         ...state,
         mails: state.mails.map((mail) =>
-          mail.id == action.id ? { ...mail, unread: !mail.unread } : mail
+          mail.id === action.id ? { ...mail, unread: !mail.unread } : mail
         ),
       };
 
@@ -100,10 +104,10 @@ const mailbox = (state = initialState, action) => {
       };
 
     case "SET_MAIL":
-      state.mails.find((mail) => mail.id == action.id).unread = false;
+      state.mails.find((mail) => mail.id === action.id).unread = false;
       return {
         ...state,
-        mail: state.mails.find((mail) => mail.id == action.id).id,
+        mail: state.mails.find((mail) => mail.id === action.id).id,
       };
 
     case "SET_UTILITIES":

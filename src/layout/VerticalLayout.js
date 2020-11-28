@@ -233,10 +233,10 @@ class VerticalLayout extends PureComponent {
       navbarType: appProps.navbarType,
     };
 
-    let footerProps = {
-      footerType: appProps.footerType,
-      hideScrollToTop: appProps.hideScrollToTop,
-    };
+    // let footerProps = {
+    //   footerType: appProps.footerType,
+    //   hideScrollToTop: appProps.hideScrollToTop,
+    // };
 
     let customizerProps = {
       customizerState: this.state.customizer,

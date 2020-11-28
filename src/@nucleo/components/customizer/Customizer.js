@@ -1,8 +1,6 @@
 import React from "react";
-import clsx from "clsx";
-import { makeStyles } from "@material-ui/core/styles";
-import Drawer from "@material-ui/core/Drawer";
 import { ContextLayout } from "../../../utility/context/Layout";
+
 // import List from "@material-ui/core/List";
 // import Divider from "@material-ui/core/Divider";
 // import ListItem from "@material-ui/core/ListItem";
@@ -11,13 +9,13 @@ import { ContextLayout } from "../../../utility/context/Layout";
 // import InboxIcon from "@material-ui/icons/MoveToInbox";
 // import MailIcon from "@material-ui/icons/Mail";
 
+import { makeStyles } from "@material-ui/core/styles";
+import Drawer from "@material-ui/core/Drawer";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
-
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
-import FormLabel from "@material-ui/core/FormLabel";
 
 import layoutImage from "../../../assets/images/demo/layouts/empty-light.png";
 

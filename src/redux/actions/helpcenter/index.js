@@ -1,5 +1,4 @@
 import axios from "axios";
-import { history } from "../../../history";
 
 // Get Initial Faqs
 export const getFaqs = () => {

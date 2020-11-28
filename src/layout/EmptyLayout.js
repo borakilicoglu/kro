@@ -201,39 +201,39 @@ class EmptyLayout extends PureComponent {
       "warning",
       "dark",
     ];
-    let sidebarProps = {
-      toggleSidebarMenu: this.props.collapseSidebar,
-      toggle: this.toggleSidebarMenu,
-      sidebarState: this.state.sidebarState,
-      sidebarHover: this.sidebarMenuHover,
-      sidebarVisibility: this.handleSidebarVisibility,
-      visibilityState: this.state.sidebarHidden,
-      activePath: this.props.match.path,
-      collapsedMenuPaths: this.handleCollapsedMenuPaths,
-      currentLang: this.state.currentLang,
-      activeTheme: appProps.menuTheme,
-      collapsed: this.state.collapsedContent,
-      permission: this.props.permission,
-      deviceWidth: this.state.width,
+    // let sidebarProps = {
+    //   toggleSidebarMenu: this.props.collapseSidebar,
+    //   toggle: this.toggleSidebarMenu,
+    //   sidebarState: this.state.sidebarState,
+    //   sidebarHover: this.sidebarMenuHover,
+    //   sidebarVisibility: this.handleSidebarVisibility,
+    //   visibilityState: this.state.sidebarHidden,
+    //   activePath: this.props.match.path,
+    //   collapsedMenuPaths: this.handleCollapsedMenuPaths,
+    //   currentLang: this.state.currentLang,
+    //   activeTheme: appProps.menuTheme,
+    //   collapsed: this.state.collapsedContent,
+    //   permission: this.props.permission,
+    //   deviceWidth: this.state.width,
 
-      activeLayout: this.props.context.activeLayout,
-    };
-    let navbarProps = {
-      toggleSidebarMenu: this.toggleSidebarMenu,
-      sidebarState: this.state.sidebarState,
-      sidebarVisibility: this.handleSidebarVisibility,
-      currentLang: this.state.currentLang,
-      changeCurrentLang: this.handleCurrentLanguage,
-      handleAppOverlay: this.handleAppOverlay,
-      appOverlayState: this.state.appOverlay,
-      navbarColor: appProps.navbarColor,
-      navbarType: appProps.navbarType,
-    };
+    //   activeLayout: this.props.context.activeLayout,
+    // };
+    // let navbarProps = {
+    //   toggleSidebarMenu: this.toggleSidebarMenu,
+    //   sidebarState: this.state.sidebarState,
+    //   sidebarVisibility: this.handleSidebarVisibility,
+    //   currentLang: this.state.currentLang,
+    //   changeCurrentLang: this.handleCurrentLanguage,
+    //   handleAppOverlay: this.handleAppOverlay,
+    //   appOverlayState: this.state.appOverlay,
+    //   navbarColor: appProps.navbarColor,
+    //   navbarType: appProps.navbarType,
+    // };
 
-    let footerProps = {
-      footerType: appProps.footerType,
-      hideScrollToTop: appProps.hideScrollToTop,
-    };
+    // let footerProps = {
+    //   footerType: appProps.footerType,
+    //   hideScrollToTop: appProps.hideScrollToTop,
+    // };
 
     let customizerProps = {
       customizerState: this.state.customizer,

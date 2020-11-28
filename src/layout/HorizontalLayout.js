@@ -1,5 +1,4 @@
 import React, { PureComponent } from "react";
-import classnames from "classnames";
 // import Sidebar from "./components/menu/horizontal-menu/HorizontalMenu";
 // import Navbar from "./components/navbar/Navbar";
 // import Footer from "./components/footer/Footer";
@@ -148,16 +147,16 @@ class HorizontalLayout extends PureComponent {
   };
 
   render() {
-    let customizerProps = this.props.app.customizer;
-    let navbarTypeArr = ["sticky", "static", "sticky", "floating", "hidden"];
-    let menuThemeArr = [
-      "primary",
-      "success",
-      "danger",
-      "info",
-      "warning",
-      "dark",
-    ];
+    // let customizerProps = this.props.app.customizer;
+    // let navbarTypeArr = ["sticky", "static", "sticky", "floating", "hidden"];
+    // let menuThemeArr = [
+    //   "primary",
+    //   "success",
+    //   "danger",
+    //   "info",
+    //   "warning",
+    //   "dark",
+    // ];
     return <div>Horizontal</div>;
   }
 }

@@ -1,17 +1,11 @@
 import React from "react";
 import _ from "lodash";
-import { makeStyles } from "@material-ui/core/styles";
-import Tooltip from "@material-ui/core/Tooltip";
-import Popover from "@material-ui/core/Popover";
-import CloseIcon from "@material-ui/icons/Close";
-import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 
+import Popover from "@material-ui/core/Popover";
+import BookmarksTwoToneIcon from "@material-ui/icons/BookmarksTwoTone";
 import CreateTwoToneIcon from "@material-ui/icons/CreateTwoTone";
 import AddCircleTwoToneIcon from "@material-ui/icons/AddCircleTwoTone";
 import ListAltTwoToneIcon from "@material-ui/icons/ListAltTwoTone";
-
-import FiberManualRecordIcon from "@material-ui/icons/FiberManualRecord";
-import PlaylistAddCheckIcon from "@material-ui/icons/PlaylistAddCheck";
 import IconButton from "@material-ui/core/IconButton";
 
 export default function Shortcuts() {

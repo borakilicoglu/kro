@@ -14,7 +14,7 @@ const tasks = (state = initialState, action) => {
       return {
         ...state,
         tasks: state.tasks.map((task) =>
-          task.id == action.id ? { ...task, completed: !task.completed } : task
+          task.id === action.id ? { ...task, completed: !task.completed } : task
         ),
       };
 

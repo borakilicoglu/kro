@@ -1,5 +1,4 @@
 import React from "react";
-import { history } from "../../../history";
 
 export default function ConfirmationRequired() {
   return (

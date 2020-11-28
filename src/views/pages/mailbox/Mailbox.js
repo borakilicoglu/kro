@@ -24,7 +24,7 @@ const Mailbox = ({ match }) => {
   useEffect(() => {
     dispatch(getEmails({ filter: "" }));
     dispatch(setUtilities({ folders, filters, labels }));
-  }, []);
+  }, [dispatch]);
 
   useEffect(() => {
     setState((prevState) => ({
@@ -82,7 +82,7 @@ const Mailbox = ({ match }) => {
               mails={mails}
             ></MailboxList>
             {state.mail.length > 0 ? (
-              <Mail mail={state.mails.find((x) => x.id == state.mail)}></Mail>
+              <Mail mail={state.mails.find((x) => x.id === state.mail)}></Mail>
             ) : (
               <MailboxSplash toggle={!!state.filteredMails.length} />
             )}
