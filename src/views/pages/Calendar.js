@@ -83,15 +83,15 @@ const getFirstDayOfTheCurrentMonth = () => {
 };
 
 const calendarSetProgram = (day) => {
-  let data = events.find((event) => moment(event.start).format("DD") == day);
+  let data = events.find((event) => moment(event.start).format("DD") === day);
   return (
     data && (
       <span
         className={
           "p-1 rounded-sm text-white text-xs " +
-          (data.type == "personal" ? "bg-teal-600" : "") +
-          (data.type == "work" ? "bg-indigo-600" : "") +
-          (data.type == "appointment" ? "bg-pink-600" : "")
+          (data.type === "personal" ? "bg-teal-600" : "") +
+          (data.type === "work" ? "bg-indigo-600" : "") +
+          (data.type === "appointment" ? "bg-pink-600" : "")
         }
       >
         {data.title}
@@ -116,7 +116,7 @@ const days = [
     <span
       className={
         "rounded-full w-6 h-6 leading-6 text-xs my-1 m-auto block " +
-        (moment().format("L") == date.format("L")
+        (moment().format("L") === date.format("L")
           ? "bg-indigo-600 text-white"
           : null)
       }
