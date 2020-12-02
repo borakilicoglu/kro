@@ -55,39 +55,37 @@ const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
   .fill(null)
   .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
-const getFirstDayOfTheCurrentMonth = () => {
-  const cases = {
-    Mon: () => 0,
-    Tue: () => 1,
-    Wed: () => 2,
-    Thu: () => 3,
-    Fri: () => 4,
-    Sat: () => 5,
-    Sun: () => 6,
-  };
-  return cases[currentMonthDates[0].format("ddd")];
-};
+const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const isFirstDay = (day) => day === currentMonthDates[0].format("ddd");
+const firstDayOfTheCurrentMonth = () => dayNames.findIndex(isFirstDay);
 
 const calendarSetProgram = (day) => {
-  let data = events.find((event) => moment(event.start).format("DD") === day);
+  console.log(day);
+  let data = events.filter((event) => {
+    return parseInt(moment(event.start).format("DD")) === day;
+  });
   return (
-    data && (
-      <span
+    data &&
+    data.map((item, index) => (
+      <div
+        key={index}
         className={
-          "p-1 rounded-sm text-white text-xs " +
-          (data.type === "personal" ? "bg-teal-600" : "") +
-          (data.type === "work" ? "bg-indigo-600" : "") +
-          (data.type === "appointment" ? "bg-pink-600" : "")
+          "m-2 rounded-sm text-white text-xs mb-1 py-1 " +
+          (item.type === "personal" ? "bg-teal-600" : "") +
+          (item.type === "work" ? "bg-indigo-600" : "") +
+          (item.type === "appointment" ? "bg-pink-600" : "")
         }
       >
-        {data.title}
-      </span>
-    )
+        {console.log(item)}
+        {item.recurrence == null && moment(item.start).format("HHHH")}
+        {item.title}
+      </div>
+    ))
   );
 };
 
 const days = [
-  ..._.takeRight(prevMonthDates, getFirstDayOfTheCurrentMonth()),
+  ..._.takeRight(prevMonthDates, firstDayOfTheCurrentMonth()),
   ...currentMonthDates,
 ].map((date, i) => (
   <div
@@ -197,7 +195,9 @@ export default function Calendar() {
         <div className="w-3/4 min-h-full">
           <div className="flex flex-col h-full">
             <div className="flex items-center border-b px-8 py-2">
-              <p className="font-medium text-xl mr-4">July 2020</p>
+              <p className="font-medium text-xl mr-4">
+                {moment().format("MMMM YYYY")}
+              </p>
               <IconButton aria-label="delete">
                 <ChevronLeftIcon />
               </IconButton>
