@@ -70,15 +70,15 @@ const calendarSetProgram = (day) => {
       <div
         key={index}
         className={
-          "m-2 rounded-sm text-white text-xs mb-1 py-1 " +
+          "m-2 rounded-md text-white text-xs mb-1 p-1 " +
           (item.type === "personal" ? "bg-teal-600" : "") +
           (item.type === "work" ? "bg-indigo-600" : "") +
           (item.type === "appointment" ? "bg-pink-600" : "")
         }
       >
-        {console.log(item)}
-        {item.recurrence == null && moment(item.start).format("HHHH")}
-        {item.title}
+        <p className="truncate">
+          {moment(item.start).format("h:mm")} {item.title}
+        </p>
       </div>
     ))
   );
