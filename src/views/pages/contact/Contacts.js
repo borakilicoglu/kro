@@ -1,10 +1,10 @@
 import React, { useCallback } from "react";
 import Icon from "@material-ui/core/Icon";
-import { contacts, tags, countries } from "../../../@fake-db/contacts/contacts";
+import { contacts } from "../../../@fake-db/contacts/contacts";
 import Contact from "./Contact";
 import ContactList from "./ContactList";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 
 // Custom Contact Styles

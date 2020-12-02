@@ -1,6 +1,5 @@
 import React from "react";
 import classNames from "classnames";
-import _ from "lodash";
 
 import Messages from "./messages/Messages";
 import Shortcuts from "./shortcuts/Shortcuts";
@@ -16,7 +15,7 @@ export default function Navbar(props) {
   let navbarClass = classNames({
     "bg-white w-full justify-between flex relative": true,
     shadow: activeLayout !== "basic",
-    "border-b": activeLayout == "basic",
+    "border-b": activeLayout === "basic",
   });
   return (
     <header className={navbarClass}>
@@ -29,7 +28,7 @@ export default function Navbar(props) {
         <Shortcuts />
         <Messages />
         {console.log(activeLayout)}
-        {activeLayout == "basic" || activeLayout == "classic" ? (
+        {activeLayout === "basic" || activeLayout === "classic" ? (
           <React.Fragment>
             <Notifications color={"#64748b"} />
             <AccountMenu color={"#64748b"} />

@@ -46,12 +46,12 @@ const ContactDetails = (props) => {
   useEffect(() => {
     setContact(props.contact);
     contact.tags.map((tag) => {
-      setContactTags([...contactTags, tags.find((x) => x.id === tag)]);
+      return setContactTags([...contactTags, tags.find((x) => x.id === tag)]);
     });
     return () => {
       console.log("unmount");
     };
-  }, [props.contact]);
+  }, [props.contact, contactTags, contact.tags]);
   let { name, emails, phoneNumbers, job, birthday, address, notes } = contact;
   let { edit } = props;
   return (
@@ -155,9 +155,9 @@ const ContactDetails = (props) => {
               {emails.map((item, i) => (
                 <li key={i}>
                   <p>
-                    <a href="#" className="text-indigo-600">
+                    {/* <a href="" className="text-indigo-600">
                       {item.email}
-                    </a>
+                    </a> */}
                     <span className="text-xs text-gray-600">
                       {" "}
                       • {item.label}

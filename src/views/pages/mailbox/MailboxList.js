@@ -1,8 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { getFilteredMails, setMail } from "../../../redux/actions/mailbox";
 import moment from "moment";
-
-import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -12,17 +11,7 @@ import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import StarTwoToneIcon from "@material-ui/icons/StarTwoTone";
 import LabelImportantTwoToneIcon from "@material-ui/icons/LabelImportantTwoTone";
 
-import { getFilteredMails, setMail } from "../../../redux/actions/mailbox";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    overflowY: "auto",
-    maxHeight: "calc(100vh - 64px)",
-  },
-}));
-
 const MailboxList = ({ params, active, mails }) => {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const scrollMenu = useRef(null);
   const [currentPage, setCurrentPage] = useState(1);
@@ -70,7 +59,7 @@ const MailboxList = ({ params, active, mails }) => {
               <IconButton
                 color="primary"
                 component="span"
-                disabled={currentPage == 1}
+                disabled={currentPage === 1}
                 onClick={() => setCurrentPage((currentPage) => currentPage - 1)}
               >
                 <ChevronLeftIcon />
@@ -94,7 +83,7 @@ const MailboxList = ({ params, active, mails }) => {
               .map((mail, index) => (
                 <div
                   className={`border-b cursor-pointer ${
-                    active == mail.id ? "bg-indigo-100" : "hover:bg-gray-100"
+                    active === mail.id ? "bg-indigo-100" : "hover:bg-gray-100"
                   }`}
                   key={index}
                   onClick={() => dispatch(setMail(mail.id))}

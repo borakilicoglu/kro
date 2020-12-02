@@ -46,7 +46,7 @@ const avatar = (mail) => {
 };
 
 const attachmentAsset = (attachment) => {
-  return attachment.preview == "pdf" ? (
+  return attachment.preview === "pdf" ? (
     <span className="w-10 h-10 leading-10 text-center text-center rounded-md bg-indigo-200 text-indigo-600 text-xs font-semibold">
       PDF
     </span>
@@ -55,7 +55,7 @@ const attachmentAsset = (attachment) => {
       src={require(`../../../assets/images/apps/mailbox/${attachment.preview.replace(
         /\.[^/.]+$/,
         ""
-      )}.${attachment.type == "image/jpeg" ? "jpg" : "png"}`)}
+      )}.${attachment.type === "image/jpeg" ? "jpg" : "png"}`)}
       alt={attachment.name}
       className="w-10 rounded-md"
     />

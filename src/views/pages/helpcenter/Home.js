@@ -4,7 +4,7 @@ import DescriptionTwoToneIcon from "@material-ui/icons/DescriptionTwoTone";
 import LibraryBooksTwoToneIcon from "@material-ui/icons/LibraryBooksTwoTone";
 import HelpTwoToneIcon from "@material-ui/icons/HelpTwoTone";
 
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { withStyles } from "@material-ui/core/styles";
 import MuiAccordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
@@ -32,23 +32,7 @@ const Accordion = withStyles({
   expanded: {},
 })(MuiAccordion);
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    flexBasis: "33.33%",
-    flexShrink: 0,
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
-}));
-
 const Home = () => {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const [expanded, setExpanded] = React.useState(false);
   const [data, setData] = React.useState([]);
@@ -59,8 +43,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getFaqs());
-    return () => {};
-  }, []);
+  }, [dispatch]);
 
   const { faqs } = useSelector((state) => state.helpcenter);
 
@@ -151,7 +134,7 @@ const Home = () => {
               data
                 .filter(
                   (faq) =>
-                    faq.categoryId == "28924eab-97cc-465a-ba21-f232bb95843f"
+                    faq.categoryId === "28924eab-97cc-465a-ba21-f232bb95843f"
                 )
                 .map((faq, index) => (
                   <Accordion

@@ -6,6 +6,7 @@ const Error404 = () => {
       <img
         src={require("../../../assets/images/pages/errors/404.svg")}
         className="image"
+        alt=""
       />
       <h1 className="text-3xl font-bold mt-8">Ooops... 404!</h1>
       <p>The page you requested could not be found.</p>

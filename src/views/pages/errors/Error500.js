@@ -6,6 +6,7 @@ const Error500 = () => {
       <img
         src={require("../../../assets/images/pages/errors/500.svg")}
         className="image"
+        alt=""
       />
       <h6 className="text-3xl font-bold mt-8">Something went wrong!</h6>
       <p>

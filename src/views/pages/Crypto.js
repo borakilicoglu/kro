@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import _ from "lodash";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 import TradingViewWidget from "react-tradingview-widget";
-import Line from "../../@nucleo/components/chart/Line";
 
 const Analytics = () => {
   const [tab, setTab] = useState(true);

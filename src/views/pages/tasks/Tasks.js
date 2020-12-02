@@ -3,7 +3,7 @@ import Icon from "@material-ui/core/Icon";
 import TaskList from "./TaskList";
 import { useDispatch, useSelector } from "react-redux";
 
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
 
 import { getTasks } from "../../../redux/actions/tasks/index.js";
@@ -32,8 +32,7 @@ const Tasks = () => {
 
   useEffect(() => {
     dispatch(getTasks());
-    return () => {};
-  }, []);
+  }, [dispatch]);
 
   const { tasks } = useSelector((state) => state.tasks);
 
@@ -44,23 +43,12 @@ const Tasks = () => {
     return () => {};
   }, [tasks]);
 
-  // const handleChange = (event) => {
-  //   setSearchTerm(event.target.value.toLowerCase());
-  // };
-
-  // React.useEffect(() => {
-  //   const results = tasks.filter((person) =>
-  //     person.name.toLowerCase().includes(searchTerm)
-  //   );
-  //   setSearchResults(results);
-  // }, [searchTerm]);
-
   const handleDrawerOpen = useCallback(
     (contact) => {
       setTask(task);
       setOpen(true);
     },
-    [setTask, setOpen]
+    [setTask, setOpen, task]
   );
 
   const handleDrawerClose = useCallback(() => {
@@ -79,8 +67,8 @@ const Tasks = () => {
                     Tasks
                   </h2>
                   <p className="text-gray-700">
-                    {data.filter((task) => task.completed == false).length}{" "}
-                    remaining tasks
+                    {data.filter((task) => !task.completed).length} remaining
+                    tasks
                   </p>
                 </div>
                 <div className="flex ml-auto items-center">

@@ -56,30 +56,16 @@ const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
   .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
 const getFirstDayOfTheCurrentMonth = () => {
-  let firstDay;
-  switch (currentMonthDates[0].format("ddd")) {
-    case "Mon":
-      firstDay = 0;
-      break;
-    case "Tue":
-      firstDay = 1;
-      break;
-    case "Wed":
-      firstDay = 2;
-      break;
-    case "Thu":
-      firstDay = 3;
-      break;
-    case "Fri":
-      firstDay = 4;
-      break;
-    case "Sat":
-      firstDay = 5;
-      break;
-    case "Sun":
-      firstDay = 6;
-  }
-  return firstDay;
+  const cases = {
+    Mon: () => 0,
+    Tue: () => 1,
+    Wed: () => 2,
+    Thu: () => 3,
+    Fri: () => 4,
+    Sat: () => 5,
+    Sun: () => 6,
+  };
+  return cases[currentMonthDates[0].format("ddd")];
 };
 
 const calendarSetProgram = (day) => {

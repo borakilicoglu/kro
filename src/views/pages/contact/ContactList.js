@@ -3,7 +3,7 @@ import { countries } from "../../../@fake-db/contacts/contacts";
 
 // Contact Phone Country Code
 const getCountryCode = (item) => {
-  let code = countries.find((country) => country.iso == item.country).code;
+  let code = countries.find((country) => country.iso === item.country).code;
   return `${code} ${item.number}`;
 };
 
