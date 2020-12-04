@@ -88,15 +88,11 @@ const calendarSetProgram = (day) => {
       >
         <p className="truncate">
           {moment(item.start).format("h:mm")} {item.title}
-          {/* {console.log(moment(item.start).format("MM-DD-YYYY"))}
-          {console.log(moment(item.end).format("MM-DD-YYYY"))} */}
         </p>
       </div>
     ))
   );
 };
-
-console.log(prevMonthDates.length);
 
 const days = [
   ..._.takeRight(prevMonthDates, firstDayOfTheCurrentMonth()),
@@ -107,31 +103,11 @@ const days = [
     35 - (currentMonthDates.length + firstDayOfTheCurrentMonth())
   ),
 ];
-// ].map((date, i) => (
-//   <div
-//     key={i}
-//     className="border-b border-r flex-col items-center justify-center"
-//   >
-//     <span
-//       className={
-//         "rounded-full w-6 h-6 leading-6 text-xs mt-1 m-auto block " +
-//         (moment().format("L") === date.format("L")
-//           ? "bg-indigo-600 text-white"
-//           : null)
-//       }
-//     >
-//       {date._d.getDate()}
-//     </span>
-//     {calendarSetProgram(date._d.getDate())}
-//   </div>
-// ))
 
-const n = 7; //tweak this to add more items per line
-const result = new Array(Math.ceil(days.length / n))
-  .fill()
-  .map((_) => days.splice(0, n));
-
-console.log(moment().month());
+// const n = 7; //tweak this to add more items per line
+// const result = new Array(Math.ceil(days.length / n))
+//   .fill()
+//   .map((_) => days.splice(0, n));
 
 const calendar = (
   <>
@@ -145,20 +121,23 @@ const calendar = (
         </span>
       ))}
     </div>
-    {/* <div className="grid grid-cols-7 gap-0 text-center h-full">{days}</div> */}
-    <div className="h-full flex flex-col">
-      {result.map((week, index) => (
-        <div className="flex flex-1 items-stretch" key={index}>
-          {week.map((day, index) => (
+    <div className="grid grid-cols-7 gap-0 text-center h-full">
+      {days &&
+        days.map((day, index) => (
+          <div className="border-b border-r" key={index}>
             <span
-              className="border-b border-r flex flex-1 justify-around"
-              key={index}
+              className={
+                "rounded-full w-6 h-6 leading-6 text-xs mt-1 m-auto block text-center " +
+                (moment().format("L") === day.format("L")
+                  ? "bg-indigo-600 text-white"
+                  : null)
+              }
             >
               {day._d.getDate()}
             </span>
-          ))}
-        </div>
-      ))}
+            {calendarSetProgram(day._d.getDate())}
+          </div>
+        ))}
     </div>
   </>
 );
@@ -205,7 +184,6 @@ export default function Calendar() {
           <h2 className="text-3xl font-bold mt-6">Calendar</h2>
           <p className="text-lg mt-6 mb-1">Calendars</p>
           <div>
-            {currentDate}
             <FormControlLabel
               control={
                 <TealCheckbox
