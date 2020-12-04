@@ -15,7 +15,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import TodayTwoToneIcon from "@material-ui/icons/TodayTwoTone";
 import SettingsTwoToneIcon from "@material-ui/icons/SettingsTwoTone";
-import { events } from "../../@fake-db/calendar/calendar";
+import { events, shortWeekdays } from "../../@fake-db/calendar/calendar";
 
 const TealCheckbox = withStyles({
   root: {
@@ -47,9 +47,8 @@ const RedCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 const isFirstDay = (day) => day === currentMonthDates[0].format("ddd");
-const firstDayOfTheCurrentMonth = () => dayNames.findIndex(isFirstDay);
+const firstDayOfTheCurrentMonth = () => shortWeekdays.findIndex(isFirstDay);
 
 const currentMonthDates = new Array(moment().daysInMonth())
   .fill(null)
@@ -61,18 +60,16 @@ const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
 
 const nextMonthDates = new Array(moment().add(1, "month").daysInMonth())
   .fill(null)
-  .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
+  .map((x, i) => moment().add(1, "month").startOf("month").add(i, "days"));
 
-const calendarSetProgram = (day) => {
+const calendarSetProgram = (date) => {
   let data = events.filter((event) => {
-    let start = parseInt(moment(event.start).format("DD"));
     let end = parseInt(moment(event.end).format("DD"));
-    return start === day
-      ? true
-      : false ||
-        (end === day && parseInt(moment(event.end).format("YYYY")) !== 9999)
-      ? true
-      : false;
+    let start = parseInt(moment(event.start).format("DD"));
+    let endOfTheYear = moment(event.end).format("YYYY");
+    return (
+      start === date || (end === date && endOfTheYear !== 9999 && end !== 31)
+    );
   });
   return (
     data &&
@@ -94,7 +91,16 @@ const calendarSetProgram = (day) => {
   );
 };
 
-const days = [
+const header = shortWeekdays.map((day, index) => (
+  <span
+    className="uppercase text-xs font-normal pt-2 text-gray-700 border-r flex-1 text-center items-center"
+    key={index}
+  >
+    {day}
+  </span>
+));
+
+const compositeDays = [
   ..._.takeRight(prevMonthDates, firstDayOfTheCurrentMonth()),
   ...currentMonthDates,
   ..._.slice(
@@ -104,26 +110,14 @@ const days = [
   ),
 ];
 
-// const n = 7; //tweak this to add more items per line
-// const result = new Array(Math.ceil(days.length / n))
-//   .fill()
-//   .map((_) => days.splice(0, n));
-
 const calendar = (
   <>
     <div className="flex w-full justify-around items-center flex-row">
-      {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, index) => (
-        <span
-          className="uppercase text-xs font-normal pt-2 text-gray-700 border-r flex-1 text-center items-center"
-          key={index}
-        >
-          {day}
-        </span>
-      ))}
+      {header}
     </div>
     <div className="grid grid-cols-7 gap-0 text-center h-full">
-      {days &&
-        days.map((day, index) => (
+      {compositeDays &&
+        compositeDays.map((day, index) => (
           <div className="border-b border-r" key={index}>
             <span
               className={
@@ -133,6 +127,8 @@ const calendar = (
                   : null)
               }
             >
+              {console.log(day.format("MM-YYYY"))}
+              {/* {console.log(moment().format("MM-YYYY"))} */}
               {day._d.getDate()}
             </span>
             {calendarSetProgram(day._d.getDate())}

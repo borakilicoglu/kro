@@ -254,3 +254,5 @@ export const weekdays = [
     value: "SU",
   },
 ];
+
+export const shortWeekdays = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
