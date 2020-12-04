@@ -48,9 +48,7 @@ const ContactDetails = (props) => {
     contact.tags.map((tag) => {
       return setContactTags([...contactTags, tags.find((x) => x.id === tag)]);
     });
-    return () => {
-      console.log("unmount");
-    };
+    return () => {};
   }, [props.contact, contactTags, contact.tags]);
   let { name, emails, phoneNumbers, job, birthday, address, notes } = contact;
   let { edit } = props;

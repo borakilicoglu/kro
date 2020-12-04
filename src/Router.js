@@ -9,7 +9,7 @@ import { ContextLayout } from "./utility/context/Layout";
 const Finance = lazy(() => import("./views/pages/Finance"));
 const Analytics = lazy(() => import("./views/pages/Analytics"));
 const Crypto = lazy(() => import("./views/pages/Crypto"));
-const Calendar = lazy(() => import("./views/pages/Calendar"));
+const Calendar = lazy(() => import("./views/pages/calendar/Calendar"));
 const Contacts = lazy(() => import("./views/pages/contact/Contacts"));
 const Inventory = lazy(() => import("./views/pages/ecommerce/Inventory"));
 const Mailbox = lazy(() => import("./views/pages/mailbox/Mailbox"));

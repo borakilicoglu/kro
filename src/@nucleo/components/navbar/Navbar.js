@@ -27,7 +27,6 @@ export default function Navbar(props) {
         <Search {...props} />
         <Shortcuts />
         <Messages />
-        {console.log(activeLayout)}
         {activeLayout === "basic" || activeLayout === "classic" ? (
           <React.Fragment>
             <Notifications color={"#64748b"} />

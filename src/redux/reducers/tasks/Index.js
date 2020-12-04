@@ -3,7 +3,6 @@ let initialState = {
 };
 
 const tasks = (state = initialState, action) => {
-  console.log(`Action Type ${action.type} Action ${action.id}`);
   switch (action.type) {
     case "GET_TASKS":
       let tasks = [...state.tasks];

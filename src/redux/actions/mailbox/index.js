@@ -111,7 +111,6 @@ export const searchMail = (val) => {
 
 export const selectMail = (id) => {
   return (dispatch) => {
-    console.log(id);
     dispatch({
       type: "SELECT_MAIL",
       id: id,

@@ -2,7 +2,6 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 const ThemedBrand = ({ theme, layout }) => {
-  console.log(theme);
   return layout === "classy" || layout === "basic" ? (
     <span className={`${theme ? "text-white" : "text-gray-900"}`}>NUCLEO</span>
   ) : (
