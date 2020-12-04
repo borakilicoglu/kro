@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment, useEffect } from "react";
 import _ from "lodash";
 import * as moment from "moment";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
@@ -47,6 +47,10 @@ const RedCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
+const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+const isFirstDay = (day) => day === currentMonthDates[0].format("ddd");
+const firstDayOfTheCurrentMonth = () => dayNames.findIndex(isFirstDay);
+
 const currentMonthDates = new Array(moment().daysInMonth())
   .fill(null)
   .map((x, i) => moment().startOf("month").add(i, "days"));
@@ -55,14 +59,20 @@ const prevMonthDates = new Array(moment().subtract(1, "month").daysInMonth())
   .fill(null)
   .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
-const dayNames = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-const isFirstDay = (day) => day === currentMonthDates[0].format("ddd");
-const firstDayOfTheCurrentMonth = () => dayNames.findIndex(isFirstDay);
+const nextMonthDates = new Array(moment().add(1, "month").daysInMonth())
+  .fill(null)
+  .map((x, i) => moment().subtract(1, "month").startOf("month").add(i, "days"));
 
 const calendarSetProgram = (day) => {
-  console.log(day);
   let data = events.filter((event) => {
-    return parseInt(moment(event.start).format("DD")) === day;
+    let start = parseInt(moment(event.start).format("DD"));
+    let end = parseInt(moment(event.end).format("DD"));
+    return start === day
+      ? true
+      : false ||
+        (end === day && parseInt(moment(event.end).format("YYYY")) !== 9999)
+      ? true
+      : false;
   });
   return (
     data &&
@@ -78,41 +88,79 @@ const calendarSetProgram = (day) => {
       >
         <p className="truncate">
           {moment(item.start).format("h:mm")} {item.title}
+          {/* {console.log(moment(item.start).format("MM-DD-YYYY"))}
+          {console.log(moment(item.end).format("MM-DD-YYYY"))} */}
         </p>
       </div>
     ))
   );
 };
 
+console.log(prevMonthDates.length);
+
 const days = [
   ..._.takeRight(prevMonthDates, firstDayOfTheCurrentMonth()),
   ...currentMonthDates,
-].map((date, i) => (
-  <div
-    key={i}
-    className="border-b border-r flex-col items-center justify-center"
-  >
-    {i < 7 && (
-      <p className="uppercase text-xs font-bold py-2 text-gray-500">
-        {date.format("ddd")}
-      </p>
-    )}
-    <span
-      className={
-        "rounded-full w-6 h-6 leading-6 text-xs my-1 m-auto block " +
-        (moment().format("L") === date.format("L")
-          ? "bg-indigo-600 text-white"
-          : null)
-      }
-    >
-      {date._d.getDate()}
-    </span>
-    {calendarSetProgram(date._d.getDate())}
-  </div>
-));
+  ..._.slice(
+    nextMonthDates,
+    0,
+    35 - (currentMonthDates.length + firstDayOfTheCurrentMonth())
+  ),
+];
+// ].map((date, i) => (
+//   <div
+//     key={i}
+//     className="border-b border-r flex-col items-center justify-center"
+//   >
+//     <span
+//       className={
+//         "rounded-full w-6 h-6 leading-6 text-xs mt-1 m-auto block " +
+//         (moment().format("L") === date.format("L")
+//           ? "bg-indigo-600 text-white"
+//           : null)
+//       }
+//     >
+//       {date._d.getDate()}
+//     </span>
+//     {calendarSetProgram(date._d.getDate())}
+//   </div>
+// ))
+
+const n = 7; //tweak this to add more items per line
+const result = new Array(Math.ceil(days.length / n))
+  .fill()
+  .map((_) => days.splice(0, n));
+
+console.log(moment().month());
 
 const calendar = (
-  <div className="grid grid-cols-7 gap-0 text-center h-full">{days}</div>
+  <>
+    <div className="flex w-full justify-around items-center flex-row">
+      {["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"].map((day, index) => (
+        <span
+          className="uppercase text-xs font-normal pt-2 text-gray-700 border-r flex-1 text-center items-center"
+          key={index}
+        >
+          {day}
+        </span>
+      ))}
+    </div>
+    {/* <div className="grid grid-cols-7 gap-0 text-center h-full">{days}</div> */}
+    <div className="h-full flex flex-col">
+      {result.map((week, index) => (
+        <div className="flex flex-1 items-stretch" key={index}>
+          {week.map((day, index) => (
+            <span
+              className="border-b border-r flex flex-1 justify-around"
+              key={index}
+            >
+              {day._d.getDate()}
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  </>
 );
 
 const useStyles = makeStyles((theme) => ({
@@ -143,6 +191,13 @@ export default function Calendar() {
     setStructure(event.target.value);
   };
 
+  const [currentDate, setCurrentDate] = React.useState();
+
+  useEffect(() => {
+    setCurrentDate(moment().format("MMM Do YY"));
+    return () => {};
+  }, []);
+
   return (
     <div className="flex flex-col flex-auto w-full xs:p-2">
       <div className="flex flex-wrap flex-auto w-full h-full bg-white">
@@ -150,6 +205,7 @@ export default function Calendar() {
           <h2 className="text-3xl font-bold mt-6">Calendar</h2>
           <p className="text-lg mt-6 mb-1">Calendars</p>
           <div>
+            {currentDate}
             <FormControlLabel
               control={
                 <TealCheckbox
@@ -198,13 +254,13 @@ export default function Calendar() {
               <p className="font-medium text-xl mr-4">
                 {moment().format("MMMM YYYY")}
               </p>
-              <IconButton aria-label="delete">
+              <IconButton aria-label="prev">
                 <ChevronLeftIcon />
               </IconButton>
-              <IconButton aria-label="delete" style={{ marginRight: "8px" }}>
+              <IconButton aria-label="next" style={{ marginRight: "8px" }}>
                 <ChevronRightIcon />
               </IconButton>
-              <IconButton aria-label="delete">
+              <IconButton aria-label="today">
                 <TodayTwoToneIcon style={{ color: "#64748b" }} />
               </IconButton>
               <div className="ml-auto">
@@ -235,7 +291,7 @@ export default function Calendar() {
             {structure === 1 && calendar}
             {structure === 2 && <div className="">{structure}</div>}
             {structure === 3 && <div className="">{structure}</div>}
-            {structure === 4 && <div className="">{structure}</div>}
+            {structure === 4 && <div className="">{}</div>}
           </div>
         </div>
       </div>
