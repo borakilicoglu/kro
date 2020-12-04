@@ -33,11 +33,11 @@ const RedCheckbox = withStyles({
   checked: {},
 })((props) => <Checkbox color="default" {...props} />);
 
-const CalendarSidebar = ({ state, handleChange }) => {
+const CalendarSidebar = ({ filter, changeFilter }) => {
   useEffect(() => {
-    console.log(state);
+    console.log(filter);
     return () => {};
-  }, [state]);
+  }, [filter]);
   return (
     <div className="w-1/4 border-r px-8">
       <h2 className="text-3xl font-bold mt-6">Calendar</h2>
@@ -48,8 +48,8 @@ const CalendarSidebar = ({ state, handleChange }) => {
         <FormControlLabel
           control={
             <TealCheckbox
-              checked={state.checkedA}
-              onChange={handleChange}
+              checked={filter.checkedA}
+              onChange={changeFilter}
               name="checkedA"
             />
           }
@@ -60,8 +60,8 @@ const CalendarSidebar = ({ state, handleChange }) => {
         <FormControlLabel
           control={
             <IndigoCheckbox
-              checked={state.checkedB}
-              onChange={handleChange}
+              checked={filter.checkedB}
+              onChange={changeFilter}
               name="checkedB"
             />
           }
@@ -72,8 +72,8 @@ const CalendarSidebar = ({ state, handleChange }) => {
         <FormControlLabel
           control={
             <RedCheckbox
-              checked={state.checkedC}
-              onChange={handleChange}
+              checked={filter.checkedC}
+              onChange={changeFilter}
               name="checkedC"
             />
           }
