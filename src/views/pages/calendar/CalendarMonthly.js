@@ -33,7 +33,6 @@ const Event = ({ date, events }) => {
 
 const CalendarMonthly = ({ events, weekdaysShort, currentDate }) => {
   useEffect(() => {
-    console.log(currentDate);
     return () => {};
   }, [currentDate]);
 

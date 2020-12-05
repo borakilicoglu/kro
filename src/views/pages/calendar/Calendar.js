@@ -28,20 +28,21 @@ export default function Calendar() {
   };
 
   const prev = () => {
-    setCurrentDate(
-      moment(currentDate).subtract(1, "months").format("MM-DD-YYYY")
-    );
+    console.log(moment(currentDate).subtract(1, "months"));
+    // setCurrentDate(
+    //   moment(currentDate).subtract(1, "months").format("MM-DD-YYYY")
+    // );
   };
   const next = () => {
-    setCurrentDate(moment(currentDate).add(1, "months").format("MM-DD-YYYY"));
+    console.log(moment(currentDate).add(1, "months"));
+    // setCurrentDate(moment(currentDate).add(1, "months").format("MM-DD-YYYY"));
   };
   const reset = () => {
-    setCurrentDate(moment(new Date()).utc().format("MM-DD-YYYY"));
+    setCurrentDate(moment()._d);
   };
 
   useEffect(() => {
-    console.log(moment(new Date()).utc().format("MM-DD-YYYY"));
-    setCurrentDate(moment(new Date()).utc().format("MM-DD-YYYY"));
+    setCurrentDate(moment()._d);
     return () => {};
   }, []);
 
