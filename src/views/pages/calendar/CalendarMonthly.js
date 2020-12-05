@@ -31,40 +31,48 @@ const Event = ({ date, events }) => {
   );
 };
 
-const CalendarMonthly = ({ events, weekdaysShort, currentDate }) => {
+const CalendarMonthly = ({ events, weekdaysShort, currentMonth }) => {
+  const [month, setMonth] = React.useState();
+  const [data, setData] = React.useState();
+
   useEffect(() => {
+    const currentMock = new Array(moment(currentMonth).daysInMonth())
+      .fill(null)
+      .map((x, i) => moment(currentMonth).startOf("month").add(i, "days"));
+
+    const prevMock = new Array(
+      moment(currentMonth).subtract(1, "month").daysInMonth()
+    )
+      .fill(null)
+      .map((x, i) =>
+        moment(currentMonth)
+          .subtract(1, "month")
+          .startOf("month")
+          .add(i, "days")
+      );
+
+    const nextMock = new Array(
+      moment(currentMonth).add(1, "month").daysInMonth()
+    )
+      .fill(null)
+      .map((x, i) =>
+        moment(currentMonth).add(1, "month").startOf("month").add(i, "days")
+      );
+
+    const isFirstDay = (day) => day === currentMock[0].format("ddd");
+    const composite = [
+      ..._.takeRight(prevMock, weekdaysShort.findIndex(isFirstDay)),
+      ...currentMock,
+      ..._.slice(
+        nextMock,
+        0,
+        35 - (currentMock.length + weekdaysShort.findIndex(isFirstDay))
+      ),
+    ];
+    setData(composite);
     return () => {};
-  }, [currentDate]);
+  }, [currentMonth]);
 
-  const currentMonthDates = new Array(moment(currentDate).daysInMonth())
-    .fill(null)
-    .map((x, i) => moment().startOf("month").add(i, "days"));
-
-  const prevMonthDates = new Array(
-    moment(currentDate).subtract(1, "month").daysInMonth()
-  )
-    .fill(null)
-    .map((x, i) =>
-      moment().subtract(1, "month").startOf("month").add(i, "days")
-    );
-
-  const nextMonthDates = new Array(
-    moment(currentDate).add(1, "month").daysInMonth()
-  )
-    .fill(null)
-    .map((x, i) => moment().add(1, "month").startOf("month").add(i, "days"));
-
-  const isFirstDay = (day) => day === currentMonthDates[0].format("ddd");
-
-  const compositeDays = [
-    ..._.takeRight(prevMonthDates, weekdaysShort.findIndex(isFirstDay)),
-    ...currentMonthDates,
-    ..._.slice(
-      nextMonthDates,
-      0,
-      35 - (currentMonthDates.length + weekdaysShort.findIndex(isFirstDay))
-    ),
-  ];
   return (
     <>
       <div className="flex w-full justify-around items-center flex-row">
@@ -78,8 +86,8 @@ const CalendarMonthly = ({ events, weekdaysShort, currentDate }) => {
         ))}
       </div>
       <div className="grid grid-cols-7 gap-0 text-center h-full">
-        {compositeDays &&
-          compositeDays.map((day, index) => (
+        {data &&
+          data.map((day, index) => (
             <div className="border-b border-r" key={index}>
               <span
                 className={

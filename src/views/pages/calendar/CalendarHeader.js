@@ -19,19 +19,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CalendarHeader = ({
-  currentDate,
-  mode,
-  changeMode,
-  prev,
-  next,
-  reset,
-}) => {
+const CalendarHeader = ({ date, mode, changeMode, prev, next, reset }) => {
   const classes = useStyles();
   return (
     <div className="flex items-center border-b px-8 py-2">
       <p className="font-medium text-xl mr-4">
-        {moment(currentDate).format("MMMM YYYY")}
+        {moment(date).format("MMMM YYYY")}
       </p>
       <IconButton aria-label="prev" onClick={prev}>
         <ChevronLeftIcon />

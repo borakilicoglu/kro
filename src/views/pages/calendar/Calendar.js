@@ -16,8 +16,8 @@ export default function Calendar() {
     checkedB: true,
     checkedC: true,
   });
-  // Set calendar currentDate
-  const [currentDate, setCurrentDate] = React.useState();
+  // Set calendar current month
+  const [current, setCurrent] = React.useState();
 
   const changeFilter = (event) => {
     setFilter({ ...filter, [event.target.name]: event.target.checked });
@@ -28,21 +28,17 @@ export default function Calendar() {
   };
 
   const prev = () => {
-    console.log(moment(currentDate).subtract(1, "months"));
-    // setCurrentDate(
-    //   moment(currentDate).subtract(1, "months").format("MM-DD-YYYY")
-    // );
+    setCurrent(moment(current).subtract(1, "months").startOf("month"));
   };
   const next = () => {
-    console.log(moment(currentDate).add(1, "months"));
-    // setCurrentDate(moment(currentDate).add(1, "months").format("MM-DD-YYYY"));
+    setCurrent(moment(current).add(1, "months").startOf("month"));
   };
   const reset = () => {
-    setCurrentDate(moment()._d);
+    setCurrent(moment());
   };
 
   useEffect(() => {
-    setCurrentDate(moment()._d);
+    setCurrent(moment());
     return () => {};
   }, []);
 
@@ -52,19 +48,21 @@ export default function Calendar() {
         <CalendarSidebar filter={filter} changeFilter={changeFilter} />
         <div className="w-3/4 min-h-full">
           <div className="flex flex-col h-full">
-            <CalendarHeader
-              prev={prev}
-              next={next}
-              reset={reset}
-              mode={mode}
-              currentDate={currentDate}
-              changeMode={changeMode}
-            />
-            {mode === 1 && (
+            {current && (
+              <CalendarHeader
+                prev={prev}
+                next={next}
+                reset={reset}
+                date={current}
+                mode={mode}
+                changeMode={changeMode}
+              />
+            )}
+            {current && mode === 1 && (
               <CalendarMonthly
                 events={events}
+                currentMonth={current}
                 weekdaysShort={weekdaysShort}
-                currentDate={currentDate}
               />
             )}
             {mode === 2 && <div className="">{}</div>}

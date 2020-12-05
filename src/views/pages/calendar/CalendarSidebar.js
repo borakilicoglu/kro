@@ -35,7 +35,6 @@ const RedCheckbox = withStyles({
 
 const CalendarSidebar = ({ filter, changeFilter }) => {
   useEffect(() => {
-    console.log(filter);
     return () => {};
   }, [filter]);
   return (
