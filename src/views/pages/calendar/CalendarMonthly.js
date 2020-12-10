@@ -60,13 +60,19 @@ const CalendarMonthly = ({ events, weekdaysShort, currentMonth }) => {
       );
 
     const isFirstDay = (day) => day === currentMock[0].format("ddd");
+    console.log(currentMock.length + weekdaysShort.findIndex(isFirstDay));
+    console.log(currentMock.length + weekdaysShort.findIndex(isFirstDay));
     const composite = [
       ..._.takeRight(prevMock, weekdaysShort.findIndex(isFirstDay)),
       ...currentMock,
       ..._.slice(
         nextMock,
         0,
-        35 - (currentMock.length + weekdaysShort.findIndex(isFirstDay))
+        Math.ceil(
+          currentMock.length + weekdaysShort.findIndex(isFirstDay) / 7
+        ) *
+          7 -
+          (currentMock.length + weekdaysShort.findIndex(isFirstDay))
       ),
     ];
     setData(composite);
