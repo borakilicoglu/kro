@@ -32,7 +32,7 @@ const Event = ({ date, events }) => {
 };
 
 const CalendarMonthly = ({ events, weekdaysShort, currentMonth }) => {
-  const [month, setMonth] = React.useState();
+  // const [month, setMonth] = React.useState();
   const [data, setData] = React.useState();
 
   useEffect(() => {
