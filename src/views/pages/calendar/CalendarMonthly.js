@@ -77,7 +77,7 @@ const CalendarMonthly = ({ events, weekdaysShort, currentMonth }) => {
     ];
     setData(composite);
     return () => {};
-  }, [currentMonth]);
+  }, [currentMonth, weekdaysShort]);
 
   return (
     <>
