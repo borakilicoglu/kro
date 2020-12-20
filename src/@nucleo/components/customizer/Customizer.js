@@ -17,7 +17,8 @@ import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 
-import layoutImage from "../../../assets/images/demo/layouts/empty-light.png";
+import emptyLight from "../../../assets/images/demo/layouts/empty-light.png";
+import basicLight from "../../../assets/images/demo/layouts/nucleo-basic-light.png";
 
 const useStyles = makeStyles({
   paper: {
@@ -152,7 +153,7 @@ export default function Customizer() {
                             ? "border-indigo-500"
                             : null
                         }`}
-                        src={layoutImage}
+                        src={basicLight}
                         alt="Empty Layout"
                       />
                       <h4 className="mt-2 text-xs font-semibold text-gray-600 tracking-wide capitalize">
